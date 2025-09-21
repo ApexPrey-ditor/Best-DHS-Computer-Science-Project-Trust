@@ -46,6 +46,7 @@
     {"id":{"name":"testTrack","path":"rooms/testTrack/testTrack.yy",},},
     {"id":{"name":"center_text","path":"scripts/center_text/center_text.yy",},},
     {"id":{"name":"reset_draw","path":"scripts/reset_draw/reset_draw.yy",},},
+    {"id":{"name":"snipper_spr","path":"sprites/snipper_spr/snipper_spr.yy",},},
     {"id":{"name":"square_spr","path":"sprites/square_spr/square_spr.yy",},},
     {"id":{"name":"testEnemy_spr","path":"sprites/testEnemy_spr/testEnemy_spr.yy",},},
     {"id":{"name":"testProjectile_spr","path":"sprites/testProjectile_spr/testProjectile_spr.yy",},},

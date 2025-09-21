@@ -15,4 +15,4 @@ draw_rectangle(room_width - 160, 384, room_width - 32, 512, false)
 
 draw_set_color(c_black)
 center_text()
-draw_text(room_width - 96, 448, "Snipper")
+draw_text(room_width - 96, 448, "Sniper")
