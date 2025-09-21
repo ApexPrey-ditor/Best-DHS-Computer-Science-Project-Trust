@@ -35,12 +35,17 @@
   },
   "name":"Best DHS Computer Science Game",
   "resources":[
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"TestEnemy_obj","path":"objects/TestEnemy_obj/TestEnemy_obj.yy",},},
+    {"id":{"name":"TestPath","path":"paths/TestPath/TestPath.yy",},},
+    {"id":{"name":"TestTrack","path":"rooms/TestTrack/TestTrack.yy",},},
+    {"id":{"name":"TestEnemy_spr","path":"sprites/TestEnemy_spr/TestEnemy_spr.yy",},},
+    {"id":{"name":"testTs_spr","path":"sprites/testTs_spr/testTs_spr.yy",},},
+    {"id":{"name":"Test_ts","path":"tilesets/Test_ts/Test_ts.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"TestTrack","path":"rooms/TestTrack/TestTrack.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
