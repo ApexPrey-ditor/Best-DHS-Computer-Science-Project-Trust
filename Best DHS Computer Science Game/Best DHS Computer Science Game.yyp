@@ -36,6 +36,7 @@
   "name":"Best DHS Computer Science Game",
   "resources":[
     {"id":{"name":"TestEnemy_obj","path":"objects/TestEnemy_obj/TestEnemy_obj.yy",},},
+    {"id":{"name":"ParticleSystem1","path":"particles/ParticleSystem1/ParticleSystem1.yy",},},
     {"id":{"name":"TestPath","path":"paths/TestPath/TestPath.yy",},},
     {"id":{"name":"TestTrack","path":"rooms/TestTrack/TestTrack.yy",},},
     {"id":{"name":"TestEnemy_spr","path":"sprites/TestEnemy_spr/TestEnemy_spr.yy",},},
