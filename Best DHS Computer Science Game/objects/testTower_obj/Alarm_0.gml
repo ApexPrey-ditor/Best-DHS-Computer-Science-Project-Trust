@@ -1,0 +1,2 @@
+// enables firing
+firing = false

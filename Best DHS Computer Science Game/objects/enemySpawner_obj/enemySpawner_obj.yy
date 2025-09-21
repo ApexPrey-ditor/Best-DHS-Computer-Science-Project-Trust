@@ -1,12 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"testEnemy_obj",
+  "%Name":"enemySpawner_obj",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"testEnemy_obj",
+  "name":"enemySpawner_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,13 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"testEnemy_spr",
-    "path":"sprites/testEnemy_spr/testEnemy_spr.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
-  "tags":[
-    "Enemy",
-  ],
   "visible":true,
 }
