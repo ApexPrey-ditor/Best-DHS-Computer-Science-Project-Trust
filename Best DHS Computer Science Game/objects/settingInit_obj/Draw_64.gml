@@ -26,3 +26,11 @@ center_text()
 draw_text(room_width - 288, 624, "Railgunner")
 
 reset_draw()
+
+draw_rectangle(room_width - 160, 560, room_width - 32, 688, false)
+
+draw_set_color(c_black)
+center_text()
+draw_text(room_width - 96, 624, "Evaporator")
+
+reset_draw()
