@@ -1,5 +1,5 @@
-// makes an enemy every 2 seconds
+// makes an enemy every 0.5 seconds
 
 instance_create_layer(0, 0, "Enemies", testEnemy_obj)
 
-alarm[0] = 120
+alarm[0] = 30

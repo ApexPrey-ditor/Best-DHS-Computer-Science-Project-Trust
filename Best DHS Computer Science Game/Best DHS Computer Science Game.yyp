@@ -49,6 +49,7 @@
     {"id":{"name":"snipper_spr","path":"sprites/snipper_spr/snipper_spr.yy",},},
     {"id":{"name":"square_spr","path":"sprites/square_spr/square_spr.yy",},},
     {"id":{"name":"testEnemy_spr","path":"sprites/testEnemy_spr/testEnemy_spr.yy",},},
+    {"id":{"name":"testLaser_spr","path":"sprites/testLaser_spr/testLaser_spr.yy",},},
     {"id":{"name":"testProjectile_spr","path":"sprites/testProjectile_spr/testProjectile_spr.yy",},},
     {"id":{"name":"testTower_spr","path":"sprites/testTower_spr/testTower_spr.yy",},},
     {"id":{"name":"testTs_spr","path":"sprites/testTs_spr/testTs_spr.yy",},},

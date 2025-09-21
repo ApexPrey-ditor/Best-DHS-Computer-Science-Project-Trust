@@ -13,7 +13,12 @@ else {
 
 	if instance_exists(target) and not firing {
 		// calculate where the enemy will be along the path
-		var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
+		if projSpeed > 0 {
+			var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
+		}
+		else {
+			var leadPosition = target.path_position
+		}
 		// creates a projectile with the tower stats, then waits fireSpeed until it can shoot again
 		instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
 																		speed : projSpeed,
