@@ -1,7 +1,8 @@
 image_xscale = 0.3
 image_yscale = 0.4
 
-hp = 10
+hp = 50
+burning = 0
 
 pathSpeed = 4
 
