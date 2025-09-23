@@ -2,6 +2,7 @@
 draw_set_color(c_black)
 draw_text(10, 10, "Lives: " + string(global.health))
 draw_text(10, 30, "Wave: " + string(global.wave))
+draw_text(10, 50, "Money: " + string(global.money))
 
 reset_draw()
 
@@ -16,51 +17,36 @@ for (var i = 0; i < 4; i++) {
 		
 		draw_set_color(c_black)
 		center_text()
-		switch (i * 2 + w) {
+		switch (page * 8 + i * 2 + w) {
 			case 0:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Gunner")
-				}
-				else {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Cheerleader")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Gunner")
 				break;
 			case 1:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Snipper")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Snipper")
 				break;
 			case 2:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Railgunner")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Railgunner")
 				break;
 			case 3:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Evaporator")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Evaporator")
 				break;
 			case 4:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Boomer")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Boomer")
 				break;
 			case 5:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Flamer")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Flamer")
 				break;
 			case 6:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Puncher")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Puncher")
 				break;
 			case 7:
-				if page == 0 {
-					draw_text(room_width - 272 + w * 160, 416 + i * 160, "Laser")
-				}
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Laser")
+				break;
+			case 8:
+				draw_text(room_width - 272 + w * 160, 416 + i * 160, "Cheerleader")
 				break;
 		}
+		draw_text(room_width - 272 + w * 160, 436 + i * 160, "$" + string(costs[page * 8 + i * 2 + w]))
 		
 		reset_draw()
 	}

@@ -45,6 +45,7 @@
     {"id":{"name":"testPath","path":"paths/testPath/testPath.yy",},},
     {"id":{"name":"testTrack","path":"rooms/testTrack/testTrack.yy",},},
     {"id":{"name":"center_text","path":"scripts/center_text/center_text.yy",},},
+    {"id":{"name":"max_array","path":"scripts/max_array/max_array.yy",},},
     {"id":{"name":"reset_draw","path":"scripts/reset_draw/reset_draw.yy",},},
     {"id":{"name":"explosion_spr","path":"sprites/explosion_spr/explosion_spr.yy",},},
     {"id":{"name":"fire_spr","path":"sprites/fire_spr/fire_spr.yy",},},

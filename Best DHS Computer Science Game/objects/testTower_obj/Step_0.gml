@@ -29,7 +29,7 @@ else {
 																				special : special,
 																				direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
 				firing = true
-				alarm[0] = fireSpeed / firerateBuff
+				alarm[0] = ceil(fireSpeed / firerateBuff)
 			}
 		}
 		else {

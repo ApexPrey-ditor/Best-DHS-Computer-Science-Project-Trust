@@ -1,5 +1,10 @@
-// makes an enemy every 0.5 seconds
+// makes an enemy every 1 seconds
+points = 0
+bias = 0
+restrictions = [0, 3, 4]
+cost = [1, 1, 2]
+weights = [1, 0.9, 0.9]
+values = []
+enemies = 0
 
-instance_create_layer(0, 0, "Enemies", testEnemy_obj)
-
-alarm[0] = 30
+event_user(0)

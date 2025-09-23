@@ -1,7 +1,7 @@
 if (mouse_check_button_pressed(mb_left) and not placing) {
 	for (var i = 0; i < 4; i++) {
 		for (var w = 0; w < 2; w++) {
-			if (point_in_rectangle(mouse_x, mouse_y, room_width - 336 + w * 160, 352 + i * 160, room_width - 208 + w * 160, 480 + i * 160)) {
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 336 + w * 160, 352 + i * 160, room_width - 208 + w * 160, 480 + i * 160)) and global.money >= costs[page * 8 + i * 2 + w] {
 				switch (page * 8 + i * 2 + w) {
 					case 0:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj)
@@ -20,7 +20,7 @@ if (mouse_check_button_pressed(mb_left) and not placing) {
 						placing = true
 						break;
 					case 4:
-						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 1, fireSpeed : 60, range : 200, projSpeed : 5, aoe : 3})
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 2, fireSpeed : 60, range : 200, projSpeed : 5, aoe : 3})
 						placing = true
 						break;
 					case 5:
@@ -36,10 +36,12 @@ if (mouse_check_button_pressed(mb_left) and not placing) {
 						placing = true
 						break;
 					case 8:
-						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 0, fireSpeed : 5, range : 300, projSpeed : 0, special : "firerate"})
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 0, fireSpeed : 1.1, range : 300, projSpeed : 0, special : "firerate"})
 						placing = true
 						break;
 				}
+				
+				global.money -= costs[page * 8 + i * 2 + w]
 			}
 		}
 	}
