@@ -4,7 +4,9 @@ if path_position == 1 {
 	instance_destroy()
 }
 
-hp -= burning
+hp -= burning * global.fastForward
+
+path_speed = pathSpeed * global.fastForward
 
 if hp < 0 {
 	instance_destroy()

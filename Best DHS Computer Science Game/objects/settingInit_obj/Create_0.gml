@@ -1,7 +1,10 @@
 // temporary place to initialize health
 global.health = 100
-global.wave = 1
+global.wave = 0
 global.money = 300
+global.waveTransition = 0
+global.upgradeMenu = false
+global.fastForward = 1
 placing = false
 
 page = 0

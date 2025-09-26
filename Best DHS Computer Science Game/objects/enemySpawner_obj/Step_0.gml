@@ -1,4 +1,10 @@
-if enemies == 0 and points <= 0 {
-	global.wave += 1	
+if (global.waveTransition) {
+	global.wave += 1
+	global.waveTransition = 0
 	event_user(0)
+}
+if (endWave and enemies == 0) {
+	global.money += 50 + global.wave * 50
+	
+	endWave = false
 }

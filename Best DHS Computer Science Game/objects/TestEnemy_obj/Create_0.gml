@@ -24,4 +24,4 @@ switch (type) {
 cash = floor(hp * 1.5)
 
 // go along the path at path speed
-path_start(testPath, pathSpeed, path_action_stop, true)
+path_start(testPath, pathSpeed * global.fastForward, path_action_stop, true)

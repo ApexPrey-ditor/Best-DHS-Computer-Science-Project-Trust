@@ -15,5 +15,8 @@ instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : max_array(values)}
 values[max_array(values)] = 0
 
 if (points > 0) {
-	alarm[0] = 60
+	alarm[0] = 60 / global.fastForward
+}
+else {
+	endWave = true
 }
