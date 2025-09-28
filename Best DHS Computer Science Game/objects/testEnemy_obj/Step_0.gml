@@ -1,17 +1,21 @@
 // reduces health and deletes enemy when reaching the end of path
-if path_position == 1 {
+if (path_position == 1) {
 	global.health -= hp
 	instance_destroy()
 }
 
+// reduces health if the enemy is burning
 hp -= burning * global.fastForward
 
+// increases speed if the fast forward is activated
 path_speed = pathSpeed * global.fastForward
 
-if hp < 0 {
+// destroys the enemy instance when its health goes below 0
+if (hp <= 0) {
 	instance_destroy()
 }
 
-if global.paused {
+// stops enemies if it's paused
+if (global.paused) {
 	path_speed = 0
 }
