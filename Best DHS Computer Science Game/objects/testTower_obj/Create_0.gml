@@ -7,5 +7,7 @@ placing = true
 selected = false
 attackRemainder = 0
 
+alarmList = []
+
 // for buffs
 firerateBuff = 1

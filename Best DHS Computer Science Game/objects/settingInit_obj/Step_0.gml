@@ -1,4 +1,4 @@
-if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMenu) {
+if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMenu and not global.paused) {
 	for (var i = 0; i < 4; i++) {
 		for (var w = 0; w < 2; w++) {
 			if (point_in_rectangle(mouse_x, mouse_y, room_width - 336 + w * 160, 240 + i * 160, room_width - 208 + w * 160, 368 + i * 160)) and global.money >= costs[page * 8 + i * 2 + w] {

@@ -11,3 +11,7 @@ path_speed = pathSpeed * global.fastForward
 if hp < 0 {
 	instance_destroy()
 }
+
+if global.paused {
+	path_speed = 0
+}

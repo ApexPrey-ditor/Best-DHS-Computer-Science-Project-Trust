@@ -5,6 +5,7 @@ burning = 0
 hp = 0
 pathSpeed = 0
 
+alarmList = []
 
 switch (type) {
 	case 0:

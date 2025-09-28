@@ -8,4 +8,6 @@ values = []
 enemies = 0
 endWave = false
 
+alarmList = []
+
 //event_user(0)
