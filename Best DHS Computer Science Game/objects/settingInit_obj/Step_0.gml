@@ -1,8 +1,13 @@
+// if mouse clicked and not placing tower, not selected tower and not paused
 if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMenu and not global.paused) {
+	// goes through the 4 y positions the buttons can be
 	for (var i = 0; i < 4; i++) {
+		// goes through the 2 x positions the buttons can be
 		for (var w = 0; w < 2; w++) {
-			if (point_in_rectangle(mouse_x, mouse_y, room_width - 336 + w * 160, 240 + i * 160, room_width - 208 + w * 160, 368 + i * 160)) and global.money >= costs[page * 8 + i * 2 + w] {
+			// checks if mouse is in one of the buttons
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 336 + w * 160, 240 + i * 160, room_width - 208 + w * 160, 368 + i * 160) and global.money >= costs[page * 8 + i * 2 + w]) {
 				switch (page * 8 + i * 2 + w) {
+					// makes a tower based on what button you clicked
 					case 0:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {cost : costs[page * 8 + i * 2 + w]})
 						placing = true
@@ -48,16 +53,20 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 		}
 	}
 	
+	// checks if mouse is in page button
 	if (point_in_rectangle(mouse_x, mouse_y, room_width - 336, room_height - 208, room_width - 48, room_height - 128)) {
 		page = not page
 	}
 	if (point_in_rectangle(mouse_x, mouse_y, room_width - 336, room_height - 96, room_width - 48, room_height - 16)) {
+		// starts wave
 		if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 			global.waveTransition = 1
 		}
+		// fast forward
 		else if (global.fastForward == 1) {
 			global.fastForward = 3
 		}
+		// unfast forward
 		else {
 			global.fastForward = 1
 		}
