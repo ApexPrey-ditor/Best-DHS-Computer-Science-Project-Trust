@@ -1,11 +1,3 @@
-// draw lives, wave and money
-draw_set_color(c_black)
-draw_text(10, 10, "Lives: " + string(global.health))
-draw_text(10, 30, "Wave: " + string(max(global.wave, 1)))
-draw_text(10, 50, "Money: " + string(global.money))
-
-reset_draw()
-
 // draws blue background square
 draw_set_color(c_blue)
 draw_rectangle(room_width - 384, 0, room_width, room_height, false)
@@ -14,6 +6,14 @@ reset_draw()
 
 // draws if upgrade menu not open
 if (not global.upgradeMenu) {
+	// draw lives, wave and money
+	draw_set_color(c_black)
+	draw_text_transformed(room_width - 352, 10, "Lives: " + string(global.health), 3, 3, 0)
+	draw_text_transformed(room_width - 352, 74, "Wave: " + string(max(global.wave, 1)), 3, 3, 0)
+	draw_text_transformed(room_width - 352, 138, "Money: " + string(global.money), 3, 3, 0)
+
+	reset_draw()
+	
 	// goes through the 4 y positions the buttons can be
 	for (var i = 0; i < 4; i++) {
 		// goes through the 2 x positions the buttons can be
@@ -29,7 +29,7 @@ if (not global.upgradeMenu) {
 					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Gunner")
 					break;
 				case 1:
-					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Snipper")
+					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Sniper")
 					break;
 				case 2:
 					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Railgunner")

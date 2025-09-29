@@ -9,8 +9,7 @@ if (not global.paused) {
 			else {
 				selected = false
 				// deselects the upgrade menu if clicking empty space
-				// MAKE IT SO IT DOESNT CHANGE THIS WHEN CLICKING ON A DIFFERNET OBJECT
-				if (position_empty(mouse_x, mouse_y)) {
+				if (not position_meeting(mouse_x, mouse_y, tag_get_asset_ids("Tower", asset_object))) {
 					global.upgradeMenu = selected
 				}
 				
@@ -29,8 +28,8 @@ if (not global.paused) {
 			settingInit_obj.placing = false
 			global.money -= cost
 		}
-		// destroys tower if placed out of bounds
-		if (mouse_check_button_pressed(mb_left) and x > room_width - 384) {
+		// destroys tower if sent in the tower menu after pulled out of it
+		if (xprevious < room_width - 384 and x > room_width - 384) {
 			settingInit_obj.placing = false
 			instance_destroy()
 		}
@@ -39,8 +38,134 @@ if (not global.paused) {
 	else if (special != "money") {
 		if (range > 0) {
 			if (special != "firerate") {
-				// find object with enemy tag furthest along the path
-				var target = collision_circle(x, y, range, tag_get_asset_ids("Enemy", asset_object), false, true)
+				// finds target depending on targeting
+				var options = ds_list_create()
+				collision_circle_list(x, y, range, tag_get_asset_ids("Enemy", asset_object), false, true, options, false)
+				
+				// initializes variables needed for targeting
+				var target = ds_list_find_value(options, 0)
+				var highscore = 0
+				
+				switch (targeting) {
+					case "first":
+						if (special == "flame") {
+							// if flamethrower checks for first enemy that isn't on fire
+							target = ds_list_find_value(options, 0)
+							
+							for (var i = 0; i < ds_list_size(options); i++) {
+								if ds_list_find_value(options, i).burning == 0 {
+									target = ds_list_find_value(options, i)
+									break;
+								}
+							}
+						}
+						else {
+							// finds first enemy
+							target = ds_list_find_value(options, 0)
+						}
+						break;
+					case "last":
+						if (special == "flame") {
+							// if flamethrower checks for last enemy that isn't on fire by iterating backwards
+							target = ds_list_find_value(options, ds_list_size(options) - 1)
+							
+							for (var i = ds_list_size(options) - 1; i >= 0; i--) {
+								if ds_list_find_value(options, i).burning == 0 {
+									target = ds_list_find_value(options, i)
+									break;
+								}
+							}
+						}
+						else {
+							// finds last enemy
+							target = ds_list_find_value(options, ds_list_size(options) - 1)
+						}
+						break;
+					case "strong":
+						highscore = -infinity
+						for (var i = 0; i < ds_list_size(options); i++) {
+							if (special == "flame" ) {
+								// if flamethrower finds enemy with highest hp if both enemies are burning or not burning, otherwise not burning enemy always takes priority
+								if ((target.burning != 0 and ds_list_find_value(options, i).burning == 0) or
+									(target.burning == 0 and ds_list_find_value(options, i).burning == 0 and ds_list_find_value(options, i).hp > highscore) or
+									(target.burning != 0 and ds_list_find_value(options, i).burning != 0 and ds_list_find_value(options, i).hp > highscore)) {
+									target = ds_list_find_value(options, i)
+									highscore = ds_list_find_value(options, i).hp
+								}
+							}
+							else {
+								// finds enemy with highest hp using a score system
+								if (ds_list_find_value(options, i).hp > highscore) {
+									target = ds_list_find_value(options, i)
+									highscore = ds_list_find_value(options, i).hp
+								}
+							}
+						}
+						break;
+					case "weak":
+						highscore = infinity
+						for (var i = 0; i < ds_list_size(options); i++) {
+							if (special == "flame" ) {
+								// if flamethrower finds enemy with lowest hp if both enemies are burning or not burning, otherwise not burning enemy always takes priority
+								if ((target.burning != 0 and ds_list_find_value(options, i).burning == 0) or
+									(target.burning == 0 and ds_list_find_value(options, i).burning == 0 and ds_list_find_value(options, i).hp < highscore) or
+									(target.burning != 0 and ds_list_find_value(options, i).burning != 0 and ds_list_find_value(options, i).hp < highscore)) {
+									target = ds_list_find_value(options, i)
+									highscore = ds_list_find_value(options, i).hp
+								}
+							}
+							else {
+								// finds enemy with lowest hp using a score system
+								if (ds_list_find_value(options, i).hp < highscore) {
+									target = ds_list_find_value(options, i)
+									highscore = ds_list_find_value(options, i).hp
+								} 
+							}
+						}
+						break;
+					case "farthest":
+						highscore = -infinity
+						for (var i = 0; i < ds_list_size(options); i++) {
+							if (special == "flame" ) {
+								// if flamethrower finds enemy with highest distance using if both enemies are burning or not burning, otherwise not burning enemy always takes priority
+								if ((target.burning != 0 and ds_list_find_value(options, i).burning == 0) or
+									(target.burning == 0 and ds_list_find_value(options, i).burning == 0 and distance_to_object(ds_list_find_value(options, i)) > highscore) or
+									(target.burning != 0 and ds_list_find_value(options, i).burning != 0 and distance_to_object(ds_list_find_value(options, i)) > highscore)) {
+									target = ds_list_find_value(options, i)
+									highscore = distance_to_object(ds_list_find_value(options, i))
+								}
+							}
+							else {
+								// finds enemy with highest distance using a score system
+								if (distance_to_object(ds_list_find_value(options, i)) > highscore) {
+									target = ds_list_find_value(options, i)
+									highscore = distance_to_object(ds_list_find_value(options, i))
+								}
+							}
+						}
+						break;
+					case "closest":
+						highscore = infinity
+						for (var i = 0; i < ds_list_size(options); i++) {
+							if (special == "flame" ) {
+								// if flamethrower finds enemy with lowest distance using if both enemies are burning or not burning, otherwise not burning enemy always takes priority
+								if ((target.burning != 0 and ds_list_find_value(options, i).burning == 0) or
+									(target.burning == 0 and ds_list_find_value(options, i).burning == 0 and distance_to_object(ds_list_find_value(options, i)) < highscore) or
+									(target.burning != 0 and ds_list_find_value(options, i).burning != 0 and distance_to_object(ds_list_find_value(options, i)) < highscore)) {
+									target = ds_list_find_value(options, i)
+									highscore = distance_to_object(ds_list_find_value(options, i))
+								}
+							}
+							else {
+								// finds enemy with lowest distance using a score system
+								if (distance_to_object(ds_list_find_value(options, i)) < highscore) {
+									target = ds_list_find_value(options, i)
+									highscore = distance_to_object(ds_list_find_value(options, i))
+								}
+							}
+						}
+						break;
+				}
 
 				if (instance_exists(target) and not firing) {
 					// calculate where the enemy will be along the path
@@ -52,20 +177,23 @@ if (not global.paused) {
 						leadPosition = target.path_position
 					}
 					// creates a projectile with the tower stats, then waits fireSpeed until it can shoot again
-					repeat(floor(attackRemainder) + 1) {
-						instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
-																						speed : projSpeed,
-																						aoe : aoe,
-																						special : special,
-																						direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+					instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
+																					speed : projSpeed,
+																					aoe : aoe,
+																					special : special,
+																					spread : spread,
+																					effect : effect,
+																					pierce : pierce,
+																					type : type,
+																					lifetime : lifetime,
+																					direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
 					// system for fractions of frames (ask turtle)
-						if (floor(attackRemainder > 0)) {
-							attackRemainder -= 1
-						}
-					}
 					firing = true
-					attackRemainder += fireSpeed % (firerateBuff / global.fastForward)
-					alarm[0] = ceil(fireSpeed / firerateBuff / global.fastForward)
+					attackRemainder += ceil(fireSpeed / firerateBuff / global.fastForward) - (fireSpeed / firerateBuff / global.fastForward) 
+					alarm[0] = ceil(fireSpeed / firerateBuff / global.fastForward) - floor(attackRemainder)
+					if attackRemainder > 1 {
+						attackRemainder -= 1
+					}
 				}
 			}
 			else {
@@ -84,19 +212,22 @@ if (not global.paused) {
 		else {
 			// if off cooldown
 			if (not firing) {
-				repeat(floor(attackRemainder) + 1) {
-					instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
+				instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
 																					speed : projSpeed,
 																					aoe : aoe,
 																					special : special,
+																					spread : spread,
+																					effect : effect,
+																					pierce : pierce,
+																					type : type,
+																					lifetime : lifetime,
 																					direction : direction})
-					if (floor(attackRemainder > 0)) {
-						attackRemainder -= 1
-					}
-				}
 				firing = true
-				attackRemainder += fireSpeed % (firerateBuff / global.fastForward)
-				alarm[0] = ceil(fireSpeed / firerateBuff / global.fastForward)
+				attackRemainder += ceil(fireSpeed / firerateBuff / global.fastForward) - (fireSpeed / firerateBuff / global.fastForward) 
+				alarm[0] = ceil(fireSpeed / firerateBuff / global.fastForward) - floor(attackRemainder)
+				if attackRemainder > 1 {
+					attackRemainder -= 1
+				}
 			}
 		}
 	}
