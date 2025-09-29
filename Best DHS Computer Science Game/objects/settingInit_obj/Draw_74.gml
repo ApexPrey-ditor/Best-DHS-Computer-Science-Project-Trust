@@ -1,5 +1,5 @@
 // draws blue background square
-draw_set_color(c_blue)
+draw_set_color(c_gray)
 draw_rectangle(room_width - 384, 0, room_width, room_height, false)
 
 reset_draw()
@@ -8,6 +8,7 @@ reset_draw()
 if (not global.upgradeMenu) {
 	// draw lives, wave and money
 	draw_set_color(c_black)
+	draw_set_font(archive)
 	draw_text_transformed(room_width - 352, 10, "Lives: " + string(global.health), 3, 3, 0)
 	draw_text_transformed(room_width - 352, 74, "Wave: " + string(max(global.wave, 1)), 3, 3, 0)
 	draw_text_transformed(room_width - 352, 138, "Money: " + string(global.money), 3, 3, 0)
@@ -22,6 +23,7 @@ if (not global.upgradeMenu) {
 			draw_rectangle(room_width - 336 + w * 160, 240 + i * 160, room_width - 208 + w * 160, 368 + i * 160, false)
 		
 			draw_set_color(c_black)
+			draw_set_font(archive)
 			center_text()
 			// draws tower name based on page, x, and y
 			switch (page * 8 + i * 2 + w) {
@@ -69,12 +71,14 @@ if (not global.upgradeMenu) {
 		// if on page 1
 		center_text()
 		draw_set_color(c_black)
+		draw_set_font(archive)
 		draw_text(room_width - 192, room_height - 160, "Single-target/Crowd Control")
 	}
 	else {
 		// if on page 2
 		center_text()
 		draw_set_color(c_black)
+		draw_set_font(archive)
 		draw_text(room_width - 192, room_height - 160, "Support/General")
 	}
 
@@ -85,6 +89,7 @@ if (not global.upgradeMenu) {
 	
 	center_text()
 	draw_set_color(c_black)
+	draw_set_font(jack)
 	
 	if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 		// if not in a wave

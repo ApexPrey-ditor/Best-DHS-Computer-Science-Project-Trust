@@ -35,7 +35,8 @@
   },
   "name":"Best DHS Computer Science Game",
   "resources":[
-    {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
+    {"id":{"name":"archive","path":"fonts/archive/archive.yy",},},
+    {"id":{"name":"jack","path":"fonts/jack/jack.yy",},},
     {"id":{"name":"enemySpawner_obj","path":"objects/enemySpawner_obj/enemySpawner_obj.yy",},},
     {"id":{"name":"settingInit_obj","path":"objects/settingInit_obj/settingInit_obj.yy",},},
     {"id":{"name":"testEnemy_obj","path":"objects/testEnemy_obj/testEnemy_obj.yy",},},
