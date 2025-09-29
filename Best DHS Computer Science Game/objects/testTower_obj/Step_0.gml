@@ -168,6 +168,13 @@ if (not global.paused) {
 				}
 
 				if (instance_exists(target) and not firing) {
+					var flamethrower = part_emitter_create(ParticleSystem1.id)
+		
+					part_emitter_region(CheksEngine.mainps, flamethrower, truex + 16, truex + 16, truey + 16, truey + 16, ps_shape_rectangle, ps_distr_linear)
+					part_emitter_burst(CheksEngine.mainps, flamethrower, CheksEngine.blooddeath, 15)
+		
+					part_emitter_destroy(CheksEngine.mainps, flamethrower)
+					
 					// calculate where the enemy will be along the path
 					var leadPosition = 0
 					if (projSpeed > 0) {

@@ -84,8 +84,7 @@ else {
 					instance_destroy(ds_list_find_value(enemies, i))
 				}
 			}
-		
-			alarm[0] = aftereffect
+
 			type = -1
 			aftereffect = -1
 		}
