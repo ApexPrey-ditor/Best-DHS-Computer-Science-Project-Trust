@@ -11,16 +11,24 @@ alarmList = []
 // sets stats based on enemy type
 switch (type) {
 	case 0:
+		// Normal
 		hp = 5
 		pathSpeed = 4
 		break;
 	case 1:
+		// Fast
 		hp = 3
 		pathSpeed = 6
 		break;
 	case 2:
-		hp = 10
-		pathSpeed = 3
+		// Tanky
+		hp = 8
+		pathSpeed = 2
+		break;
+	case 3:
+		// Fanky
+		hp = 7
+		pathSpeed = 5
 		break;
 }
 

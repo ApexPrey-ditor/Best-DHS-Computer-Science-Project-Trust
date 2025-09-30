@@ -26,7 +26,6 @@ switch (type) {
 		speed *= global.fastForward
 		break;
 	case 1:
-		aftereffect = speed / global.fastForward
 		if (special != "laser") {
 			sprite_index = testLaser_spr
 		}
@@ -37,7 +36,6 @@ switch (type) {
 	case 2:
 		sprite_index = testPunch_spr
 		image_angle = direction
-		aftereffect = 6 / global.fastForward
 		image_xscale = 0.1
 		image_yscale = 0.05
 		break;

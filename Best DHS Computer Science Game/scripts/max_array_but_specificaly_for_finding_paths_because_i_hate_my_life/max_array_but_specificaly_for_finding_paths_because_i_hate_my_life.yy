@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"max_array_but_specificaly_for_finding_paths_because_i_hate_my_life",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"max_array_but_specificaly_for_finding_paths_because_i_hate_my_life",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

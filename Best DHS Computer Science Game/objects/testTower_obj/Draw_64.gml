@@ -4,6 +4,7 @@ if selected {
 	center_text()
 	draw_set_font(archive)
 	draw_text_transformed(room_width - 384 / 2, 32, towerNames[towerType], 2.5, 2.5, 0)
+	draw_text(10, 10, mouse_x > room_width - (208 - (string_length(targeting) - 5) * 36))
 	// draw_text(room_width - 384 / 2, 16, towerNames[towerType])
 	
 	// portrait
@@ -11,7 +12,7 @@ if selected {
 	
 	// targeting button
 	draw_set_color(c_white)
-	draw_button(room_width - (208 - (string_length(targeting) - 5) * 36), 448, room_width - 368, 528, true)
+	draw_button(room_width - (208 - (string_length(targeting) - 4) * 32), 448, room_width - 368, 528, true)
 	draw_set_color(c_black)
 	draw_set_halign(fa_left)
 	draw_set_font(jack)

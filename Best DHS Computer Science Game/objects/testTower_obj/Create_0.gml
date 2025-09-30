@@ -6,7 +6,7 @@ firing = false
 placing = true
 selected = false
 attackRemainder = 0
-targeting = "first"
+targeting = "First"
 particles = []
 
 // firing conditions
@@ -83,6 +83,9 @@ function fireTargeting(array, initial, check, priority) {
 // lists for general storage (making my life easier)
 towerNames = ["Gunner", "Sniper", "Railgunner", "Evaporator", "Boomer", "Flamer", "Puncher", "Laser", "Cheerleader", "Moneymaker", "Spotter", "Booster", "Commander", "Hacker", "Rapper", "Debt Collecter"]
 targetingTypes = ["First", "Last", "Strong", "Weak", "Farthest", "Closest"]
+targetingTranslations = [firstTargeting, lastTargeting, strongTargeting, weakTargeting, closeTargeting, farTargeting]
+
+// for targeting type conditions
 conditions = []
 
 // alarm storage for pausing and fast forward

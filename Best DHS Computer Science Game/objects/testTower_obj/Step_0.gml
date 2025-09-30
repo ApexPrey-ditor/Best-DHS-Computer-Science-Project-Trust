@@ -7,12 +7,13 @@ if (not global.paused) {
 				global.upgradeMenu = selected
 			}
 			else {
-				selected = false
-				// deselects the upgrade menu if clicking empty space
-				if (not position_meeting(mouse_x, mouse_y, tag_get_asset_ids("Tower", asset_object))) {
-					global.upgradeMenu = selected
+				if (mouse_x < room_width - 384) {
+					selected = false
+					// deselects the upgrade menu if clicking empty space
+					if (not position_meeting(mouse_x, mouse_y, tag_get_asset_ids("Tower", asset_object))) {
+						global.upgradeMenu = selected
+					}
 				}
-				
 			}
 		}
 	}
@@ -40,40 +41,48 @@ if (not global.paused) {
 			if (special != "firerate") {
 				// finds targets
 				var options = ds_list_create()
-				collision_circle_list(x, y, range, tag_get_asset_ids("Enemy", asset_object), false, true, options, false)
+				var unsorted = ds_list_create()
+				collision_circle_list(x, y, range, tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+				
+				repeat (ds_list_size(unsorted)) {
+					ds_list_add(options, ds_list_find_value(unsorted, max_array_but_specificaly_for_finding_paths_because_i_hate_my_life(unsorted)))
+					ds_list_delete(unsorted, max_array_but_specificaly_for_finding_paths_because_i_hate_my_life(unsorted))
+					show_debug_message(ds_list_find_value(options, ds_list_size(options) - 1).path_position)
+				}
+				show_debug_message("------------------------------------------------")
 
 				if (ds_list_size(options) and not firing) {
 					// initializes variables needed for targeting
-				var chosen = 0
-				var currentScore = 0
-				var highscore = 0
-				var target = noone
+					var chosen = 0
+					var currentScore = 0
+					var highscore = 0
+					var target = noone
 				
-				// conditions is an array of functions that are used to generate targeting score
-				// iterates through every targeting function and adds the output to highscore
-				// this gives the first value the starting highscore
-				for (var i = 0; i < array_length(conditions); i++) {
-					highscore += conditions[i](options, ds_list_size(options) - 1, chosen, i)
-				}
-				
-				// iterates through every enemy in range
-				for (var i = 0; i < ds_list_size(options); i++) {
-					// adds the score of the targeting functions to currentScore
-					currentScore = 0
-					for (var w = 0; w < array_length(conditions); w++) {
-						currentScore += conditions[w](options, chosen, i, w)
+					// conditions is an array of functions that are used to generate targeting score
+					// iterates through every targeting function and adds the output to highscore
+					// this gives the first value the starting highscore
+					for (var i = 0; i < array_length(conditions); i++) {
+						highscore += conditions[i](options, ds_list_size(options) - 1, chosen, i)
 					}
+				
+					// iterates through every enemy in range
+					for (var i = 0; i < ds_list_size(options); i++) {
+						// adds the score of the targeting functions to currentScore
+						currentScore = 0
+						for (var w = 0; w < array_length(conditions); w++) {
+							currentScore += conditions[w](options, chosen, i, w)
+						}
 					
-					// if beats highscore then this becomes the new target
-					if (currentScore >= highscore) {
-						//show_debug_message(string())
-						highscore = currentScore
-						chosen = i
+						// if beats highscore then this becomes the new target
+						if (currentScore >= highscore) {
+							//show_debug_message(string())
+							highscore = currentScore
+							chosen = i
+						}
 					}
-				}
 				
-				// gets instance id of the "winner" (they are going to die)
-				target = ds_list_find_value(options, chosen)
+					// gets instance id of the "winner" (they are going to die)
+					target = ds_list_find_value(options, chosen)
 				
 					// calculate where the enemy will be along the path
 					var leadPosition = 0
@@ -138,8 +147,24 @@ if (not global.paused) {
 			}
 		}
 	}
+	if (selected) {
+		if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 448, room_width - (208 - (string_length(targeting) - 5) * 36), 528) and mouse_check_button_pressed(mb_left)) {
+			var place = array_get_index(conditions, targetingTranslations[array_get_index(targetingTypes, targeting)])
+			if (array_get_index(targetingTypes, targeting) > array_length(targetingTypes) - 2) {
+				targeting = targetingTypes[0]
+			}
+			else {
+				targeting = targetingTypes[array_get_index(targetingTypes, targeting) + 1]
+			}
+			
+			show_debug_message(targetingTranslations[array_get_index(targetingTypes, targeting)])
+			show_debug_message(place)
+			conditions[place] = targetingTranslations[array_get_index(targetingTypes, targeting)]
+			show_debug_message(conditions)
+		}
+	}
 	// adds money at the end of each wave for each money tower
-	else if (global.waveTransition == 1) {
+	else if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
 		global.money += damage
 	}
 }
