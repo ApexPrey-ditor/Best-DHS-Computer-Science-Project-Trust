@@ -17,7 +17,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						placing = true
 						break;
 					case 2:
-						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 75, fireSpeed : 300, range : 550, projSpeed : 6, type : 1, lifetime : 6, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 75, fireSpeed : 300, range : 550, projSpeed : 0, type : 1, lifetime : 6, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 3:
@@ -33,7 +33,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						placing = true
 						break;
 					case 6:
-						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 5, fireSpeed : 30, range : 100, projSpeed : 0, type : 2, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj, {damage : 5, fireSpeed : 30, range : 100, projSpeed : 0, type : 2, lifetime : 6, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 7:

@@ -6,7 +6,6 @@ else {
 	// sets aftereffect for punches and lasers, and sets speed for projectiles
 	switch (type) {
 		case 0:
-			show_debug_message(type)
 			speed = prespeed * global.fastForward
 			break;
 		case 1:

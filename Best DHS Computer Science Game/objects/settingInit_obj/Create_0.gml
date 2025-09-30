@@ -11,6 +11,7 @@ part_type_shape(flameType, pt_shape_flare)
 part_type_scale(flameType, 1, 1)
 part_type_size(flameType, 1, 1, -0.003, 0)
 
+
 part_type_speed(flameType, 5, 6, -0.07, 0.5)
 part_type_gravity(flameType, 0, 0)
 part_type_direction(flameType, 75, 105, 0, 0.5)
