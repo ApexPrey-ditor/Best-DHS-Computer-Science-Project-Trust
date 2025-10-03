@@ -81,19 +81,11 @@ if (not global.paused) {
 				
 					// gets instance id of the "winner" (they are going to die)
 					target = ds_list_find_value(options, chosen)
-				
-					// calculate where the enemy will be along the path
-					var leadPosition = 0
-					if (lifetime > 0) {
-						leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
-					}
-					else {
-						leadPosition = target.path_position
-					}
 					
 					if (type == 0) {
 						var targets = ds_list_create()
 						
+						// extends the collision line to the edge of the screen
 						var xpos = x
 						var ypos = y
 						
@@ -102,14 +94,42 @@ if (not global.paused) {
 							ypos += target.y - y
 						}
 						
+						// gets every enemy in the collision line
 						collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 						
+						// removes all the enemies that are ghost dead
+						for (var i = 0; i < ds_list_size(targets); i++) {
+							if (ds_list_find_value(targets, i).deactivated) {
+								ds_list_delete(targets, i)
+								if (i > 0) {
+									i--
+								}
+							}
+						}
+						
+						// iterates through the amount of enemies tower is allowed to hit
 						for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
 							ds_list_find_value(targets, i).hp -= damage
 							if ds_list_find_value(targets, i).hp <= 0 {
-								ds_list_find_value(targets, i).alarm[11] = lifetime
+								// dead enemies are set to ghosts
 								ds_list_find_value(targets, i).deactivated = true
+								ds_list_find_value(targets, i).alarm[11] = lifetime
 							}
+							
+							if i == pierce - 1 {
+								// calculate where the enemy will be along the path
+								var leadPosition = ds_list_find_value(targets, i).path_position + (ds_list_find_value(targets, i).pathSpeed * lifetime / path_get_length(ds_list_find_value(targets, i).path_index))
+								
+								// initializing for drawing a new projectile at the future position of the last enemy hit
+								array_push(finalPositions, [path_get_x(ds_list_find_value(targets, i).path_index, leadPosition), path_get_y(ds_list_find_value(targets, i).path_index, leadPosition)])
+								array_push(drawPercents, 0)
+							}
+						}
+						
+						if (pierce > ds_list_size(targets)) {
+							// initializing for drawing a new projectile at the edge of the screen
+							array_push(finalPositions, [xpos, ypos])
+							array_push(drawPercents, 0)
 						}
 					}
 					// system for fractions of frames (ask turtle)
@@ -156,24 +176,37 @@ if (not global.paused) {
 			}
 		}
 	}
-	if (selected) {
-		if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 448, room_width - (208 - (string_length(targeting) - 5) * 36), 528) and mouse_check_button_pressed(mb_left)) {
-			var place = array_get_index(conditions, targetingTranslations[array_get_index(targetingTypes, targeting)])
-			if (array_get_index(targetingTypes, targeting) > array_length(targetingTypes) - 2) {
-				targeting = targetingTypes[0]
-			}
-			else {
-				targeting = targetingTypes[array_get_index(targetingTypes, targeting) + 1]
-			}
-			
-			show_debug_message(targetingTranslations[array_get_index(targetingTypes, targeting)])
-			show_debug_message(place)
-			conditions[place] = targetingTranslations[array_get_index(targetingTypes, targeting)]
-			show_debug_message(conditions)
-		}
-	}
 	// adds money at the end of each wave for each money tower
 	else if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
 		global.money += damage
+	}
+	
+	// upgrade menu code
+	if (selected) {
+		if (mouse_check_button_pressed(mb_left)) {
+			// switching targeting
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 496, room_width - (208 - (string_length(targeting) - 5) * 36), 576)) {
+				// gets index of the targeting function in conditions
+				var place = array_get_index(conditions, targetingTranslations[array_get_index(targetingTypes, targeting)])
+				// increases targeting type by 1
+				if (array_get_index(targetingTypes, targeting) > array_length(targetingTypes) - 2) {
+					targeting = targetingTypes[0]
+				}
+				else {
+					targeting = targetingTypes[array_get_index(targetingTypes, targeting) + 1]
+				}
+				
+				// replaces targeting function with new targeting function
+				conditions[place] = targetingTranslations[array_get_index(targetingTypes, targeting)]
+			}
+			// selling
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040)) {
+				// gives 70% of money back, then closes the upgrade menu
+				global.money += floor(cost * 0.7)
+				selected = false
+				global.upgradeMenu = false
+				instance_destroy()
+			}
+		}
 	}
 }

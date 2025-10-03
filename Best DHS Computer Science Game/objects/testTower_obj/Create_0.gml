@@ -9,6 +9,8 @@ attackRemainder = 0
 targeting = "First"
 specialTargeting = "None"
 particles = []
+finalPositions = []
+drawPercents = []
 
 display = [x, y]
 

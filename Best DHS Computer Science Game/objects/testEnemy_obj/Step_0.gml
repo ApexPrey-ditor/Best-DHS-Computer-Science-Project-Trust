@@ -11,7 +11,7 @@ hp -= burning * global.fastForward
 path_speed = pathSpeed * global.fastForward
 
 // destroys the enemy instance when its health goes below 0
-if (hp <= 0) {
+if (hp <= 0 and not deactivated) {
 	instance_destroy()
 }
 
