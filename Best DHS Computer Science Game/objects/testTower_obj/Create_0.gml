@@ -9,6 +9,8 @@ attackRemainder = 0
 targeting = "First"
 particles = []
 
+display = [x, y]
+
 // firing conditions
 // initial is the current target enemy
 // check is the comparing enemy

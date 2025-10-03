@@ -6,6 +6,8 @@ burning = 0
 hp = 0
 pathSpeed = 0
 
+deactivated = false
+
 alarmList = []
 
 // sets stats based on enemy type

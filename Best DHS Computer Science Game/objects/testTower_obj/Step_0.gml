@@ -37,7 +37,7 @@ if (not global.paused) {
 	}
 	// checks if the tower isnt the money making tower
 	else if (special != "money") {
-		if (range > 0) {
+		if (range > 50) {
 			if (special != "firerate") {
 				// finds targets
 				var options = ds_list_create()
@@ -47,9 +47,7 @@ if (not global.paused) {
 				repeat (ds_list_size(unsorted)) {
 					ds_list_add(options, ds_list_find_value(unsorted, max_array_but_specificaly_for_finding_paths_because_i_hate_my_life(unsorted)))
 					ds_list_delete(unsorted, max_array_but_specificaly_for_finding_paths_because_i_hate_my_life(unsorted))
-					show_debug_message(ds_list_find_value(options, ds_list_size(options) - 1).path_position)
 				}
-				show_debug_message("------------------------------------------------")
 
 				if (ds_list_size(options) and not firing) {
 					// initializes variables needed for targeting
@@ -86,23 +84,34 @@ if (not global.paused) {
 				
 					// calculate where the enemy will be along the path
 					var leadPosition = 0
-					if (projSpeed > 0) {
+					if (lifetime > 0) {
 						leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
 					}
 					else {
 						leadPosition = target.path_position
 					}
-					// creates a projectile with the tower stats, then waits fireSpeed until it can shoot again
-					instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
-																					speed : projSpeed,
-																					aoe : aoe,
-																					special : special,
-																					spread : spread,
-																					effect : effect,
-																					pierce : pierce,
-																					type : type,
-																					lifetime : lifetime,
-																					direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+					
+					if (type == 0) {
+						var targets = ds_list_create()
+						
+						var xpos = x
+						var ypos = y
+						
+						while (abs(xpos) < room_width and abs(y) < room_height) {
+							xpos += target.x - x
+							ypos += target.y - y
+						}
+						
+						collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+						
+						for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
+							ds_list_find_value(targets, i).hp -= damage
+							if ds_list_find_value(targets, i).hp <= 0 {
+								ds_list_find_value(targets, i).alarm[11] = lifetime
+								ds_list_find_value(targets, i).deactivated = true
+							}
+						}
+					}
 					// system for fractions of frames (ask turtle)
 					firing = true
 					attackRemainder += ceil(fireSpeed / firerateBuff / global.fastForward) - (fireSpeed / firerateBuff / global.fastForward) 

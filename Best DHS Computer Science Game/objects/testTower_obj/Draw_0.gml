@@ -20,4 +20,9 @@ if (selected) {
 	reset_draw()
 }
 
+draw_set_color(c_red)
+draw_line(x, y, display[0], display[1])
+
+draw_text(10, 40, display)
+
 draw_self()
