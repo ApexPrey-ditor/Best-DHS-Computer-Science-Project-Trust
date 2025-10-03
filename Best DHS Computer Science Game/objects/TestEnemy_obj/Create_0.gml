@@ -32,6 +32,28 @@ switch (type) {
 		hp = 7
 		pathSpeed = 5
 		break;
+	case 4:
+		// Camo
+		hp = 4
+		pathSpeed = 4
+		// camo variable = true
+		break;
+	case 5:
+		// Solid
+		hp = 10
+		pathSpeed = 2
+		// lead variable = true
+		break;
+	case 6:
+		// Gnormal
+		hp = 12
+		pathSpeed = 4
+		break;
+	case 7:
+		// JOB Ross
+		hp = 80
+		pathSpeed = 1.5
+		break;
 }
 
 // sets how much money will give on death
