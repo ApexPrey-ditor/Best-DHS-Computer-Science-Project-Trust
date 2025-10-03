@@ -10,19 +10,36 @@ if selected {
 	// portrait
 	draw_sprite_ext(towerIcons_spr, towerType, room_width - 352, 64, 0.4, 0.4, 0, c_white, 1)
 	
+	// trageting button background
+	draw_set_color(make_colour_rgb(40, 41, 48))
+	draw_rectangle(room_width - 372, 396, room_width - 44, 484, false)
+	
 	// targeting button
 	draw_set_color(c_white)
-	draw_button(room_width - (208 - (string_length(targeting) - 4) * 32), 448, room_width - 368, 528, true)
+	draw_button(room_width - 368, 400, room_width - (208 - (string_length(targeting) - 4) * 32), 480, true)
 	draw_set_color(c_black)
 	draw_set_halign(fa_left)
 	draw_set_font(jack)
-	draw_text_transformed(room_width - 348, 492, targeting, 2, 2, 0)
+	draw_text_transformed(room_width - 348, 444, targeting, 2, 2, 0)
+	center_text()
+	
+	// special targeting button background
+	draw_set_color(make_colour_rgb(40, 41, 48))
+	draw_rectangle(room_width - 372, 492, room_width - 44, 580, false)
+	
+	// special targeting button
+	draw_set_color(c_white)
+	draw_button(room_width - (160 + (string_length(specialTargeting) - 4) * 16), 496, room_width - 48, 576, true)
+	draw_set_color(c_black)
+	draw_set_font(jack)
+	draw_set_halign(fa_right)
+	draw_text_transformed(room_width - 58, 536, specialTargeting, 1.5, 1.5, 0)
 	center_text()
 	
 	// updrag button
 	draw_set_font(archive)
 	draw_set_color(c_white)
-	draw_button(room_width - 48, 576, room_width - 368, 896, true)
+	draw_button(room_width - 48, 592, room_width - 368, 896, true)
 	draw_set_color(c_black)
 	draw_text_transformed(room_width - 208, 736, "updrag", 3, 3, 0)
 	

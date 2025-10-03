@@ -7,6 +7,7 @@ placing = true
 selected = false
 attackRemainder = 0
 targeting = "First"
+specialTargeting = "None"
 particles = []
 
 display = [x, y]
