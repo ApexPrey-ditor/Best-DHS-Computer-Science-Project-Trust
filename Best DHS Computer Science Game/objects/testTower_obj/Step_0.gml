@@ -82,33 +82,39 @@ if (not global.paused) {
 					// gets instance id of the "winner" (they are going to die)
 					target = ds_list_find_value(options, chosen)
 					
-					if (type == 0) {
-						var targets = ds_list_create()
+					var targets = ds_list_create()
 						
-						// extends the collision line to the edge of the screen
-						var xpos = x
-						var ypos = y
-						
+					// extends the collision line to the edge of the screen
+					var xpos = x
+					var ypos = y
+					
+					if (type != 2) {
 						while (abs(xpos) < room_width and abs(y) < room_height) {
 							xpos += target.x - x
 							ypos += target.y - y
 						}
+					}
+					else {
+						xpos += dcos(point_direction(x, y, target.x, target.y)) * range
+						ypos -= dsin(point_direction(x, y, target.x, target.y)) * range
+					}
 						
-						// gets every enemy in the collision line
-						collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+					// gets every enemy in the collision line
+					collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 						
-						// removes all the enemies that are ghost dead
-						for (var i = 0; i < ds_list_size(targets); i++) {
-							if (ds_list_find_value(targets, i).deactivated) {
-								ds_list_delete(targets, i)
-								if (i > 0) {
-									i--
-								}
+					// removes all the enemies that are ghost dead
+					for (var i = 0; i < ds_list_size(targets); i++) {
+						if (ds_list_find_value(targets, i).deactivated) {
+							ds_list_delete(targets, i)
+							if (i > 0) {
+								i--
 							}
 						}
-						
-						// iterates through the amount of enemies tower is allowed to hit
+					}
+					
+					if (type == 0) {
 						for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
+							// iterates through the amount of enemies tower is allowed to hit
 							ds_list_find_value(targets, i).hp -= damage
 							if ds_list_find_value(targets, i).hp <= 0 {
 								// dead enemies are set to ghosts
@@ -125,13 +131,21 @@ if (not global.paused) {
 								array_push(drawPercents, 0)
 							}
 						}
-						
-						if (pierce > ds_list_size(targets)) {
-							// initializing for drawing a new projectile at the edge of the screen
-							array_push(finalPositions, [xpos, ypos])
-							array_push(drawPercents, 0)
-						}
 					}
+					else {
+						for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
+							// iterates through the amount of enemies tower is allowed to hit
+							ds_list_find_value(targets, i).hp -= damage
+							if ds_list_find_value(targets, i).hp <= 0 {
+								// kill dead enemies
+								instance_destroy(ds_list_find_value(targets, i))
+							}
+						}
+						
+						array_push(finalPositions, [xpos, ypos])
+						array_push(drawPercents, 0)
+					}
+						
 					// system for fractions of frames (ask turtle)
 					firing = true
 					attackRemainder += ceil(fireSpeed / firerateBuff / global.fastForward) - (fireSpeed / firerateBuff / global.fastForward) 
@@ -157,16 +171,17 @@ if (not global.paused) {
 		else {
 			// if off cooldown
 			if (not firing) {
-				instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
-																					speed : projSpeed,
-																					aoe : aoe,
-																					special : special,
-																					spread : spread,
-																					effect : effect,
-																					pierce : pierce,
-																					type : type,
-																					lifetime : lifetime,
-																					direction : direction})
+				var targets = ds_list_create()
+				collision_line_list(0, y, room_width, y, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+				
+				for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
+					ds_list_find_value(targets, i).hp -= damage
+					if ds_list_find_value(targets, i).hp <= 0 {
+						// kill dead enemies
+						instance_destroy(ds_list_find_value(targets, i))
+					}
+				}
+				
 				firing = true
 				attackRemainder += ceil(fireSpeed / firerateBuff / global.fastForward) - (fireSpeed / firerateBuff / global.fastForward) 
 				alarm[0] = ceil(fireSpeed / firerateBuff / global.fastForward) - floor(attackRemainder)
@@ -206,6 +221,17 @@ if (not global.paused) {
 				selected = false
 				global.upgradeMenu = false
 				instance_destroy()
+			}
+		}
+	}
+	
+	if (array_length(drawPercents) > 0) {
+		for (var i = 0; i < array_length(drawPercents); i++) {
+			drawPercents[i] += 1 / lifetime
+			
+			if (drawPercents[i] >= 1) {
+				array_delete(drawPercents, i, 1)
+				array_delete(finalPositions, i, 1)
 			}
 		}
 	}

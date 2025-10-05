@@ -12,8 +12,6 @@ particles = []
 finalPositions = []
 drawPercents = []
 
-display = [x, y]
-
 // firing conditions
 // initial is the current target enemy
 // check is the comparing enemy

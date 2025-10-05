@@ -21,8 +21,22 @@ if (selected) {
 }
 
 draw_set_color(c_red)
-draw_line(x, y, display[0], display[1])
 
-draw_text(10, 40, display)
+if (array_length(drawPercents) > 0) {
+	for (var i = 0; i < array_length(drawPercents); i++) {
+		if (type == 0) {
+			draw_line_width(x - ((x - finalPositions[i][0]) * max(drawPercents[i] * 1.2 - 0.2, 0)), y - (( y - finalPositions[i][1]) * max(drawPercents[i] * 1.2 - 0.2, 0)), x - ((x - finalPositions[i][0]) * max(drawPercents[i] * 1.2, 0)), y - ((y - finalPositions[i][1]) * max(drawPercents[i] * 1.2, 0)), 5)
+		}
+		else {
+			draw_line_width(x, y, finalPositions[i][0], finalPositions[i][1], 7)
+		}
+	}
+}
+
+if (special == "laser" and not placing) {
+	draw_line_width(0, y, room_width, y, 10)
+}
+
+reset_draw()
 
 draw_self()
