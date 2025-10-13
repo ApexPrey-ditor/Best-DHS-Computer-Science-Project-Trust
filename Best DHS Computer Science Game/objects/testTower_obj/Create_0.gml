@@ -54,10 +54,10 @@ function weakTargeting(array, initial, check, priority) {
 function closeTargeting(array, initial, check, priority) {
 	// if check is closer, adds points
 	if (distance_to_object(ds_list_find_value(array, check)) < distance_to_object(ds_list_find_value(array, initial))) {
-		return -power(1/2, priority)
+		return power(1/2, priority)
 	}
 	else {
-		return power(1/2, priority)
+		return -power(1/2, priority)
 	}
 }
 function farTargeting(array, initial, check, priority) {
@@ -86,7 +86,7 @@ function fireTargeting(array, initial, check, priority) {
 // lists for general storage (making my life easier)
 towerNames = ["Gunner", "Sniper", "Railgunner", "Evaporator", "Boomer", "Flamer", "Puncher", "Laser", "Cheerleader", "Moneymaker", "Spotter", "Booster", "Commander", "Hacker", "Rapper", "Debt Collecter"]
 targetingTypes = ["First", "Last", "Strong", "Weak", "Farthest", "Closest"]
-targetingTranslations = [firstTargeting, lastTargeting, strongTargeting, weakTargeting, closeTargeting, farTargeting]
+targetingTranslations = [firstTargeting, lastTargeting, strongTargeting, weakTargeting, farTargeting, closeTargeting]
 
 // for targeting type conditions
 conditions = []

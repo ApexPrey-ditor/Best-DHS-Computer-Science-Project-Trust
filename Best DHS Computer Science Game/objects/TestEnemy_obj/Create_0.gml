@@ -10,6 +10,12 @@ deactivated = false
 
 alarmList = []
 
+// enemy class (camo lead invisible)
+class = [false, false, false]
+
+// switches enemy costume based on type
+image_index = type
+
 // sets stats based on enemy type
 switch (type) {
 	case 0:
@@ -36,13 +42,13 @@ switch (type) {
 		// Camo
 		hp = 4
 		pathSpeed = 4
-		// camo variable = true
+		class = [true, false, false]
 		break;
 	case 5:
 		// Solid
 		hp = 10
 		pathSpeed = 2
-		// lead variable = true
+		class = [false, true, false]
 		break;
 	case 6:
 		// Gnormal

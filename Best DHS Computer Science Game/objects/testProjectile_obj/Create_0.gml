@@ -5,41 +5,11 @@ image_yscale = 0.05
 // offsets direction based on spread
 direction += random_range(-spread, spread)
 
-// sets how many frames it takes for a projectile to disappear
-aftereffect = 0
-
 // creates alarm list (store alarm values) and prespeed (stores speed) for pausing
 alarmList = []
 prespeed = speed
 
 alarm[0] = ceil(lifetime / global.fastForward)
-
-/*
-type = 0 for projectiles
-type = 2 for laser
-type = 3 for punch
-changes size, direction, and other aspects of projectile for the type
-*/
-
-switch (type) {
-	case 0:
-		speed *= global.fastForward
-		break;
-	case 1:
-		if (special != "laser") {
-			sprite_index = testLaser_spr
-		}
-		speed = 0
-		image_xscale = 3
-		image_angle = direction
-		break;
-	case 2:
-		sprite_index = testPunch_spr
-		image_angle = direction
-		image_xscale = 0.1
-		image_yscale = 0.05
-		break;
-}
 
 // sets sprite to flame if flamethrower
 if special == "flame" {
