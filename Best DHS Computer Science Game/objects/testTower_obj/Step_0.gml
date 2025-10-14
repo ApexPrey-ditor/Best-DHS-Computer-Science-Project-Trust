@@ -38,15 +38,15 @@ if (not global.paused) {
 	// checks if the tower isnt the money making tower
 	else if (special != "money") {
 		if (range > 50) {
-			if (special != "firerate") {
+			if (string_char_at(special, 0) != "s") {
 				if (not firing) {
 					// finds targets
 					var options = ds_list_create()
 					var unsorted = ds_list_create()
-					collision_circle_list(x, y, range, tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+					collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
 				
 					// removes all the enemies that are ghost dead, or cant be detected
-					unsorted = remove_undetectable(unsorted, detections)
+					unsorted = remove_undetectable(unsorted, [max(detections[0], buffs[3]), detections[1], detections[2]])
 				
 					// sorts enemies by furthest along path
 					repeat (ds_list_size(unsorted)) {
@@ -100,20 +100,20 @@ if (not global.paused) {
 							}
 						}
 						else {
-							xpos += dcos(point_direction(x, y, target.x, target.y)) * range
-							ypos -= dsin(point_direction(x, y, target.x, target.y)) * range
+							xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2]
+							ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2]
 						}
 						
 						// gets every enemy in the collision line
 						collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					
 						// removes all the enemies that are ghost dead, or cant be detected
-						targets = remove_undetectable(targets, detections)
+						targets = remove_undetectable(targets, [max(detections[0], buffs[3]), detections[1], detections[2]])
 					
 						if (type == 0) {
 							for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
 								// iterates through the amount of enemies tower is allowed to hit
-								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), detections, damage)
+								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1])
 								if ds_list_find_value(targets, i).hp <= 0 {
 									// dead enemies are set to ghosts
 									ds_list_find_value(targets, i).deactivated = true
@@ -133,7 +133,7 @@ if (not global.paused) {
 						else if (type < 3) {
 							for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
 								// iterates through the amount of enemies tower is allowed to hit
-								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), detections, damage)
+								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1])
 								if ds_list_find_value(targets, i).hp <= 0 {
 									// kill dead enemies
 									instance_destroy(ds_list_find_value(targets, i))
@@ -146,7 +146,7 @@ if (not global.paused) {
 						if (type == 3) {
 							var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
 					
-							instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage,
+							instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage * buffs[1],
 																							speed : projSpeed,
 																							aoe : aoe,
 																							special : special,
@@ -154,29 +154,49 @@ if (not global.paused) {
 																							effect : effect,
 																							pierce : pierce,
 																							lifetime : lifetime,
-																							detections : detections,
+																							detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
 																							direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
 						}
 						
 						// system for fractions of frames (ask turtle)
 						firing = true
-						attackRemainder += ceil(fireSpeed / firerateBuff / global.fastForward) - (fireSpeed / firerateBuff / global.fastForward) 
-						alarm[0] = ceil(fireSpeed / firerateBuff / global.fastForward) - floor(attackRemainder)
+						attackRemainder += ceil(fireSpeed / buffs[0] / global.fastForward) - (fireSpeed / buffs[0] / global.fastForward)
+						alarm[0] = ceil(fireSpeed / buffs[0] / global.fastForward) - floor(attackRemainder)
 						if attackRemainder > 1 {
 							attackRemainder -= 1
 						}
 					}
 				}
 			}
-			else {
+			else if special == "s firerate" {
 				// performs buffs for all towers in range of cheerleader
 				var towers = ds_list_create()
-				collision_circle_list(x, y, range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+				collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 				for (var i = 0; i < ds_list_size(towers); i++) {
-					if (ds_list_find_value(towers, i).firerateBuff < fireSpeed and not ds_list_find_value(towers, i).placing) {
-						ds_list_find_value(towers, i).firerateBuff = fireSpeed
+					if (ds_list_find_value(towers, i).buffs[0] < fireSpeed and not ds_list_find_value(towers, i).placing) {
+						ds_list_find_value(towers, i).buffs[0] = fireSpeed
 						ds_list_find_value(towers, i).image_blend = c_green
+					}
+				}
+			}
+			else {
+				// performs buffs for all towers in range of spotter
+				var towers = ds_list_create()
+				collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+			
+				for (var i = 0; i < ds_list_size(towers); i++) {
+					if (ds_list_find_value(towers, i).buffs[1] < damage and not ds_list_find_value(towers, i).placing) {
+						ds_list_find_value(towers, i).buffs[1] = damage
+						ds_list_find_value(towers, i).image_blend = c_purple
+					}
+					if (ds_list_find_value(towers, i).buffs[2] < fireSpeed and not ds_list_find_value(towers, i).placing) {
+						ds_list_find_value(towers, i).buffs[2] = fireSpeed
+						ds_list_find_value(towers, i).image_blend = c_purple
+					}
+					if (ds_list_find_value(towers, i).buffs[3] == false and not ds_list_find_value(towers, i).placing) {
+						ds_list_find_value(towers, i).buffs[3] = true
+						ds_list_find_value(towers, i).image_blend = c_purple
 					}
 				}
 			}
@@ -188,7 +208,7 @@ if (not global.paused) {
 				collision_line_list(0, y, room_width, y, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 				
 				for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
-					ds_list_find_value(targets, i).hp -= damage
+					ds_list_find_value(targets, i).hp -= damage * buffs[1]
 					if ds_list_find_value(targets, i).hp <= 0 {
 						// kill dead enemies
 						instance_destroy(ds_list_find_value(targets, i))
@@ -196,8 +216,8 @@ if (not global.paused) {
 				}
 				
 				firing = true
-				attackRemainder += ceil(fireSpeed / firerateBuff / global.fastForward) - (fireSpeed / firerateBuff / global.fastForward) 
-				alarm[0] = ceil(fireSpeed / firerateBuff / global.fastForward) - floor(attackRemainder)
+				attackRemainder += ceil(fireSpeed / buffs[0] / global.fastForward) - (fireSpeed / buffs[0] / global.fastForward) 
+				alarm[0] = ceil(fireSpeed / buffs[0] / global.fastForward) - floor(attackRemainder)
 				if attackRemainder > 1 {
 					attackRemainder -= 1
 				}

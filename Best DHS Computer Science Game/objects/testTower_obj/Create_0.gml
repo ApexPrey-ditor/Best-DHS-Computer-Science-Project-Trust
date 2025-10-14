@@ -94,8 +94,8 @@ conditions = []
 // alarm storage for pausing and fast forward
 alarmList = []
 
-// for buffs
-firerateBuff = 1
+// for buffs (cheerleader firerate, spotter damage, spotter range, camo)
+buffs = [1, 1, 1, false]
 
 if (special == "flame") {
 	array_push(conditions, fireTargeting)
