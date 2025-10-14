@@ -23,7 +23,7 @@ values[enemySpawned] = 0
 
 // speeds up spawnrate if fast forward
 if (points > 0) {
-	alarm[0] = ceil((60 * sqrt(cost[enemySpawned] / bias)) / global.fastForward)
+	alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias)) / global.fastForward), 1)
 }
 else {
 	endWave = true

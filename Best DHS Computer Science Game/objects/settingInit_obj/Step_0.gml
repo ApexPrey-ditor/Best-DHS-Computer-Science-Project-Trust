@@ -50,7 +50,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 8:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
-						{damage : 0, fireSpeed : 1.1, range : 300, special : "s firerate", cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						{damage : 0, fireSpeed : 0, range : 300, special : "s firerate", effect : [1.1], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 9:
@@ -60,7 +60,12 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 10:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
-						{damage : 1.1, fireSpeed : 1.15, range : 400, detections : [true, false, false], special : "s spotter", cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						{damage : 0, fireSpeed : 0, range : 400, detections : [true, false, false], special : "s spotter", effect : [1.1, 1.15], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						placing = true
+						break;
+					case 11:
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
+						{damage : 0, fireSpeed : 0, range : 350, special : "s booster", effect : [1.25], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 				}

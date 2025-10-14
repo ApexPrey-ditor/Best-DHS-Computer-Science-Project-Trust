@@ -60,6 +60,9 @@ if (not global.upgradeMenu) {
 				case 10:
 					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Spotter")
 					break;
+				case 11:
+					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Booster")
+					break;
 			}
 			// draws cost based on page, x, and y
 			draw_text(room_width - 272 + w * 160, 334 + i * 160, "$" + string(costs[page * 8 + i * 2 + w]))

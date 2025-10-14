@@ -5,12 +5,14 @@ image_yscale = 0.4
 firing = false
 placing = true
 selected = false
+targetingSelection = false
 attackRemainder = 0
 targeting = "First"
 specialTargeting = "None"
 particles = []
 finalPositions = []
 drawPercents = []
+targetable = ds_list_create()
 
 // firing conditions
 // initial is the current target enemy
@@ -94,8 +96,10 @@ conditions = []
 // alarm storage for pausing and fast forward
 alarmList = []
 
-// for buffs (cheerleader firerate, spotter damage, spotter range, camo)
-buffs = [1, 1, 1, false]
+// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster firerate)
+buffs = [1, 1, 1, false, 1]
+// what tower is being buffed (for booster)
+buffing = noone
 
 if (special == "flame") {
 	array_push(conditions, fireTargeting)

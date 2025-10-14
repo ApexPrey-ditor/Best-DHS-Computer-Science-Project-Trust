@@ -1,6 +1,28 @@
 if (not global.paused) {
 	if (not placing) {
 		if (mouse_check_button_pressed(mb_left)) {
+			if (targetingSelection) {
+				var target = instance_position(mouse_x, mouse_y, tag_get_asset_ids("Tower", asset_object))
+				
+				if (target != noone) {
+					if (target != id and target.buffs[4] == 1 and ds_list_find_index(targetable, target) != -1) {
+						if (instance_exists(buffing)) {
+							buffing.buffs[4] = 1
+							buffing.image_blend = c_white
+						}
+						
+						buffing = target
+						target.buffs[4] = effect[0]
+						target.image_blend = c_blue
+					}
+				}
+				
+				targetingSelection = false
+				selected = false
+				if (not position_meeting(mouse_x, mouse_y, tag_get_asset_ids("Tower", asset_object))) {
+					global.upgradeMenu = selected
+				}
+			}
 			// checks if theres a tower under the mouse when clicked
 			if (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom)) {
 				selected = not selected
@@ -160,43 +182,50 @@ if (not global.paused) {
 						
 						// system for fractions of frames (ask turtle)
 						firing = true
-						attackRemainder += ceil(fireSpeed / buffs[0] / global.fastForward) - (fireSpeed / buffs[0] / global.fastForward)
-						alarm[0] = ceil(fireSpeed / buffs[0] / global.fastForward) - floor(attackRemainder)
+						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - (fireSpeed / buffs[0] / buffs[4] / global.fastForward)
+						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - floor(attackRemainder)
 						if attackRemainder > 1 {
 							attackRemainder -= 1
 						}
 					}
 				}
 			}
-			else if special == "s firerate" {
-				// performs buffs for all towers in range of cheerleader
-				var towers = ds_list_create()
-				collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+			else {
+				if (special == "s firerate") {
+					// performs buffs for all towers in range of cheerleader
+					var towers = ds_list_create()
+					collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
-				for (var i = 0; i < ds_list_size(towers); i++) {
-					if (ds_list_find_value(towers, i).buffs[0] < fireSpeed and not ds_list_find_value(towers, i).placing) {
-						ds_list_find_value(towers, i).buffs[0] = fireSpeed
-						ds_list_find_value(towers, i).image_blend = c_green
+					for (var i = 0; i < ds_list_size(towers); i++) {
+						if (ds_list_find_value(towers, i).buffs[0] < effect[0] and not ds_list_find_value(towers, i).placing) {
+							ds_list_find_value(towers, i).buffs[0] = effect[0]
+							ds_list_find_value(towers, i).image_blend = c_green
+						}
 					}
 				}
-			}
-			else {
-				// performs buffs for all towers in range of spotter
-				var towers = ds_list_create()
-				collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+				if (special == "s spotter") {
+					// performs buffs for all towers in range of spotter
+					var towers = ds_list_create()
+					var buffed = false
+					collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
-				for (var i = 0; i < ds_list_size(towers); i++) {
-					if (ds_list_find_value(towers, i).buffs[1] < damage and not ds_list_find_value(towers, i).placing) {
-						ds_list_find_value(towers, i).buffs[1] = damage
-						ds_list_find_value(towers, i).image_blend = c_purple
-					}
-					if (ds_list_find_value(towers, i).buffs[2] < fireSpeed and not ds_list_find_value(towers, i).placing) {
-						ds_list_find_value(towers, i).buffs[2] = fireSpeed
-						ds_list_find_value(towers, i).image_blend = c_purple
-					}
-					if (ds_list_find_value(towers, i).buffs[3] == false and not ds_list_find_value(towers, i).placing) {
-						ds_list_find_value(towers, i).buffs[3] = true
-						ds_list_find_value(towers, i).image_blend = c_purple
+					for (var i = 0; i < ds_list_size(towers); i++) {
+						buffed = false
+						if (ds_list_find_value(towers, i).buffs[1] < effect[0] and not ds_list_find_value(towers, i).placing) {
+							ds_list_find_value(towers, i).buffs[1] = effect[0]
+							buffed = true
+						}
+						if (ds_list_find_value(towers, i).buffs[2] < effect[1] and not ds_list_find_value(towers, i).placing) {
+							ds_list_find_value(towers, i).buffs[2] = effect[1]
+							buffed = true
+						}
+						if (ds_list_find_value(towers, i).buffs[3] == false and not ds_list_find_value(towers, i).placing) {
+							ds_list_find_value(towers, i).buffs[3] = true
+							buffed = true
+						}
+						if (buffed) {
+							ds_list_find_value(towers, i).image_blend = c_purple
+						}
 					}
 				}
 			}
@@ -216,8 +245,8 @@ if (not global.paused) {
 				}
 				
 				firing = true
-				attackRemainder += ceil(fireSpeed / buffs[0] / global.fastForward) - (fireSpeed / buffs[0] / global.fastForward) 
-				alarm[0] = ceil(fireSpeed / buffs[0] / global.fastForward) - floor(attackRemainder)
+				attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - (fireSpeed / buffs[0] / buffs[4] / global.fastForward) 
+				alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - floor(attackRemainder)
 				if attackRemainder > 1 {
 					attackRemainder -= 1
 				}
@@ -249,11 +278,24 @@ if (not global.paused) {
 			}
 			// selling
 			if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040)) {
-				// gives 70% of money back, then closes the upgrade menu
-				global.money += floor(cost * 0.7)
+				// gives 50% of money back, then closes the upgrade menu
+				global.money += floor(cost * 0.5)
 				selected = false
 				global.upgradeMenu = false
+				
+				if (string_char_at(special, 0) == "s") {
+					with (testTower_obj) {
+						buffs = [1, 1, 1, false, 1]
+						image_blend = c_white
+					}
+				}
+				
 				instance_destroy()
+			}
+			// booster targeting
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - 48, 576) and special == "s booster") {
+				targetingSelection = true
+				collision_circle_list(x, y, range, testTower_obj, false, true, targetable, false)
 			}
 		}
 	}
