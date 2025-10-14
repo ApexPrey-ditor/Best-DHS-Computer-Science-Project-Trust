@@ -25,8 +25,8 @@ part_type_alpha1(flameType, 1)
 
 // initializes global variables
 global.health = 100
-global.wave = 8
-global.money = 300000000
+global.wave = 0
+global.money = 300
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower
