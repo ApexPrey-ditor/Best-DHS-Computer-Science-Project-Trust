@@ -1,8 +1,4 @@
-// gives money and reduces number of enemies on death
-global.money += cash
-enemySpawner_obj.enemies -= 1
-
-// spawns enemies on death if necromancer enemy
+// spawns enemies around necromancer enemy
 switch (type) {
 	case 8:
 		for (var i = 0; i < 3; i++) {
