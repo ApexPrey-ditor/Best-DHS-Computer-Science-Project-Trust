@@ -14,4 +14,9 @@ switch (type) {
 				instance_create_layer(x, y, "Enemies", testEnemy_obj, {type : 15, spath_sposition : path_position - ((i - 1) * 0.02 + 0.01)})
 		}
 		alarm[1] = 420;
+	case 25:
+		for (var i = 0; i < 5; i++) {
+				instance_create_layer(x, y, "Enemies", testEnemy_obj, {type : 22, spath_sposition : path_position - ((i - 2) * 0.02 + 0.01)})
+		}
+		alarm[1] = 420
 }

@@ -124,9 +124,56 @@ switch (type) {
 		break;
 	case 19:
 		// Drazy Cave
+		hesCrazy = 0
 		hp = 50
-		pathSpeed = 13
-		alarm[2] = 180
+		pathSpeed = 10
+		alarm[1] = 1
+		break;
+	case 20:
+		// John Cena
+		hp = 75
+		pathSpeed = 8
+		class = [false, false, true]
+		break;
+	case 21:
+		// 10" Tungsten Cube
+		hp = 3500
+		pathSpeed = 1
+		class = [false, true, false]
+		break;
+	case 22:
+		// Not Quite As Evil Girl But Still Certainly Devious
+		hp = 150
+		pathSpeed = 4
+		break;
+	case 23:
+		// DPS Check
+		hp = 100
+		pathSpeed = 8
+		alarm[1] = 60
+		break;
+	case 24:
+		// Glob Moss
+		hp = 640
+		pathSpeed = 6
+		break;
+	case 25:
+		// Necrowomancer
+		hp = 700
+		pathSpeed = 2
+		alarm[1] = 420
+		break;
+	case 26:
+		// You Have Just Lost The Game
+		hp = 150
+		pathSpeed = 5
+		class = [true, true, true]
+		break;
+	case 27:
+		// Most Indubitably Greater In Quantity And Quality Of Evil And Deviousness Than "Not Quite As Evil Girl But Still Certainly Devious" Which Can Be Observed When Being Pitted Against One Another But Definitely Not Quite As Magnificently Malevolent Or Devious When Compared And Contrasted To "Evil Girl" Yet Despite This Comparison Still Containing And Representing A Great Amount Of Evil And/Or Deviousness Girl
+		hp = 5000
+		pathSpeed = 3
+		break;
 }
 
 // sets how much money will give on death
