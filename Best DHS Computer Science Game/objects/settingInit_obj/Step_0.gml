@@ -68,6 +68,11 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						{damage : 0, fireSpeed : 0, range : 350, special : "s booster", effect : [1.25], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
+					case 14:
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
+						{damage : 5, fireSpeed : 12, range : 100, type : 2, pierce : 5, special : "rapper", effect : [250], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						placing = true
+						break;
 				}
 			}
 		}

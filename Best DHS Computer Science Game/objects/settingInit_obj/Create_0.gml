@@ -41,7 +41,7 @@ alarmList = []
 
 // page of tower UI and cost of towers
 page = 0
-costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 0, 0, 0, 0]
+costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 0, 0, 3500, 0]
 
 // fullscreens
 window_set_fullscreen(true)

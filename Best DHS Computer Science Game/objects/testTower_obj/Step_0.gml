@@ -187,6 +187,13 @@ if (not global.paused) {
 						if attackRemainder > 1 {
 							attackRemainder -= 1
 						}
+						
+						// specials for towers that also attack
+						if (special = "rapper") {
+							if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+								global.money += effect[0]
+							}
+						}
 					}
 				}
 			}
