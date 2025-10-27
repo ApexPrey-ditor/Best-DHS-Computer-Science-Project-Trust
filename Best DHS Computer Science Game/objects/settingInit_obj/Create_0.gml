@@ -26,7 +26,7 @@ part_type_alpha1(flameType, 1)
 // initializes global variables
 global.health = 100
 global.wave = 0
-global.money = 30000
+global.money = 300
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower
@@ -41,7 +41,7 @@ alarmList = []
 
 // page of tower UI and cost of towers
 page = 0
-costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 0, 0, 3500, 0]
+costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000, 3750, 3500, 3000]
 
 // fullscreens
 window_set_fullscreen(true)

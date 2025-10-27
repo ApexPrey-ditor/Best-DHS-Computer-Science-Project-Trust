@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"min_array_but_specificaly_for_finding_paths",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"min_array_but_specificaly_for_finding_paths",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

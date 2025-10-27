@@ -5,6 +5,7 @@ image_yscale = 0.4
 burning = 0 
 hp = 0
 pathSpeed = 0
+skip = false
 
 deactivated = false
 
@@ -64,7 +65,7 @@ switch (type) {
 		// Necromancer
 		hp = 80
 		pathSpeed = 2
-		alarm[1] = 300
+		alarm[1] = ceil(300 / global.fastForward)
 		break;
 	case 9:
 		// Nick's Girlfriend
@@ -120,7 +121,7 @@ switch (type) {
 		// Gnecromancer
 		hp = 400
 		pathSpeed = 1
-		alarm[1] = 420
+		alarm[1] = ceil(420 / global.fastForward)
 		break;
 	case 19:
 		// Drazy Cave
@@ -150,7 +151,7 @@ switch (type) {
 		// DPS Check
 		hp = 100
 		pathSpeed = 8
-		alarm[1] = 60
+		alarm[1] = ceil(420 / global.fastForward)
 		break;
 	case 24:
 		// Glob Moss
@@ -161,7 +162,7 @@ switch (type) {
 		// Necrowomancer
 		hp = 700
 		pathSpeed = 2
-		alarm[1] = 420
+		alarm[1] = ceil(420 / global.fastForward)
 		break;
 	case 26:
 		// You Have Just Lost The Game

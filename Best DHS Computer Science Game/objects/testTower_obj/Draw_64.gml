@@ -19,9 +19,22 @@ if selected {
 		draw_set_color(c_white)
 		draw_button(room_width - 368, 400, room_width - 48, 576, true)
 		draw_set_color(c_black)
-		draw_set_halign(fa_left)
+		center_text()
 		draw_set_font(jack)
-		draw_text_transformed(room_width - 348, 488, "Set Target", 2, 2, 0)
+		draw_text_transformed(room_width - 208, 488, "Set Target", 2, 2, 0)
+	}
+	else if (special == "s commander") {
+		// trageting button background
+		draw_set_color(make_colour_rgb(40, 41, 48))
+		draw_rectangle(room_width - 372, 396, room_width - 44, 580, false)
+		
+		// targeting button
+		draw_set_color(c_white)
+		draw_button(room_width - 368, 400, room_width - 48, 576, true)
+		draw_set_color(c_black)
+		center_text()
+		draw_set_font(jack)
+		draw_text_transformed(room_width - 208, 488, targeting, 1.5, 1.5, 0)
 	}
 	else {
 		// trageting button background
@@ -49,13 +62,31 @@ if selected {
 		draw_text_transformed(room_width - 58, 536, specialTargeting, 1.5, 1.5, 0)
 	}
 	
-	// updrag button
-	draw_set_font(archive)
-	draw_set_color(c_white)
-	draw_button(room_width - 48, 592, room_width - 368, 896, true)
-	draw_set_color(c_black)
-	center_text()
-	draw_text_transformed(room_width - 208, 736, "updrag", 3, 3, 0)
+	if (special == "debt collector") {
+		// levl up display
+		draw_set_font(archive)
+		draw_set_color(c_white)
+		draw_button(room_width - 48, 592, room_width - 368, 896, true)
+		draw_set_color(c_black)
+		center_text()
+		if (kills < effect[2]) {
+			draw_text_transformed(room_width - 208, 672, "Level " + string(level), 3, 3, 0)
+			draw_text_transformed(room_width - 208, 736, "Next Level In", 3, 3, 0)
+			draw_text_transformed(room_width - 208, 800, string(effect[level - 1] - kills) + " Kills", 3, 3, 0)
+		}
+		else {
+			draw_text_transformed(room_width - 208, 736, "Max Level", 3, 3, 0)
+		}
+	}
+	else {
+		// updrag button
+		draw_set_font(archive)
+		draw_set_color(c_white)
+		draw_button(room_width - 48, 592, room_width - 368, 896, true)
+		draw_set_color(c_black)
+		center_text()
+		draw_text_transformed(room_width - 208, 736, "updrag", 3, 3, 0)
+	}
 	
 	// sell button
 	// disabled function is unrounded rectangle

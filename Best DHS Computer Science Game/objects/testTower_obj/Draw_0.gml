@@ -32,9 +32,11 @@ if (array_length(drawPercents) > 0) {
 		}
 	}
 }
-
 if (special == "laser" and not placing) {
 	draw_line_width(0, y, room_width, y, 10)
+}
+if (special == "s hacker" and instance_exists(follow)) {
+	draw_line_width(x, y, follow.x, follow.y, 10)
 }
 
 reset_draw()

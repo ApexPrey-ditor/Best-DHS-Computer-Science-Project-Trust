@@ -7,12 +7,20 @@ placing = true
 selected = false
 targetingSelection = false
 attackRemainder = 0
-targeting = "First"
+if (special == "s commander") {
+	targeting = "Carpet Bombing"
+}
+else {
+	targeting = "First"
+}
 specialTargeting = "None"
 particles = []
 finalPositions = []
 drawPercents = []
 targetable = ds_list_create()
+follow = noone
+level = 1
+kills = 0
 
 // firing conditions
 // initial is the current target enemy
@@ -96,8 +104,8 @@ conditions = []
 // alarm storage for pausing and fast forward
 alarmList = []
 
-// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster firerate)
-buffs = [1, 1, 1, false, 1]
+// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster firerate, commander firerate, hacker discount)
+buffs = [1, 1, 1, false, 1, 1, 1]
 // what tower is being buffed (for booster)
 buffing = noone
 

@@ -61,6 +61,13 @@ if (not global.paused) {
 	else if (special != "money") {
 		if (range > 50) {
 			if (string_char_at(special, 0) != "s") {
+				// specials for towers that also attack
+				if (special = "rapper") {
+					if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+						global.money += effect[0]
+					}
+				}
+				
 				if (not firing) {
 					// finds targets
 					var options = ds_list_create()
@@ -108,7 +115,7 @@ if (not global.paused) {
 				
 						// gets instance id of the "winner" (they are going to die)
 						target = ds_list_find_value(options, chosen)
-					
+						
 						var targets = ds_list_create()
 						
 						// extends the collision line to the edge of the screen
@@ -139,7 +146,12 @@ if (not global.paused) {
 								if ds_list_find_value(targets, i).hp <= 0 {
 									// dead enemies are set to ghosts
 									ds_list_find_value(targets, i).deactivated = true
-									ds_list_find_value(targets, i).alarm[11] = lifetime
+									ds_list_find_value(targets, i).alarm[11] = ceil(lifetime / global.fastForward)
+									
+									// increase debt collector kill count by 1
+									if (special == "debt collector") {
+										kills += 1
+									}
 								}
 							
 								if i == pierce - 1 {
@@ -182,17 +194,10 @@ if (not global.paused) {
 						
 						// system for fractions of frames (ask turtle)
 						firing = true
-						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - (fireSpeed / buffs[0] / buffs[4] / global.fastForward)
-						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - floor(attackRemainder)
+						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward)
+						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
 						if attackRemainder > 1 {
 							attackRemainder -= 1
-						}
-						
-						// specials for towers that also attack
-						if (special = "rapper") {
-							if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
-								global.money += effect[0]
-							}
 						}
 					}
 				}
@@ -235,11 +240,151 @@ if (not global.paused) {
 						}
 					}
 				}
+				if (special == "s commander") {
+					// performs buffs for all towers in range of commander
+					var towers = ds_list_create()
+					collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+			
+					for (var i = 0; i < ds_list_size(towers); i++) {
+						if (ds_list_find_value(towers, i).buffs[5] < effect[0] and not ds_list_find_value(towers, i).placing) {
+							ds_list_find_value(towers, i).buffs[5] = effect[0]
+							ds_list_find_value(towers, i).image_blend = c_maroon
+						}
+					}
+					
+					// for commander attacking
+					if (enemySpawner_obj.enemies > 0 and not firing) {
+						var targets = ds_list_create()
+						for (var i = 0; i < instance_number(testEnemy_obj); ++i) {
+							ds_list_add(targets, instance_find(testEnemy_obj, i))
+						}
+					
+						var minTarget = noone
+						var maxTarget = noone
+					
+						if (targeting == "Single Target") {
+							var highscore = -infinity
+							var position = 0
+	
+							for (var i = 0; i < ds_list_size(targets); i++) {
+								if ds_list_find_value(targets, i).hp > highscore {
+									highscore = ds_list_find_value(targets, i).hp
+									position = i
+								}
+							}
+						
+							minTarget = ds_list_find_value(targets, position)
+							maxTarget = ds_list_find_value(targets, position)
+						}
+						else {
+							minTarget = ds_list_find_value(targets, min_array_but_specificaly_for_finding_paths(targets))
+							maxTarget = ds_list_find_value(targets, max_array_but_specificaly_for_finding_paths_because_i_hate_my_life(targets))
+						}
+					
+						var realMinPos = minTarget.path_position + (lifetime * 2 * minTarget.pathSpeed / path_get_length(minTarget.path_index))
+						var increment = (maxTarget.path_position + (lifetime * maxTarget.pathSpeed / path_get_length(maxTarget.path_index)) - realMinPos) / 5
+					
+						for (var i = 0; i < 6; i++) {
+							instance_create_layer(path_get_x(minTarget.path_index, realMinPos + i * increment), path_get_y(minTarget.path_index, realMinPos + i * increment), "Projectiles", testProjectile_obj, {damage : damage * buffs[1],
+																								speed : projSpeed,
+																								effect : [(5 - i) * lifetime / 6 + 1],
+																								aoe : aoe,
+																								special : special,
+																								pierce : pierce,
+																								lifetime : lifetime,
+																								type : type,
+																								detections : [max(detections[0], buffs[3]), detections[1], detections[2]],})
+						}
+					
+						firing = true
+						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) 
+						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
+						if attackRemainder > 1 {
+							attackRemainder -= 1
+						}
+					}
+				}
+				if (special == "s hacker") {
+					// performs buffs for all towers in range of hacker
+					var towers = ds_list_create()
+					collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+			
+					for (var i = 0; i < ds_list_size(towers); i++) {
+						if (ds_list_find_value(towers, i).buffs[6] > effect[0] and not ds_list_find_value(towers, i).placing) {
+							ds_list_find_value(towers, i).buffs[6] = effect[0]
+							ds_list_find_value(towers, i).image_blend = c_aqua
+						}
+					}
+					
+					if (not firing) {
+						// finds targets
+						var options = ds_list_create()
+						var unsorted = ds_list_create()
+						collision_circle_list(x, y, range * buffs[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+				
+						// removes all the enemies that are ghost dead, or cant be detected
+						unsorted = remove_undetectable(unsorted, [max(detections[0], buffs[3]), detections[1], detections[2]])
+				
+						// sorts enemies by furthest along path
+						repeat (ds_list_size(unsorted)) {
+							ds_list_add(options, ds_list_find_value(unsorted, max_array_but_specificaly_for_finding_paths_because_i_hate_my_life(unsorted)))
+							ds_list_delete(unsorted, max_array_but_specificaly_for_finding_paths_because_i_hate_my_life(unsorted))
+						}
+
+						if (ds_list_size(options) > 0) {
+							// initializes variables needed for targeting
+							var chosen = 0
+							var currentScore = 0
+							var highscore = 0
+				
+							// conditions is an array of functions that are used to generate targeting score
+							// iterates through every targeting function and adds the output to highscore
+							// this gives the first value the starting highscore
+							for (var i = 0; i < array_length(conditions); i++) {
+								highscore += conditions[i](options, ds_list_size(options) - 1, chosen, i)
+							}
+				
+							// iterates through every enemy in range
+							for (var i = 0; i < ds_list_size(options); i++) {
+								// adds the score of the targeting functions to currentScore
+								currentScore = 0
+								for (var w = 0; w < array_length(conditions); w++) {
+									currentScore += conditions[w](options, chosen, i, w)
+								}
+					
+								// if beats highscore then this becomes the new target
+								if (currentScore >= highscore) {
+									//show_debug_message(string())
+									highscore = currentScore
+									chosen = i
+								}
+							}
+				
+							// gets instance id of the "winner" (they are going to die)
+							follow = ds_list_find_value(options, chosen)
+							
+							follow.hp -= calculate_type_damage(follow, [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1])
+							if follow.hp <= 0 {
+								// dead enemies are set to ghosts
+								follow.deactivated = true
+								follow.alarm[11] = ceil(3 / global.fastForward)
+							}
+							
+							firing = true
+							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) 
+							alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
+							if attackRemainder > 1 {
+								attackRemainder -= 1
+							}
+						}
+					}
+				}
 			}
 		}
 		else {
 			// if off cooldown
 			if (not firing) {
+				// for laser attacking
 				var targets = ds_list_create()
 				collision_line_list(0, y, room_width, y, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 				
@@ -252,8 +397,8 @@ if (not global.paused) {
 				}
 				
 				firing = true
-				attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - (fireSpeed / buffs[0] / buffs[4] / global.fastForward) 
-				alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / global.fastForward) - floor(attackRemainder)
+				attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) 
+				alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
 				if attackRemainder > 1 {
 					attackRemainder -= 1
 				}
@@ -265,11 +410,39 @@ if (not global.paused) {
 		global.money += damage
 	}
 	
+	// debt collector leveling up
+	if (special == "debt collector" and level < 3) {
+		if (kills >= effect[level - 1]) {
+			level += 1
+			
+			switch (level) {
+				case 2:
+					damage = 10
+					fireSpeed = 18
+					range = 300
+					detections = [true, false, false]
+					break;
+				case 3:
+					damage = 20
+					fireSpeed = 12
+					range = 450
+					detections = [true, true, false]
+					break;
+				case 4:
+					damage = 40
+					fireSpeed = 6
+					range = 650
+					detections = [true, true, true]
+					break;
+			}
+		}
+	}
+	
 	// upgrade menu code
 	if (selected) {
 		if (mouse_check_button_pressed(mb_left)) {
 			// switching targeting
-			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 496, room_width - (208 - (string_length(targeting) - 5) * 36), 576)) {
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - (208 - (string_length(targeting) - 4) * 32), 480) and (special != "s booster" and special != "s commander")) {
 				// gets index of the targeting function in conditions
 				var place = array_get_index(conditions, targetingTranslations[array_get_index(targetingTypes, targeting)])
 				// increases targeting type by 1
@@ -283,33 +456,43 @@ if (not global.paused) {
 				// replaces targeting function with new targeting function
 				conditions[place] = targetingTranslations[array_get_index(targetingTypes, targeting)]
 			}
+			// booster and commander targeting
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - 48, 576)) {
+				if (special == "s booster") {
+					targetingSelection = true
+					collision_circle_list(x, y, range, testTower_obj, false, true, targetable, false)
+				}
+				if (special == "s commander") {
+					if (targeting == "Carpet Bombing") {
+						targeting = "Single Target"
+					}
+					else {
+						targeting = "Carpet Bombing"
+					}
+				}
+			}
 			// selling
 			if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040)) {
-				// gives 50% of money back, then closes the upgrade menu
-				global.money += floor(cost * 0.5)
+				// gives 60% of money back, then closes the upgrade menu
+				global.money += floor(cost * 0.6)
 				selected = false
 				global.upgradeMenu = false
 				
 				if (string_char_at(special, 0) == "s") {
 					with (testTower_obj) {
-						buffs = [1, 1, 1, false, 1]
+						buffs = [1, 1, 1, false, 1, 1, 1]
 						image_blend = c_white
 					}
 				}
 				
 				instance_destroy()
 			}
-			// booster targeting
-			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - 48, 576) and special == "s booster") {
-				targetingSelection = true
-				collision_circle_list(x, y, range, testTower_obj, false, true, targetable, false)
-			}
 		}
 	}
 	
 	if (array_length(drawPercents) > 0) {
 		for (var i = 0; i < array_length(drawPercents); i++) {
-			drawPercents[i] += 1 / lifetime
+			drawPercents[i] += 1 / (lifetime / global.fastForward)
 			
 			if (drawPercents[i] >= 1) {
 				array_delete(drawPercents, i, 1)

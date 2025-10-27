@@ -50,6 +50,7 @@
     {"id":{"name":"center_text","path":"scripts/center_text/center_text.yy",},},
     {"id":{"name":"max_array_but_specificaly_for_finding_paths_because_i_hate_my_life","path":"scripts/max_array_but_specificaly_for_finding_paths_because_i_hate_my_life/max_array_but_specificaly_for_finding_paths_because_i_hate_my_life.yy",},},
     {"id":{"name":"max_array","path":"scripts/max_array/max_array.yy",},},
+    {"id":{"name":"min_array_but_specificaly_for_finding_paths","path":"scripts/min_array_but_specificaly_for_finding_paths/min_array_but_specificaly_for_finding_paths.yy",},},
     {"id":{"name":"remove_undetectable","path":"scripts/remove_undetectable/remove_undetectable.yy",},},
     {"id":{"name":"reset_draw","path":"scripts/reset_draw/reset_draw.yy",},},
     {"id":{"name":"explosion_spr","path":"sprites/explosion_spr/explosion_spr.yy",},},

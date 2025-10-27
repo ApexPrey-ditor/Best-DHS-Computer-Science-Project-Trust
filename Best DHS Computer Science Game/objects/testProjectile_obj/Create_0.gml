@@ -9,12 +9,17 @@ direction += random_range(-spread, spread)
 alarmList = []
 prespeed = speed
 
-alarm[0] = ceil(lifetime / global.fastForward)
-
 // sets sprite to flame if flamethrower
 if special == "flame" {
 	sprite_index = fire_spr
 	image_xscale = 1
 	image_yscale = 1
 }
-
+if (type == 1) {
+	image_alpha = 0
+	alarm[0] = ceil((lifetime + effect[0]) / global.fastForward)
+	alarm[1] = effect[0]
+}
+else {
+	alarm[0] = ceil(lifetime / global.fastForward)
+}

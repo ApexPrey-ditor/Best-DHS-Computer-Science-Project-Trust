@@ -30,7 +30,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 4:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
-						{damage : 2, fireSpeed : 60, range : 200, detections : [false, true, false], aoe : 3, type : 3, lifetime : -1, projSpeed : 5, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						{damage : 2, fireSpeed : 60, range : 200, pierce : 10, detections : [false, true, false], aoe : 3, type : 3, lifetime : -1, projSpeed : 5, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 5:
@@ -68,9 +68,24 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						{damage : 0, fireSpeed : 0, range : 350, special : "s booster", effect : [1.25], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
+					case 12:
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
+						{damage : 50, fireSpeed : 600, range : 450, pierce : 10, aoe : 3, lifetime : 60, type : 1, projSpeed : 0, special : "s commander", effect : [1.15], detections : [true, true, false], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						placing = true
+						break;
+					case 13:
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
+						{damage : 10, fireSpeed : 12, range : 400, pierce : 1, lifetime : 12, type : 2, special : "s hacker", effect : [0.95], detections : [true, true, true], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						placing = true
+						break;
 					case 14:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
-						{damage : 5, fireSpeed : 12, range : 100, type : 2, pierce : 5, special : "rapper", effect : [250], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						{damage : 5, fireSpeed : 12, range : 100, pierce : 10, type : 2, special : "rapper", detections : [false, false, true], effect : [250], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						placing = true
+						break;
+					case 15:
+						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
+						{damage : 3, fireSpeed : 21, range : 250, special : "debt collector", effect : [100, 600, 1600], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 				}
@@ -106,4 +121,8 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 			}
 		}
 	}
+}
+
+if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
+	global.waveTransition = 1
 }

@@ -63,6 +63,18 @@ if (not global.upgradeMenu) {
 				case 11:
 					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Booster")
 					break;
+				case 12:
+					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Commander")
+					break;
+				case 13:
+					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Hacker")
+					break;
+				case 14:
+					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Rapper")
+					break;
+				case 15:
+					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Debt Collecter")
+					break;
 			}
 			// draws cost based on page, x, and y
 			draw_text(room_width - 272 + w * 160, 334 + i * 160, "$" + string(costs[page * 8 + i * 2 + w]))
@@ -110,3 +122,6 @@ if (not global.upgradeMenu) {
 	
 	reset_draw()
 }
+
+draw_set_color(c_black)
+draw_text(10, 30, global.paused)

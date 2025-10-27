@@ -22,7 +22,7 @@ else {
 				speed = 0
 				image_xscale = aoe
 				image_yscale = aoe
-				alarm[0] = 30
+				alarm[0] = 30 / global.fastForward
 				type = -1
 				// checks for all enemies in the explosion and causes damage and deaths
 				enemies = ds_list_create()
@@ -43,7 +43,7 @@ else {
 				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
 					ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
 					ds_list_find_value(enemies, i).burning = effect[0]
-					ds_list_find_value(enemies, i).alarm[0] = effect[1]
+					ds_list_find_value(enemies, i).alarm[0] = effect[1] / global.fastForward
 					ds_list_find_value(enemies, i).image_blend = c_orange
 					if (ds_list_find_value(enemies, i).hp <= 0) {
 						instance_destroy(ds_list_find_value(enemies, i))

@@ -1,7 +1,7 @@
 // iterates through all enemy spawns
 for (var i = 0; i < array_length(weights); i++) {
 	// adds "points" based on weights and distance form desired cost
-	values[i] += weights[i] * min(cost[i] / bias, bias / cost[i])
+	values[i] += weights[i] * min(restrictions[i] / global.wave + 1, global.wave / restrictions[i] + 1)
 	// disables enemy if unafordable or if restricted
 	if (cost[i] > points) {
 		values[i] = -infinity
@@ -23,7 +23,7 @@ values[enemySpawned] = 0
 
 // speeds up spawnrate if fast forward
 if (points > 0) {
-	alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias)) / global.fastForward), 1)
+	alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)), 1)
 }
 else {
 	endWave = true

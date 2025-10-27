@@ -1,6 +1,7 @@
 // reduces health and deletes enemy when reaching the end of path
 if (path_position == 1 and not deactivated) {
 	global.health -= ceil(hp)
+	skip = true
 	instance_destroy()
 }
 
