@@ -100,7 +100,13 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 	if (point_in_rectangle(mouse_x, mouse_y, room_width - 336, room_height - 96, room_width - 48, room_height - 16)) {
 		// starts wave
 		if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
-			global.waveTransition = 1
+			if (global.wave != global.stage * 2) {
+				global.waveTransition = 1
+			}
+			else {
+				global.stage += 1
+				room_restart()
+			}
 		}
 		// fast forward
 		else if (global.fastForward == 1) {
@@ -122,7 +128,8 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 		}
 	}
 }
-
+/*
 if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 	global.waveTransition = 1
 }
+*/

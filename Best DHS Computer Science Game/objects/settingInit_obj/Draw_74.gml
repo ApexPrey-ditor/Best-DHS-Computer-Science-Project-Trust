@@ -111,7 +111,12 @@ if (not global.upgradeMenu) {
 	
 	if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 		// if not in a wave
-		draw_text(room_width - 192, room_height - 48, "Start Wave")
+		if (global.wave != global.stage * 2) {
+			draw_text(room_width - 192, room_height - 48, "Start Wave")
+		}
+		else {
+			draw_text(room_width - 192, room_height - 48, "Next Stage")
+		}
 	}
 	else if (global.fastForward == 1) {
 		draw_text(room_width - 192, room_height - 48, "x1 Speed")
@@ -125,3 +130,4 @@ if (not global.upgradeMenu) {
 
 draw_set_color(c_black)
 draw_text(10, 30, global.paused)
+draw_text(10, 50, "Wave " + string(global.wave) + "/" + string(global.stage * 2))

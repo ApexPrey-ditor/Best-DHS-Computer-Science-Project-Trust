@@ -18,6 +18,8 @@ class = [false, false, false]
 image_index = type
 
 // sets stats based on enemy type
+var bossHealths = []
+var bossClass = []
 switch (type) {
 	case 0:
 		// Normal
@@ -174,6 +176,49 @@ switch (type) {
 		// Most Indubitably Greater In Quantity And Quality Of Evil And Deviousness Than "Not Quite As Evil Girl But Still Certainly Devious" Which Can Be Observed When Being Pitted Against One Another But Definitely Not Quite As Magnificently Malevolent Or Devious When Compared And Contrasted To "Evil Girl" Yet Despite This Comparison Still Containing And Representing A Great Amount Of Evil And/Or Deviousness Girl
 		hp = 5000
 		pathSpeed = 3
+		break;
+	case 28:
+		// Final Foss
+		hp = 25
+		pathSpeed = 2
+		break;
+	case 29:
+		// Negative Nancy
+		bossHealths = [67, 100, 167, 200]
+		hp = bossHealths[global.stage - 2]
+		pathSpeed = 2
+		break;
+	case 30:
+		// Ferocious Female
+		bossHealths = [175, 250, 275, 325, 359]
+		bossClass = [[false, false, false], [false, false, false], [true, false, false], [true, false, false], [false, false, true]]
+		hp = bossHealths[global.stage - 5]
+		class = bossClass[global.stage - 5]
+		pathSpeed = 5
+		break;
+	case 31:
+		// Destructive Damsel
+		bossHealths = [750, 1250, 2000, 3000, 4500]
+		hp = bossHealths[global.stage - 10]
+		class = [false, true, false]
+		pathSpeed = 2
+		break;
+	case 32:
+		// Malicious Madam
+		bossHealths = [5000, 6000, 7500]
+		bossClass = [[false, false, false], [true, false, false], [false, false, true]]
+		hp = bossHealths[global.stage - 15]
+		pathSpeed = 3
+		break;
+	case 33:
+		// Your Mom
+		hp = 20000
+		pathSpeed = 1
+		break;
+	case 34:
+		// Evil Girl
+		hp = 75000
+		pathSpeed = 1
 		break;
 }
 

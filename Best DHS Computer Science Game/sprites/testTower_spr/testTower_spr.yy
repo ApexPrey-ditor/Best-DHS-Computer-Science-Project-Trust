@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"testTower_spr",
   "bboxMode":0,
   "bbox_bottom":341,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"2b611c1c-660c-4cfa-9a0c-cf9f4e90369a","name":"2b611c1c-660c-4cfa-9a0c-cf9f4e90369a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"2b611c1c-660c-4cfa-9a0c-cf9f4e90369a","name":"2b611c1c-660c-4cfa-9a0c-cf9f4e90369a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

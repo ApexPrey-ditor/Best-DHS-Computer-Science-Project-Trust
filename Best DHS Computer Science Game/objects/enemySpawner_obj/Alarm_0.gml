@@ -26,5 +26,10 @@ if (points > 0) {
 	alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)), 1)
 }
 else {
-	endWave = true
+	if (global.wave == global.stage * 2) {
+		alarm[1] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)), 1)
+	}
+	else {
+		endWave = true
+	}
 }
