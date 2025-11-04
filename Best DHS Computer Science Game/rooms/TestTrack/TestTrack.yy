@@ -55,7 +55,7 @@
   "name":"testTrack",
   "parent":{
     "name":"Rooms",
-    "path":"folders/Sequences/Rooms.yy",
+    "path":"folders/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

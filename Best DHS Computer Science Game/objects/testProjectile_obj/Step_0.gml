@@ -41,12 +41,15 @@ else {
 			else if (special == "flame") {
 				// checks for enemies hit by flamethrower
 				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
-					ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
-					ds_list_find_value(enemies, i).burning = effect[0]
-					ds_list_find_value(enemies, i).alarm[0] = effect[1] / global.fastForward
-					ds_list_find_value(enemies, i).image_blend = c_orange
-					if (ds_list_find_value(enemies, i).hp <= 0) {
-						instance_destroy(ds_list_find_value(enemies, i))
+					if (not array_contains(hit, ds_list_find_value(enemies, i))) {
+						ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
+						array_push(hit, ds_list_find_value(enemies, i))
+						ds_list_find_value(enemies, i).burning = effect[0]
+						ds_list_find_value(enemies, i).alarm[0] = effect[1] / global.fastForward
+						ds_list_find_value(enemies, i).image_blend = c_orange
+						if (ds_list_find_value(enemies, i).hp <= 0) {
+							instance_destroy(ds_list_find_value(enemies, i))
+						}
 					}
 				}
 				pierce -= ds_list_size(enemies)
@@ -57,12 +60,20 @@ else {
 			else {
 				// hit as many enemies as can, if more enemies than pierce delete projectile
 				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
-					ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
-					if (ds_list_find_value(enemies, i).hp <= 0) {
-						instance_destroy(ds_list_find_value(enemies, i))
+					if (not array_contains(hit, ds_list_find_value(enemies, i))) {
+						ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
+						array_push(hit, ds_list_find_value(enemies, i))
+						if (ds_list_find_value(enemies, i).hp <= 0) {
+							if (special == "debt collector") {
+								creator.kills += 1
+								ds_list_find_value(enemies, i).cash = floor(effect[4] * ds_list_find_value(enemies, i).cash)
+							}
+							instance_destroy(ds_list_find_value(enemies, i))
+						}
+						
+						pierce -= 1
 					}
 				}
-				pierce -= ds_list_size(enemies)
 				if pierce <= 0 {
 					instance_destroy()
 				}

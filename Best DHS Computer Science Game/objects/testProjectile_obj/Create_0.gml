@@ -9,6 +9,9 @@ direction += random_range(-spread, spread)
 alarmList = []
 prespeed = speed
 
+// for pierce not multihitting
+hit = []
+
 // sets sprite to flame if flamethrower
 if special == "flame" {
 	sprite_index = fire_spr

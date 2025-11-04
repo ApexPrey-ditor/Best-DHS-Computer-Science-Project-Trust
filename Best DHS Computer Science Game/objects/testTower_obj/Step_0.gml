@@ -1,5 +1,16 @@
 if (not global.paused) {
 	if (not placing) {
+		if (array_length(drawPercents) > 0) {
+			for (var i = 0; i < array_length(drawPercents); i++) {
+				drawPercents[i] += 1 / (lifetime / global.fastForward)
+			
+				if (drawPercents[i] > 1) {
+					array_delete(drawPercents, i, 1)
+					array_delete(finalPositions, i, 1)
+				}
+			}
+		}
+		
 		if (mouse_check_button_pressed(mb_left)) {
 			if (targetingSelection) {
 				var target = instance_position(mouse_x, mouse_y, tag_get_asset_ids("Tower", asset_object))
@@ -142,16 +153,11 @@ if (not global.paused) {
 						if (type == 0) {
 							for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
 								// iterates through the amount of enemies tower is allowed to hit
-								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1])
+								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4])
 								if ds_list_find_value(targets, i).hp <= 0 {
 									// dead enemies are set to ghosts
 									ds_list_find_value(targets, i).deactivated = true
 									ds_list_find_value(targets, i).alarm[11] = ceil(lifetime / global.fastForward)
-									
-									// increase debt collector kill count by 1
-									if (special == "debt collector") {
-										kills += 1
-									}
 								}
 							
 								if i == pierce - 1 {
@@ -167,7 +173,7 @@ if (not global.paused) {
 						else if (type < 3) {
 							for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
 								// iterates through the amount of enemies tower is allowed to hit
-								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1])
+								ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4])
 								if ds_list_find_value(targets, i).hp <= 0 {
 									// kill dead enemies
 									instance_destroy(ds_list_find_value(targets, i))
@@ -179,23 +185,40 @@ if (not global.paused) {
 						}
 						if (type == 3) {
 							var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
-					
-							instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage * buffs[1],
-																							speed : projSpeed,
-																							aoe : aoe,
-																							special : special,
-																							spread : spread,
-																							effect : effect,
-																							pierce : pierce,
-																							lifetime : lifetime,
-																							detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
-																							direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+							
+							if (special == "debt collector") {
+								repeat(effect[3]) {
+									instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage * buffs[1] * buffs[4],
+																								speed : projSpeed,
+																								aoe : aoe,
+																								special : special,
+																								spread : spread,
+																								effect : effect,
+																								pierce : pierce,
+																								lifetime : (range * buffs[2]) / projSpeed,
+																								detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
+																								creator : id,
+																								direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+								}
+							}
+							else {
+								instance_create_layer(x, y, "Projectiles", testProjectile_obj, {damage : damage * buffs[1] * buffs[4],
+																								speed : projSpeed,
+																								aoe : aoe,
+																								special : special,
+																								spread : spread,
+																								effect : effect,
+																								pierce : pierce,
+																								lifetime : lifetime,
+																								detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
+																								direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+							}
 						}
 						
 						// system for fractions of frames (ask turtle)
 						firing = true
-						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward)
-						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
+						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / global.fastForward)
+						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - floor(attackRemainder)
 						if attackRemainder > 1 {
 							attackRemainder -= 1
 						}
@@ -285,7 +308,7 @@ if (not global.paused) {
 						var increment = (maxTarget.path_position + (lifetime * maxTarget.pathSpeed / path_get_length(maxTarget.path_index)) - realMinPos) / 5
 					
 						for (var i = 0; i < 6; i++) {
-							instance_create_layer(path_get_x(minTarget.path_index, realMinPos + i * increment), path_get_y(minTarget.path_index, realMinPos + i * increment), "Projectiles", testProjectile_obj, {damage : damage * buffs[1],
+							instance_create_layer(path_get_x(minTarget.path_index, realMinPos + i * increment), path_get_y(minTarget.path_index, realMinPos + i * increment), "Projectiles", testProjectile_obj, {damage : damage * buffs[1] * buffs[4],
 																								speed : projSpeed,
 																								effect : [(5 - i) * lifetime / 6 + 1],
 																								aoe : aoe,
@@ -297,8 +320,8 @@ if (not global.paused) {
 						}
 					
 						firing = true
-						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) 
-						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
+						attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / global.fastForward) 
+						alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - floor(attackRemainder)
 						if attackRemainder > 1 {
 							attackRemainder -= 1
 						}
@@ -332,6 +355,8 @@ if (not global.paused) {
 						}
 
 						if (ds_list_size(options) > 0) {
+							follows = []
+							
 							// initializes variables needed for targeting
 							var chosen = 0
 							var currentScore = 0
@@ -359,20 +384,51 @@ if (not global.paused) {
 									chosen = i
 								}
 							}
+							
+							array_push(follows, ds_list_find_value(options, chosen))
+							
+							chosen = 0
+							currentScore = 0
+							highscore = 0
+				
+							// conditions is an array of functions that are used to generate targeting score
+							// iterates through every targeting function and adds the output to highscore
+							// this gives the first value the starting highscore
+							for (var i = 0; i < array_length(conditions2); i++) {
+								highscore += conditions2[i](options, ds_list_size(options) - 1, chosen, i)
+							}
+				
+							// iterates through every enemy in range
+							for (var i = 0; i < ds_list_size(options); i++) {
+								// adds the score of the targeting functions to currentScore
+								currentScore = 0
+								for (var w = 0; w < array_length(conditions2); w++) {
+									currentScore += conditions2[w](options, chosen, i, w)
+								}
+					
+								// if beats highscore then this becomes the new target
+								if (currentScore >= highscore) {
+									//show_debug_message(string())
+									highscore = currentScore
+									chosen = i
+								}
+							}
 				
 							// gets instance id of the "winner" (they are going to die)
-							follow = ds_list_find_value(options, chosen)
+							array_push(follows, ds_list_find_value(options, chosen))
 							
-							follow.hp -= calculate_type_damage(follow, [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1])
-							if follow.hp <= 0 {
-								// dead enemies are set to ghosts
-								follow.deactivated = true
-								follow.alarm[11] = ceil(3 / global.fastForward)
+							for (var i = 0; i < array_length(follows); i++) {
+								follows[i].hp -= calculate_type_damage(follows[i], [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4])
+								if follows[i].hp <= 0 {
+									// dead enemies are set to ghosts
+									follows[i].deactivated = true
+									follows[i].alarm[11] = ceil(3 / global.fastForward)
+								}
 							}
 							
 							firing = true
-							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) 
-							alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
+							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / global.fastForward) 
+							alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - floor(attackRemainder)
 							if attackRemainder > 1 {
 								attackRemainder -= 1
 							}
@@ -389,7 +445,7 @@ if (not global.paused) {
 				collision_line_list(0, y, room_width, y, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 				
 				for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
-					ds_list_find_value(targets, i).hp -= damage * buffs[1]
+					ds_list_find_value(targets, i).hp -= damage * buffs[1] * buffs[4]
 					if ds_list_find_value(targets, i).hp <= 0 {
 						// kill dead enemies
 						instance_destroy(ds_list_find_value(targets, i))
@@ -397,8 +453,8 @@ if (not global.paused) {
 				}
 				
 				firing = true
-				attackRemainder += ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - ( fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) 
-				alarm[0] = ceil(fireSpeed / buffs[0] / buffs[4] / buffs[5] / global.fastForward) - floor(attackRemainder)
+				attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / global.fastForward) 
+				alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / global.fastForward) - floor(attackRemainder)
 				if attackRemainder > 1 {
 					attackRemainder -= 1
 				}
@@ -411,28 +467,37 @@ if (not global.paused) {
 	}
 	
 	// debt collector leveling up
-	if (special == "debt collector" and level < 3) {
+	if (special == "debt collector" and level < 4) {
 		if (kills >= effect[level - 1]) {
 			level += 1
 			
 			switch (level) {
 				case 2:
-					damage = 10
-					fireSpeed = 18
+					damage = 5
+					pierce = 2
+					fireSpeed = 45
 					range = 300
 					detections = [true, false, false]
+					effect[3] = 4
+					effect[4] = 1.25
 					break;
 				case 3:
-					damage = 20
-					fireSpeed = 12
+					damage = 10
+					fireSpeed = 36
 					range = 450
+					pierce = 3
 					detections = [true, true, false]
+					effect[3] = 6
+					effect[4] = 1.5
 					break;
 				case 4:
-					damage = 40
-					fireSpeed = 6
+					damage = 20
+					fireSpeed = 27
 					range = 650
+					pierce = 4
 					detections = [true, true, true]
+					effect[3] = 8
+					effect[4] = 2
 					break;
 			}
 		}
@@ -442,7 +507,7 @@ if (not global.paused) {
 	if (selected) {
 		if (mouse_check_button_pressed(mb_left)) {
 			// switching targeting
-			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - (208 - (string_length(targeting) - 4) * 32), 480) and (special != "s booster" and special != "s commander")) {
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - (208 - (string_length(targeting) - 4) * 32), 480) and (special != "s booster" and special != "s commander" and special != "s hacker")) {
 				// gets index of the targeting function in conditions
 				var place = array_get_index(conditions, targetingTranslations[array_get_index(targetingTypes, targeting)])
 				// increases targeting type by 1
@@ -455,6 +520,35 @@ if (not global.paused) {
 				
 				// replaces targeting function with new targeting function
 				conditions[place] = targetingTranslations[array_get_index(targetingTypes, targeting)]
+			}
+			// hacker targeting
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - (208 - (string_length(targeting) - 8) * 16), 436) and special == "s hacker") {
+				// gets index of the targeting function in conditions
+				var place = array_get_index(conditions, targetingTranslations[array_get_index(targetingTypes, targeting)])
+				// increases targeting type by 1
+				if (array_get_index(targetingTypes, targeting) > array_length(targetingTypes) - 2) {
+					targeting = targetingTypes[0]
+				}
+				else {
+					targeting = targetingTypes[array_get_index(targetingTypes, targeting) + 1]
+				}
+				
+				// replaces targeting function with new targeting function
+				conditions[place] = targetingTranslations[array_get_index(targetingTypes, targeting)]
+			}
+			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 444, room_width - (208 - (string_length(targeting2) - 8) * 16), 480) and special == "s hacker") {
+				// gets index of the targeting function in conditions
+				var place = array_get_index(conditions2, targetingTranslations[array_get_index(targetingTypes, targeting2)])
+				// increases targeting type by 1
+				if (array_get_index(targetingTypes, targeting2) > array_length(targetingTypes) - 2) {
+					targeting2 = targetingTypes[0]
+				}
+				else {
+					targeting2 = targetingTypes[array_get_index(targetingTypes, targeting2) + 1]
+				}
+				
+				// replaces targeting function with new targeting function
+				conditions2[place] = targetingTranslations[array_get_index(targetingTypes, targeting2)]
 			}
 			// booster and commander targeting
 			if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - 48, 576)) {
@@ -486,17 +580,6 @@ if (not global.paused) {
 				}
 				
 				instance_destroy()
-			}
-		}
-	}
-	
-	if (array_length(drawPercents) > 0) {
-		for (var i = 0; i < array_length(drawPercents); i++) {
-			drawPercents[i] += 1 / (lifetime / global.fastForward)
-			
-			if (drawPercents[i] >= 1) {
-				array_delete(drawPercents, i, 1)
-				array_delete(finalPositions, i, 1)
 			}
 		}
 	}

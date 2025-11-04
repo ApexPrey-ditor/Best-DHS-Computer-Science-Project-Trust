@@ -14,11 +14,13 @@ else {
 	targeting = "First"
 }
 specialTargeting = "None"
+targeting2 = "First"
+specialTargeting2 = "None"
 particles = []
 finalPositions = []
 drawPercents = []
 targetable = ds_list_create()
-follow = noone
+follows = []
 level = 1
 kills = 0
 
@@ -100,11 +102,12 @@ targetingTranslations = [firstTargeting, lastTargeting, strongTargeting, weakTar
 
 // for targeting type conditions
 conditions = []
+conditions2 = [firstTargeting]
 
 // alarm storage for pausing and fast forward
 alarmList = []
 
-// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster firerate, commander firerate, hacker discount)
+// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster damage, commander firerate, hacker discount)
 buffs = [1, 1, 1, false, 1, 1, 1]
 // what tower is being buffed (for booster)
 buffing = noone

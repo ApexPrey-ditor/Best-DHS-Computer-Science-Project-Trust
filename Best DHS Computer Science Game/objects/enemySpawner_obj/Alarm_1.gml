@@ -2,28 +2,26 @@
 enemies += 1
 
 // summons boss based on stage
-switch (global.stage) {
-	case 1:
-		currentBoss = 28
-		break;
-	case 2:
-		currentBoss = 29
-		break;
-	case 6:
-		currentBoss = 30
-		break;
-	case 11:
-		currentBoss = 31
-		break;
-	case 16:
-		currentBoss = 32
-		break;
-	case 19:
-		currentBoss = 33
-		break;
-	case 20:
-		currentBoss = 34;
-		break;
+if (global.stage == 1) {
+	instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : 28})
 }
-instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : currentBoss})
+else if (global.stage < 6) {
+	instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : 29})
+}
+else if (global.stage < 11) {
+	instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : 30})
+}
+else if (global.stage < 16) {
+	instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : 31})
+}
+else if (global.stage < 19) {
+	instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : 32})
+}
+if (global.stage == 19) {
+	instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : 33})
+}
+if (global.stage == 20) {
+	instance_create_layer(0, 0, "Enemies", testEnemy_obj, {type : 34})
+}
+
 endWave = true

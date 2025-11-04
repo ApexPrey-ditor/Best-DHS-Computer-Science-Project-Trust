@@ -36,6 +36,47 @@ if selected {
 		draw_set_font(jack)
 		draw_text_transformed(room_width - 208, 488, targeting, 1.5, 1.5, 0)
 	}
+	else if (special = "s hacker") {
+		// trageting button background
+		draw_set_color(make_colour_rgb(40, 41, 48))
+		draw_rectangle(room_width - 372, 396, room_width - 44, 484, false)
+	
+		// targeting button
+		draw_set_color(c_white)
+		draw_button(room_width - 368, 400, room_width - (208 - (string_length(targeting) - 8) * 16), 436, true)
+		draw_set_color(c_black)
+		draw_set_halign(fa_left)
+		draw_set_font(jack)
+		draw_text(room_width - 348, 420, targeting)
+		
+		// targeting button 2
+		draw_set_color(c_white)
+		draw_button(room_width - 368, 444, room_width - (208 - (string_length(targeting2) - 8) * 16), 480, true)
+		draw_set_color(c_black)
+		draw_set_halign(fa_left)
+		draw_set_font(jack)
+		draw_text(room_width - 348, 464, targeting2)
+	
+		// special targeting button background
+		draw_set_color(make_colour_rgb(40, 41, 48))
+		draw_rectangle(room_width - 372, 492, room_width - 44, 580, false)
+	
+		// special targeting button
+		draw_set_color(c_white)
+		draw_button(room_width - (160 + (string_length(specialTargeting) - 8) * 8), 496, room_width - 48, 532, true)
+		draw_set_color(c_black)
+		draw_set_font(jack)
+		draw_set_halign(fa_right)
+		draw_text_transformed(room_width - 58, 516, specialTargeting, 1, 1, 0)
+		
+		// special targeting button 2
+		draw_set_color(c_white)
+		draw_button(room_width - (160 + (string_length(specialTargeting2) - 8) * 8), 540, room_width - 48, 576, true)
+		draw_set_color(c_black)
+		draw_set_font(jack)
+		draw_set_halign(fa_right)
+		draw_text_transformed(room_width - 58, 560, specialTargeting2, 1, 1, 0)
+	}
 	else {
 		// trageting button background
 		draw_set_color(make_colour_rgb(40, 41, 48))

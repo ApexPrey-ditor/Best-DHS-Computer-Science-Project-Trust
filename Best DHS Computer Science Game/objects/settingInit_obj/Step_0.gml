@@ -75,7 +75,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 13:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
-						{damage : 10, fireSpeed : 12, range : 400, pierce : 1, lifetime : 12, type : 2, special : "s hacker", effect : [0.95], detections : [true, true, true], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						{damage : 5, fireSpeed : 12, range : 400, pierce : 1, lifetime : 12, type : 2, special : "s hacker", effect : [0.95], detections : [true, true, true], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 14:
@@ -85,7 +85,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 15:
 						instance_create_layer(mouse_x, mouse_y, "Towers", testTower_obj,
-						{damage : 3, fireSpeed : 21, range : 250, special : "debt collector", effect : [100, 600, 1600], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						{damage : 3, fireSpeed : 60, range : 250, type : 3, spread : 15, projSpeed : 10, special : "debt collector", effect : [1, 35, 110, 2, 1], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 				}
@@ -105,7 +105,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 			}
 			else {
 				global.stage += 1
-				room_restart()
+				//room_restart()
 			}
 		}
 		// fast forward
@@ -133,3 +133,20 @@ if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 	global.waveTransition = 1
 }
 */
+
+if (room == radarRoom) {
+	radarDir -= 1
+
+	nextBlip[1] -= 0.5
+	prevBlip[1] += 0.5
+	
+	if (360 + (radarDir % 360) == nextBlip[0]) {
+		nextBlip[2] = 1
+	}
+	if (360 + (radarDir % 360) == prevBlip[0]) {
+		prevBlip[2] = 1
+	}
+	
+	nextBlip[2] -= 1 / 90
+	prevBlip[2] -= 1 / 90
+}
