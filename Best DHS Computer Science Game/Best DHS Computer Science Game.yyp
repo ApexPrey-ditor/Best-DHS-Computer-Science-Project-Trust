@@ -74,8 +74,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"testTrack","path":"rooms/testTrack/testTrack.yy",},},
     {"roomId":{"name":"radarRoom","path":"rooms/radarRoom/radarRoom.yy",},},
+    {"roomId":{"name":"testTrack","path":"rooms/testTrack/testTrack.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

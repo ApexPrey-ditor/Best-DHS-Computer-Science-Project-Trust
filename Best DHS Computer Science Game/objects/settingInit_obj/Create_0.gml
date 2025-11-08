@@ -27,13 +27,16 @@ part_type_alpha1(flameType, 1)
 global.health = 100
 global.wave = 0
 global.money = 300
-global.stage = 20
+global.stage = 2
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower
 global.upgradeMenu = false
 global.fastForward = 1
 global.paused = false
+// for upgrades (dear god)
+global.upgrades = [[{display : "peepoo"}], [{display : "hee"}, {display : "hee"}, {display : "haa"}], [], [], [], [], [], [], [{display : "skibidi"}, {display : "rizz"}], [], [], [], [], [], [], []]
+
 // if placing tower
 placing = false
 
@@ -47,7 +50,8 @@ costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000,
 // variables for making the radar work
 radarDir = 0
 prevBlip = [210, 0, 0]
-nextBlip = [30, 496, 0]
+//nextBlip = [30, 496, 0]
+nextBlip = [30, 10, 0]
 selection = false
 
 // fullscreens
