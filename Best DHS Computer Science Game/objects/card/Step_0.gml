@@ -1,14 +1,35 @@
-if (selecting) {
+if (dissapate) {
+	x -= (x + 256) / 20 + 0.1
+	image_xscale -= (image_xscale - 12) / 7
+	image_yscale -= (image_xscale - 12) / 7
+	
+	if (floor(x) == -256) {
+		instance_destroy()
+	}
+}
+else if (selecting) {
 	if mouse_check_button_pressed(mb_left) {
 		for (var i = 0; i < sprite_get_number(towerIcons_spr); i++) {
 			if (i < 8) {
 				if (point_in_rectangle(mouse_x, mouse_y, 32 + i * 242, 32, 192 + i * 242, 192) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
 					array_push(global.upgrades[i], stats)
+					selecting = false
+					global.upgradeMenu = false
+					
+					with (card) {
+						dissapate = true	
+					}
 				}
 			}
 			else {
 				if (point_in_rectangle(mouse_x, mouse_y, 32 + (i - 8) * 242, room_height - 192, 192 + (i - 8) * 242, room_height - 32) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
 					array_push(global.upgrades[i], stats)
+					selecting = false
+					global.upgradeMenu = false
+					
+					with (card) {
+						dissapate = true	
+					}
 				}
 			}
 		}
