@@ -44,8 +44,8 @@ else {
 					if (not array_contains(hit, ds_list_find_value(enemies, i))) {
 						ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
 						array_push(hit, ds_list_find_value(enemies, i))
-						ds_list_find_value(enemies, i).burning = effect[0]
-						ds_list_find_value(enemies, i).alarm[0] = effect[1] / global.fastForward
+						ds_list_find_value(enemies, i).burning = calculate_type_damage(ds_list_find_value(enemies, i), detections, effect[0])
+						ds_list_find_value(enemies, i).alarm[0] = ceil(effect[1] / global.fastForward)
 						ds_list_find_value(enemies, i).image_blend = c_orange
 						if (ds_list_find_value(enemies, i).hp <= 0) {
 							instance_destroy(ds_list_find_value(enemies, i))
@@ -81,3 +81,5 @@ else {
 		}
 	}
 }
+
+depth = -y

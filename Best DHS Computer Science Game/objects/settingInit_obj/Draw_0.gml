@@ -38,12 +38,22 @@ if (room == radarRoom) {
 	if (prevBlip[2] > 0) {
 		draw_set_alpha(prevBlip[2])
 		draw_circle(room_width / 2 + dcos(prevBlip[0]) * prevBlip[1], room_height / 2 + -dsin(prevBlip[0]) * prevBlip[1], 12, false)
-		draw_text(room_width / 2 + dcos(prevBlip[0]) * prevBlip[1], room_height / 2 + -dsin(prevBlip[0]) * prevBlip[1] - 24, "Stage " + string(global.stage - 1))
+		if (selection == 2) {
+			draw_text(room_width / 2 + dcos(prevBlip[0]) * prevBlip[1], room_height / 2 + -dsin(prevBlip[0]) * prevBlip[1] - 24, "Intermission " + string(global.stage - 1))
+		}
+		else {
+			draw_text(room_width / 2 + dcos(prevBlip[0]) * prevBlip[1], room_height / 2 + -dsin(prevBlip[0]) * prevBlip[1] - 24, "Stage " + string(global.stage - 1))
+		}
 	}
 	if (nextBlip[2] > 0) {
 		draw_set_alpha(nextBlip[2])
 		draw_circle(room_width / 2 + dcos(nextBlip[0]) * nextBlip[1], room_height / 2 + -dsin(nextBlip[0]) * nextBlip[1], 12, false)
-		draw_text(room_width / 2 + dcos(nextBlip[0]) * nextBlip[1], room_height / 2 + -dsin(nextBlip[0]) * nextBlip[1] - 24, "Intermission " + string(global.stage - 1))
+		if (selection == 2) {
+			draw_text(room_width / 2 + dcos(nextBlip[0]) * nextBlip[1], room_height / 2 + -dsin(nextBlip[0]) * nextBlip[1] - 24, "Stage " + string(global.stage))
+		}
+		else {
+			draw_text(room_width / 2 + dcos(nextBlip[0]) * nextBlip[1], room_height / 2 + -dsin(nextBlip[0]) * nextBlip[1] - 24, "Intermission " + string(global.stage - 1))
+		}
 	}
 	
 	reset_draw()

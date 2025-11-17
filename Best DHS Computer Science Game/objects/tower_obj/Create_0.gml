@@ -94,26 +94,43 @@ function fireTargeting(array, initial, check, priority) {
 		return -power(1/2, priority)
 	}
 }
+function noneTargeting(array, initial, check, priority) {
+	return 0
+}
 
 // lists for general storage (making my life easier)
 towerNames = ["Gunner", "Sniper", "Railgunner", "Evaporator", "Boomer", "Flamer", "Puncher", "Laser", "Cheerleader", "Moneymaker", "Spotter", "Booster", "Commander", "Hacker", "Rapper", "Debt Collecter"]
+
 targetingTypes = ["First", "Last", "Strong", "Weak", "Farthest", "Closest"]
 targetingTranslations = [firstTargeting, lastTargeting, strongTargeting, weakTargeting, farTargeting, closeTargeting]
 
+specialTypes = ["None", "Non-burning"]
+specialTranslations = [noneTargeting, fireTargeting]
+
 // for targeting type conditions
 conditions = []
-conditions2 = [firstTargeting]
+conditions2 = [firstTargeting, noneTargeting]
 
 // alarm storage for pausing and fast forward
 alarmList = []
 
 // for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster damage, commander firerate, hacker discount)
-buffs = [1, 1, 1, false, 1, 1, 1]
+buffs = [1, 1, 1, false, 1, 1, 0]
+// for upgrades (damage, firerate, range, effect)
+multis = [1, 1, 1, 1]
+// Upgrade Costs
+costs = [[75, 125, 200, 550], [125, 200, 325, 850], [500, 825, 1300, 4800], [1750, 2750, 4500, 14000], [100, 150, 275, 650], [275, 450, 725, 1500], [500, 825, 1325, 4250], [2500, 4150, 6500, 18000], [425, 700, 1125, 200], [350, 575, 925, 1800], [1750, 2850, 4500, 10000], [2000, 3250, 5350, 10000], [2000, 3250, 5250, 15000], [1875, 3125, 5000, 8000], [1750, 2900, 4650, 1000]]
+// upgrade effectiveness
+effectiveness = [0.5, 1, 2]
 // what tower is being buffed (for booster)
 buffing = noone
 
 if (special == "flame") {
+	specialTargeting = "Non-burning"
 	array_push(conditions, fireTargeting)
+}
+else {
+	array_push(conditions, noneTargeting)
 }
 
 array_push(conditions, firstTargeting)

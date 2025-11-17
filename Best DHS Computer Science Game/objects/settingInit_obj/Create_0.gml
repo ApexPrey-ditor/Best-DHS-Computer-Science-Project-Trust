@@ -25,9 +25,9 @@ part_type_alpha1(flameType, 1)
 
 // initializes global variables
 global.health = 100
-global.wave = 0
+global.wave = 1
 global.money = 300
-global.stage = 2
+global.stage = 1
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower
@@ -35,7 +35,55 @@ global.upgradeMenu = false
 global.fastForward = 1
 global.paused = false
 // for upgrades (dear god)
-global.upgrades = [[{display : "peepoo"}], [{display : "hee"}, {display : "hee"}, {display : "haa"}], [], [], [], [], [], [], [{display : "skibidi"}, {display : "rizz"}], [], [], [], [], [], [], []]
+global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+global.modifiers = []
+
+// detection giving cards
+global.oneTimesKey = [3, 4, 6, 10]
+global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
+						[0, 1, 2, 3, 6, 14],
+						[0, 1, 2, 4, 5, 6, 12],
+						[0, 1, 2, 3]]
+
+global.upgradePool = []
+// Not Ferdigalocious
+repeat (6) {
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 11) // Thicc Bullets
+}
+// Not Good
+repeat (5) {	
+}
+// Not Okay
+repeat (4) {
+	array_push(global.upgradePool, 0) // Weapons Funding
+	array_push(global.upgradePool, 1) // +Ammunition
+	array_push(global.upgradePool, 2) // Larger Lenses
+	array_push(global.upgradePool, 3) // Personal Spotter
+	array_push(global.upgradePool, 4) // Piercing Rounds
+	array_push(global.upgradePool, 5) // Hype
+}
+// Not Bad
+repeat (3) {	
+	array_push(global.upgradePool, 6) // Scitzo
+	array_push(global.upgradePool, 7) // Lose Yourself
+	array_push(global.upgradePool, 8) // gdrrrrrrrrrrr brrrrrrrrrrat brrrrrrrrrat brrrrrrrrrrrrrrrrrrrrrrrrrrr wrrrrrrrrrrrrrrrrriririirir
+	array_push(global.upgradePool, 9) // Triangle Bullet
+	array_push(global.upgradePool, 10) // HELP IT BURNS
+	array_push(global.upgradePool, 11) // Thicc Bullets
+}
+// Not Horrible
+repeat (2) {	
+}
+//Not Morbinacious
 
 // if placing tower
 placing = false
@@ -50,9 +98,8 @@ costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000,
 // variables for making the radar work
 radarDir = 0
 prevBlip = [210, 0, 0]
-//nextBlip = [30, 496, 0]
-nextBlip = [30, 10, 0]
-selection = false
+nextBlip = [30, 496, 0]
+selection = 0
 
 // fullscreens
 window_set_fullscreen(true)

@@ -9,7 +9,7 @@ if (path_position == 1 and not deactivated) {
 hp -= burning * global.fastForward
 
 // increases speed if the fast forward is activated
-path_speed = pathSpeed * global.fastForward
+path_speed = pathSpeed * global.fastForward * speedMulti
 
 // destroys the enemy instance when its health goes below 0
 if (hp <= 0 and not deactivated) {
@@ -20,3 +20,5 @@ if (hp <= 0 and not deactivated) {
 if (global.paused) {
 	path_speed = 0
 }
+
+depth = -y

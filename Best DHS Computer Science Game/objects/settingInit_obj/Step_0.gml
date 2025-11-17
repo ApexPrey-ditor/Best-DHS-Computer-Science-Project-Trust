@@ -9,82 +9,82 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 				switch (page * 8 + i * 2 + w) {
 					// makes a tower based on what button you clicked
 					case 0:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{cost : costs[page * 8 + i * 2 + w]})
 						placing = true
 						break;
 					case 1:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 7, fireSpeed : 90, range : 500, detections : [true, false, false], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w, sprite_index : sniper_spr})
 						placing = true
 						break;
 					case 2:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 75, fireSpeed : 300, range : 550, detections : [true, false, false], type : 1, pierce : 20, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 3:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 1000, fireSpeed : 600, range : 400, detections : [false, false, true], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 4:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 2, fireSpeed : 60, range : 200, pierce : 10, detections : [false, true, false], aoe : 3, type : 3, lifetime : -1, projSpeed : 5, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 5:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 0.5, fireSpeed : 30, range : 150, detections : [false, true, false], spread : 10, type : 3, projSpeed : 5, lifetime : 60, special : "flame", effect : [1/20, 200], type : 3, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 6:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 5, fireSpeed : 30, range : 100, type : 2, pierce : 5, cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 7:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 3, fireSpeed : 12, range : 50, pierce : 100, special : "laser", cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 8:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 0, fireSpeed : 0, range : 300, special : "s firerate", effect : [1.1], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 9:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
-						{damage : 100, fireSpeed : 0, range : 50, special : "money", cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
+						{damage : 0, fireSpeed : 0, range : 50, effect: [100], special : "money", cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 10:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 0, fireSpeed : 0, range : 400, detections : [true, false, false], special : "s spotter", effect : [1.1, 1.15], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 11:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
-						{damage : 0, fireSpeed : 0, range : 350, special : "s booster", effect : [1.25], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
+						{damage : 0, fireSpeed : 0, range : 350, special : "s booster", effect : [1.4], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 12:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 50, fireSpeed : 600, range : 450, pierce : 10, aoe : 3, lifetime : 60, type : 1, projSpeed : 0, special : "s commander", effect : [1.15], detections : [true, true, false], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 13:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
-						{damage : 5, fireSpeed : 12, range : 400, pierce : 1, lifetime : 12, type : 2, special : "s hacker", effect : [0.95], detections : [true, true, true], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
+						{damage : 5, fireSpeed : 12, range : 400, pierce : 1, lifetime : 12, type : 2, special : "s hacker", effect : [0.05], detections : [true, true, true], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 14:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 5, fireSpeed : 12, range : 100, pierce : 10, type : 2, special : "rapper", detections : [false, false, true], effect : [250], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 15:
-						instance_create_layer(mouse_x, mouse_y, "Towers", tower_obj,
+						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
 						{damage : 3, fireSpeed : 60, range : 250, type : 3, spread : 15, projSpeed : 10, special : "debt collector", effect : [100, 350, 1100, 2, 1], cost : costs[page * 8 + i * 2 + w], towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
@@ -100,7 +100,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 	if (point_in_rectangle(mouse_x, mouse_y, room_width - 336, room_height - 96, room_width - 48, room_height - 16)) {
 		// starts wave
 		if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
-			if (global.wave != global.stage * 2) {
+			if (global.wave - 1 != global.stage * 2) {
 				global.waveTransition = 1
 			}
 			else {
@@ -129,11 +129,11 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 	}
 }
 
-if (room == radarRoom and not selection) {
+if (room == radarRoom and selection != 1) {
 	radarDir -= 2
 
-	nextBlip[1] -= 0.5
-	prevBlip[1] += 0.5
+	nextBlip[1] -= 1
+	prevBlip[1] += 1
 	
 	if (360 + (radarDir % 360) == nextBlip[0]) {
 		nextBlip[2] = 1
@@ -146,8 +146,13 @@ if (room == radarRoom and not selection) {
 	prevBlip[2] -= 1 / 90
 	
 	if (nextBlip[1] <= 0) {
-		selection = true
-		instance_create_layer(960, 1440, "Folder", folder)
+		if (selection == 0) {
+			selection = 1
+			instance_create_layer(960, 1440, "Folder", folder)
+		}
+		else {
+			room_goto(testTrack)
+		}
 	}
 }
 

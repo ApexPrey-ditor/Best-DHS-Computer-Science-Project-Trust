@@ -1,11 +1,11 @@
 {
   "$GMSprite":"v2",
   "%Name":"sniper_spr",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":399,
   "bbox_left":5,
   "bbox_right":299,
-  "bbox_top":1,
+  "bbox_top":200,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,

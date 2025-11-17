@@ -8,7 +8,7 @@ if selected {
 	// draw_text(room_width - 384 / 2, 16, towerNames[towerType])
 	
 	// portrait
-	draw_sprite_ext(towerIcons_spr, towerType, room_width - 352, 64, 0.4, 0.4, 0, c_white, 1)
+	draw_sprite_ext(towerIconsHigRes_spr, towerType, room_width - 352, 64, 0.4, 0.4, 0, c_white, 1)
 	
 	if (special == "s booster") {
 		// trageting button background
@@ -43,18 +43,16 @@ if selected {
 	
 		// targeting button
 		draw_set_color(c_white)
-		draw_button(room_width - 368, 400, room_width - (208 - (string_length(targeting) - 8) * 16), 436, true)
+		draw_set_font(jack)
+		draw_button(room_width - 368, 400, room_width - 336 + string_width(targeting), 436, true)
 		draw_set_color(c_black)
 		draw_set_halign(fa_left)
-		draw_set_font(jack)
 		draw_text(room_width - 348, 420, targeting)
 		
 		// targeting button 2
 		draw_set_color(c_white)
-		draw_button(room_width - 368, 444, room_width - (208 - (string_length(targeting2) - 8) * 16), 480, true)
+		draw_button(room_width - 368, 444, room_width - 336 + string_width(targeting2), 480, true)
 		draw_set_color(c_black)
-		draw_set_halign(fa_left)
-		draw_set_font(jack)
 		draw_text(room_width - 348, 464, targeting2)
 	
 		// special targeting button background
@@ -63,15 +61,14 @@ if selected {
 	
 		// special targeting button
 		draw_set_color(c_white)
-		draw_button(room_width - (160 + (string_length(specialTargeting) - 8) * 8), 496, room_width - 48, 532, true)
+		draw_button(room_width - 64 - string_width(specialTargeting), 496, room_width - 48, 532, true)
 		draw_set_color(c_black)
-		draw_set_font(jack)
 		draw_set_halign(fa_right)
 		draw_text_transformed(room_width - 58, 516, specialTargeting, 1, 1, 0)
 		
 		// special targeting button 2
 		draw_set_color(c_white)
-		draw_button(room_width - (160 + (string_length(specialTargeting2) - 8) * 8), 540, room_width - 48, 576, true)
+		draw_button(room_width - 64 - string_width(specialTargeting2), 540, room_width - 48, 576, true)
 		draw_set_color(c_black)
 		draw_set_font(jack)
 		draw_set_halign(fa_right)
@@ -84,10 +81,10 @@ if selected {
 	
 		// targeting button
 		draw_set_color(c_white)
-		draw_button(room_width - 368, 400, room_width - (208 - (string_length(targeting) - 4) * 32), 480, true)
+		draw_set_font(jack)
+		draw_button(room_width - 368, 400, room_width - 336 + string_width(targeting) * 2, 480, true)
 		draw_set_color(c_black)
 		draw_set_halign(fa_left)
-		draw_set_font(jack)
 		draw_text_transformed(room_width - 348, 444, targeting, 2, 2, 0)
 	
 		// special targeting button background
@@ -96,7 +93,7 @@ if selected {
 	
 		// special targeting button
 		draw_set_color(c_white)
-		draw_button(room_width - (160 + (string_length(specialTargeting) - 4) * 16), 496, room_width - 48, 576, true)
+		draw_button(room_width - 80 - string_width(specialTargeting) * 1.5, 496, room_width - 48, 576, true)
 		draw_set_color(c_black)
 		draw_set_font(jack)
 		draw_set_halign(fa_right)
@@ -126,16 +123,24 @@ if selected {
 		draw_button(room_width - 48, 592, room_width - 368, 896, true)
 		draw_set_color(c_black)
 		center_text()
-		draw_text_transformed(room_width - 208, 736, "updrag", 3, 3, 0)
+		if (array_length(global.upgrades[towerType]) > upgrade) {
+			draw_set_valign(fa_top)
+			draw_text_ext_transformed(room_width - 208, 592, "$" + string(ceil(costs[towerType][upgrade] * (1 - buffs[6]))) + " - " + global.upgrades[towerType][upgrade].display, 16, 304 / 2.5, 2.5, 2.5, 0)
+			draw_text_ext_transformed(room_width - 208, 592 + string_height_ext("$" + string(ceil(costs[towerType][upgrade] * (1 - buffs[6]))) + " - " + global.upgrades[towerType][upgrade].display, 16, 300 / 2.5) * 2.5, global.upgrades[towerType][upgrade].desc, 16, 304 / 1.5, 1.5, 1.5, 0)
+		}
+		else {
+			draw_text_transformed(room_width - 208, 736, "Max Level", 3, 3, 0)
+		}
 	}
 	
 	// sell button
 	// disabled function is unrounded rectangle
 	draw_set_color(c_white)
-	draw_roundrect_ext(room_width - 32, 944, room_width - 222, 1040, 50, 50, false)
+	draw_roundrect_ext(room_width - 32, 960, room_width - 222, 1024, 50, 50, false)
 	// draw_button(room_width - 48, 928, room_width - 368, 992, true)
 	draw_set_color(c_black)
-	draw_text_transformed(room_width - 128, 992, "kill thyself", 1.5, 1.5, 0)
+	center_text()
+	draw_text_transformed(room_width - 128, 992, "Fire: $" + string(floor(cost * 0.6)), 2, 2, 0)
 }
 
 if (targetingSelection) {

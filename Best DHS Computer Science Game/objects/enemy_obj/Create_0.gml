@@ -5,6 +5,7 @@ image_yscale = 0.4
 burning = 0 
 hp = 0
 pathSpeed = 0
+speedMulti = 1
 skip = false
 name = ""
 

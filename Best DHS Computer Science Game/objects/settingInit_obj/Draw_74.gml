@@ -11,7 +11,7 @@ if (room != radarRoom) {
 		draw_set_color(c_black)
 		draw_set_font(archive)
 		draw_text_transformed(room_width - 352, 10, "Lives: " + string(global.health), 3, 3, 0)
-		draw_text_transformed(room_width - 352, 74, "Wave: " + string(max(global.wave, 1)) + "/" + string(global.stage * 2), 3, 3, 0)
+		draw_text_transformed(room_width - 352, 74, "Wave: " + string(min(global.wave, global.stage * 2)) + "/" + string(global.stage * 2), 3, 3, 0)
 		draw_text_transformed(room_width - 352, 138, "Money: " + string(global.money), 3, 3, 0)
 
 		reset_draw()
@@ -110,9 +110,9 @@ if (room != radarRoom) {
 		draw_set_color(c_black)
 		draw_set_font(jack)
 	
-		if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
+		if (enemySpawner_obj.enemies == 0 and not enemySpawner_obj.spawning) {
 			// if not in a wave
-			if (global.wave != global.stage * 2) {
+			if (global.wave - 1 != global.stage * 2) {
 				draw_text(room_width - 192, room_height - 48, "Start Wave")
 			}
 			else {

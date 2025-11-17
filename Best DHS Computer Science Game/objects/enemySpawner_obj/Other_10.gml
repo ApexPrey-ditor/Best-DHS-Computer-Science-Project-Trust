@@ -4,5 +4,7 @@ bias = power(1.07, global.wave) + 0.5 * global.wave - 0.5
 values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 enemies = 0
 
+spawning = true
+
 // spawns enemy
 alarm[0] = 1

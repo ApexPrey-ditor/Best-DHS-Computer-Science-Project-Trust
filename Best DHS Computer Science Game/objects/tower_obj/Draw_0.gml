@@ -8,14 +8,14 @@ if (placing) {
 	else {
 		draw_set_color(c_red)
 	}
-	draw_circle(x, y, range * buffs[2], false)
+	draw_circle(x, y, range * buffs[2] * multis[2], false)
 
 	reset_draw()
 }
 if (selected) {
 	draw_set_alpha(0.5)
 	draw_set_color(c_grey)
-	draw_circle(x, y, range * buffs[2], false)
+	draw_circle(x, y, range * buffs[2] * multis[2], false)
 	
 	reset_draw()
 }
