@@ -239,7 +239,6 @@ if (not global.paused) {
 																								spread : spread,
 																								effect : effect,
 																								pierce : pierce,
-																								bulletBounce : bounce,
 																								lifetime : lifetime,
 																								detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
 																								direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
