@@ -131,15 +131,15 @@ if (not global.paused) {
 								collision_line_list(x + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], y, xpos + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 								collision_line_list(x, y - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], xpos, ypos - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 							
-								var translate = targets
+								var translate = ds_list_create()
+								ds_list_copy(translate, targets)
 								
 								for (var i = 0; i < ds_list_size(targets); i++) {
 									ds_list_delete(translate, i)
 									if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
 										ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
-										i -= 1
 									}
-									translate = targets
+									ds_list_copy(translate, targets)
 								}
 							}
 					
@@ -487,17 +487,17 @@ if (not global.paused) {
 					// for laser attacking
 					var targets = ds_list_create()
 					collision_line_list(0, y + aoe * multis[4], room_width, y + aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
-					collision_line_list(0, y + aoe * multis[4], room_width, y + aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+					collision_line_list(0, y - aoe * multis[4], room_width, y - aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					
-					var translate = targets
+					var translate = ds_list_create()
+					ds_list_copy(translate, targets)
 								
 					for (var i = 0; i < ds_list_size(targets); i++) {
 						ds_list_delete(translate, i)
 						if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
 							ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
-							i -= 1
 						}
-						translate = targets
+						ds_list_copy(translate, targets)
 					}
 					
 					for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
@@ -704,7 +704,7 @@ if (not global.paused) {
 								lifeDeduct += global.upgrades[towerType][upgrade].lifeDeduct * effectiveness[upgrade]
 								break;
 							case "AOE":
-								if (global.upgrades[towerType][upgrade].range > 0) {
+								if (global.upgrades[towerType][upgrade].AOE > 0) {
 									multis[4] += global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade]
 								}
 								else {
