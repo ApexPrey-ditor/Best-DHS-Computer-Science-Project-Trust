@@ -5,7 +5,7 @@ if (global.waveTransition) {
 }
 if (endWave and enemies == 0) {
 	// at the end of wave give money
-	global.money += 50 + global.wave * 50
+	global.money += ceil(50 + global.wave * 50) * global.modEffects[6]
 	global.wave += 1
 	
 	endWave = false

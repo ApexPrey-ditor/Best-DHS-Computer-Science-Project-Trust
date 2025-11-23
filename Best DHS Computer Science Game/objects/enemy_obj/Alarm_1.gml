@@ -19,10 +19,6 @@ switch (type) {
 		hesCrazy += 2 * global.fastForward
 		alarm[1] = 1
 		break;
-	case 23:
-		hp = 100
-		alarm[1] = ceil(60 / global.fastForward)
-		break;
 	case 25:
 		enemySpawner_obj.enemies += 5
 		for (var i = 0; i < 5; i++) {

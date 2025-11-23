@@ -5,7 +5,9 @@ image_yscale = 0.4
 burning = 0 
 hp = 0
 pathSpeed = 0
+damageResist = 1
 speedMulti = 1
+phaseShift = false
 skip = false
 name = ""
 
@@ -178,7 +180,6 @@ switch (type) {
 		// DPS Check
 		hp = 100
 		pathSpeed = 8
-		alarm[1] = ceil(420 / global.fastForward)
 		name = "DPS Check"
 		break;
 	case 24:
@@ -209,14 +210,14 @@ switch (type) {
 		break;
 	case 28:
 		// Final Foss
-		hp = 25
+		hp = 25 * global.modEffects[21]
 		pathSpeed = 2
 		name = "Final Foss"
 		break;
 	case 29:
 		// Negative Nancy
 		bossHealths = [67, 100, 167, 200]
-		hp = bossHealths[global.stage - 2]
+		hp = bossHealths[global.stage - 2] * global.modEffects[21]
 		pathSpeed = 2
 		name = "Negative Nancy"
 		break;
@@ -224,7 +225,7 @@ switch (type) {
 		// Ferocious Female
 		bossHealths = [175, 250, 275, 325, 359]
 		bossClass = [[false, false, false], [false, false, false], [true, false, false], [true, false, false], [false, false, true]]
-		hp = bossHealths[global.stage - 6]
+		hp = bossHealths[global.stage - 6] * global.modEffects[21]
 		class = bossClass[global.stage - 6]
 		pathSpeed = 5
 		name = "Ferocious Female"
@@ -232,7 +233,7 @@ switch (type) {
 	case 31:
 		// Destructive Damsel
 		bossHealths = [750, 1250, 2000, 3000, 4500]
-		hp = bossHealths[global.stage - 11]
+		hp = bossHealths[global.stage - 11] * global.modEffects[21]
 		class = [false, true, false]
 		pathSpeed = 2
 		name = "Destructive Damsel"
@@ -241,22 +242,36 @@ switch (type) {
 		// Malicious Madam
 		bossHealths = [5000, 6000, 7500]
 		bossClass = [[false, false, false], [true, false, false], [false, false, true]]
-		hp = bossHealths[global.stage - 16]
+		hp = bossHealths[global.stage - 16] * global.modEffects[21]
 		pathSpeed = 3
 		name = "Malicious Madam"
 		break;
 	case 33:
 		// Your Mom
-		hp = 20000
+		hp = 20000 * global.modEffects[21]
 		pathSpeed = 1
 		name = "Ur Mom"
 		break;
 	case 34:
 		// Evil Girl
-		hp = 75000
+		hp = 75000 * global.modEffects[21]
 		pathSpeed = 1
 		name = "Evil Girl"
 		break;
+}
+
+// aplies modifiers
+hp = ceil(hp * global.modEffects[0] * global.modEffects[3])
+pathSpeed = pathSpeed * global.modEffects[1] * global.modEffects[4]
+damageResist += global.modEffects[19]
+if (not class[0]) {
+	class[0] = global.permClass[0]
+}
+if (not class[1]) {
+	class[1] = global.permClass[1]
+}
+if (global.scitzo and (class[0] or class[1])) {
+	class[2] = true
 }
 
 // sets how much money will give on death
@@ -265,8 +280,9 @@ cash = hp
 // go along the path at path speed
 path_start(testPath, pathSpeed * global.fastForward, path_action_stop, true)
 path_position = spath_sposition
-
-// 
+ 
+image_alpha = global.modEffects[12]
+ 
 if (class[2] == true) {
-	image_alpha = 0.3
+	image_alpha -= 0.7
 }

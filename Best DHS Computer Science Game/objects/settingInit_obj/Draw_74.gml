@@ -10,9 +10,9 @@ if (room != radarRoom) {
 		// draw lives, wave and money
 		draw_set_color(c_black)
 		draw_set_font(archive)
-		draw_text_transformed(room_width - 352, 10, "Lives: " + string(global.health), 3, 3, 0)
+		draw_text_transformed(room_width - 352, 10, "Lives: " + string(floor(global.health)), 3, 3, 0)
 		draw_text_transformed(room_width - 352, 74, "Wave: " + string(min(global.wave, global.stage * 2)) + "/" + string(global.stage * 2), 3, 3, 0)
-		draw_text_transformed(room_width - 352, 138, "Money: " + string(global.money), 3, 3, 0)
+		draw_text_transformed(room_width - 352, 138, "Money: " + string(floor(global.money)), 3, 3, 0)
 
 		reset_draw()
 	
@@ -78,7 +78,7 @@ if (room != radarRoom) {
 						break;
 				}
 				// draws cost based on page, x, and y
-				draw_text(room_width - 272 + w * 160, 334 + i * 160, "$" + string(costs[page * 8 + i * 2 + w]))
+				draw_text(room_width - 272 + w * 160, 334 + i * 160, "$" + string(ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11])))
 		
 				reset_draw()
 			}

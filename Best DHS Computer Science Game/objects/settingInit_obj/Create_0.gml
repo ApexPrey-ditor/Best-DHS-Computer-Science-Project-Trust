@@ -37,7 +37,19 @@ global.paused = false
 // for upgrades (dear god)
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
-
+// modifier rolls
+//global.modifierPool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+global.modifierPool = [29]
+// modifier effect (enemy health TW, enemy speed TW, enemy spawn rate, enemy health, enemy speed, starting cash, EOR Bonus, E cash, starting lives, points multi, tower size, upgrade cost, E opacity, E regen, modif effects, E spawn wave, tower cap, phase effect speed, phase effect resist, damage resist, bonus stages, boss health)
+global.modEffects = [1, 1, 1, 1, 1, 300, 1, 1, 100, 1, 1, 1, 1, 0, 1, 0, infinity, 1, 1, 1, 0, 1]
+// for specific modifs
+global.scitzo = false
+global.permClass = [false, false, false]
+global.fool = false
+global.first = true
+global.towers = 0
+// for modifs (damage, firerate, range, effect)
+global.towerStats = [1, 1, 1, 1]
 // detection giving cards
 global.oneTimesKey = [3, 4, 6, 10]
 global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
@@ -98,7 +110,8 @@ costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000,
 // variables for making the radar work
 radarDir = 0
 prevBlip = [210, 0, 0]
-nextBlip = [30, 496, 0]
+//nextBlip = [30, 496, 0]
+nextBlip = [30, 30, 0]
 selection = 0
 
 // fullscreens

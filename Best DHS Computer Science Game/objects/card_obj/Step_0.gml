@@ -28,7 +28,7 @@ else if (selecting) {
 					
 					with (card_obj) {
 						dissapate = true
-						instance_create_layer(x, y, "Selections", modifierCard_obj, {image_xscale : 12, image_yscale : 12})
+						instance_create_layer(x, y, "Selections", modifierCard_obj)
 					}
 				}
 			}
@@ -48,7 +48,7 @@ else if (selecting) {
 					
 					with (card_obj) {
 						dissapate = true
-						instance_create_layer(x, y, "Selections", modifierCard_obj, {image_xscale : 12, image_yscale : 12})
+						instance_create_layer(x, y, "Selections", modifierCard_obj)
 					}
 				}
 			}
