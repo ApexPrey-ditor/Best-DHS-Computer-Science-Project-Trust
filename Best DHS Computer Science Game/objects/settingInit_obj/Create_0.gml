@@ -42,15 +42,15 @@ global.modifiers = []
 // modifier rolls
 global.modifierPool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
 // modifier effect (enemy health TW, enemy speed TW, enemy spawn rate, enemy health, enemy speed, starting cash, EOR Bonus, E cash, starting lives, points multi, tower size, upgrade cost, E opacity, E regen, modif effects, E spawn wave, tower cap, phase effect speed, phase effect resist, damage resist, bonus stages, boss health)
-global.modEffects = [1, 1, 1, 1, 1, 300, 1, 1, 100, 1, 1, 1, 1, 0, 1, 0, infinity, 1, 0, 1, 0, 1]
+global.modEffects = [1, 1, 1, 1, 1, 300, 1, 1, 100, 1, 1, 1, 1, 0, 1, 0, infinity, 1, 1, 0, 0, 1]
 // for specific modifs
 global.scitzo = false
 global.permClass = [false, false, false]
 global.fool = false
 global.first = true
 global.towers = 0
-// for modifs (damage, firerate, range, effect)
-global.towerStats = [1, 1, 1, 1]
+// for modifs (damage, firerate, range, effect, AOE)
+global.towerStats = [1, 1, 1, 1, 0]
 // detection giving cards
 global.oneTimesKey = [3, 4, 6, 10]
 global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
@@ -61,7 +61,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 16) // GO TO HELL
+	array_push(global.upgradePool, 17)
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -88,6 +88,9 @@ repeat (3) {
 	array_push(global.upgradePool, 11) // Thicc Bullets
 	array_push(global.upgradePool, 13) // Sodium Hydrogen Oxygen Malevolent Bond
 	array_push(global.upgradePool, 14) // Oxygen Helium Ignition Ornament
+	array_push(global.upgradePool, 15) // Tungsten Ultimate Nitrogen Gun
+	array_push(global.upgradePool, 16) // GO TO HELL
+	array_push(global.upgradePool, 17) // Pentaerythritol Tetranitrate
 }
 // Not Horrible
 repeat (2) {	

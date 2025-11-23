@@ -120,14 +120,19 @@ if (not global.paused) {
 									xpos += target.x - x
 									ypos += target.y - y
 								}
+								
+								// gets every enemy in the collision line
+								collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 							}
 							else {
 								xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
 								ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
+								
+								collision_line_list(x + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], y, xpos + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+								collision_line_list(x, y - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], xpos, ypos - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+							
+								
 							}
-						
-							// gets every enemy in the collision line
-							collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					
 							// removes all the enemies that are ghost dead, or cant be detected
 							targets = remove_undetectable(targets, [max(detections[0], buffs[3]), detections[1], detections[2]])
@@ -137,13 +142,18 @@ if (not global.paused) {
 									// iterates through the amount of enemies tower is allowed to hit
 									ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
 									if (burn) {
-										ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+										ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
 										ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
 										ds_list_find_value(targets, i).image_blend = c_orange
 									}
-									if (stun > 0 and ds_list_find_value(targets, i).hp > 0) {
+									if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
 										ds_list_find_value(targets, i).speedMulti = 0
 										ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+									}
+									if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
+										ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)
+										ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
+										ds_list_find_value(targets, i).image_blend = c_aqua
 									}
 									if (ds_list_find_value(targets, i).hp <= 0) {
 										// dead enemies are set to ghosts
@@ -166,13 +176,18 @@ if (not global.paused) {
 									// iterates through the amount of enemies tower is allowed to hit
 									ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
 									if (burn) {
-										ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+										ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
 										ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
 										ds_list_find_value(targets, i).image_blend = c_orange
 									}
-									if (stun > 0 and ds_list_find_value(targets, i).hp > 0) {
+									if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
 										ds_list_find_value(targets, i).speedMulti = 0
 										ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+									}
+									if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
+										ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)
+										ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
+										ds_list_find_value(targets, i).image_blend = c_aqua
 									}
 									if ds_list_find_value(targets, i).hp <= 0 {
 										// kill dead enemies
@@ -190,7 +205,7 @@ if (not global.paused) {
 									repeat(effect[3]) {
 										instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
 																									speed : projSpeed,
-																									aoe : aoe,
+																									aoe : aoe * multis[4],
 																									special : special,
 																									spread : spread,
 																									effect : effect,
@@ -204,7 +219,7 @@ if (not global.paused) {
 								else if (special = "flame") {
 									instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
 																									speed : projSpeed,
-																									aoe : aoe,
+																									aoe : aoe * multis[4],
 																									special : special,
 																									spread : spread,
 																									effect : [effect[0] * buffs[1] * buffs[4] * multis[0], effect[1]],
@@ -216,7 +231,7 @@ if (not global.paused) {
 								else {
 									instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
 																									speed : projSpeed,
-																									aoe : aoe,
+																									aoe : aoe * multis[4],
 																									stun : stun,
 																									burn : burn,
 																									special : special,
@@ -668,7 +683,16 @@ if (not global.paused) {
 								lifeDeduct += global.upgrades[towerType][upgrade].lifeDeduct * effectiveness[upgrade]
 								break;
 							case "AOE":
-								aoe += global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade]
+								if (global.upgrades[towerType][upgrade].range > 0) {
+									multis[4] += global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade]
+								}
+								else {
+									multis[4] = multis[4] / abs(global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade] - 1)
+								}
+								break;
+							case "slow":
+								slow += global.upgrades[towerType][upgrade].slow * effectiveness[upgrade]
+								break;
 						}
 					}
 				

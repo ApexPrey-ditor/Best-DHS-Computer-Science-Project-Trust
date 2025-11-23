@@ -40,12 +40,12 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 6:
 						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-						{damage : 5, fireSpeed : 30, range : 100, type : 2, pierce : 5, cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+						{damage : 5, fireSpeed : 30, range : 100, type : 2, pierce : 5, aoe : 5, cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 7:
 						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-						{damage : 3, fireSpeed : 12, range : 50, pierce : 100, special : "laser", cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+						{damage : 3, fireSpeed : 12, range : 50, pierce : 100, aoe : 5, special : "laser", cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 8:

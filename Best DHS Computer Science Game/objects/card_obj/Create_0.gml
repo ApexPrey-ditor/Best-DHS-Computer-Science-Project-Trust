@@ -32,7 +32,7 @@ switch (image_index) {
 	case 2:
 		stats = {display : "Larger Lenses", desc : "+|% Range", range : 0.35}
 		replace = [35]
-		appliable = [0, 1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14]
+		appliable = [0, 1, 2, 3, 4, 5, 6, 8, 10, 11, 13, 14]
 		repeatable = false
 		break;
 	// Personal Spotter
@@ -119,11 +119,25 @@ switch (image_index) {
 		appliable = [0, 1, 2, 3]
 		repeatable = false
 		break;
+	// Oxygen Helium Ignition Ornament
+	case 15:
+		stats = {display : "Tungsten Ultimate Nitrogen Gun", desc : "\"this was IMPORTED ITALIAN MAPLE\" \n +| pierce \n -|% attack speed", pierceL : 5, fireSpeed : -0.67}
+		replace = [5, 67]
+		appliable = [0, 1, 2, 3]
+		repeatable = false
+		break;
 	// GO TO HELL
 	case 16:
 		stats = {display : "GO TO HELL", desc : "\"this is literally evangelion!\" \n-| life per shot \n+|% damage \n+|% reload speed \n+| pierce", damage : 1, fireSpeed : 1, pierceL : 5, lifeDeduct : 1}
 		replace = [1, 100, 100, 5]
 		appliable = [0, 1, 2, 3]
+		repeatable = false
+		break;
+	// Pentaerythritol Tetranitrate
+	case 17:
+		stats = {display : "Pentaerythritol Tetranitrate", desc : "\"geneva convention? more like geneva. the city. in switzerland.\" \n+|% AOE \n+| pierce \n-|% damage", damage : -0.25, AOE : 50, pierceL : 3}
+		replace = [50, 3, 25]
+		appliable = [4, 5, 6, 7]
 		repeatable = false
 		break;
 }
