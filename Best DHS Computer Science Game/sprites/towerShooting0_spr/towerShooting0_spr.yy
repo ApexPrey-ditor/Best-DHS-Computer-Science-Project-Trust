@@ -46,7 +46,7 @@
     ],
     "top":0,
   },
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"Gunner",
     "path":"folders/Sprites/Gunner.yy",
@@ -111,7 +111,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":135,
-    "yorigin":240,
+    "yorigin":480,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

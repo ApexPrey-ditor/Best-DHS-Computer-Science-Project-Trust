@@ -27,7 +27,7 @@
   ],
   "name":"towerShooting1_spr",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"Sniper",
     "path":"folders/Sprites/Sniper.yy",
@@ -92,7 +92,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":135,
-    "yorigin":240,
+    "yorigin":480,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
