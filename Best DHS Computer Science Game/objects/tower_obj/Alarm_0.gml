@@ -2,4 +2,4 @@
 firing = false
 
 // for hacker
-follow = noone
+follows = []

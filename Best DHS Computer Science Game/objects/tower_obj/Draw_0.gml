@@ -37,7 +37,7 @@ if (special == "laser" and not placing) {
 }
 if (special == "s hacker") {
 	for (var i = 0; i < array_length(follows); i++) {
-		if instance_exists(follows[i]) {
+		if (instance_exists(follows[i])) {
 			draw_line_width(x, y, follows[i].x, follows[i].y, 10)
 		}
 	}

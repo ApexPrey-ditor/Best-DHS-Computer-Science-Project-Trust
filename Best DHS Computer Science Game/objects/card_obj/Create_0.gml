@@ -67,7 +67,7 @@ switch (image_index) {
 	case 7:
 		stats = {display : "Lose Yourself", desc : "\"His palms are palms, palms weak, arms are palms, there’s palms on his palms already, mom’s palms.\" \n+|% Damage\n -|% Fire Rate", damage : 1, fireSpeed : -0.45}
 		replace = [100, 45]
-		appliable = [0, 1, 2, 3]
+		appliable = [0, 1, 2, 3, 14]
 		repeatable = false
 		break;
 	// gdrrrrrrrrrrr brrrrrrrrrrat brrrrrrrrrat brrrrrrrrrrrrrrrrrrrrrrrrrrr wrrrrrrrrrrrrrrrrriririirir
@@ -102,6 +102,13 @@ switch (image_index) {
 	case 12:
 		stats = {display : "Bouncing Shot", desc : "\"how did i get an A in style the world hates me\" \n+| bullet bounces \n-|% damage", damage : -0.2, bounce : 2}
 		replace = [2, 20]
+		appliable = [0, 1, 2, 3]
+		repeatable = false
+		break;
+	// GO TO HELL
+	case 15:
+		stats = {display : "GO TO HELL", desc : "\"this is literally evangelion!\" \n-| life per shot \n+|% damage \n+|% reload speed \n+| pierce", damage : 1, fireSpeed : 1, pierceL : 5, lifeDeduct : 1}
+		replace = [1, 100, 100, 5]
 		appliable = [0, 1, 2, 3]
 		repeatable = false
 		break;

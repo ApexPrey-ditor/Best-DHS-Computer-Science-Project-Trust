@@ -21,6 +21,8 @@ finalPositions = []
 drawPercents = []
 targetable = ds_list_create()
 follows = []
+bounce = 0
+lifeDeduct = 0
 level = 1
 kills = 0
 

@@ -228,6 +228,7 @@ if (not global.paused) {
 							}
 						
 							// system for fractions of frames (ask turtle)
+							global.health -= lifeDeduct
 							firing = true
 							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward)
 							alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
@@ -655,6 +656,9 @@ if (not global.paused) {
 								break;
 							case "bounce":
 								bounce += global.upgrades[towerType][upgrade].bounce * effectiveness[upgrade]
+								break;
+							case "lifeDeduct":
+								lifeDeduct += global.upgrades[towerType][upgrade].lifeDeduct * effectiveness[upgrade]
 								break;
 						}
 					}

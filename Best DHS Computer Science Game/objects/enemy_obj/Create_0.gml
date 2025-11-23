@@ -264,10 +264,10 @@ switch (type) {
 hp = ceil(hp * global.modEffects[0] * global.modEffects[3])
 pathSpeed = pathSpeed * global.modEffects[1] * global.modEffects[4]
 damageResist += global.modEffects[19]
-if (not class[0]) {
+if (global.permClass[0]) {
 	class[0] = global.permClass[0]
 }
-if (not class[1]) {
+if (global.permClass[1]) {
 	class[1] = global.permClass[1]
 }
 if (global.scitzo and (class[0] or class[1])) {
