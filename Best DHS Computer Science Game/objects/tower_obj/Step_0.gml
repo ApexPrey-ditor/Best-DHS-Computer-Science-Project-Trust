@@ -231,7 +231,7 @@ if (not global.paused) {
 						
 							// system for fractions of frames (ask turtle)
 							sprite_index = asset_get_index("towerShooting" + string(towerType) + "_spr")
-							//show_debug_message(asset_get_index("towerShooting" + string(towerType) + "_spr"))
+							show_debug_message(asset_get_index("towerShooting" + string(towerType) + "_spr"))
 							show_debug_message(towerShooting0_spr)
 							//show_debug_message("towerShooting" + string(towerType) + "_spr" == "towerShooting0_spr")
 							image_index = 0
