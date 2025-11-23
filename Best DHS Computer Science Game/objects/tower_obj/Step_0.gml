@@ -228,6 +228,8 @@ if (not global.paused) {
 							}
 						
 							// system for fractions of frames (ask turtle)
+							sprite_index = testTowershooting_spr
+							image_index = 0
 							global.health -= lifeDeduct
 							firing = true
 							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward)
@@ -711,6 +713,10 @@ if (not global.paused) {
 			instance_destroy()
 		}
 	}
+}
+
+if (image_index == sprite_get_number(testTowershooting_spr) - 1 and sprite_index == testTowershooting_spr) {
+	image_speed = 0
 }
 
 depth = -y
