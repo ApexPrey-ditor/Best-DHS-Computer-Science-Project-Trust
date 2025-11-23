@@ -1,4 +1,4 @@
-image_xscale = 0.3 * global.modEffects[10]
+image_xscale = 0.4 * global.modEffects[10]
 image_yscale = 0.4 * global.modEffects[10]
 
 // initializes utility varibles

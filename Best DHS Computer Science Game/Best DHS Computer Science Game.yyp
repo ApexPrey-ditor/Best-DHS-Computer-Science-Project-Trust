@@ -69,6 +69,7 @@
     {"id":{"name":"testProjectile_spr","path":"sprites/testProjectile_spr/testProjectile_spr.yy",},},
     {"id":{"name":"testPunch_spr","path":"sprites/testPunch_spr/testPunch_spr.yy",},},
     {"id":{"name":"testTower_spr","path":"sprites/testTower_spr/testTower_spr.yy",},},
+    {"id":{"name":"testTowershooting_spr","path":"sprites/testTowershooting_spr/testTowershooting_spr.yy",},},
     {"id":{"name":"testTs_spr","path":"sprites/testTs_spr/testTs_spr.yy",},},
     {"id":{"name":"towerIcons256_spr","path":"sprites/towerIcons256_spr/towerIcons256_spr.yy",},},
     {"id":{"name":"towerIconsHigRes_spr","path":"sprites/towerIconsHigRes_spr/towerIconsHigRes_spr.yy",},},
