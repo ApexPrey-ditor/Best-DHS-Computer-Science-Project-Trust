@@ -140,4 +140,11 @@ switch (image_index) {
 		appliable = [4, 5, 6, 7]
 		repeatable = false
 		break;
+	// worlds brightest flashlight
+	case 18:
+		stats = {display : "worlds brightest flashlight", desc : "\"hohoh hoh! i cant wait to give al the little children their presents! whats that bright li-\" \nremoves camo from enemies every 3rd shot \n-|% attack speed", fireSpeed : -0.5, decamo : true}
+		replace = [50]
+		appliable = array_intersection([4, 5, 6, 7], global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)])
+		repeatable = false
+		break;
 }
