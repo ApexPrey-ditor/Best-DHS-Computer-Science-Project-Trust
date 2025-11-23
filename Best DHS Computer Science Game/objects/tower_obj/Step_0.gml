@@ -217,6 +217,8 @@ if (not global.paused) {
 									instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
 																									speed : projSpeed,
 																									aoe : aoe,
+																									stun : stun,
+																									burn : burn,
 																									special : special,
 																									spread : spread,
 																									effect : effect,
@@ -228,7 +230,10 @@ if (not global.paused) {
 							}
 						
 							// system for fractions of frames (ask turtle)
-							sprite_index = testTowershooting_spr
+							sprite_index = asset_get_index("towerShooting" + string(towerType) + "_spr")
+							//show_debug_message(asset_get_index("towerShooting" + string(towerType) + "_spr"))
+							show_debug_message(towerShooting0_spr)
+							//show_debug_message("towerShooting" + string(towerType) + "_spr" == "towerShooting0_spr")
 							image_index = 0
 							global.health -= lifeDeduct
 							firing = true
@@ -662,6 +667,8 @@ if (not global.paused) {
 							case "lifeDeduct":
 								lifeDeduct += global.upgrades[towerType][upgrade].lifeDeduct * effectiveness[upgrade]
 								break;
+							case "AOE":
+								aoe += global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade]
 						}
 					}
 				
@@ -715,7 +722,7 @@ if (not global.paused) {
 	}
 }
 
-if (image_index == sprite_get_number(testTowershooting_spr) - 1 and sprite_index == testTowershooting_spr) {
+if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType) + "_spr")) {
 	image_speed = 0
 }
 

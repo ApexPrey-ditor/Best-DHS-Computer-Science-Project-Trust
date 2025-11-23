@@ -57,8 +57,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"testTower_spr",
-    "path":"sprites/testTower_spr/testTower_spr.yy",
+    "name":"tower0_spr",
+    "path":"sprites/tower0_spr/tower0_spr.yy",
   },
   "spriteMaskId":null,
   "tags":[

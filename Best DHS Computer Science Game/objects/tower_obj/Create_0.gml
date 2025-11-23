@@ -1,6 +1,8 @@
 image_xscale = 0.4 * global.modEffects[10]
 image_yscale = 0.4 * global.modEffects[10]
 
+sprite_index = asset_get_index("tower" + string(towerType) + "_spr")
+
 // initializes utility varibles
 firing = false
 placing = true

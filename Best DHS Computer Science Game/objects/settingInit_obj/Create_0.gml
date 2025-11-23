@@ -59,7 +59,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 15) // GO TO HELL
+	array_push(global.upgradePool, 16) // GO TO HELL
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -84,7 +84,8 @@ repeat (3) {
 	array_push(global.upgradePool, 9) // Triangle Bullet
 	array_push(global.upgradePool, 10) // HELP IT BURNS
 	array_push(global.upgradePool, 11) // Thicc Bullets
-	array_push(global.upgradePool, 13) // Oxygen Helium Ignition Ornament
+	array_push(global.upgradePool, 13) // Sodium Hydrogen Oxygen Malevolent Bond
+	array_push(global.upgradePool, 14) // Oxygen Helium Ignition Ornament
 }
 // Not Horrible
 repeat (2) {	

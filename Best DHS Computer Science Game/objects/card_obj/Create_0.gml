@@ -105,8 +105,22 @@ switch (image_index) {
 		appliable = [0, 1, 2, 3]
 		repeatable = false
 		break;
+	// Sodium Hydrogen Oxygen Malevolent Bond
+	case 13:
+		stats = {display : "Sodium Hydrogen Oxygen Malevolent Bond", desc : "\"the shomb aoe bullets that increase the epic aoe of the epic single epic targ epic epic rs\" \n+| Pierce+ \n+|% damage", pierceL : 1, damage : 0.15}
+		replace = [1, 15]
+		appliable = [0, 1, 2, 3]
+		repeatable = false
+		break;
+	// Oxygen Helium Ignition Ornament
+	case 14:
+		stats = {display : "Sodium Hydrogen Oxygen Malevolent Bond", desc : "\"why is it ignition if its not igniting anything are you stupid\" \n Sets things on cold", slow : 1}
+		replace = [1, 15]
+		appliable = [0, 1, 2, 3]
+		repeatable = false
+		break;
 	// GO TO HELL
-	case 15:
+	case 16:
 		stats = {display : "GO TO HELL", desc : "\"this is literally evangelion!\" \n-| life per shot \n+|% damage \n+|% reload speed \n+| pierce", damage : 1, fireSpeed : 1, pierceL : 5, lifeDeduct : 1}
 		replace = [1, 100, 100, 5]
 		appliable = [0, 1, 2, 3]
