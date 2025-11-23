@@ -135,7 +135,7 @@ switch (image_index) {
 		break;
 	// Pentaerythritol Tetranitrate
 	case 17:
-		stats = {display : "Pentaerythritol Tetranitrate", desc : "\"geneva convention? more like geneva. the city. in switzerland.\" \n+|% AOE \n+| pierce \n-|% damage", damage : -0.25, AOE : 50, pierceL : 3}
+		stats = {display : "Pentaerythritol Tetranitrate", desc : "\"geneva convention? more like geneva. the city. in switzerland.\" \n+|% AOE \n+| pierce \n-|% damage", damage : -0.25, AOE : 0.5, pierceL : 3}
 		replace = [50, 3, 25]
 		appliable = [4, 5, 6, 7]
 		repeatable = false
