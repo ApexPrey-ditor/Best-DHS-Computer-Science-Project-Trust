@@ -50,7 +50,7 @@ global.fool = false
 global.first = true
 global.towers = 0
 // for modifs (damage, firerate, range, effect, AOE)
-global.towerStats = [1, 1, 1, 1, 0]
+global.towerStats = [1, 1, 1, 1, 1]
 // detection giving cards
 global.oneTimesKey = [3, 4, 6, 10]
 global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],

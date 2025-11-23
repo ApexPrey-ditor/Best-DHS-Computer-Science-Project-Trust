@@ -15,8 +15,8 @@ hit = []
 // sets sprite to flame if flamethrower
 if special == "flame" {
 	sprite_index = fire_spr
-	image_xscale = 1
-	image_yscale = 1
+	image_xscale = aoe
+	image_yscale = aoe
 }
 if (type == 1) {
 	image_alpha = 0

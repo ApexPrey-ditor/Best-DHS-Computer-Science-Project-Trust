@@ -27,13 +27,16 @@ if (array_length(drawPercents) > 0) {
 		if (type == 0) {
 			draw_line_width(x - ((x - finalPositions[i][0]) * max(drawPercents[i] - 0.2, 0)), y - (( y - finalPositions[i][1]) * max(drawPercents[i] - 0.2, 0)), x - ((x - finalPositions[i][0]) * min(drawPercents[i] + 0.2, 1)), y - ((y - finalPositions[i][1]) * min(drawPercents[i] + 0.2, 1)), 5)
 		}
+		if (type == 2) {
+			draw_line_width(x, y, finalPositions[i][0], finalPositions[i][1], aoe * multis[4])
+		}
 		else {
 			draw_line_width(x, y, finalPositions[i][0], finalPositions[i][1], 7)
 		}
 	}
 }
 if (special == "laser" and not placing) {
-	draw_line_width(0, y, room_width, y, 10)
+	draw_line_width(0, y, room_width, y, aoe * multis[4] * 2)
 }
 if (special == "s hacker") {
 	for (var i = 0; i < array_length(follows); i++) {

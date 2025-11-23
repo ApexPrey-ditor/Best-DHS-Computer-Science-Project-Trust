@@ -131,7 +131,16 @@ if (not global.paused) {
 								collision_line_list(x + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], y, xpos + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 								collision_line_list(x, y - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], xpos, ypos - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 							
+								var translate = targets
 								
+								for (var i = 0; i < ds_list_size(targets); i++) {
+									ds_list_delete(translate, i)
+									if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
+										ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
+										i -= 1
+									}
+									translate = targets
+								}
 							}
 					
 							// removes all the enemies that are ghost dead, or cant be detected
@@ -477,8 +486,20 @@ if (not global.paused) {
 				if (not firing) {
 					// for laser attacking
 					var targets = ds_list_create()
-					collision_line_list(0, y, room_width, y, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
-				
+					collision_line_list(0, y + aoe * multis[4], room_width, y + aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+					collision_line_list(0, y + aoe * multis[4], room_width, y + aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+					
+					var translate = targets
+								
+					for (var i = 0; i < ds_list_size(targets); i++) {
+						ds_list_delete(translate, i)
+						if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
+							ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
+							i -= 1
+						}
+						translate = targets
+					}
+					
 					for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
 						ds_list_find_value(targets, i).hp -= damage * buffs[1] * buffs[4] * multis[0]
 						if ds_list_find_value(targets, i).hp <= 0 {
