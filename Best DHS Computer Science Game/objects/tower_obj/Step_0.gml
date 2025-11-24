@@ -828,6 +828,13 @@ if (not global.paused) {
 							case "lead":
 								lead = false
 								break;
+							case "gunner4":
+								pierce = pierce * 2
+								fireSpeed = 30
+								damage = 3
+								range = 350
+								tier4 = true
+								break;
 						}
 					}
 				

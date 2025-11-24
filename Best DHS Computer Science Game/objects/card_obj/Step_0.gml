@@ -19,10 +19,39 @@ else if (selecting) {
 						newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
 					}
 					if (array_length(global.upgrades[i]) == 3) {
-						array_push(global.upgradePool, 27 + i)
+						if (i % 4 < 3) {
+							repeat (2) {
+								array_push(global.upgradePool, 27 + i)
+							}
+						}
+						else {
+							array_push(global.upgradePool, 27 + i)
+						}
+						
+						var del = true
+						for (var z = 0; z < array_length(appliable); z++) {
+							if (array_length(global.upgrades[appliable[z]]) < 3) {
+								del = false
+							}
+						}
+						if (del) {
+							while (array_contains(global.upgradePool, image_index)) {
+								array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+							}
+						}
 					}
 					if (oneTime) {
 						array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
+						if (array_length(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]) == 0) {
+							while (array_contains(global.upgradePool, image_index)) {
+								array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+							}
+						}
+					}
+					if (tier4) {
+						while (array_contains(global.upgradePool, image_index)) {
+							array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+						}
 					}
 					stats.desc = newDesc
 					array_push(global.upgrades[i], stats)
@@ -42,7 +71,14 @@ else if (selecting) {
 						newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
 					}
 					if (array_length(global.upgrades[i]) == 3) {
-						array_push(global.upgradePool, 27 + i)
+						if (i % 3 == 1) {
+							repeat (2) {
+								array_push(global.upgradePool, 27 + i)
+							}
+						}
+						else {
+							array_push(global.upgradePool, 27 + i)
+						}
 					}
 					if (oneTime) {
 						array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)

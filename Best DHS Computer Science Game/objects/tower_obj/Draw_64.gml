@@ -7,8 +7,14 @@ if selected {
 	draw_text(10, 10, mouse_x > room_width - (208 - (string_length(targeting) - 5) * 36))
 	// draw_text(room_width - 384 / 2, 16, towerNames[towerType])
 	
-	// portrait
-	draw_sprite_ext(towerIconsHigRes_spr, towerType, room_width - 352, 64, 0.4, 0.4, 0, c_white, 1)
+	if (not tier4) {
+		// portrait
+		draw_sprite_ext(towerIconsHighRes_spr, towerType, room_width - 352, 64, 0.4, 0.4, 0, c_white, 1)
+	}
+	else {
+		// tier 4 portrait
+		draw_sprite_ext(towerIconsT4HighRes_spr, towerType, room_width - 352, 64, 0.4, 0.4, 0, c_white, 1)
+	}
 	
 	if (special == "s booster") {
 		// trageting button background

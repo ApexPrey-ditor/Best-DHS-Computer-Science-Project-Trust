@@ -33,6 +33,7 @@ puncherAlt = "2"
 decamo = false
 shotNum = 0
 lead = true
+tier4 = false
 
 // firing conditions
 // initial is the current target enemy
