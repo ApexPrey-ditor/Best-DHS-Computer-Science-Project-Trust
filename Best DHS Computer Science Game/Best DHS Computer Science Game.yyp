@@ -83,6 +83,7 @@
     {"id":{"name":"tower0_spr","path":"sprites/tower0_spr/tower0_spr.yy",},},
     {"id":{"name":"tower1_spr","path":"sprites/tower1_spr/tower1_spr.yy",},},
     {"id":{"name":"tower10_spr","path":"sprites/tower10_spr/tower10_spr.yy",},},
+    {"id":{"name":"tower11_spr","path":"sprites/tower11_spr/tower11_spr.yy",},},
     {"id":{"name":"tower2_spr","path":"sprites/tower2_spr/tower2_spr.yy",},},
     {"id":{"name":"tower3_spr","path":"sprites/tower3_spr/tower3_spr.yy",},},
     {"id":{"name":"tower4_spr","path":"sprites/tower4_spr/tower4_spr.yy",},},
