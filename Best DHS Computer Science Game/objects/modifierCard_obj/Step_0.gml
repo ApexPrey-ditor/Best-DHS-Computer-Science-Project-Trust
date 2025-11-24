@@ -22,7 +22,7 @@ else {
 			with (modifierCard_obj) {
 				dissapate = true
 			}
-			with (folder) {
+			with (folder_obj) {
 				dissapate = true
 			}
 			with (settingInit_obj) {

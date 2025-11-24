@@ -49,7 +49,7 @@
     {"id":{"name":"card_obj","path":"objects/card_obj/card_obj.yy",},},
     {"id":{"name":"enemy_obj","path":"objects/enemy_obj/enemy_obj.yy",},},
     {"id":{"name":"enemySpawner_obj","path":"objects/enemySpawner_obj/enemySpawner_obj.yy",},},
-    {"id":{"name":"folder","path":"objects/folder/folder.yy",},},
+    {"id":{"name":"folder_obj","path":"objects/folder_obj/folder_obj.yy",},},
     {"id":{"name":"modifierCard_obj","path":"objects/modifierCard_obj/modifierCard_obj.yy",},},
     {"id":{"name":"projectile_obj","path":"objects/projectile_obj/projectile_obj.yy",},},
     {"id":{"name":"settingInit_obj","path":"objects/settingInit_obj/settingInit_obj.yy",},},
