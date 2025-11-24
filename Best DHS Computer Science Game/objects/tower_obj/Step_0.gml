@@ -546,7 +546,7 @@ if (not global.paused) {
 					if (eyesOnThePrize > 0) {
 						if (enemySpawner_obj.waveCash) {
 							show_debug_message("hey dude whats good")
-							global.money += cost * eyesOnThePrize / 7
+							global.money += floor(cost * eyesOnThePrize / 7)
 						}
 					}
 				}
@@ -845,6 +845,9 @@ if (not global.paused) {
 								break;
 							case "psychiatrist":
 								psychiatrist += global.upgrades[towerType][upgrade].psychiatrist * effectiveness[upgrade]
+								break;
+							case "eyesOnThePrize":
+								eyesOnThePrize += global.upgrades[towerType][upgrade].eyesOnThePrize * effectiveness[upgrade]
 								break;
 						}
 					}
