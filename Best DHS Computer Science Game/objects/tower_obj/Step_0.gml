@@ -246,7 +246,10 @@ if (not global.paused) {
 							}
 							if (type == 3) {
 								var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
-							
+								if (lead == false) {
+									leadPosition = target.path_position
+								}
+								
 								if (path_get_x(target.path_index, leadPosition) < x) {
 									image_xscale = abs(image_xscale)
 								}
@@ -306,7 +309,18 @@ if (not global.paused) {
 							}
 						
 							// system for fractions of frames (ask turtle)
-							sprite_index = asset_get_index("towerShooting" + string(towerType) + "_spr")
+							if (towerType != 6) {
+								sprite_index = asset_get_index("towerShooting" + string(towerType) + "_spr")
+							}
+							else {
+								if (puncherAlt == "1") {
+									puncherAlt = "2"
+								}
+								else {
+									puncherAlt = "1"
+								}
+								sprite_index = asset_get_index("towerShooting" + string(towerType) + "_" + puncherAlt + "_spr")
+							}
 							image_index = 0
 							global.health -= lifeDeduct
 							shotNum += 1
@@ -811,6 +825,9 @@ if (not global.paused) {
 							case "delay":
 								delay += global.upgrades[towerType][upgrade].delay * effectiveness[upgrade]
 								break;
+							case "lead":
+								lead = false
+								break;
 						}
 					}
 				
@@ -863,9 +880,15 @@ if (not global.paused) {
 		}
 	}
 }
-
-if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType) + "_spr")) {
-	image_speed = 0
+if (towerType != 6) {
+	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType) + "_spr")) {
+		image_speed = 0
+	}
+}
+else {
+	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType) + "_" + puncherAlt + "_spr")) {
+		image_speed = 0
+	}
 }
 
 depth = -y
