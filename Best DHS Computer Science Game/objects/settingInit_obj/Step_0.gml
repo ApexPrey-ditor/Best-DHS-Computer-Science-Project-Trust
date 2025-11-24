@@ -1,5 +1,5 @@
 // if mouse clicked and not placing tower, not selected tower and not paused
-if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMenu and not global.paused) {
+if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMenu and not global.paused and room != radarRoom) {
 	// goes through the 4 y positions the buttons can be
 	for (var i = 0; i < 4; i++) {
 		// goes through the 2 x positions the buttons can be

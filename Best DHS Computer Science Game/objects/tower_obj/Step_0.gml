@@ -147,7 +147,7 @@ if (not global.paused) {
 							targets = remove_undetectable(targets, [max(detections[0], buffs[3]), detections[1], detections[2]])
 					
 							if (type == 0) {
-								for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
+								for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
 									// iterates through the amount of enemies tower is allowed to hit
 									ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
 									if (burn) {
@@ -170,7 +170,7 @@ if (not global.paused) {
 										ds_list_find_value(targets, i).alarm[11] = ceil(lifetime / global.fastForward)
 									}
 							
-									if (i == min(ds_list_size(targets), pierce) - 1) {
+									if (i == min(ds_list_size(targets), pierce * multis[5]) - 1) {
 										// calculate where the enemy will be along the path
 										var leadPosition = ds_list_find_value(targets, i).path_position + (ds_list_find_value(targets, i).pathSpeed * lifetime / path_get_length(ds_list_find_value(targets, i).path_index))
 								
@@ -181,7 +181,7 @@ if (not global.paused) {
 								}
 							}
 							else if (type < 3) {
-								for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
+								for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
 									// iterates through the amount of enemies tower is allowed to hit
 									ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
 									if (burn) {
@@ -197,6 +197,9 @@ if (not global.paused) {
 										ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)
 										ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
 										ds_list_find_value(targets, i).image_blend = c_aqua
+									}
+									if (decamo and shotNum % 3 == 0) {
+										ds_list_find_value(targets, i).class[0] = false
 									}
 									if ds_list_find_value(targets, i).hp <= 0 {
 										// kill dead enemies
@@ -218,7 +221,7 @@ if (not global.paused) {
 																									special : special,
 																									spread : spread,
 																									effect : effect,
-																									pierce : pierce,
+																									pierce : pierce * multis[5],
 																									lifetime : (range * buffs[2] * multis[2]) / projSpeed,
 																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
 																									creator : id,
@@ -229,11 +232,14 @@ if (not global.paused) {
 									instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
 																									speed : projSpeed,
 																									aoe : aoe * multis[4],
+																									stun : stun,
 																									special : special,
 																									spread : spread,
 																									effect : [effect[0] * buffs[1] * buffs[4] * multis[0], effect[1]],
-																									pierce : pierce,
+																									pierce : pierce * multis[5],
 																									lifetime : lifetime,
+																									shotNum : shotNum,
+																									decamo : decamo,
 																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
 																									direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
 								}
@@ -243,11 +249,14 @@ if (not global.paused) {
 																									aoe : aoe * multis[4],
 																									stun : stun,
 																									burn : burn,
+																									fireSpeed : fireSpeed,
 																									special : special,
 																									spread : spread,
 																									effect : effect,
-																									pierce : pierce,
+																									pierce : pierce * multis[5],
 																									lifetime : lifetime,
+																									shotNum : shotNum,
+																									decamo : decamo,
 																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
 																									direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
 								}
@@ -260,6 +269,7 @@ if (not global.paused) {
 							//show_debug_message("towerShooting" + string(towerType) + "_spr" == "towerShooting0_spr")
 							image_index = 0
 							global.health -= lifeDeduct
+							shotNum += 1
 							firing = true
 							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward)
 							alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
@@ -357,7 +367,7 @@ if (not global.paused) {
 																									effect : [(5 - i) * lifetime / 6 + 1],
 																									aoe : aoe,
 																									special : special,
-																									pierce : pierce,
+																									pierce : pierce * multis[5],
 																									lifetime : lifetime,
 																									type : type,
 																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]],})
@@ -500,8 +510,20 @@ if (not global.paused) {
 						ds_list_copy(translate, targets)
 					}
 					
-					for (var i = 0; i < min(ds_list_size(targets), pierce); i++) {
+					for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
 						ds_list_find_value(targets, i).hp -= damage * buffs[1] * buffs[4] * multis[0]
+						if (decamo and shotNum % 3 == 0) {
+							ds_list_find_value(targets, i).class[0] = false
+						}
+						if (burn) {
+							ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+							ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+							ds_list_find_value(targets, i).image_blend = c_orange
+						}
+						if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+							ds_list_find_value(targets, i).speedMulti = 0
+							ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+						}
 						if ds_list_find_value(targets, i).hp <= 0 {
 							// kill dead enemies
 							instance_destroy(ds_list_find_value(targets, i))
@@ -509,6 +531,7 @@ if (not global.paused) {
 					}
 				
 					firing = true
+					shotNum += 1
 					attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
 					alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
 					if attackRemainder > 1 {
@@ -713,6 +736,17 @@ if (not global.paused) {
 								break;
 							case "slow":
 								slow += global.upgrades[towerType][upgrade].slow * effectiveness[upgrade]
+								break;
+							case "decamo":
+								decamo = true
+								break;
+							case "pierce":
+								if (global.upgrades[towerType][upgrade].pierce > 0) {
+									multis[5] += global.upgrades[towerType][upgrade].pierce * effectiveness[upgrade]
+								}
+								else {
+									multis[5] = multis[5] / abs(global.upgrades[towerType][upgrade].pierce * effectiveness[upgrade] - 1)
+								}
 								break;
 						}
 					}

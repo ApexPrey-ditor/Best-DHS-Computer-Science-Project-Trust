@@ -28,6 +28,8 @@ bounce = 0
 lifeDeduct = 0
 level = 1
 kills = 0
+decamo = false
+shotNum = 0
 
 // firing conditions
 // initial is the current target enemy
@@ -121,7 +123,7 @@ alarmList = []
 
 // for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster damage, commander firerate, hacker discount)
 buffs = [1, 1, 1, false, 1, 1, 0]
-// for upgrades (damage, firerate, range, effect, AOE)
+// for upgrades (damage, firerate, range, effect, AOE, pierce)
 multis = []
 array_copy(multis, 0, global.towerStats, 0, array_length(global.towerStats))
 // Upgrade Costs

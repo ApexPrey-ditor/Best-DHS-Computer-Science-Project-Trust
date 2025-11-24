@@ -49,19 +49,21 @@ global.permClass = [false, false, false]
 global.fool = false
 global.first = true
 global.towers = 0
-// for modifs (damage, firerate, range, effect, AOE)
-global.towerStats = [1, 1, 1, 1, 1]
+// for modifs (damage, firerate, range, effect, AOE, pierce)
+global.towerStats = [1, 1, 1, 1, 1, 1]
 // detection giving cards
-global.oneTimesKey = [3, 4, 6, 10]
+global.oneTimesKey = [3, 4, 6, 10, 18, 19]
 global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 						[0, 1, 2, 3, 6, 14],
 						[0, 1, 2, 4, 5, 6, 12],
-						[0, 1, 2, 3]]
+						[0, 1, 2, 3],
+						[4, 5, 6, 7],
+						[4, 6, 7]]
 
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 17)
+	array_push(global.upgradePool, 24)
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -91,6 +93,13 @@ repeat (3) {
 	array_push(global.upgradePool, 15) // Tungsten Ultimate Nitrogen Gun
 	array_push(global.upgradePool, 16) // GO TO HELL
 	array_push(global.upgradePool, 17) // Pentaerythritol Tetranitrate
+	array_push(global.upgradePool, 18) // worlds brightest flashlight
+	array_push(global.upgradePool, 19) // hydrogen
+	array_push(global.upgradePool, 20) // Hey Guys I Think There's a Fly Biting Me
+	array_push(global.upgradePool, 21) // Whats a Physics?
+	array_push(global.upgradePool, 22) // A Litteraly Mini Nuke
+	array_push(global.upgradePool, 23) // sharp explosions
+	array_push(global.upgradePool, 24) // (the) Radiance
 }
 // Not Horrible
 repeat (2) {	

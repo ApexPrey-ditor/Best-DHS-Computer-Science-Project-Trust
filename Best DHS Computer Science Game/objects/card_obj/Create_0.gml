@@ -1,5 +1,9 @@
 direction = -90
 
+function find_camo_unique(element, index) {
+	return array_contains(global.oneTimesValues[0], element)
+}
+
 pickable = false
 selecting = false
 dissapate = false
@@ -65,7 +69,7 @@ switch (image_index) {
 		break;
 	// Lose Yourself
 	case 7:
-		stats = {display : "Lose Yourself", desc : "\"His palms are palms, palms weak, arms are palms, there’s palms on his palms already, mom’s palms.\" \n+|% Damage\n -|% Fire Rate", damage : 1, fireSpeed : -0.45}
+		stats = {display : "Lose Yourself", desc : "\"His palms are palms, palms weak, arms are palms, there's palms on his palms already, mom's palms.\" \n+|% Damage\n -|% Fire Rate", damage : 1, fireSpeed : -0.45}
 		replace = [100, 45]
 		appliable = [0, 1, 2, 3, 14]
 		repeatable = false
@@ -144,7 +148,51 @@ switch (image_index) {
 	case 18:
 		stats = {display : "worlds brightest flashlight", desc : "\"hohoh hoh! i cant wait to give al the little children their presents! whats that bright li-\" \nremoves camo from enemies every 3rd shot \n-|% attack speed", fireSpeed : -0.5, decamo : true}
 		replace = [50]
-		appliable = array_intersection([4, 5, 6, 7], global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)])
+		appliable = array_filter(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], find_camo_unique)
+		repeatable = false
+		oneTime = true
+		break;
+	// hydrogen
+	case 19:
+		stats = {display : "hydrogen", desc : "\"hydrogen baby vs coughing bomb\" \nApplies burning effect \n-|% attack speed \n -|% AOE", fireSpeed : -0.25, AOE : -0.1, burn : true}
+		replace = [25, 10]
+		appliable = global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]
+		repeatable = false
+		oneTime = true
+		break;
+	// Hey Guys I Think There's a Fly Biting Me
+	case 20:
+		stats = {display : "Hey Guys I Think There's a Fly Biting Me", desc : "\"oh dont worry i’ll get that for you\" \n+|% AOE \n-|% damage", damage : -0.5, AOE : 1}
+		replace = [100, 50]
+		appliable = [4, 5, 6, 7]
+		repeatable = false
+		break;
+	// Whats a Physics?
+	case 21:
+		stats = {display : "Whats a Physics?", desc : "\"no way guys iots albert einstein! its albert einstein guys!\" \n+| pierce", pierceL : 3}
+		replace = [3]
+		appliable = [4, 5, 6, 7]
+		repeatable = false
+		break;
+	// A Litteraly Mini Nuke
+	case 22:
+		stats = {display : "A Litteraly Mini Nuke", desc : "\"hey aren't we worried about the fallout? 4?\" \n+|% damage \n+|% AEO \n+|% pierce \n-|% attack speed", damage : 0.5, AOE : 0.5, pierce : 0.5, fireSpeed : -1}
+		replace = [50, 50, 50, 100]
+		appliable = [4, 5, 6, 7]
+		repeatable = false
+		break;
+	// sharp explosions
+	case 23:
+		stats = {display : "sharp explosions", desc : "\"what do you mean the explosion is sharp, it seems pretty dumb to me!\" \n+|% damage \n-|% pierce", damage : 1.25, pierce : -0.75}
+		replace = [125, 75]
+		appliable = [4, 5, 6, 7]
+		repeatable = false
+		break;
+	// (the) Radiance
+	case 24:
+		stats = {display : "sharp explosions", desc : "\"what am i gonna do, fight the sun?\" \nStuns enemies for (damage / enemy hp) * | seconds \n-|% Attack Speed", stun : 2, fireSpeed : -0.25}
+		replace = [2, 25]
+		appliable = [4, 5, 6, 7]
 		repeatable = false
 		break;
 }

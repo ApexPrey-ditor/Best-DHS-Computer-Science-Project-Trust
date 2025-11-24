@@ -16,8 +16,34 @@ else {
 		enemies = remove_undetectable(enemies, detections)
 
 		if (ds_list_size(enemies) > 0) {
+			if (special == "flame") {
+				// checks for enemies hit by flamethrower
+				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
+					if (not array_contains(hit, ds_list_find_value(enemies, i))) {
+						ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
+						array_push(hit, ds_list_find_value(enemies, i))
+						ds_list_find_value(enemies, i).burning = calculate_type_damage(ds_list_find_value(enemies, i), detections, effect[0])
+						ds_list_find_value(enemies, i).alarm[0] = ceil(effect[1] / global.fastForward)
+						ds_list_find_value(enemies, i).image_blend = c_orange
+						if (decamo and shotNum % 3 == 0) {
+							ds_list_find_value(enemies, i).class[0] = false
+						}
+						if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i), detections, effect[0]) > 0) {
+							ds_list_find_value(enemies, i).speedMulti = 0
+							ds_list_find_value(enemies, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(enemies, i), detections, effect[0]) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
+						}
+						if (ds_list_find_value(enemies, i).hp <= 0) {
+							instance_destroy(ds_list_find_value(enemies, i))
+						}
+					}
+				}
+				pierce -= ds_list_size(enemies)
+				if pierce <= 0 {
+					instance_destroy()
+				}
+			}
 			// checks if bullet is explosive
-			if (aoe > 0) {
+			else if (aoe > 0) {
 				sprite_index = explosion_spr
 				speed = 0
 				image_xscale = aoe
@@ -33,28 +59,21 @@ else {
 				
 				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
 					ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
+					if (decamo and shotNum % 3 == 0) {
+						ds_list_find_value(enemies, i).class[0] = false
+					}
+					if (burn) {
+						ds_list_find_value(enemies, i).burning = (calculate_type_damage(ds_list_find_value(enemies, i), [detections[0], true, detections[2]], damage) / fireSpeed / 2)
+						ds_list_find_value(enemies, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+						ds_list_find_value(enemies, i).image_blend = c_orange
+					}
+					if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i), detections, effect[0]) > 0) {
+						ds_list_find_value(enemies, i).speedMulti = 0
+						ds_list_find_value(enemies, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(enemies, i), detections, effect[0]) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
+					}
 					if (ds_list_find_value(enemies, i).hp <= 0) {
 						instance_destroy(ds_list_find_value(enemies, i))
 					}
-				}
-			}
-			else if (special == "flame") {
-				// checks for enemies hit by flamethrower
-				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
-					if (not array_contains(hit, ds_list_find_value(enemies, i))) {
-						ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
-						array_push(hit, ds_list_find_value(enemies, i))
-						ds_list_find_value(enemies, i).burning = calculate_type_damage(ds_list_find_value(enemies, i), detections, effect[0])
-						ds_list_find_value(enemies, i).alarm[0] = ceil(effect[1] / global.fastForward)
-						ds_list_find_value(enemies, i).image_blend = c_orange
-						if (ds_list_find_value(enemies, i).hp <= 0) {
-							instance_destroy(ds_list_find_value(enemies, i))
-						}
-					}
-				}
-				pierce -= ds_list_size(enemies)
-				if pierce <= 0 {
-					instance_destroy()
 				}
 			}
 			else {

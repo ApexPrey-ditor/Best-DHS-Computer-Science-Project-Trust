@@ -11,6 +11,6 @@ else {
 		draw_set_font(archive)
 		draw_healthbar(x - ceil(string_length(name + " " + string(hp) + "/" + string(cash)) * 32/6), y - 72, ceil(x + string_length(name + " " + string(hp) + "/" + string(cash)) * 32/6), y - 56, (hp / cash) * 100, c_white, c_red, c_green, 0, true, true)
 		draw_set_colour(c_black)
-		draw_text(x, y - 64, name + " " + string(hp) + "/" + string(cash))
+		draw_text(x, y - 64, name + " " + string(ceil(hp)) + "/" + string(cash))
 	}
 }
