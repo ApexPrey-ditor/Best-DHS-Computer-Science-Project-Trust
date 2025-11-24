@@ -66,7 +66,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 42)
+	array_push(global.upgradePool, 43)
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -105,6 +105,8 @@ repeat (3) {
 	array_push(global.upgradePool, 24) // (the) Radiance
 	array_push(global.upgradePool, 25) // DESTROY
 	array_push(global.upgradePool, 26) // bro im lagging i swaer
+	array_push(global.upgradePool, 42) // Psychiatrist
+	array_push(global.upgradePool, 43) // eyes on the prize
 }
 // Not Horrible
 repeat (2) {	

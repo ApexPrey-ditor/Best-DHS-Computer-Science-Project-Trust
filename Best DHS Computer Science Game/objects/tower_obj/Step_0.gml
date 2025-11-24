@@ -543,6 +543,12 @@ if (not global.paused) {
 							}
 						}
 					}
+					if (eyesOnThePrize > 0) {
+						if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+							show_debug_message("hey dude whats good")
+							global.money += cost * eyesOnThePrize / 7
+						}
+					}
 				}
 			}
 			else {
@@ -620,7 +626,6 @@ if (not global.paused) {
 		else if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
 			global.money += effect[0] * multis[3] * ((array_length(global.schizophrenics) * 0.1) * psychiatrist + 1)
 		}
-	
 		// debt collector leveling up
 		if (special == "debt collector" and level < 4) {
 			if (kills >= effect[level - 1]) {
@@ -777,7 +782,7 @@ if (not global.paused) {
 								detections[1] = true
 								break;
 							case "buff":
-								if (global.upgrades[towerType][upgrade].range > 0) {
+								if (global.upgrades[towerType][upgrade].buff > 0) {
 									multis[3] += global.upgrades[towerType][upgrade].buff * effectiveness[upgrade]
 								}
 								else {
