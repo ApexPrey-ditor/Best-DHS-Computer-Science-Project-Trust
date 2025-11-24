@@ -550,8 +550,8 @@ if (not global.paused) {
 				if (not firing) {
 					// for laser attacking
 					var targets = ds_list_create()
-					collision_line_list(0, y + aoe * multis[4], room_width, y + aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
-					collision_line_list(0, y - aoe * multis[4], room_width, y - aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+					collision_line_list(0, y + aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), room_width, y + aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+					collision_line_list(0, y - aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), room_width, y - aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					
 					var translate = ds_list_create()
 					ds_list_copy(translate, targets)

@@ -6,7 +6,7 @@ if (image_index == 18) {
 	deathIndex = -1
 	for (var i = array_length(global.modifiers) - 1; i >= 0; i--) {
 		if (array_contains(global.modifierPool, global.modifiers[i])) {
-			deathIndex = i
+			deathIndex = global.modifiers[i]
 			break;
 		}
 	}

@@ -95,7 +95,6 @@
     {"id":{"name":"towerShooting5_spr","path":"sprites/towerShooting5_spr/towerShooting5_spr.yy",},},
     {"id":{"name":"towerShooting6_1_spr","path":"sprites/towerShooting6_1_spr/towerShooting6_1_spr.yy",},},
     {"id":{"name":"towerShooting6_2_spr","path":"sprites/towerShooting6_2_spr/towerShooting6_2_spr.yy",},},
-    {"id":{"name":"towerShooting7_spr","path":"sprites/towerShooting7_spr/towerShooting7_spr.yy",},},
     {"id":{"name":"Test_ts","path":"tilesets/Test_ts/Test_ts.yy",},},
   ],
   "resourceType":"GMProject",
