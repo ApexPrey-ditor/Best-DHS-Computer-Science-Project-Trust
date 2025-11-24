@@ -63,7 +63,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 24)
+	//array_push(global.upgradePool, 24)
 }
 // Not Ferdigalocious
 repeat (6) {
