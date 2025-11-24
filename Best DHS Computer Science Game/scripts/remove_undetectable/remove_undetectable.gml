@@ -7,9 +7,7 @@ function remove_undetectable(enemies, detections) {
 			(ds_list_find_value(enemies, i).class[0] == true and detections[0] == false) or
 			(ds_list_find_value(enemies, i).class[2] == true and not array_contains(detections, true))) {
 			ds_list_delete(enemies, i)
-			if (i > 0) {
-				i--
-			}
+			i--
 		}
 	}
 	

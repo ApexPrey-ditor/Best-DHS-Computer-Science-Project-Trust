@@ -565,42 +565,44 @@ if (not global.paused) {
 					}
 					
 					for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
-						if (delay <= 0) {
-							ds_list_find_value(targets, i).hp -= damage * buffs[1] * buffs[4] * multis[0]
-							if (decamo and shotNum % 3 == 0) {
-								ds_list_find_value(targets, i).class[0] = false
+						if (instance_exists(ds_list_find_value(targets, i))) {
+							if (delay <= 0) {
+								ds_list_find_value(targets, i).hp -= damage * buffs[1] * buffs[4] * multis[0]
+								if (decamo and shotNum % 3 == 0) {
+									ds_list_find_value(targets, i).class[0] = false
+								}
+								if (burn) {
+									ds_list_find_value(targets, i).burning = (damage * buffs[1] * buffs[4] * multis[0] / fireSpeed / 2)
+									ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+									ds_list_find_value(targets, i).image_blend = c_orange
+								}
+								if (stun > 0 and damage * buffs[1] * buffs[4] * multis[0] > 0) {
+									ds_list_find_value(targets, i).speedMulti = 0
+									ds_list_find_value(targets, i).alarm[2] = ceil(damage * buffs[1] * buffs[4] * multis[0] / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+								}
+								if ds_list_find_value(targets, i).hp <= 0 {
+									// kill dead enemies
+									instance_destroy(ds_list_find_value(targets, i))
+								}
 							}
-							if (burn) {
-								ds_list_find_value(targets, i).burning = (damage * buffs[1] * buffs[4] * multis[0] / fireSpeed / 2)
-								ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
-								ds_list_find_value(targets, i).image_blend = c_orange
-							}
-							if (stun > 0 and damage * buffs[1] * buffs[4] * multis[0] > 0) {
-								ds_list_find_value(targets, i).speedMulti = 0
-								ds_list_find_value(targets, i).alarm[2] = ceil(damage * buffs[1] * buffs[4] * multis[0] / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
-							}
-							if ds_list_find_value(targets, i).hp <= 0 {
-								// kill dead enemies
-								instance_destroy(ds_list_find_value(targets, i))
-							}
-						}
-						else {
-							array_push(ds_list_find_value(targets, i).delays, delay)
-							var effectSend = [damage * buffs[1] * buffs[4] * multis[0], 0, 0, 1, 0, false]
+							else {
+								array_push(ds_list_find_value(targets, i).delays, delay)
+								var effectSend = [damage * buffs[1] * buffs[4] * multis[0], 0, 0, 1, 0, false]
 										
-							if (burn) {
-								effectSend[1] = damage * buffs[1] * buffs[4] * multis[0] / fireSpeed / 2
-								effectSend[2] = ceil(fireSpeed / global.fastForward * 3)
-							}
-							if (stun > 0 and damage * buffs[1] * buffs[4] * multis[0] > 0) {
-								effectSend[3] = 0
-								effectSend[4] = ceil(damage * buffs[1] * buffs[4] * multis[0] / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
-							}
-							if (decamo and shotNum % 3 == 0) {
-								effectSend[5] = true
-							}
+								if (burn) {
+									effectSend[1] = damage * buffs[1] * buffs[4] * multis[0] / fireSpeed / 2
+									effectSend[2] = ceil(fireSpeed / global.fastForward * 3)
+								}
+								if (stun > 0 and damage * buffs[1] * buffs[4] * multis[0] > 0) {
+									effectSend[3] = 0
+									effectSend[4] = ceil(damage * buffs[1] * buffs[4] * multis[0] / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+								}
+								if (decamo and shotNum % 3 == 0) {
+									effectSend[5] = true
+								}
 										
-							array_push(ds_list_find_value(targets, i).effect, effectSend)
+								array_push(ds_list_find_value(targets, i).effect, effectSend)
+							}
 						}
 					}
 				

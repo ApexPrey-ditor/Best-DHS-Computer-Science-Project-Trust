@@ -1,7 +1,7 @@
 direction = -90
 
 function find_camo_unique(element, index) {
-	return array_contains(global.oneTimesValues[0], element)
+	return not array_contains(global.oneTimesValues[0], element)
 }
 
 pickable = false
