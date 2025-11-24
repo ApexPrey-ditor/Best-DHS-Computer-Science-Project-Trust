@@ -571,13 +571,13 @@ if (not global.paused) {
 								ds_list_find_value(targets, i).class[0] = false
 							}
 							if (burn) {
-								ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+								ds_list_find_value(targets, i).burning = (damage * buffs[1] * buffs[4] * multis[0] / fireSpeed / 2)
 								ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
 								ds_list_find_value(targets, i).image_blend = c_orange
 							}
-							if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+							if (stun > 0 and damage * buffs[1] * buffs[4] * multis[0] > 0) {
 								ds_list_find_value(targets, i).speedMulti = 0
-								ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+								ds_list_find_value(targets, i).alarm[2] = ceil(damage * buffs[1] * buffs[4] * multis[0] / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
 							}
 							if ds_list_find_value(targets, i).hp <= 0 {
 								// kill dead enemies
@@ -586,15 +586,15 @@ if (not global.paused) {
 						}
 						else {
 							array_push(ds_list_find_value(targets, i).delays, delay)
-							var effectSend = [calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]), 0, 0, 1, 0, false]
+							var effectSend = [damage * buffs[1] * buffs[4] * multis[0], 0, 0, 1, 0, false]
 										
 							if (burn) {
-								effectSend[1] = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+								effectSend[1] = damage * buffs[1] * buffs[4] * multis[0] / fireSpeed / 2
 								effectSend[2] = ceil(fireSpeed / global.fastForward * 3)
 							}
-							if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+							if (stun > 0 and damage * buffs[1] * buffs[4] * multis[0] > 0) {
 								effectSend[3] = 0
-								effectSend[4] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+								effectSend[4] = ceil(damage * buffs[1] * buffs[4] * multis[0] / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
 							}
 							if (decamo and shotNum % 3 == 0) {
 								effectSend[5] = true

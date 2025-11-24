@@ -20,7 +20,7 @@ else if (selecting) {
 					}
 					if (array_length(global.upgrades[i]) == 3) {
 						if (i % 4 < 3) {
-							repeat (2) {
+							repeat (2000) {
 								array_push(global.upgradePool, 27 + i)
 							}
 						}
