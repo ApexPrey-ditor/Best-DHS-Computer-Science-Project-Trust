@@ -36,6 +36,7 @@ lead = true
 tier4 = false
 psychiatrist = 0
 eyesOnThePrize = 0
+notManyBeans = 0
 
 // firing conditions
 // initial is the current target enemy

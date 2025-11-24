@@ -66,7 +66,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 43)
+	array_push(global.upgradePool, 46)
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -107,6 +107,9 @@ repeat (3) {
 	array_push(global.upgradePool, 26) // bro im lagging i swaer
 	array_push(global.upgradePool, 42) // Psychiatrist
 	array_push(global.upgradePool, 43) // eyes on the prize
+	array_push(global.upgradePool, 44) // pocketer
+	array_push(global.upgradePool, 45) // big eyes
+	array_push(global.upgradePool, 46) // i dont have very many beans so you guys are gonna have to share
 }
 // Not Horrible
 repeat (2) {	

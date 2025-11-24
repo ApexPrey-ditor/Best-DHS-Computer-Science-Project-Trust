@@ -227,7 +227,6 @@ switch (image_index) {
 		repeatable = false
 		break;
 	// eyes on the prize
-	// DOESN'T WORK, line 546 tower_step
 	case 43:
 		stats = {display : "eyes on the prize", desc : "\"dude i gotta invest in girlscoin\" \nevery support tower makes money based on their cost \n-|% nerf to effect", eyesOnThePrize : 1, buff : -0.8}
 		replace = [80]
@@ -236,5 +235,23 @@ switch (image_index) {
 		break;
 	// pocketer
 	case 44:
-		
+		stats = {display : "pocketer", desc : "\"poo   fart  keyboard makes me    slam th e  spacebar  t  o       space  it out\" \n+|% more effect \n+|% less range", buff : 0.4, range : -0.5}
+		replace = [40, 50]
+		appliable = [8, 10, 11]
+		repeatable = false
+		break;
+	// big eyes
+	case 45:
+		stats = {display : "big eyes", desc : "\"🤓\" \n+|% range \n-|% effect", buff : -0.1, range : 0.5}
+		replace = [50, 10]
+		appliable = [8, 10, 11]
+		repeatable = false
+		break;
+	// i dont have very many beans so you guys are gonna have to share
+	case 46:
+		stats = {display : "i dont have very many beans so you guys are gonna have to share", desc : "\"turns your support towers into single mothers\" \n+|% effect \n-|% effect for every tower in range", buff : 0.5, notManyBeans : 1}
+		replace = [50, 10]
+		appliable = [8, 9, 10, 11]
+		repeatable = false
+		break;
 }
