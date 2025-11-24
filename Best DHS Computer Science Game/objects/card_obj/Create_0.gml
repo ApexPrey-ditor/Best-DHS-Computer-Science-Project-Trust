@@ -227,10 +227,14 @@ switch (image_index) {
 		repeatable = false
 		break;
 	// eyes on the prize
+	// DOESN'T WORK, line 546 tower_step
 	case 43:
 		stats = {display : "eyes on the prize", desc : "\"dude i gotta invest in girlscoin\" \nevery support tower makes money based on their cost \n-|% nerf to effect", eyesOnThePrize : 1, buff : -0.8}
 		replace = [80]
 		appliable = [8, 10, 11]
 		repeatable = false
 		break;
+	// pocketer
+	case 44:
+		
 }

@@ -56,7 +56,7 @@ if (not global.paused) {
 				if (string_char_at(special, 0) != "s") {
 					// specials for towers that also attack
 					if (special = "rapper") {
-						if (enemySpawner_obj.waveCash) {
+						if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
 							global.money += effect[0] * multis[3]
 						}
 					}
@@ -544,9 +544,9 @@ if (not global.paused) {
 						}
 					}
 					if (eyesOnThePrize > 0) {
-						if (enemySpawner_obj.waveCash) {
+						if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
 							show_debug_message("hey dude whats good")
-							global.money += floor(cost * eyesOnThePrize / 7)
+							global.money += cost * eyesOnThePrize / 7
 						}
 					}
 				}
@@ -623,7 +623,7 @@ if (not global.paused) {
 			}
 		}
 		// adds money at the end of each wave for each money tower
-		else if (enemySpawner_obj.waveCash) {
+		else if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
 			global.money += effect[0] * multis[3] * ((array_length(global.schizophrenics) * 0.1) * psychiatrist + 1)
 		}
 		// debt collector leveling up
@@ -845,9 +845,6 @@ if (not global.paused) {
 								break;
 							case "psychiatrist":
 								psychiatrist += global.upgrades[towerType][upgrade].psychiatrist * effectiveness[upgrade]
-								break;
-							case "eyesOnThePrize":
-								eyesOnThePrize += global.upgrades[towerType][upgrade].eyesOnThePrize * effectiveness[upgrade]
 								break;
 						}
 					}

@@ -9,6 +9,4 @@ if (endWave and enemies == 0) {
 	global.wave += 1
 	
 	endWave = false
-	waveCash = true
-	alarm[3] = 1
 }
