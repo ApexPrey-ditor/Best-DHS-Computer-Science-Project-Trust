@@ -34,6 +34,7 @@ decamo = false
 shotNum = 0
 lead = true
 tier4 = false
+psychiatrist = 0
 
 // firing conditions
 // initial is the current target enemy
@@ -111,6 +112,7 @@ function noneTargeting(array, initial, check, priority) {
 
 // lists for general storage (making my life easier)
 towerNames = ["Gunner", "Sniper", "Railgunner", "Evaporator", "Boomer", "Flamer", "Puncher", "Laser", "Cheerleader", "Moneymaker", "Spotter", "Booster", "Commander", "Hacker", "Rapper", "Debt Collecter"]
+towerNamesT4 = ["Soldier", "Assassin", "Gauss Machine Gun", "Dissapator", "Grenadier", "Pyromaniac", "Heavyweight", "Tachyon Beam", "Captain", "Entrepreneur", "Marker", "Overclocker", "General", "Cyberpunk", "Lyrical Miracle"]
 
 targetingTypes = ["First", "Last", "Strong", "Weak", "Farthest", "Closest"]
 targetingTranslations = [firstTargeting, lastTargeting, strongTargeting, weakTargeting, farTargeting, closeTargeting]
@@ -131,7 +133,7 @@ buffs = [1, 1, 1, false, 1, 1, 0]
 multis = []
 array_copy(multis, 0, global.towerStats, 0, array_length(global.towerStats))
 // Upgrade Costs
-costs = [[75, 125, 200, 550], [125, 200, 325, 850], [500, 825, 1300, 4800], [1750, 2750, 4500, 14000], [100, 150, 275, 650], [275, 450, 725, 1500], [500, 825, 1325, 4250], [2500, 4150, 6500, 18000], [425, 700, 1125, 200], [350, 575, 925, 1800], [1750, 2850, 4500, 10000], [2000, 3250, 5350, 10000], [2000, 3250, 5250, 15000], [1875, 3125, 5000, 8000], [1750, 2900, 4650, 1000]]
+costs = [[75, 125, 200, 550, 100], [125, 200, 325, 850, 150], [500, 825, 1300, 4800, 675], [1750, 2750, 4500, 14000, 2325], [100, 150, 275, 650, 150], [275, 450, 725, 1500, 350], [500, 825, 1325, 4250, 675], [2500, 4150, 6500, 18000, 3325], [425, 700, 1125, 2000, 550], [350, 575, 925, 1800, 450], [1750, 2850, 4500, 10000, 2325], [2000, 3250, 5350, 10000, 2650], [2000, 3250, 5250, 15000, 2650], [1875, 3125, 5000, 8000, 2500], [1750, 2900, 4650, 1000, 2325]]
 // upgrade effectiveness
 effectiveness = [0.5, 1, 2]
 // what tower is being buffed (for booster)

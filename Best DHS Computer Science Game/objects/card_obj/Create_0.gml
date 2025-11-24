@@ -217,6 +217,13 @@ switch (image_index) {
 		stats = {display : "Soldier", desc : "Pierce 1 >> 2 \nAttack Speed 21 >> 30 \nDamage 1 >> 3 \nRange 250 >> 350", gunner4 : true}
 		tier4 = true
 		appliable = [0]
+		repeatable = true
+		break;
+	// Psychiatrist
+	case 42:
+		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}
+		replace = [50, 10]
+		appliable = [8, 9, 10, 11]
 		repeatable = false
 		break;
 }

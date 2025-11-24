@@ -23,7 +23,6 @@ else if (selecting) {
 							repeat (2000) {
 								array_push(global.upgradePool, 27 + i)
 							}
-							show_debug_message("Ye ye he he")
 						}
 						else {
 							array_push(global.upgradePool, 27 + i)
@@ -54,6 +53,7 @@ else if (selecting) {
 							array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
 						}
 					}
+					
 					stats.desc = newDesc
 					array_push(global.upgrades[i], stats)
 					selecting = false
@@ -83,7 +83,18 @@ else if (selecting) {
 					}
 					if (oneTime) {
 						array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
+						if (array_length(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]) == 0) {
+							while (array_contains(global.upgradePool, image_index)) {
+								array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+							}
+						}
 					}
+					if (tier4) {
+						while (array_contains(global.upgradePool, image_index)) {
+							array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+						}
+					}
+					
 					stats.desc = newDesc
 					array_push(global.upgrades[i], stats)
 					selecting = false
