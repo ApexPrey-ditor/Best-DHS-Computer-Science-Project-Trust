@@ -12,6 +12,7 @@ effectiveness = [0.5, 1, 2]
 
 repeatable = false
 oneTime = false
+tier4 = false
 appliable = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 replace = []
 stats = {}
@@ -200,6 +201,22 @@ switch (image_index) {
 		stats = {display : "DESTROY", desc : "\"YOU CAN'T ESCAPE\" \nHit is delayed by | seconds \n+|% Damage \n+|% Attack Speed", fireSpeed : 0.05, damage : 0.25, delay : 30}
 		replace = [0.5, 25, 5]
 		appliable = [4, 5, 6, 7]
+		repeatable = false
+		break;
+	// bro im lagging i swaer
+	case 26:
+		stats = {display : "bro im lagging i swaer", desc : "\"my ping is over 9000\" \nAims at where the enemy was instead of where it is \n+|% Attack Speed", fireSpeed : 0.5, lead : false}
+		replace = [50]
+		appliable = [4, 5]
+		appliable = global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]
+		repeatable = false
+		oneTime = true
+		break;
+	// Gunner: Soldier
+	case 27:
+		stats = {display : "Soldier", desc : "Pierce 1 >> 2 \nAttack Speed 21 >> 30 \nDamage 1 >> 3 \nRange 250 >> 350", gunner4 : true}
+		tier4 = true
+		appliable = [0]
 		repeatable = false
 		break;
 }

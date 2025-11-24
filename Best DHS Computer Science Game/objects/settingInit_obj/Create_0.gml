@@ -52,18 +52,19 @@ global.towers = 0
 // for modifs (damage, firerate, range, effect, AOE, pierce)
 global.towerStats = [1, 1, 1, 1, 1, 1]
 // detection giving cards
-global.oneTimesKey = [3, 4, 6, 10, 18, 19]
+global.oneTimesKey = [3, 4, 6, 10, 18, 19, 26]
 global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 						[0, 1, 2, 3, 6, 14],
 						[0, 1, 2, 4, 5, 6, 12],
 						[0, 1, 2, 3],
 						[4, 5, 6, 7],
-						[4, 6, 7]]
+						[4, 6, 7],
+						[4, 5]]
 
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 25)
+	//array_push(global.upgradePool, 26)
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -101,6 +102,7 @@ repeat (3) {
 	array_push(global.upgradePool, 23) // sharp explosions
 	array_push(global.upgradePool, 24) // (the) Radiance
 	array_push(global.upgradePool, 25) // DESTROY
+	array_push(global.upgradePool, 26) // bro im lagging i swaer
 }
 // Not Horrible
 repeat (2) {	

@@ -29,8 +29,10 @@ lifeDeduct = 0
 delay = 0
 level = 1
 kills = 0
+puncherAlt = "2"
 decamo = false
 shotNum = 0
+lead = true
 
 // firing conditions
 // initial is the current target enemy

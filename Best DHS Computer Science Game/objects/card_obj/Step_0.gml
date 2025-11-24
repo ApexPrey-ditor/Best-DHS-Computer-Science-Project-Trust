@@ -18,6 +18,9 @@ else if (selecting) {
 					for (var w = 0; w < array_length(replace); w++) {
 						newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
 					}
+					if (array_length(global.upgrades[i]) == 3) {
+						array_push(global.upgradePool, 27 + i)
+					}
 					if (oneTime) {
 						array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
 					}
@@ -37,6 +40,9 @@ else if (selecting) {
 					var newDesc = stats.desc
 					for (var w = 0; w < array_length(replace); w++) {
 						newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
+					}
+					if (array_length(global.upgrades[i]) == 3) {
+						array_push(global.upgradePool, 27 + i)
 					}
 					if (oneTime) {
 						array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
