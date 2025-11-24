@@ -56,7 +56,7 @@ if (not global.paused) {
 				if (string_char_at(special, 0) != "s") {
 					// specials for towers that also attack
 					if (special = "rapper") {
-						if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+						if (enemySpawner_obj.waveCash) {
 							global.money += effect[0] * multis[3]
 						}
 					}
@@ -617,7 +617,7 @@ if (not global.paused) {
 			}
 		}
 		// adds money at the end of each wave for each money tower
-		else if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+		else if (enemySpawner_obj.waveCash) {
 			global.money += effect[0] * multis[3] * ((array_length(global.schizophrenics) * 0.1) * psychiatrist + 1)
 		}
 	
