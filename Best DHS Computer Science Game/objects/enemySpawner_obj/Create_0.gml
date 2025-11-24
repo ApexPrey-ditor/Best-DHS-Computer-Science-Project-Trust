@@ -11,6 +11,7 @@ weights = [1.2, 0.95, 0.9, 1.1, 1, 1, 1.3, 0.8, 0.5, 0.9, 1.2, 0.95, 1.1, 0.85, 
 values = []
 enemies = 0
 endWave = false
+waveCash = false
 spawning = false
 
 alarmList = []

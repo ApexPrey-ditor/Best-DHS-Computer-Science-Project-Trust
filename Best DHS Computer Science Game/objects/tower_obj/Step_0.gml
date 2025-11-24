@@ -23,7 +23,14 @@ if (not global.paused) {
 						}
 						
 						buffing = target
-						target.buffs[4] = effect[0] * ((array_contains(global.schizophrenics, target) * 0.5) * psychiatrist + 1)
+						if (notManyBeans == 0) {
+							target.buffs[4] = effect[0] * ((array_contains(global.schizophrenics, target) * 0.5) * psychiatrist + 1)
+						}
+						else {
+							var towers = ds_list_create()
+							collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+							target.buffs[4] = (effect[0] - (ds_list_size(towers) * 0.1 * notManyBeans)) * ((array_contains(global.schizophrenics, target) * 0.5) * psychiatrist + 1)
+						}
 						target.image_blend = c_blue
 					}
 				}
@@ -56,7 +63,7 @@ if (not global.paused) {
 				if (string_char_at(special, 0) != "s") {
 					// specials for towers that also attack
 					if (special = "rapper") {
-						if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+						if (enemySpawner_obj.waveCash) {
 							global.money += effect[0] * multis[3]
 						}
 					}
@@ -341,7 +348,12 @@ if (not global.paused) {
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
 							if (ds_list_find_value(towers, i).buffs[0] < effect[0] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-								ds_list_find_value(towers, i).buffs[0] = effect[0] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								if (notManyBeans == 0) {
+									ds_list_find_value(towers, i).buffs[0] = effect[0] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								}
+								else {
+									ds_list_find_value(towers, i).buffs[0] = (effect[0] - (ds_list_size(towers) * 0.1 * notManyBeans)) * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								}
 								ds_list_find_value(towers, i).image_blend = c_green
 							}
 						}
@@ -355,14 +367,24 @@ if (not global.paused) {
 						for (var i = 0; i < ds_list_size(towers); i++) {
 							buffed = false
 							if (ds_list_find_value(towers, i).buffs[1] < effect[0] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-								ds_list_find_value(towers, i).buffs[1] = effect[0] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								if (notManyBeans == 0) {
+									ds_list_find_value(towers, i).buffs[1] = effect[0] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								}
+								else {
+									ds_list_find_value(towers, i).buffs[1] = (effect[0] - (ds_list_size(towers) * 0.1 * notManyBeans)) * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								}
 								buffed = true
 							}
 							if (ds_list_find_value(towers, i).buffs[2] < effect[1] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-								ds_list_find_value(towers, i).buffs[2] = effect[1] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								if (notManyBeans == 0) {
+									ds_list_find_value(towers, i).buffs[2] = effect[1] * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								}
+								else {
+									ds_list_find_value(towers, i).buffs[2] = (effect[1] - (ds_list_size(towers) * 0.1 * notManyBeans)) * multis[3] * ((array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5) * psychiatrist + 1)
+								}
 								buffed = true
 							}
-							if (ds_list_find_value(towers, i).buffs[3] == false and not ds_list_find_value(towers, i).placing) {
+							if (ds_list_find_value(towers, i).buffs[3] == false and not ds_list_find_value(towers, i).placing) 
 								ds_list_find_value(towers, i).buffs[3] = true
 								buffed = true
 							}
@@ -544,9 +566,8 @@ if (not global.paused) {
 						}
 					}
 					if (eyesOnThePrize > 0) {
-						if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
-							show_debug_message("hey dude whats good")
-							global.money += cost * eyesOnThePrize / 7
+						if (enemySpawner_obj.waveCash) {
+							global.money += floor(cost * eyesOnThePrize / 7)
 						}
 					}
 				}
@@ -623,7 +644,7 @@ if (not global.paused) {
 			}
 		}
 		// adds money at the end of each wave for each money tower
-		else if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+		else if (enemySpawner_obj.waveCash) {
 			global.money += effect[0] * multis[3] * ((array_length(global.schizophrenics) * 0.1) * psychiatrist + 1)
 		}
 		// debt collector leveling up
@@ -846,6 +867,12 @@ if (not global.paused) {
 							case "psychiatrist":
 								psychiatrist += global.upgrades[towerType][upgrade].psychiatrist * effectiveness[upgrade]
 								break;
+							case "eyesOnThePrize":
+								eyesOnThePrize += global.upgrades[towerType][upgrade].eyesOnThePrize * effectiveness[upgrade]
+								break
+							case "notManyBeans":
+								notManyBeans += global.upgrades[towerType][upgrade].notManyBeans * effectiveness[upgrade]
+								break;
 						}
 					}
 				
@@ -897,7 +924,7 @@ if (not global.paused) {
 			instance_destroy()
 		}
 	}
-}
+// }
 if (towerType != 6) {
 	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType) + "_spr")) {
 		image_speed = 0
