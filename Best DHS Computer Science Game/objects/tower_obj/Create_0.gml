@@ -26,6 +26,7 @@ targetable = ds_list_create()
 follows = []
 bounce = 0
 lifeDeduct = 0
+delay = 0
 level = 1
 kills = 0
 decamo = false

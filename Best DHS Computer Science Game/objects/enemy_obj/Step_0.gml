@@ -36,6 +36,42 @@ else {
 		pathSpeed = pathSpeed * global.modEffects[17]
 		damageResist = damageResist * global.modEffects[18]
 	}
+	
+	for (var i = 0; i < array_length(effect); i++) {
+		delays[i] -= global.fastForward
+		if (delays[i] <= 0) {
+			for (var w = 0; w < array_length(effect[i]); w++) {
+				switch (w) {
+					case 0:
+						hp -= effect[i][w]
+						break;
+					case 1:
+						burning = effect[i][w]
+						if (effect[i][w] > 0) {
+							image_blend = c_orange
+						}
+						break;
+					case 2:
+						alarm[0] = effect[i][w]
+						break;
+					case 3:
+						speedMulti = effect[i][w]
+						break;
+					case 4:
+						alarm[2] = effect[i][w]
+						break;
+					case 5:
+						if (effect[i][w]) {
+							class[0] = false
+						}
+						break;
+				}
+			}
+			array_delete(delays, i, 1)
+			array_delete(effect, i, 1)
+			i -= 1
+		}
+	}
 }
 
 depth = -y

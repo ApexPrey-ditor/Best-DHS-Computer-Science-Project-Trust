@@ -162,7 +162,7 @@ switch (image_index) {
 		break;
 	// Hey Guys I Think There's a Fly Biting Me
 	case 20:
-		stats = {display : "Hey Guys I Think There's a Fly Biting Me", desc : "\"oh dont worry i’ll get that for you\" \n+|% AOE \n-|% damage", damage : -0.5, AOE : 1}
+		stats = {display : "Hey Guys I Think There's a Fly Biting Me", desc : "\"oh dont worry i'll get that for you\" \n+|% AOE \n-|% damage", damage : -0.5, AOE : 1}
 		replace = [100, 50]
 		appliable = [4, 5, 6, 7]
 		repeatable = false
@@ -190,8 +190,15 @@ switch (image_index) {
 		break;
 	// (the) Radiance
 	case 24:
-		stats = {display : "sharp explosions", desc : "\"what am i gonna do, fight the sun?\" \nStuns enemies for (damage / enemy hp) * | seconds \n-|% Attack Speed", stun : 2, fireSpeed : -0.25}
+		stats = {display : "(the) Radiance", desc : "\"what am i gonna do, fight the sun?\" \nStuns enemies for (damage / enemy hp) * | seconds \n-|% Attack Speed", stun : 2, fireSpeed : -0.25}
 		replace = [2, 25]
+		appliable = [4, 5, 6, 7]
+		repeatable = false
+		break;
+	// DESTROY
+	case 25:
+		stats = {display : "DESTROY", desc : "\"YOU CAN'T ESCAPE\" \nHit is delayed by | seconds \n+|% Damage \n+|% Attack Speed", fireSpeed : 0.05, damage : 0.25, delay : 30}
+		replace = [0.5, 25, 5]
 		appliable = [4, 5, 6, 7]
 		repeatable = false
 		break;

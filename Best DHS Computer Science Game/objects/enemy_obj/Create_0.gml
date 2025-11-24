@@ -11,6 +11,9 @@ phaseShift = false
 skip = false
 name = ""
 
+effect = []
+delays = []
+
 deactivated = false
 
 alarmList = []
