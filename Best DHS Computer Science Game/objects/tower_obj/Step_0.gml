@@ -544,7 +544,7 @@ if (not global.paused) {
 						}
 					}
 					if (eyesOnThePrize > 0) {
-						if (enemySpawner_obj.endWave and enemySpawner_obj.enemies == 0) {
+						if (enemySpawner_obj.waveCash) {
 							show_debug_message("hey dude whats good")
 							global.money += cost * eyesOnThePrize / 7
 						}
