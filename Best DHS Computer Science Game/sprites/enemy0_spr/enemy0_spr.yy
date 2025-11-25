@@ -31,7 +31,7 @@
   "origin":9,
   "parent":{
     "name":"Normal",
-    "path":"folders/Sprites/Enemy Animations/Normal.yy",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Normal.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
