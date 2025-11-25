@@ -55,7 +55,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 9:
 						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-						{damage : 0, fireSpeed : 0, range : 50, effect: [100], special : "money", cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+						{damage : 0, fireSpeed : 0, range : 250, effect: [100], special : "money", cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 10:
