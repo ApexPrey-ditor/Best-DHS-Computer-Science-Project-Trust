@@ -62,9 +62,7 @@
     },
     "name":"towerShooting14_spr",
     "playback":1,
-<<<<<<< HEAD
     "playbackSpeed":20.0,
->>>>>>> c574ddebe2cd2b5a2d9518416550993502a61364
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
