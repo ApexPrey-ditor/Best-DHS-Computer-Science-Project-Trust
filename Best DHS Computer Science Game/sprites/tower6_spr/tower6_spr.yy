@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"Puncher",
-    "path":"folders/Sprites/Puncher.yy",
+    "path":"folders/Sprites/Tower Animations/Puncher.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

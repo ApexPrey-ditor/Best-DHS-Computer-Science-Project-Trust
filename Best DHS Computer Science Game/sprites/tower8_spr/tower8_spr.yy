@@ -31,7 +31,7 @@
   "origin":9,
   "parent":{
     "name":"Cheerleader",
-    "path":"folders/Sprites/Cheerleader.yy",
+    "path":"folders/Sprites/Tower Animations/Cheerleader.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

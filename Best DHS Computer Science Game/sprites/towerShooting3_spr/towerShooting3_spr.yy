@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"Evaporator",
-    "path":"folders/Sprites/Evaporator.yy",
+    "path":"folders/Sprites/Tower Animations/Evaporator.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

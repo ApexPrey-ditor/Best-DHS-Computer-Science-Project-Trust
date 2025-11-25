@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"Boomer",
-    "path":"folders/Sprites/Boomer.yy",
+    "path":"folders/Sprites/Tower Animations/Boomer.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"Laser",
-    "path":"folders/Sprites/Laser.yy",
+    "path":"folders/Sprites/Tower Animations/Laser.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

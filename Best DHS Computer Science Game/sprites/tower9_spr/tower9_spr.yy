@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"Moneymaker",
-    "path":"folders/Sprites/Moneymaker.yy",
+    "path":"folders/Sprites/Tower Animations/Moneymaker.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

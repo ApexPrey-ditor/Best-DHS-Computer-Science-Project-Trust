@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"Commander",
-    "path":"folders/Sprites/Commander.yy",
+    "path":"folders/Sprites/Tower Animations/Commander.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

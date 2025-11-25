@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"Rapper",
-    "path":"folders/Sprites/Rapper.yy",
+    "path":"folders/Sprites/Tower Animations/Rapper.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

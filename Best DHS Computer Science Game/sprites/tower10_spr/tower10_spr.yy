@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"Spotter",
-    "path":"folders/Sprites/Spotter.yy",
+    "path":"folders/Sprites/Tower Animations/Spotter.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

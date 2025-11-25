@@ -29,7 +29,7 @@
   "origin":9,
   "parent":{
     "name":"Flamer",
-    "path":"folders/Sprites/Flamer.yy",
+    "path":"folders/Sprites/Tower Animations/Flamer.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
