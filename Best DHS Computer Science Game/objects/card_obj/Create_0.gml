@@ -254,4 +254,20 @@ switch (image_index) {
 		appliable = [8, 9, 10, 11]
 		repeatable = false
 		break;
+	// chinese sweatshop conditions
+	case 47:
+		stats = {display : "chinese sweatshop conditions", desc : "\"when i was in china i had to bike 50 miles to school every day through the acid rain while dodging the tigers - the ferocious jade tigers just to work my 900 hour work day\" \n-|% effect nerf \n+|% more effective per tower in range", buff : -0.8, sweatshop : 1}
+		replace = [80, 10]
+		applicable = [8, 9, 10, 11]
+		repeatable = false
+		break;
+	// lesbian (PLACEHOLDER)
+	case 48:
+	// Bind
+	case 49:
+		stats = {display : "Bind", desc : "bound by silk and song, just like me and your mom \n+|% effect \nit only boosts towers every even numbered round", buff : 0.75, }
+		replace = [75]
+		applicable = [8, 9, 10, 11]
+		repeatable = false
+		break;
 }
