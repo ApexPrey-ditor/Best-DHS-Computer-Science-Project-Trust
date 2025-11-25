@@ -13,9 +13,9 @@
   "For3D":false,
   "frames":[
     {"$GMSpriteFrame":"v1","%Name":"655516f1-cdef-4ef0-b1fb-b3bfdebc77fd","name":"655516f1-cdef-4ef0-b1fb-b3bfdebc77fd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"a2d7ac3b-664f-471b-9d64-bcb56e7cfcf7","name":"a2d7ac3b-664f-471b-9d64-bcb56e7cfcf7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"f89c721f-dc6d-4997-9b29-27ece4a26798","name":"f89c721f-dc6d-4997-9b29-27ece4a26798","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"a2614254-12fb-4118-8326-4eb24737310e","name":"a2614254-12fb-4118-8326-4eb24737310e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"a2d7ac3b-664f-471b-9d64-bcb56e7cfcf7","name":"a2d7ac3b-664f-471b-9d64-bcb56e7cfcf7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -62,7 +62,7 @@
     },
     "name":"towerShooting14_spr",
     "playback":1,
-    "playbackSpeed":5.0,
+    "playbackSpeed":20.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -75,14 +75,14 @@
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"655516f1-cdef-4ef0-b1fb-b3bfdebc77fd","path":"sprites/towerShooting14_spr/towerShooting14_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"74b6e92e-b461-4006-99ab-aabadb7b89e7","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a2d7ac3b-664f-471b-9d64-bcb56e7cfcf7","path":"sprites/towerShooting14_spr/towerShooting14_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"670a051b-5d47-4652-b077-7959e25497e0","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f89c721f-dc6d-4997-9b29-27ece4a26798","path":"sprites/towerShooting14_spr/towerShooting14_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"a5aed244-f6d3-42e5-a34a-f6f10d6fbb5f","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"a5aed244-f6d3-42e5-a34a-f6f10d6fbb5f","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a2614254-12fb-4118-8326-4eb24737310e","path":"sprites/towerShooting14_spr/towerShooting14_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"ecac97cf-8ffc-424c-9bf4-48caa5a41f44","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a2d7ac3b-664f-471b-9d64-bcb56e7cfcf7","path":"sprites/towerShooting14_spr/towerShooting14_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"670a051b-5d47-4652-b077-7959e25497e0","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"ecac97cf-8ffc-424c-9bf4-48caa5a41f44","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

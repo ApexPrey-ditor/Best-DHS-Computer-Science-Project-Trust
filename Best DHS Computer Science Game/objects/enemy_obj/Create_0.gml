@@ -1,5 +1,7 @@
-image_xscale = 0.3
+image_xscale = 0.4
 image_yscale = 0.4
+
+sprite_index = asset_get_index("enemy" + string(type) + "_spr")
 
 // initizles variables for enemies
 burning = 0 

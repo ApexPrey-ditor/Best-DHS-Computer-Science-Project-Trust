@@ -555,7 +555,8 @@ if (not global.paused) {
 										follows[i].alarm[11] = ceil(3 / global.fastForward)
 									}
 								}
-							
+								
+								sprite_index = towerShooting13_spr
 								firing = true
 								attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
 								alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
@@ -632,7 +633,7 @@ if (not global.paused) {
 							}
 						}
 					}
-				
+					
 					firing = true
 					shotNum += 1
 					attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 

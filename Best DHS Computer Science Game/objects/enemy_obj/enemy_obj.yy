@@ -40,8 +40,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"testEnemy_spr",
-    "path":"sprites/testEnemy_spr/testEnemy_spr.yy",
+    "name":"enemy0_spr",
+    "path":"sprites/enemy0_spr/enemy0_spr.yy",
   },
   "spriteMaskId":null,
   "tags":[

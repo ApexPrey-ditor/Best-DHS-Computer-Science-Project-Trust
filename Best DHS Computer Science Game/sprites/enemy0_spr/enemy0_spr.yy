@@ -28,7 +28,7 @@
   ],
   "name":"enemy0_spr",
   "nineSlice":null,
-  "origin":0,
+  "origin":9,
   "parent":{
     "name":"Normal",
     "path":"folders/Sprites/Enemy Animations/Normal.yy",
@@ -95,11 +95,14 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":0,
+    "xorigin":135,
+    "yorigin":320,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
+  "tags":[
+    "show",
+  ],
   "textureGroupId":{
     "name":"Default",
     "path":"texturegroups/Default",
