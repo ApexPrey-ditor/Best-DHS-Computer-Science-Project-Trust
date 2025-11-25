@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"NQAEGBSCD",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/NQAEGBSCD.yy",
+    "name":"22 NQAEGBSCD",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/22 NQAEGBSCD.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

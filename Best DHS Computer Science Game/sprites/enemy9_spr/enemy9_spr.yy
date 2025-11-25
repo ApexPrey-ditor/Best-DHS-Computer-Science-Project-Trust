@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Nick's Girlfriend",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Nick's Girlfriend.yy",
+    "name":"09 Nick's Girlfriend",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/09 Nick's Girlfriend.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

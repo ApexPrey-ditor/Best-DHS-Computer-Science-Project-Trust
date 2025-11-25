@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Solid",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Solid.yy",
+    "name":"05 Solid",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/05 Solid.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

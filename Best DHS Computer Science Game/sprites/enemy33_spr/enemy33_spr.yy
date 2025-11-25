@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Your Mom",
-    "path":"folders/Sprites/Enemy Animations/Bosses/Your Mom.yy",
+    "name":"33 Your Mom",
+    "path":"folders/Sprites/Enemy Animations/Bosses/33 Your Mom.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

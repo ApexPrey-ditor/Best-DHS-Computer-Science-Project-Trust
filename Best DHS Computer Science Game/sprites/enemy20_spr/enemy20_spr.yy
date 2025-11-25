@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"John Cena",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/John Cena.yy",
+    "name":"20 John Cena",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/20 John Cena.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

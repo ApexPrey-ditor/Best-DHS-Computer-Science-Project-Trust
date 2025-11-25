@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Gnormal",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Gnormal.yy",
+    "name":"06 Gnormal",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/06 Gnormal.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

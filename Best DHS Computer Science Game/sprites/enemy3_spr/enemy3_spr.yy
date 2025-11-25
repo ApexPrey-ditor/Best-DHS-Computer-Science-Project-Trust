@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Fanky",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Fanky.yy",
+    "name":"03 Fanky",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/03 Fanky.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

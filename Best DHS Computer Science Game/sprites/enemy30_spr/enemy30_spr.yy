@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Ferocious Female",
-    "path":"folders/Sprites/Enemy Animations/Bosses/Ferocious Female.yy",
+    "name":"30 Ferocious Female",
+    "path":"folders/Sprites/Enemy Animations/Bosses/30 Ferocious Female.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

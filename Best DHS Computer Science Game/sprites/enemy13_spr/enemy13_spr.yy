@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Bob Crisscross",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Bob Crisscross.yy",
+    "name":"13 Bob Crisscross",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/13 Bob Crisscross.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

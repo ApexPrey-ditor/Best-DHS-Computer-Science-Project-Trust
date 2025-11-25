@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"YHJLTG",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/YHJLTG.yy",
+    "name":"26 YHJLTG",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/26 YHJLTG.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

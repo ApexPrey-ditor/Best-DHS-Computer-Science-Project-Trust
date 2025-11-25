@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Knormle",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Knormle.yy",
+    "name":"15 Knormle",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/15 Knormle.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

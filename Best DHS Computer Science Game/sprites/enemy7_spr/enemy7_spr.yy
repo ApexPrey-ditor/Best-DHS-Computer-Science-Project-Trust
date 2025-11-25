@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Job Ross",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Job Ross.yy",
+    "name":"07 Job Ross",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/07 Job Ross.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

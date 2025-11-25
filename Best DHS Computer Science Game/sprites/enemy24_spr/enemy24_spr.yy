@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Glob Moss",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Glob Moss.yy",
+    "name":"24 Glob Moss",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/24 Glob Moss.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

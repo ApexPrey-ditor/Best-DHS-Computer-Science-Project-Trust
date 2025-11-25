@@ -31,8 +31,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Tanky",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Tanky.yy",
+    "name":"02 Tanky",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/02 Tanky.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

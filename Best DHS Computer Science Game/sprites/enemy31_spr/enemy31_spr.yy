@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Destructive Damsel",
-    "path":"folders/Sprites/Enemy Animations/Bosses/Destructive Damsel.yy",
+    "name":"31 Destructive Damsel",
+    "path":"folders/Sprites/Enemy Animations/Bosses/31 Destructive Damsel.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
