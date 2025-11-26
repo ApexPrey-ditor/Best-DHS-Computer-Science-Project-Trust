@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"SUPERHATEYOUGIRL",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/SUPERHATEYOUGIRL.yy",
+    "name":"10 SUPERHATEYOUGIRL",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/10 SUPERHATEYOUGIRL.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

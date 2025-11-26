@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Negative Nancy",
-    "path":"folders/Sprites/Enemy Animations/Bosses/Negative Nancy.yy",
+    "name":"29 Negative Nancy",
+    "path":"folders/Sprites/Enemy Animations/Bosses/29 Negative Nancy.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

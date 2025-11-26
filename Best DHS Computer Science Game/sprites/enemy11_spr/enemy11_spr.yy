@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Butter",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Butter.yy",
+    "name":"11 Butter",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/11 Butter.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

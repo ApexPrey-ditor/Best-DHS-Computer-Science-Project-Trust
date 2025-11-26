@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Evil Girl",
-    "path":"folders/Sprites/Enemy Animations/Bosses/Evil Girl.yy",
+    "name":"34 Evil Girl",
+    "path":"folders/Sprites/Enemy Animations/Bosses/34 Evil Girl.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

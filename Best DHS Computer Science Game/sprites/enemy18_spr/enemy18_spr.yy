@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Gnecromancer",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Gnecromancer.yy",
+    "name":"18 Gnecromancer",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/18 Gnecromancer.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Titanium",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Titanium.yy",
+    "name":"14 Titanium",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/14 Titanium.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

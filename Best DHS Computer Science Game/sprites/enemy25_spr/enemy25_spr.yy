@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Necrowomancer",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Necrowomancer.yy",
+    "name":"25 Necrowomancer",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/25 Necrowomancer.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

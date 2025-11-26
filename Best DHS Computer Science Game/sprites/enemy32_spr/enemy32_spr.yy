@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Malicious Madam",
-    "path":"folders/Sprites/Enemy Animations/Bosses/Malicious Madam.yy",
+    "name":"32 Malicious Madam",
+    "path":"folders/Sprites/Enemy Animations/Bosses/32 Malicious Madam.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

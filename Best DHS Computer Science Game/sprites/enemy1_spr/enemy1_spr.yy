@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Fast",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Fast.yy",
+    "name":"01 Fast",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/01 Fast.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

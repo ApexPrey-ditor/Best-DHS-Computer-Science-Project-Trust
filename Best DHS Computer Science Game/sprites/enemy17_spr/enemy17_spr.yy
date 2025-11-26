@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"The Real Slim Shady",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/The Real Slim Shady.yy",
+    "name":"17 The Real Slim Shady",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/17 The Real Slim Shady.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

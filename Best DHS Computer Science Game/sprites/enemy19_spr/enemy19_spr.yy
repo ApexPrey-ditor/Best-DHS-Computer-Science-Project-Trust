@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Drazy Cave",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/Drazy Cave.yy",
+    "name":"19 Drazy Cave",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/19 Drazy Cave.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

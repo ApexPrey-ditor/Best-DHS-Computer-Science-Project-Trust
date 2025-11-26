@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"TF2 Spy",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/TF2 Spy.yy",
+    "name":"12 TF2 Spy",
+    "path":"folders/Sprites/Enemy Animations/Basic Enemies/12 TF2 Spy.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
