@@ -272,7 +272,7 @@ switch (image_index) {
 	case 47:
 		stats = {display : "chinese sweatshop conditions", desc : "\"when i was in china i had to bike 50 miles to school every day through the acid rain while dodging the tigers - the ferocious jade tigers just to work my 900 hour work day\" \n-|% effect nerf \n+|% more effective per tower in range", buff : -0.8, sweatshop : 1}
 		replace = [80, 10]
-		applicable = [8, 9, 10, 11]
+		appliable = [8, 9, 10, 11]
 		repeatable = false
 		break;
 	// lesbian (PLACEHOLDER)
@@ -281,7 +281,26 @@ switch (image_index) {
 	case 49:
 		stats = {display : "Bind", desc : "bound by silk and song, just like me and your mom \n+|% effect \nit only boosts towers every | rounds (even numbered)", buff : 1.5, bind : 1}
 		replace = [150, 4]
-		applicable = [8, 9, 10, 11]
+		appliable = [8, 9, 10, 11]
 		repeatable = false
 		break;
+	// child support (PLACEHOLDER)
+	case 50:
+	// addiction (PLACEHOLDER)
+	case 51:
+	// JOTE
+	case 52:
+		stats = {display : "JOTE", desc : "Jack of the Everything \n+|% effect power \n+|% attack speed \n+|% damage \n+|% range", buff : 0.1, fireSpeed : 0.1, damage : 0.1, range : 0.1}
+		replace = [10, 10, 10, 10]
+		appliable = [12, 13, 14]
+		repeatable = false;
+		break;
+	// You don't know JACK
+	case 53:
+		stats = {display : "You don't know JACK", desc : "font reference??!?!?!?? \n-|% effect power \n+|% damage \n+|% attack speed", buff : -0.5, fireSpeed : 0.2, damage : 0.25}
+		replace = [50, 25, 20]
+		appliable = [12, 13, 14]
+		repeatable = false;
+		break;
+	
 }
