@@ -41,6 +41,7 @@ sweatshop = 0
 bind = 0
 prevHit = noone
 doubleShot = 0
+beer = 0
 
 // firing conditions
 // initial is the current target enemy

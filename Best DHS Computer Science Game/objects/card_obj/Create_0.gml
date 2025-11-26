@@ -293,14 +293,34 @@ switch (image_index) {
 		stats = {display : "JOTE", desc : "Jack of the Everything \n+|% effect power \n+|% attack speed \n+|% damage \n+|% range", buff : 0.1, fireSpeed : 0.1, damage : 0.1, range : 0.1}
 		replace = [10, 10, 10, 10]
 		appliable = [12, 13, 14]
-		repeatable = false;
+		repeatable = false
 		break;
 	// You don't know JACK
 	case 53:
 		stats = {display : "You don't know JACK", desc : "font reference??!?!?!?? \n-|% effect power \n+|% damage \n+|% attack speed", buff : -0.5, fireSpeed : 0.2, damage : 0.25}
 		replace = [50, 25, 20]
 		appliable = [12, 13, 14]
-		repeatable = false;
+		repeatable = false
 		break;
-	
+	// Teh 11 of Spades
+	case 54:
+		stats = {display : "Teh 11 of Spades", desc: "or clubs, or hearts, or diamonds \n+|% effect power \n-|% damage \n-|% attack speed", buff : 0.5, fireSpeed : -0.2, damage : -0.25}
+		replace = [50, 25, 20]
+		appliable = [12, 13, 14]
+		repeatable = false
+		break;
+	// BEEG GUNZ
+	case 55:
+		stats = {display : "BEEG GUNZ", desc : "\"we have maybe 4 SMGs left, those are the only ones we have because of glitched production.\" \n+|% damage \n+|% AOE \n+| pierce", damage : 0.2, AOE : 0.25, pierceL : 3}
+		replace = [20, 25, 3]
+		appliable = [12, 13, 14]
+		repeatable = false
+		break;
+	// beer
+	case 56:
+		stats = {display : "beer", desc : "scottish cyclopse \n+|% effect \nfirerate oscillates between -|% and +|%", buff : 0.5, beer : 1}
+		replace = [50, 100, 50]
+		appliable = [12, 13, 14]
+		repeatable = false
+		break;
 }

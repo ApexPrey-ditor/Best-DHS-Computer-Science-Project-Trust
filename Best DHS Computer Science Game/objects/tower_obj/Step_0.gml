@@ -931,6 +931,9 @@ if (not global.paused) {
 							case "bind":
 								bind += global.upgrades[towerType][upgrade].bind * effectiveness[upgrade]
 								break;
+							case "beer":
+								beer += global.upgrades[towerType][upgrade].beer * effectiveness[upgrade]
+								break;
 						}
 					}
 				
