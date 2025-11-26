@@ -219,6 +219,13 @@ switch (image_index) {
 		appliable = [0]
 		repeatable = true
 		break;
+	// Sniper: Assassin
+	case 28:
+		stats = {display : "Assassin", desc : "Damage 7 >> 14 \nAttack Speed 90 >> 120 \nRange 500 >> 600 \nEach consecutive hit on one enemy makes the sniper do an additional +20% damage up to 400% damage.", sniper4 : true}
+		tier4 = true
+		appliable = [1]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}
