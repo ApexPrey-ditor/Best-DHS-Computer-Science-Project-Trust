@@ -39,6 +39,7 @@ eyesOnThePrize = 0
 notManyBeans = 0
 sweatshop = 0
 bind = 0
+prevHit = noone
 
 // firing conditions
 // initial is the current target enemy
