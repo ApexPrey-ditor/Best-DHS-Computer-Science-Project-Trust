@@ -265,8 +265,8 @@ switch (image_index) {
 	case 48:
 	// Bind
 	case 49:
-		stats = {display : "Bind", desc : "bound by silk and song, just like me and your mom \n+|% effect \nit only boosts towers every even numbered round", buff : 0.75, }
-		replace = [75]
+		stats = {display : "Bind", desc : "bound by silk and song, just like me and your mom \n+|% effect \nit only boosts towers every | rounds (even numbered)", buff : 1.5, bind : 1}
+		replace = [150, 4]
 		applicable = [8, 9, 10, 11]
 		repeatable = false
 		break;

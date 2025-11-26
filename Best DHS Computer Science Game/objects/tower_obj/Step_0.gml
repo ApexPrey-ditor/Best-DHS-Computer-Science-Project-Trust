@@ -342,7 +342,7 @@ if (not global.paused) {
 						}
 					}
 				}
-				else {
+				else if (bind == 0 or global.wave % (bind * 4) == 0) {
 					if (special == "s firerate") {
 						// performs buffs for all towers in range of cheerleader
 						var towers = ds_list_create()
@@ -644,7 +644,7 @@ if (not global.paused) {
 			}
 		}
 		// adds money at the end of each wave for each money tower
-		else if (enemySpawner_obj.waveCash) {
+		else if (enemySpawner_obj.waveCash and (bind == 0 or global.wave % (bind * 4) == 0)) {
 			var towers = ds_list_create()
 			collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			global.money += (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * multis[3] * ((array_length(global.schizophrenics) * 0.1) * psychiatrist + 1)
@@ -877,6 +877,9 @@ if (not global.paused) {
 								break;
 							case "sweatshop":
 								sweatshop += global.upgrades[towerType][upgrade].sweatshop * effectiveness[upgrade]
+								break;
+							case "bind":
+								bind += global.upgrades[towerType][upgrade].bind * effectiveness[upgrade]
 								break;
 						}
 					}
