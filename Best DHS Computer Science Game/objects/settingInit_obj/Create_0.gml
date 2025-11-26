@@ -29,7 +29,7 @@ part_type_alpha1(flameType, 1)
 global.health = 100
 global.wave = 1
 global.money = 300
-global.stage = 16
+global.stage = 1
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower
@@ -38,6 +38,10 @@ global.fastForward = 1
 global.paused = false
 // for upgrades (dear god)
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+// for testing t4s
+repeat (2) {
+	array_push(global.upgrades[1], {display : "+Ammunition", desc : "+|% Reload Speed", fireSpeed : 0.2})
+}
 global.modifiers = []
 // for specific upgrades
 global.schizophrenics = []
@@ -66,7 +70,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 49)
+	//array_push(global.upgradePool, 49)
 }
 // Not Ferdigalocious
 repeat (6) {

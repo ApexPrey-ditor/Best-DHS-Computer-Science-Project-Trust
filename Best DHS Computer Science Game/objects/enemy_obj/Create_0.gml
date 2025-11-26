@@ -267,7 +267,7 @@ switch (type) {
 
 // aplies modifiers
 hp = ceil(hp * global.modEffects[0] * global.modEffects[3])
-pathSpeed = pathSpeed * global.modEffects[1] * global.modEffects[4]
+pathSpeed = pathSpeed * global.modEffects[4] / global.modEffects[1]
 damageResist += global.modEffects[19]
 if (global.permClass[0]) {
 	class[0] = global.permClass[0]

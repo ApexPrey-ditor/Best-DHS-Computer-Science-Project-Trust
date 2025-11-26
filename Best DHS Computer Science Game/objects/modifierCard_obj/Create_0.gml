@@ -23,7 +23,7 @@ function apply_effects(index, multi) {
 		case 0:
 			// Time waster
 			global.modEffects[0] = global.modEffects[0] * 2 * multi
-			global.modEffects[1] = global.modEffects[1] * 0.5 * multi
+			global.modEffects[1] = global.modEffects[1] * 2 * multi
 			global.modEffects[2] = global.modEffects[2] * 2 * multi
 			break;
 		case 1:
