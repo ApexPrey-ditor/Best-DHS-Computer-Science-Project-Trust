@@ -342,7 +342,7 @@ if (not global.paused) {
 						}
 					}
 				}
-				else {
+				else if (bind == 0 or global.wave % (bind * 4) == 0) {
 					if (special == "s firerate") {
 						// performs buffs for all towers in range of cheerleader
 						var towers = ds_list_create()
@@ -877,6 +877,9 @@ if (not global.paused) {
 								break;
 							case "sweatshop":
 								sweatshop += global.upgrades[towerType][upgrade].sweatshop * effectiveness[upgrade]
+								break;
+							case "bind":
+								bind += global.upgrades[towerType][upgrade].bind * effectiveness[upgrade]
 								break;
 						}
 					}
