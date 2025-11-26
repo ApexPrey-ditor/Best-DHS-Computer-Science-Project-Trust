@@ -363,7 +363,16 @@ if (not global.paused) {
 							shotNum += 1
 							firing = true
 							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward)
-							alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+							if (towerType == 2 and tier4 and doubleShot > 1) {
+								doubleShot -= 1
+								image_speed = 1
+								alarm[0] = ceil(6 / global.fastForward)
+							}
+							else {
+								doubleShot = 6
+								image_speed = 1
+								alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+							}
 							if attackRemainder > 1 {
 								attackRemainder -= 1
 							}
@@ -898,6 +907,13 @@ if (not global.paused) {
 								damage = 14
 								fireSpeed = 120
 								range = 600
+								tier4 = true
+								break;
+							case "railgunner4":
+								damage = 80
+								fireSpeed = 600
+								pierce = pierce * 1.5
+								doubleShot = 6
 								tier4 = true
 								break;
 							case "psychiatrist":

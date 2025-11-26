@@ -19,13 +19,15 @@ else if (selecting) {
 						newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
 					}
 					if (array_length(global.upgrades[i]) == 2) {
-						if (i % 4 < 3) {
-							repeat (2000) {
+						if (i % 4 < 2) {
+							repeat (2) {
 								array_push(global.upgradePool, 27 + i)
 							}
 						}
 						else {
-							array_push(global.upgradePool, 27 + i)
+							repeat (1000) {
+								array_push(global.upgradePool, 27 + i)
+							}
 						}
 						
 						var del = true
