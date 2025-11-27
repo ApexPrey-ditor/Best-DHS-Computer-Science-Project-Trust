@@ -117,231 +117,245 @@ if (not global.paused) {
 				
 							// gets instance id of the "winner" (they are going to die)
 							target = ds_list_find_value(options, chosen)
-						
-							var targets = ds_list_create()
-						
-							// extends the collision line to the edge of the screen
-							var xpos = x
-							var ypos = y
-					
-							if (type != 2) {
-								while (abs(xpos) < room_width and abs(y) < room_height) {
-									xpos += target.x - x
-									ypos += target.y - y
-								}
-								
-								// gets every enemy in the collision line
-								collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
-							}
-							else {
-								xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
-								ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
-								
-								collision_line_list(x + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], y, xpos + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
-								collision_line_list(x, y - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], xpos, ypos - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 							
-								var translate = ds_list_create()
-								ds_list_copy(translate, targets)
-								
-								for (var i = 0; i < ds_list_size(targets); i++) {
-									ds_list_delete(translate, i)
-									if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
-										ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
-									}
-									ds_list_copy(translate, targets)
-								}
-							}
-					
-							// removes all the enemies that are ghost dead, or cant be detected
-							targets = remove_undetectable(targets, [max(detections[0], buffs[3]), detections[1], detections[2]])
-					
-							if (type == 0) {
-								for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
-									if (i == 0 and towerType == 1 and tier4) {
-										if (ds_list_find_value(targets, i) == prevHit and buffs[7] < 4) {
-											buffs[7] += 0.2
-										}
-										else {
-											prevHit = ds_list_find_value(targets, i)
-											buffs[7] = 1
-										}
-										
-										// iterates through the amount of enemies tower is allowed to hit
-										ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7])
-										if (burn) {
-											ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / fireSpeed / 2)
-											ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
-											ds_list_find_value(targets, i).image_blend = c_orange
-										}
-										if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) > 0) {
-											ds_list_find_value(targets, i).speedMulti = 0
-											ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
-										}
-										if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
-											ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / ds_list_find_value(targets, i).cash) * slow + 1)
-											ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
-											ds_list_find_value(targets, i).image_blend = c_aqua
-										}
-									}
-									else {
-										// iterates through the amount of enemies tower is allowed to hit
-										ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
-										if (burn) {
-											ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
-											ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
-											ds_list_find_value(targets, i).image_blend = c_orange
-										}
-										if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
-											ds_list_find_value(targets, i).speedMulti = 0
-											ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
-										}
-										if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
-											ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)
-											ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
-											ds_list_find_value(targets, i).image_blend = c_aqua
-										}
-										if (ds_list_find_value(targets, i).hp <= 0) {
-											// dead enemies are set to ghosts
-											ds_list_find_value(targets, i).deactivated = true
-											ds_list_find_value(targets, i).alarm[11] = ceil(lifetime / global.fastForward)
-										}
-									}
-							
-									if (i == min(ds_list_size(targets), pierce * multis[5]) - 1) {
-										// calculate where the enemy will be along the path
-										var leadPosition = ds_list_find_value(targets, i).path_position + (ds_list_find_value(targets, i).pathSpeed * lifetime / path_get_length(ds_list_find_value(targets, i).path_index))
-								
-										if (path_get_x(ds_list_find_value(targets, i).path_index, leadPosition) < x) {
-											image_xscale = abs(image_xscale)
-										}
-										else {
-											image_xscale = -abs(image_xscale)
-										}
-								
-										// initializing for drawing a new projectile at the future position of the last enemy hit
-										array_push(finalPositions, [path_get_x(ds_list_find_value(targets, i).path_index, leadPosition), path_get_y(ds_list_find_value(targets, i).path_index, leadPosition)])
-										array_push(drawPercents, 0)
-									}
-								}
-							}
-							else if (type < 3) {
-								for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
-									if (delay <= 0) {
-										// iterates through the amount of enemies tower is allowed to hit
-										ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
-										if (burn) {
-											ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
-											ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
-											ds_list_find_value(targets, i).image_blend = c_orange
-										}
-										if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
-											ds_list_find_value(targets, i).speedMulti = 0
-											ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
-										}
-										if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
-											ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)
-											ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
-											ds_list_find_value(targets, i).image_blend = c_aqua
-										}
-										if (decamo and shotNum % 3 == 0) {
-											ds_list_find_value(targets, i).class[0] = false
-										}
-										if ds_list_find_value(targets, i).hp <= 0 {
-											// kill dead enemies
-											instance_destroy(ds_list_find_value(targets, i))
-										}
-									}
-									else {
-										array_push(ds_list_find_value(targets, i).delays, delay)
-										var effectSend = [calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]), 0, 0, 1, 0, false]
-										
-										if (burn) {
-											effectSend[1] = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
-											effectSend[2] = ceil(fireSpeed / global.fastForward * 3)
-										}
-										if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
-											effectSend[3] = 0
-											effectSend[4] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
-										}
-										if (decamo and shotNum % 3 == 0) {
-											effectSend[5] = true
-										}
-										
-										array_push(ds_list_find_value(targets, i).effect, effectSend)
-									}
-								}
-						
-								if (xpos < x) {
-									image_xscale = abs(image_xscale)
-								}
-								else {
-									image_xscale = -abs(image_xscale)
-								}
-						
-								array_push(finalPositions, [xpos, ypos])
-								array_push(drawPercents, 0)
-							}
-							if (type == 3) {
-								var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
-								if (lead == false) {
-									leadPosition = target.path_position
-								}
-								
-								if (path_get_x(target.path_index, leadPosition) < x) {
-									image_xscale = abs(image_xscale)
-								}
-								else {
-									image_xscale = -abs(image_xscale)
-								}
-							
-								if (special == "debt collector") {
-									repeat(effect[3]) {
-										instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
-																									speed : projSpeed,
+							// for dissapator
+							if (towerType == 3 and tier4) {
+								instance_create_depth(target.x, target.y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
 																									aoe : aoe * multis[4],
-																									special : special,
-																									spread : spread,
-																									effect : effect,
-																									pierce : pierce * multis[5],
-																									lifetime : (range * buffs[2] * multis[2]) / projSpeed,
-																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
-																									creator : id,
-																									direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
-									}
-								}
-								else if (special = "flame") {
-									instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
-																									speed : projSpeed,
-																									aoe : aoe * multis[4],
-																									stun : stun,
-																									special : special,
-																									spread : spread,
-																									effect : [effect[0] * buffs[1] * buffs[4] * multis[0], effect[1]],
-																									pierce : pierce * multis[5],
-																									lifetime : lifetime,
-																									shotNum : shotNum,
-																									decamo : decamo,
-																									delay : delay,
-																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
-																									direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
-								}
-								else {
-									instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
-																									speed : projSpeed,
-																									aoe : aoe * multis[4],
+																									slow : slow,
 																									stun : stun,
 																									burn : burn,
 																									fireSpeed : fireSpeed,
-																									special : special,
-																									spread : spread,
-																									effect : effect,
 																									pierce : pierce * multis[5],
 																									lifetime : lifetime,
-																									shotNum : shotNum,
-																									decamo : decamo,
-																									delay : delay,
-																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
-																									direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+																									detections : [max(detections[0], buffs[3]), detections[1], detections[2]]})
+							}
+							else {
+								var targets = ds_list_create()
+						
+								// extends the collision line to the edge of the screen
+								var xpos = x
+								var ypos = y
+					
+								if (type != 2) {
+									while (abs(xpos) < room_width and abs(y) < room_height) {
+										xpos += target.x - x
+										ypos += target.y - y
+									}
+								
+									// gets every enemy in the collision line
+									collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+								}
+								else {
+									xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
+									ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
+								
+									collision_line_list(x + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], y, xpos + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+									collision_line_list(x, y - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], xpos, ypos - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+							
+									var translate = ds_list_create()
+									ds_list_copy(translate, targets)
+								
+									for (var i = 0; i < ds_list_size(targets); i++) {
+										ds_list_delete(translate, i)
+										if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
+											ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
+										}
+										ds_list_copy(translate, targets)
+									}
+								}
+					
+								// removes all the enemies that are ghost dead, or cant be detected
+								targets = remove_undetectable(targets, [max(detections[0], buffs[3]), detections[1], detections[2]])
+					
+								if (type == 0) {
+									for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
+										if (i == 0 and towerType == 1 and tier4) {
+											if (ds_list_find_value(targets, i) == prevHit and buffs[7] < 4) {
+												buffs[7] += 0.2
+											}
+											else {
+												prevHit = ds_list_find_value(targets, i)
+												buffs[7] = 1
+											}
+										
+											// iterates through the amount of enemies tower is allowed to hit
+											ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7])
+											if (burn) {
+												ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / fireSpeed / 2)
+												ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+												ds_list_find_value(targets, i).image_blend = c_orange
+											}
+											if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) > 0) {
+												ds_list_find_value(targets, i).speedMulti = 0
+												ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+											}
+											if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
+												ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0] * buffs[7]) / ds_list_find_value(targets, i).cash) * slow + 1)
+												ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
+												ds_list_find_value(targets, i).image_blend = c_aqua
+											}
+										}
+										else {
+											// iterates through the amount of enemies tower is allowed to hit
+											ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
+											if (burn) {
+												ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+												ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+												ds_list_find_value(targets, i).image_blend = c_orange
+											}
+											if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+												ds_list_find_value(targets, i).speedMulti = 0
+												ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+											}
+											if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
+												ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)
+												ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
+												ds_list_find_value(targets, i).image_blend = c_aqua
+											}
+											if (ds_list_find_value(targets, i).hp <= 0) {
+												// dead enemies are set to ghosts
+												ds_list_find_value(targets, i).deactivated = true
+												ds_list_find_value(targets, i).alarm[11] = ceil(lifetime / global.fastForward)
+											}
+										}
+							
+										if (i == min(ds_list_size(targets), pierce * multis[5]) - 1) {
+											// calculate where the enemy will be along the path
+											var leadPosition = ds_list_find_value(targets, i).path_position + (ds_list_find_value(targets, i).pathSpeed * lifetime / path_get_length(ds_list_find_value(targets, i).path_index))
+								
+											if (path_get_x(ds_list_find_value(targets, i).path_index, leadPosition) < x) {
+												image_xscale = abs(image_xscale)
+											}
+											else {
+												image_xscale = -abs(image_xscale)
+											}
+								
+											// initializing for drawing a new projectile at the future position of the last enemy hit
+											array_push(finalPositions, [path_get_x(ds_list_find_value(targets, i).path_index, leadPosition), path_get_y(ds_list_find_value(targets, i).path_index, leadPosition)])
+											array_push(drawPercents, 0)
+										}
+									}
+								}
+								else if (type < 3) {
+									for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
+										if (delay <= 0) {
+											// iterates through the amount of enemies tower is allowed to hit
+											ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0])
+											if (burn) {
+												ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+												ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+												ds_list_find_value(targets, i).image_blend = c_orange
+											}
+											if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+												ds_list_find_value(targets, i).speedMulti = 0
+												ds_list_find_value(targets, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+											}
+											if (slow > 0 and ds_list_find_value(targets, i).speedMulti > ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)) {
+												ds_list_find_value(targets, i).speedMulti = ds_list_find_value(targets, i).speedMulti / ((calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash) * slow + 1)
+												ds_list_find_value(targets, i).alarm[2] = ceil(fireSpeed / global.fastForward * 3)
+												ds_list_find_value(targets, i).image_blend = c_aqua
+											}
+											if (decamo and shotNum % 3 == 0) {
+												ds_list_find_value(targets, i).class[0] = false
+											}
+											if ds_list_find_value(targets, i).hp <= 0 {
+												// kill dead enemies
+												instance_destroy(ds_list_find_value(targets, i))
+											}
+										}
+										else {
+											array_push(ds_list_find_value(targets, i).delays, delay)
+											var effectSend = [calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]), 0, 0, 1, 0, false]
+										
+											if (burn) {
+												effectSend[1] = (calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+												effectSend[2] = ceil(fireSpeed / global.fastForward * 3)
+											}
+											if (stun > 0 and calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+												effectSend[3] = 0
+												effectSend[4] = ceil(calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), detections[1], detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / ds_list_find_value(targets, i).cash * stun * 60 / global.fastForward)
+											}
+											if (decamo and shotNum % 3 == 0) {
+												effectSend[5] = true
+											}
+										
+											array_push(ds_list_find_value(targets, i).effect, effectSend)
+										}
+									}
+						
+									if (xpos < x) {
+										image_xscale = abs(image_xscale)
+									}
+									else {
+										image_xscale = -abs(image_xscale)
+									}
+						
+									array_push(finalPositions, [xpos, ypos])
+									array_push(drawPercents, 0)
+								}
+								if (type == 3) {
+									var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))
+									if (lead == false) {
+										leadPosition = target.path_position
+									}
+								
+									if (path_get_x(target.path_index, leadPosition) < x) {
+										image_xscale = abs(image_xscale)
+									}
+									else {
+										image_xscale = -abs(image_xscale)
+									}
+							
+									if (special == "debt collector") {
+										repeat(effect[3]) {
+											instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
+																										speed : projSpeed,
+																										aoe : aoe * multis[4],
+																										special : special,
+																										spread : spread,
+																										effect : effect,
+																										pierce : pierce * multis[5],
+																										lifetime : (range * buffs[2] * multis[2]) / projSpeed,
+																										detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
+																										creator : id,
+																										direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+										}
+									}
+									else if (special = "flame") {
+										instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
+																										speed : projSpeed,
+																										aoe : aoe * multis[4],
+																										stun : stun,
+																										special : special,
+																										spread : spread,
+																										effect : [effect[0] * buffs[1] * buffs[4] * multis[0], effect[1]],
+																										pierce : pierce * multis[5],
+																										lifetime : lifetime,
+																										shotNum : shotNum,
+																										decamo : decamo,
+																										delay : delay,
+																										detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
+																										direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+									}
+									else {
+										instance_create_depth(x, y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
+																										speed : projSpeed,
+																										aoe : aoe * multis[4],
+																										stun : stun,
+																										burn : burn,
+																										fireSpeed : fireSpeed,
+																										special : special,
+																										spread : spread,
+																										effect : effect,
+																										pierce : pierce * multis[5],
+																										lifetime : lifetime,
+																										shotNum : shotNum,
+																										decamo : decamo,
+																										delay : delay,
+																										detections : [max(detections[0], buffs[3]), detections[1], detections[2]],
+																										direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+									}
 								}
 							}
 						
@@ -914,6 +928,14 @@ if (not global.paused) {
 								fireSpeed = 600
 								pierce = pierce * 1.5
 								doubleShot = 6
+								tier4 = true
+								break;
+							case "evaporator4":
+								damage = 2500
+								fireSpeed = 1200
+								pierce = pierce * 50
+								range = 500
+								aoe = 5
 								tier4 = true
 								break;
 							case "psychiatrist":

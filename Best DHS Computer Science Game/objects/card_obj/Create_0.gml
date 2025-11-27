@@ -228,9 +228,16 @@ switch (image_index) {
 		break;
 	// Railgunner: Gauss Machine Gun
 	case 29:
-		stats = {display : "Gauss Machine Gun", desc : "Damage 75 >> 80 \nAttack Speed 300 >> 600 \nPierce 20 >> 30 \nShoots out a burst of high energy beams for 1 second (6 shots total)", railgunner4 : true}
+		stats = {display : "Gauss Machine Gun", desc : "Damage 75 >> 80 \nAttack Speed 300 >> 600 \nPierce 20 >> 30 \nShoots out a burst of high energy beams for 1 second (10 shots total)", railgunner4 : true}
 		tier4 = true
 		appliable = [2]
+		repeatable = true
+		break;
+	// Evaporator: Dissapator
+	case 30:
+		stats = {display : "Dissapator", desc : "Damage 1000 >> 2500 \nRange 400 >> 500 \nPierce 1 >> 50 \nAttack Speed 600 >> 1200 \nCreates an explosion upon impact", evaporator4 : true}
+		tier4 = true
+		appliable = [3]
 		repeatable = true
 		break;
 	// Psychiatrist
