@@ -70,7 +70,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 56)
+	array_push(global.upgradePool, 57)
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -124,6 +124,7 @@ repeat (2) {
 	array_push(global.upgradePool, 54) // Teh 11 of Spades
 	array_push(global.upgradePool, 55) // BEEG GUNZ
 	array_push(global.upgradePool, 56) // beer
+	array_push(global.upgradePool, 56) // JOAHTE
 }
 //Not Morbinacious
 
