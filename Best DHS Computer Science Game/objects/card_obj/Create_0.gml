@@ -240,6 +240,20 @@ switch (image_index) {
 		appliable = [3]
 		repeatable = true
 		break;
+	// Boomer: Grenadier
+	case 31:
+		stats = {display : "Grenadier", desc : "Damage 2 >> 3 \nAttack Speed 60 >> 30 \nRange 200 >> 250 \nAOE 3 >> 9", boomer4 : true}
+		tier4 = true
+		appliable = [4]
+		repeatable = true
+		break;
+	// Flamer: Pyromaniac
+	case 32:
+		stats = {display : "Pyromaniac", desc : "Attack Speed 30 >> 12 \nRange 150 >> 250 \nPierce 1 >> 20 \nFire: 10 damage over 3 1/3 seconds >> 30 damage over 5 seconds", flamer4 : true}
+		tier4 = true
+		appliable = [5]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}

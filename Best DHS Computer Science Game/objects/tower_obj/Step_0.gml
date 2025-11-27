@@ -383,7 +383,7 @@ if (not global.paused) {
 								alarm[0] = ceil(6 / global.fastForward)
 							}
 							else {
-								doubleShot = 6
+								doubleShot = 10
 								image_speed = 1
 								alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
 							}
@@ -927,7 +927,7 @@ if (not global.paused) {
 								damage = 80
 								fireSpeed = 600
 								pierce = pierce * 1.5
-								doubleShot = 6
+								doubleShot = 10
 								tier4 = true
 								break;
 							case "evaporator4":
@@ -936,6 +936,20 @@ if (not global.paused) {
 								pierce = pierce * 50
 								range = 500
 								aoe = 5
+								tier4 = true
+								break;
+							case "boomer4":
+								damage = 3
+								fireSpeed = 30
+								range = 250
+								aoe = 9
+								tier4 = true
+								break;
+							case "flamer4":
+								fireSpeed = 12
+								range = 250
+								pierce = pierce * 20
+								effect = [1/10, 300]
 								tier4 = true
 								break;
 							case "psychiatrist":
