@@ -145,7 +145,12 @@ if selected {
 	// draw_button(room_width - 48, 928, room_width - 368, 992, true)
 	draw_set_color(c_black)
 	center_text()
-	draw_text_transformed(room_width - 128, 992, "Fire: $" + string(floor(cost * 0.6)), 2, 2, 0)
+	if (joathe == 0) {
+		draw_text_transformed(room_width - 128, 992, "Fire: $" + string(floor(cost * 0.6)), 2, 2, 0)
+	}
+	else {
+		draw_text_transformed(room_width - 128, 992, "No Regrets", 2, 2, 0)
+	}
 }
 
 if (targetingSelection) {

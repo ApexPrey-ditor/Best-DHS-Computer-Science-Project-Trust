@@ -385,7 +385,7 @@ if (not global.paused) {
 							else {
 								doubleShot = 10
 								image_speed = 1
-								alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
 							}
 							if attackRemainder > 1 {
 								attackRemainder -= 1
@@ -501,7 +501,7 @@ if (not global.paused) {
 					
 							firing = true
 							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
-							alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+							alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
 							if attackRemainder > 1 {
 								attackRemainder -= 1
 							}
@@ -609,7 +609,7 @@ if (not global.paused) {
 								sprite_index = towerShooting13_spr
 								firing = true
 								attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
-								alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
 								if attackRemainder > 1 {
 									attackRemainder -= 1
 								}
@@ -687,7 +687,7 @@ if (not global.paused) {
 					firing = true
 					shotNum += 1
 					attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
-					alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+					alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
 					if attackRemainder > 1 {
 						attackRemainder -= 1
 					}
@@ -970,13 +970,16 @@ if (not global.paused) {
 							case "beer":
 								beer += global.upgrades[towerType][upgrade].beer * effectiveness[upgrade]
 								break;
+							case "joathe":
+								joathe += global.upgrades[towerType][upgrade].joathe * effectiveness[upgrade]
+								break;
 						}
 					}
 				
 					upgrade += 1
 				}
 				// selling
-				if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040)) {
+				if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040) and joathe == 0) {
 					// gives 60% of money back, then closes the upgrade menu
 					global.money += floor(cost * 0.6)
 					selected = false
@@ -1020,6 +1023,12 @@ if (not global.paused) {
 			settingInit_obj.placing = false
 			instance_destroy()
 		}
+	}
+	if (beer > 0) {
+		alarm[1] = 1
+	}
+	else {
+		alarm[1] = 0
 	}
 }
 if (towerType != 6) {

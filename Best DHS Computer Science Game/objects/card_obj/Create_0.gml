@@ -344,4 +344,11 @@ switch (image_index) {
 		appliable = [12, 13, 14]
 		repeatable = false
 		break;
+	// JOAHTE
+	case 57:
+		stats = {display : "JOAHTE", desc : "Jack of All Horrible Trades Extraordinaire \n-|% effects \n-|% attack rate \n-|% range \n-|% AOE \n-|% pierce \nCan't be sold \n+|% Damage", buff : -0.5, fireSpeed : -0.5, range : -0.5, AOE : -0.5, pierceL : -0.5, damage : 2.5, joathe : 1}
+		replace = [50, 50, 50, 50, 50, 250]
+		appliable = [12, 13, 14]
+		repeatable = false
+		break;
 }
