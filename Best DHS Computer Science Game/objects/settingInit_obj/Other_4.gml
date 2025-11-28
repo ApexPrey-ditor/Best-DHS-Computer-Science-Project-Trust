@@ -4,7 +4,7 @@ global.first = true
 global.wave = floor(global.stage / 2) + 1
 // for testing final wave of each stage: global.wave = floor(global.stage) * 2
 // global.money = global.modEffects[5]
-global.money = 30000
+global.money = 300
 for (var i = 0; i < global.wave; i++) {
 	global.money += 50 + i * 50
 }
