@@ -31,8 +31,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Evaporator",
-    "path":"folders/Sprites/Tower Animations/Evaporator.yy",
+    "name":"03 Evaporator",
+    "path":"folders/Sprites/Tower Animations/Basics/03 Evaporator.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

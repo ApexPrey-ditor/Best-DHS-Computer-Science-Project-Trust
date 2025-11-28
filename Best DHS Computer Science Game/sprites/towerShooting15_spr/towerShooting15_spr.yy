@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Debt Collector",
-    "path":"folders/Sprites/Tower Animations/Debt Collector.yy",
+    "name":"15 Debt Collector",
+    "path":"folders/Sprites/Tower Animations/Basics/15 Debt Collector.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

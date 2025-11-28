@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Commander",
-    "path":"folders/Sprites/Tower Animations/Commander.yy",
+    "name":"12 Commander",
+    "path":"folders/Sprites/Tower Animations/Basics/12 Commander.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

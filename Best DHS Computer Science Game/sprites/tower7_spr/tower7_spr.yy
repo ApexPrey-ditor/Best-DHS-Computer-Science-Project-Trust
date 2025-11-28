@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Laser",
-    "path":"folders/Sprites/Tower Animations/Laser.yy",
+    "name":"07 Laser",
+    "path":"folders/Sprites/Tower Animations/Basics/07 Laser.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Railgunner",
-    "path":"folders/Sprites/Tower Animations/Railgunner.yy",
+    "name":"02 Railgunner",
+    "path":"folders/Sprites/Tower Animations/Basics/02 Railgunner.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

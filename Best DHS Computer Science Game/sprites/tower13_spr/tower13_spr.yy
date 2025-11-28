@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Hacker",
-    "path":"folders/Sprites/Tower Animations/Hacker.yy",
+    "name":"13 Hacker",
+    "path":"folders/Sprites/Tower Animations/Basics/13 Hacker.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

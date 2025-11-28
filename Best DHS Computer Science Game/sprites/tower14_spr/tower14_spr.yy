@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Rapper",
-    "path":"folders/Sprites/Tower Animations/Rapper.yy",
+    "name":"14 Rapper",
+    "path":"folders/Sprites/Tower Animations/Basics/14 Rapper.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

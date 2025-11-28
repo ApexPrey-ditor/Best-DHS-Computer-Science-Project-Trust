@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Flamer",
-    "path":"folders/Sprites/Tower Animations/Flamer.yy",
+    "name":"05 Flamer",
+    "path":"folders/Sprites/Tower Animations/Basics/05 Flamer.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

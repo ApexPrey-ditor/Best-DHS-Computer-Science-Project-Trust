@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Cheerleader",
-    "path":"folders/Sprites/Tower Animations/Cheerleader.yy",
+    "name":"08 Cheerleader",
+    "path":"folders/Sprites/Tower Animations/Basics/08 Cheerleader.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

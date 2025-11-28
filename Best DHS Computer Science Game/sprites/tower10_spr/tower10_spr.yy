@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Spotter",
-    "path":"folders/Sprites/Tower Animations/Spotter.yy",
+    "name":"10 Spotter",
+    "path":"folders/Sprites/Tower Animations/Basics/10 Spotter.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -31,8 +31,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Boomer",
-    "path":"folders/Sprites/Tower Animations/Boomer.yy",
+    "name":"04 Boomer",
+    "path":"folders/Sprites/Tower Animations/Basics/04 Boomer.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

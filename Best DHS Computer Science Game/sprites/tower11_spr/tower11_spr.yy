@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Booster",
-    "path":"folders/Sprites/Tower Animations/Booster.yy",
+    "name":"11 Booster",
+    "path":"folders/Sprites/Tower Animations/Basics/11 Booster.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

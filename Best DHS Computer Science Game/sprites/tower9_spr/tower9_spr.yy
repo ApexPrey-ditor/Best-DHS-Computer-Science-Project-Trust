@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Moneymaker",
-    "path":"folders/Sprites/Tower Animations/Moneymaker.yy",
+    "name":"09 Moneymaker",
+    "path":"folders/Sprites/Tower Animations/Basics/09 Moneymaker.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

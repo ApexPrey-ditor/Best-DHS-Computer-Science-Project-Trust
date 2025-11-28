@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Sniper",
-    "path":"folders/Sprites/Tower Animations/Sniper.yy",
+    "name":"01 Sniper",
+    "path":"folders/Sprites/Tower Animations/Basics/01 Sniper.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

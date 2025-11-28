@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Puncher",
-    "path":"folders/Sprites/Tower Animations/Puncher.yy",
+    "name":"06 Puncher",
+    "path":"folders/Sprites/Tower Animations/Basics/06 Puncher.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
