@@ -1,6 +1,6 @@
 if (room != radarRoom) {
 	// draws blue background square
-	draw_set_color(make_colour_rgb(81, 83, 99))
+	draw_set_color(make_colour_rgb(0, 0, 0))
 	draw_rectangle(room_width - 384, 0, room_width, room_height, false)
 
 	reset_draw()
@@ -8,7 +8,7 @@ if (room != radarRoom) {
 	// draws if upgrade menu not open
 	if (not global.upgradeMenu) {
 		// draw lives, wave and money
-		draw_set_color(c_black)
+		draw_set_color(c_green)
 		draw_set_font(archive)
 		draw_text_transformed(room_width - 352, 10, "Lives: " + string(floor(global.health)), 3, 3, 0)
 		draw_text_transformed(room_width - 352, 74, "Wave: " + string(min(global.wave, global.stage * 2)) + "/" + string(global.stage * 2), 3, 3, 0)
@@ -21,6 +21,7 @@ if (room != radarRoom) {
 			// goes through the 2 x positions the buttons can be
 			for (var w = 0; w < 2; w++) {
 				// draws button based on i and w
+				draw_set_color(c_green)
 				draw_rectangle(room_width - 336 + w * 160, 240 + i * 160, room_width - 208 + w * 160, 368 + i * 160, false)
 		
 				draw_set_color(c_black)
@@ -74,7 +75,7 @@ if (room != radarRoom) {
 						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Rapper")
 						break;
 					case 15:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Debt Collector")
+						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Debt\nCollector")
 						break;
 				}
 				// draws cost based on page, x, and y
@@ -85,25 +86,27 @@ if (room != radarRoom) {
 		}
 
 		// draws the page switch button
+		draw_set_color(c_green)
 		draw_rectangle(room_width - 336, room_height - 208, room_width - 48, room_height - 128, false)
 		if (page == 0) {
 			// if on page 1
 			center_text()
 			draw_set_color(c_black)
 			draw_set_font(archive)
-			draw_text(room_width - 192, room_height - 160, "Single-target/Crowd Control")
+			draw_text(room_width - 192, room_height - 160, "Next")
 		}
 		else {
 			// if on page 2
 			center_text()
 			draw_set_color(c_black)
 			draw_set_font(archive)
-			draw_text(room_width - 192, room_height - 160, "Support/General")
+			draw_text(room_width - 192, room_height - 160, "Back")
 		}
 
 		reset_draw()
 	
 		// draw start wave/fast foward button
+		draw_set_color(c_green)
 		draw_rectangle(room_width - 336, room_height - 96, room_width - 48, room_height - 16, false)
 	
 		center_text()
