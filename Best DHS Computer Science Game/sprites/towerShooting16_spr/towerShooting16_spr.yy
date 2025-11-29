@@ -47,8 +47,8 @@
   },
   "origin":9,
   "parent":{
-    "name":"01 Soldier",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/01 Soldier.yy",
+    "name":"00 Soldier",
+    "path":"folders/Sprites/Tower Animations/Tier 4s/00 Soldier.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
