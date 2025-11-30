@@ -40,7 +40,7 @@ global.paused = false
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 // for testing t4s
 repeat (2) {
-	array_push(global.upgrades[11], {display : "+Ammunition", desc : "+|% Reload Speed", buff : 5})
+	array_push(global.upgrades[3], {display : "+Ammunition", desc : "+|% Reload Speed", fireSpeed : 0.2})
 }
 global.modifiers = []
 // for specific upgrades
@@ -55,7 +55,6 @@ global.permClass = [false, false, false]
 global.fool = false
 global.first = true
 global.towers = 0
-global.entrepreneurs = -1
 // for modifs (damage, firerate, range, effect, AOE, pierce)
 global.towerStats = [1, 1, 1, 1, 1, 1]
 // detection giving cards
@@ -71,7 +70,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 46)
+	array_push(global.upgradePool, 24)
 }
 // Not Ferdigalocious
 repeat (6) {
