@@ -19,13 +19,21 @@ if (not global.paused) {
 					if (target != id and target.buffs[4] == 1 and ds_list_find_index(targetable, target) != -1) {
 						if (instance_exists(buffing)) {
 							buffing.buffs[4] = 1
+							buffing.buffs[10] = 1
+							buffing.buffs[11] = 1
+							buffing.buffs[12] = 1
 							buffing.image_blend = c_white
 						}
 						
 						buffing = target
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 						target.buffs[4] = (effect[0] * buffs[8] * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * 0.1 * notManyBeans) + (ds_list_size(towers) * 0.1 * sweatshop))
+						if (tier4) {
+							target.buffs[10] = (effect[1] * buffs[8] * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * 0.1 * notManyBeans) + (ds_list_size(towers) * 0.1 * sweatshop))
+							target.buffs[11] = (effect[2] * buffs[8] * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * 0.1 * notManyBeans) + (ds_list_size(towers) * 0.1 * sweatshop))
+							target.buffs[12] = (effect[3] * buffs[8] * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * 0.1 * notManyBeans) + (ds_list_size(towers) * 0.1 * sweatshop))
+						}
 						/*if (notManyBeans == 0) {
 							target.buffs[4] = effect[0] * ((array_contains(global.schizophrenics, target) * 0.5) * psychiatrist + 1)
 						}
@@ -74,7 +82,7 @@ if (not global.paused) {
 						// finds targets
 						var options = ds_list_create()
 						var unsorted = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
 				
 						// removes all the enemies that are ghost dead, or cant be detected
 						unsorted = remove_undetectable(unsorted, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]])
@@ -132,7 +140,7 @@ if (not global.paused) {
 																									stun : stun,
 																									burn : burn,
 																									fireSpeed : fireSpeed,
-																									pierce : pierce * multis[5],
+																									pierce : pierce * multis[5] + buffs[11],
 																									lifetime : lifetime,
 																									detections : [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]]})
 							}
@@ -153,8 +161,8 @@ if (not global.paused) {
 									collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 								}
 								else {
-									xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
-									ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2] * multis[2]
+									xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2] * buffs[12] * multis[2]
+									ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2] * buffs[12] * multis[2]
 								
 									collision_line_list(x + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], y, xpos + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 									collision_line_list(x, y - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], xpos, ypos - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
@@ -175,7 +183,7 @@ if (not global.paused) {
 								targets = remove_undetectable(targets, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]])
 					
 								if (type == 0) {
-									for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
+									for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5] + buffs[11]); i++) {
 										if (i == 0 and towerType == 1 and tier4) {
 											if (ds_list_find_value(targets, i) == prevHit and buffs[7] < 4) {
 												buffs[7] += 0.2
@@ -226,7 +234,7 @@ if (not global.paused) {
 											}
 										}
 							
-										if (i == min(ds_list_size(targets), pierce * multis[5]) - 1) {
+										if (i == min(ds_list_size(targets), pierce * multis[5] + buffs[11]) - 1) {
 											// calculate where the enemy will be along the path
 											var leadPosition = ds_list_find_value(targets, i).path_position + (ds_list_find_value(targets, i).pathSpeed * lifetime / path_get_length(ds_list_find_value(targets, i).path_index))
 								
@@ -244,7 +252,7 @@ if (not global.paused) {
 									}
 								}
 								else if (type < 3) {
-									for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
+									for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5] + buffs[11]); i++) {
 										if (delay <= 0) {
 											// iterates through the amount of enemies tower is allowed to hit
 											ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0])
@@ -321,8 +329,8 @@ if (not global.paused) {
 																										special : special,
 																										spread : spread,
 																										effect : effect,
-																										pierce : pierce * multis[5],
-																										lifetime : (range * buffs[2] * multis[2]) / projSpeed,
+																										pierce : pierce * multis[5] + buffs[11],
+																										lifetime : (range * buffs[2] * buffs[12] * multis[2]) / projSpeed,
 																										detections : [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]],
 																										creator : id,
 																										direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
@@ -336,7 +344,7 @@ if (not global.paused) {
 																										special : special,
 																										spread : spread,
 																										effect : [effect[0] * buffs[1] * buffs[4] * multis[0], effect[1]],
-																										pierce : pierce * multis[5],
+																										pierce : pierce * multis[5] + buffs[11],
 																										lifetime : lifetime,
 																										shotNum : shotNum,
 																										decamo : decamo,
@@ -354,7 +362,7 @@ if (not global.paused) {
 																										special : special,
 																										spread : spread,
 																										effect : effect,
-																										pierce : pierce * multis[5],
+																										pierce : pierce * multis[5] + buffs[11],
 																										lifetime : lifetime,
 																										shotNum : shotNum,
 																										decamo : decamo,
@@ -382,7 +390,7 @@ if (not global.paused) {
 							global.health -= lifeDeduct
 							shotNum += 1
 							firing = true
-							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward)
+							attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward)
 							if (towerType == 2 and tier4 and doubleShot > 1) {
 								doubleShot -= 1
 								image_speed = global.fastForward
@@ -391,9 +399,9 @@ if (not global.paused) {
 							else {
 								doubleShot = 10
 								image_speed = global.fastForward
-								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
 							}
-							if attackRemainder > 1 {
+							if (attackRemainder > 1) {
 								attackRemainder -= 1
 							}
 						}
@@ -403,7 +411,7 @@ if (not global.paused) {
 					if (special == "s firerate") {
 						// performs buffs for all towers in range of cheerleader
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
 							if (ds_list_find_value(towers, i).buffs[0] < (effect[0] * buffs[8] * multis[3] * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) and not ds_list_find_value(towers, i).placing) {
@@ -422,7 +430,7 @@ if (not global.paused) {
 						// performs buffs for all towers in range of spotter
 						var towers = ds_list_create()
 						var buffed = false
-						collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 						
 						for (var j = 0; j < ds_list_size(towers); j++) {
 							buffed = false
@@ -461,7 +469,7 @@ if (not global.paused) {
 						
 						if (tier4) {
 							if (instance_exists(marked)) {
-								if (distance_to_object(marked) > range * buffs[2] * multis[2]) {
+								if (distance_to_object(marked) > range * buffs[2] * buffs[12] * multis[2]) {
 									marked.weakness = 1
 									marked = noone
 								}
@@ -470,7 +478,7 @@ if (not global.paused) {
 								// finds targets
 								var options = ds_list_create()
 								var unsorted = ds_list_create()
-								collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+								collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
 				
 								// removes all the enemies that are ghost dead, or cant be detected
 								unsorted = remove_undetectable(unsorted, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]])
@@ -520,7 +528,7 @@ if (not global.paused) {
 					if (special == "s commander") {
 						// performs buffs for all towers in range of commander
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
 							if (ds_list_find_value(towers, i).buffs[5] < (effect[0] * buffs[8] * multis[3] * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) and not ds_list_find_value(towers, i).placing) {
@@ -567,15 +575,15 @@ if (not global.paused) {
 																									effect : [(5 - i) * lifetime / 6 + 1],
 																									aoe : aoe,
 																									special : special,
-																									pierce : pierce * multis[5],
+																									pierce : pierce * multis[5] + buffs[11],
 																									lifetime : lifetime,
 																									type : type,
 																									detections : [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]],})
 							}
 					
 							firing = true
-							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
-							alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+							attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) 
+							alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
 							if attackRemainder > 1 {
 								attackRemainder -= 1
 							}
@@ -584,7 +592,7 @@ if (not global.paused) {
 					if (special == "s hacker") {
 						// performs buffs for all towers in range of hacker
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
 							if (ds_list_find_value(towers, i).buffs[6] < (effect[0] * buffs[8] * multis[3] * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) and not ds_list_find_value(towers, i).placing) {
@@ -597,7 +605,7 @@ if (not global.paused) {
 							// finds targets
 							var options = ds_list_create()
 							var unsorted = ds_list_create()
-							collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+							collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
 				
 							// removes all the enemies that are ghost dead, or cant be detected
 							unsorted = remove_undetectable(unsorted, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]])
@@ -682,8 +690,8 @@ if (not global.paused) {
 								
 								sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")
 								firing = true
-								attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
-								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
+								attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) 
+								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
 								if attackRemainder > 1 {
 									attackRemainder -= 1
 								}
@@ -722,7 +730,7 @@ if (not global.paused) {
 						collision_circle_list(x, y, 100 + (aoe * multis[5] * 20), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					}
 					
-					for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
+					for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5] + buffs[11]); i++) {
 						if (instance_exists(ds_list_find_value(targets, i))) {
 							if (delay <= 0) {
 								ds_list_find_value(targets, i).hp -= damage * buffs[1] * buffs[4] * multis[0]
@@ -766,9 +774,9 @@ if (not global.paused) {
 					
 					firing = true
 					shotNum += 1
-					attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
-					alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
-					if attackRemainder > 1 {
+					attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward)
+					alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
+					if (attackRemainder > 1) {
 						attackRemainder -= 1
 					}
 				}
@@ -777,7 +785,7 @@ if (not global.paused) {
 		// adds money at the end of each wave for each money tower
 		else if (enemySpawner_obj.waveCash and (bind == 0 or global.wave % (bind * 4) == 0)) {
 			var towers = ds_list_create()
-			collision_circle_list(x, y, range * buffs[2] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+			collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			if (tier4) {
 				global.money += (effect[0] * buffs[8] * multis[3] * (array_length(global.schizophrenics) * 0.1 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * (1 - (global.entrepreneurs * 0.1))
 			}
@@ -892,7 +900,7 @@ if (not global.paused) {
 				else if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - 48, 576)) {
 					if (special == "s booster") {
 						targetingSelection = true
-						collision_circle_list(x, y, range * buffs[2] * multis[2], tower_obj, false, true, targetable, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tower_obj, false, true, targetable, false)
 					}
 					if (special == "s commander") {
 						if (targeting == "Carpet Bombing") {
@@ -1075,6 +1083,12 @@ if (not global.paused) {
 								effect[0] = 1.2
 								effect[0] = 1.3
 								detections = [true, true, false]
+								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+								break;
+							case "booster4":
+								effect[0] = 1.75
+								array_push(effect, 1.25, 2, 0.75)
 								tier4 = true
 								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;

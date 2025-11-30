@@ -293,7 +293,7 @@ switch (image_index) {
 	case 38:
 		stats = {display : "Overclocker", desc : "Damage boost +40% >> +75% \nAttack speed boost +0% >> +25% \nPierce +0 >> +2 \nRange +0% >> -25%", booster4 : true}
 		tier4 = true
-		appliable = [10]
+		appliable = [11]
 		repeatable = true
 		break;
 	// Psychiatrist
