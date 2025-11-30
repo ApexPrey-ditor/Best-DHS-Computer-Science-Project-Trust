@@ -1,5 +1,5 @@
-// makes the image not transparent
-image_alpha = 1
+// makes the image transparent
+image_alpha = 0
 
 alarmList = []
 

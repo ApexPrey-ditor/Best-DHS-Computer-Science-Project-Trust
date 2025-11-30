@@ -289,6 +289,13 @@ switch (image_index) {
 		appliable = [10]
 		repeatable = true
 		break;
+	// Booster: Overclocker
+	case 38:
+		stats = {display : "Overclocker", desc : "Damage boost +40% >> +75% \nAttack speed boost +0% >> +25% \nPierce +0 >> +2 \nRange +0% >> -25%", booster4 : true}
+		tier4 = true
+		appliable = [10]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}

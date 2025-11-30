@@ -104,7 +104,6 @@ function apply_effects(index, multi) {
 			// Death
 			apply_effects(deathIndex, global.modEffects[14])
 			apply_effects(deathIndex, global.modEffects[14])
-			array_delete(global.modifierPool, array_get_index(global.modifierPool, image_index), 1)
 			break;
 		case 19:
 			// The Fool
@@ -117,7 +116,7 @@ function apply_effects(index, multi) {
 			break;
 		case 21:
 			// The High Priestess
-			global.modEffects[14] += 10.15
+			global.modEffects[14] += 0.15
 			break;
 		case 22:
 			// The Empress

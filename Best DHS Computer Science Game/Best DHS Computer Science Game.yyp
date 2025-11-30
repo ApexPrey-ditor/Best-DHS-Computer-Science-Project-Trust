@@ -169,6 +169,7 @@
     {"id":{"name":"explosion_spr","path":"sprites/explosion_spr/explosion_spr.yy",},},
     {"id":{"name":"fire_spr","path":"sprites/fire_spr/fire_spr.yy",},},
     {"id":{"name":"folder_spr","path":"sprites/folder_spr/folder_spr.yy",},},
+    {"id":{"name":"maps_spr","path":"sprites/maps_spr/maps_spr.yy",},},
     {"id":{"name":"modifierCard_spr","path":"sprites/modifierCard_spr/modifierCard_spr.yy",},},
     {"id":{"name":"pauseMenu_spr","path":"sprites/pauseMenu_spr/pauseMenu_spr.yy",},},
     {"id":{"name":"square_spr","path":"sprites/square_spr/square_spr.yy",},},
