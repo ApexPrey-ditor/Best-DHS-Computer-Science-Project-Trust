@@ -71,7 +71,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 48)
+	array_push(global.upgradePool, 50)
 }
 // Not Ferdigalocious
 repeat (6) {
@@ -118,6 +118,7 @@ repeat (3) {
 	array_push(global.upgradePool, 47) // chinese sweatshop conditions
 	array_push(global.upgradePool, 48) // lesbian
 	array_push(global.upgradePool, 49) // Bind
+	array_push(global.upgradePool, 50) // child support
 }
 // Not Horrible
 repeat (2) {	

@@ -130,8 +130,8 @@ if selected {
 		center_text()
 		if (array_length(global.upgrades[towerType]) > upgrade) {
 			draw_set_valign(fa_top)
-			draw_text_ext_transformed(room_width - 208, 592, "$" + string(ceil(costs[towerType][upgrade] * (1 - buffs[6]) * global.modEffects[11])) + " - " + global.upgrades[towerType][upgrade].display, 16, 304 / 2.5, 2.5, 2.5, 0)
-			draw_text_ext_transformed(room_width - 208, 592 + string_height_ext("$" + string(ceil(costs[towerType][upgrade] * (1 - buffs[6]) * global.modEffects[11])) + " - " + global.upgrades[towerType][upgrade].display, 16, 300 / 2.5) * 2.5, global.upgrades[towerType][upgrade].desc, 16, 304 / 1.5, 1.5, 1.5, 0)
+			draw_text_ext_transformed(room_width - 208, 592, "$" + string(ceil(costs[towerType][upgrade] * (1 - buffs[6]) * (1 - buffs[13]) * (1 - buffs[14]) * (1 - buffs[15]) * global.modEffects[11])) + " - " + global.upgrades[towerType][upgrade].display, 16, 304 / 2.5, 2.5, 2.5, 0)
+			draw_text_ext_transformed(room_width - 208, 592 + string_height_ext("$" + string(ceil(costs[towerType][upgrade] * (1 - buffs[6]) * (1 - buffs[13]) * (1 - buffs[14]) * (1 - buffs[15]) * global.modEffects[11])) + " - " + global.upgrades[towerType][upgrade].display, 16, 300 / 2.5) * 2.5, global.upgrades[towerType][upgrade].desc, 16, 304 / 1.5, 1.5, 1.5, 0)
 		}
 		else {
 			draw_text_transformed(room_width - 208, 736, "Max Level", 3, 3, 0)

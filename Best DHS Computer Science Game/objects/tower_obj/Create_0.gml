@@ -45,6 +45,7 @@ beerEffects = [0, 0]
 joathe = 0
 marked = noone
 lesbian = 0
+childSupport = 0
 
 // firing conditions
 // initial is the current target enemy
@@ -137,8 +138,8 @@ conditions2 = [firstTargeting, noneTargeting]
 // alarm storage for pausing and fast forward
 alarmList = []
 
-// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster damage, commander firerate, hacker discount, assassin damage, captain buffing buff, solid hitting, overclocker attack speed, overclocker pierce, overclocker range)
-buffs = [1, 1, 1, false, 1, 1, 0, 1, 1, false, 1, 0, 1]
+// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster damage, commander firerate, hacker discount, assassin damage, captain buffing buff, solid hitting, overclocker attack speed, overclocker pierce, overclocker range, child support for the 3 support towers)
+buffs = [1, 1, 1, false, 1, 1, 0, 1, 1, false, 1, 0, 1, 0, 0, 0]
 // for upgrades (damage, firerate, range, effect, AOE, pierce)
 multis = []
 array_copy(multis, 0, global.towerStats, 0, array_length(global.towerStats))
