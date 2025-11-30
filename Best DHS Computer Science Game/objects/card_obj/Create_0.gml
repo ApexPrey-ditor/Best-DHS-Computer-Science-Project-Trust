@@ -310,6 +310,13 @@ switch (image_index) {
 		appliable = [13]
 		repeatable = true
 		break;
+	// Rapper: Lyrical Miracle
+	case 41:
+		stats = {display : "Lyrical Miracle", desc : "Puncher esc attack every 12 >> 9 frames for 7.5 damage (25 >> 50 dps) \npierce 5 >> 7 \nDoes a big attack every 10th attack with 1 pierce that does 100 damage", rapper4 : true}
+		tier4 = true
+		appliable = [14]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}
@@ -390,7 +397,7 @@ switch (image_index) {
 	case 55:
 		stats = {display : "BEEG GUNZ", desc : "\"we have maybe 4 SMGs left, those are the only ones we have because of glitched production.\" \n+|% damage \n+|% AOE \n+| pierce", damage : 0.2, AOE : 0.25, pierceL : 3}
 		replace = [20, 25, 3]
-		appliable = [12, 13, 14]
+		appliable = [12, 14]
 		repeatable = false
 		break;
 	// beer

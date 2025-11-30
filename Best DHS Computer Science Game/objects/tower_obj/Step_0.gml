@@ -273,6 +273,9 @@ if (not global.paused) {
 											if (decamo and shotNum % 3 == 0) {
 												ds_list_find_value(targets, i).class[0] = false
 											}
+											if (towerType == 14 and tier4 and shotNum % 10 == 0 and i == 0) {
+												ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], 100 * buffs[1] * buffs[4] * multis[0])
+											}
 											if ds_list_find_value(targets, i).hp <= 0 {
 												// kill dead enemies
 												instance_destroy(ds_list_find_value(targets, i))
@@ -1106,9 +1109,17 @@ if (not global.paused) {
 								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
 							case "hacker4":
-								effect[0] = 1.15
+								effect[0] = 0.15
 								damage = 7
 								range = 500
+								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+								break;
+							case "rapper4":
+								effect[0] = 500
+								damage = 7.5
+								fireSpeed = 9
+								pierce = pierce * 7/5
 								tier4 = true
 								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
