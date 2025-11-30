@@ -268,6 +268,13 @@ switch (image_index) {
 		appliable = [7]
 		repeatable = true
 		break;
+	// Cheerleader: Captain
+	case 35:
+		stats = {display : "Captain", desc : "firerate buff 10% >> 20% \nrange 300 >> 350 \nbuffs other support tower effects by 10%", cheerleader4 : true}
+		tier4 = true
+		appliable = [8]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}

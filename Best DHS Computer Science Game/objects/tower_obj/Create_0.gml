@@ -135,8 +135,8 @@ conditions2 = [firstTargeting, noneTargeting]
 // alarm storage for pausing and fast forward
 alarmList = []
 
-// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster damage, commander firerate, hacker discount, assassin damage)
-buffs = [1, 1, 1, false, 1, 1, 0, 1]
+// for buffs (cheerleader firerate, spotter damage, spotter range, camo, booster damage, commander firerate, hacker discount, assassin damage, captain buffing buff)
+buffs = [1, 1, 1, false, 1, 1, 0, 1, 1]
 // for upgrades (damage, firerate, range, effect, AOE, pierce)
 multis = []
 array_copy(multis, 0, global.towerStats, 0, array_length(global.towerStats))
