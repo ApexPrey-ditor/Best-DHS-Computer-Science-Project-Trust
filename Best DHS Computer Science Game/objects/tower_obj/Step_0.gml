@@ -120,6 +120,12 @@ if (not global.paused) {
 							
 							// for dissapator
 							if (towerType == 3 and tier4) {
+								if (target.x < x) {
+									image_xscale = abs(image_xscale)
+								}
+								else {
+									image_xscale = -abs(image_xscale)
+								}
 								instance_create_depth(target.x, target.y, 0, projectile_obj, {damage : damage * buffs[1] * buffs[4] * multis[0],
 																									aoe : aoe * multis[4],
 																									slow : slow,
@@ -1058,12 +1064,12 @@ if (not global.paused) {
 	}
 }
 if (towerType != 6) {
-	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")) {
+	if (floor(image_index) == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")) {
 		image_speed = 0
 	}
 }
 else {
-	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_" + puncherAlt + "_spr")) {
+	if (floor(image_index) == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_" + puncherAlt + "_spr")) {
 		image_speed = 0
 	}
 }
