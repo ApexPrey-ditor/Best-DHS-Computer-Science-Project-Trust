@@ -303,6 +303,13 @@ switch (image_index) {
 		appliable = [12]
 		repeatable = true
 		break;
+	// Hacker: Cyberpunk
+	case 40:
+		stats = {display : "Cyberpunk", desc : "discount 5% >> 15% \n2 >> 3 beams that focus onto enemies (5 >> 7 damage every 0.2 sec for 25 >> 35 dps) \nthird beam does not have targeting, shoots at random enemies \nrange 450 >> 500", hacker4 : true}
+		tier4 = true
+		appliable = [13]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}

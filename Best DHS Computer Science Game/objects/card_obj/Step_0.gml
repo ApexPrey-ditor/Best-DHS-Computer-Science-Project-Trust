@@ -80,7 +80,7 @@ else if (selecting) {
 							}
 						}
 						else {
-							repeat (1) {
+							repeat (1000) {
 								array_push(global.upgradePool, 27 + i)
 							}
 						}

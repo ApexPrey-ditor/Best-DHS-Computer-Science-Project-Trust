@@ -618,6 +618,10 @@ if (not global.paused) {
 
 							if (ds_list_size(options) > 0) {
 								follows = []
+								
+								if (tier4) {
+									array_push(follows, ds_list_find_value(options, irandom_range(0, ds_list_size(options) - 1)))
+								}
 							
 								// initializes variables needed for targeting
 								var chosen = 0
@@ -1098,6 +1102,13 @@ if (not global.paused) {
 								damage = 25
 								fireSpeed = 400
 								lifetime = 120
+								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+								break;
+							case "hacker4":
+								effect[0] = 1.15
+								damage = 7
+								range = 500
 								tier4 = true
 								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
