@@ -58,6 +58,9 @@ else {
 						speedMulti = effect[i][w]
 						break;
 					case 4:
+						if (effect[i][w] == 0) {
+							image_speed = 0
+						}
 						alarm[2] = effect[i][w]
 						break;
 					case 5:

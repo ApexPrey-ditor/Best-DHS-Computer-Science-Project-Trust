@@ -31,6 +31,7 @@ else {
 							}
 							if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) > 0) {
 								ds_list_find_value(enemies, i).speedMulti = 0
+								ds_list_find_value(enemies, i).image_speed = 0
 								ds_list_find_value(enemies, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
 							}
 							if (ds_list_find_value(enemies, i).hp <= 0) {
@@ -86,6 +87,7 @@ else {
 						}
 						if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) > 0) {
 							ds_list_find_value(enemies, i).speedMulti = 0
+							ds_list_find_value(enemies, i).image_speed = 0
 							ds_list_find_value(enemies, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
 						}
 						if (ds_list_find_value(enemies, i).hp <= 0) {

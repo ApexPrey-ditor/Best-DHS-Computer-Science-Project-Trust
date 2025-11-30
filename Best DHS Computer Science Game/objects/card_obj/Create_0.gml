@@ -359,8 +359,13 @@ switch (image_index) {
 		appliable = [8, 9, 10, 11]
 		repeatable = false
 		break;
-	// lesbian (PLACEHOLDER)
+	// lesbian
 	case 48:
+		stats = {display : "lesbian", desc : "\"this joke had to be made eventually lets be honest\" \nif there are multiple instances of the same tower of lesbian support tower: +|% effects", lesbian : 0.05}
+		replace = [5]
+		appliable = [8, 9, 10, 11]
+		repeatable = false
+		break;
 	// Bind
 	case 49:
 		stats = {display : "Bind", desc : "bound by silk and song, just like me and your mom \n+|% effect \nit only boosts towers every | rounds (even numbered)", buff : 1.5, bind : 1}

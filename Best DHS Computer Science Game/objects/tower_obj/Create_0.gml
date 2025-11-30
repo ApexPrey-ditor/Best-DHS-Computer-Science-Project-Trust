@@ -44,6 +44,7 @@ beer = 0
 beerEffects = [0, 0]
 joathe = 0
 marked = noone
+lesbian = 0
 
 // firing conditions
 // initial is the current target enemy
