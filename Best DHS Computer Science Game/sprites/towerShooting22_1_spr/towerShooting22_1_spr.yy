@@ -1,6 +1,6 @@
 {
   "$GMSprite":"v2",
-  "%Name":"towerShooting22_1spr",
+  "%Name":"towerShooting22_1_spr",
   "bboxMode":2,
   "bbox_bottom":475,
   "bbox_left":75,
@@ -25,7 +25,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"c1fb37ab-7ee9-4a4b-babd-97ab8ca860c4","blendMode":0,"displayName":"default","isLocked":false,"name":"c1fb37ab-7ee9-4a4b-babd-97ab8ca860c4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"towerShooting22_1spr",
+  "name":"towerShooting22_1_spr",
   "nineSlice":{
     "$GMNineSliceData":"",
     "bottom":0,
@@ -56,7 +56,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"towerShooting22_1spr",
+    "%Name":"towerShooting22_1_spr",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -80,7 +80,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"towerShooting22_1spr",
+    "name":"towerShooting22_1_spr",
     "playback":1,
     "playbackSpeed":15.0,
     "playbackSpeedType":0,
@@ -92,19 +92,19 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f3c1675f-b4e8-4dd2-8677-066e8a7d9b7a","path":"sprites/towerShooting22_1spr/towerShooting22_1spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f3c1675f-b4e8-4dd2-8677-066e8a7d9b7a","path":"sprites/towerShooting22_1_spr/towerShooting22_1_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"e5983bb3-93c8-4e0c-adca-f0431cf6ce83","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"89c1c8e9-00d8-459b-9ade-76d6fa2ce6fd","path":"sprites/towerShooting22_1spr/towerShooting22_1spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"89c1c8e9-00d8-459b-9ade-76d6fa2ce6fd","path":"sprites/towerShooting22_1_spr/towerShooting22_1_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"274771c8-b86e-45fe-ba20-c611dc1bcb35","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2f7cd488-7828-4c3e-b47f-5299a516ebcc","path":"sprites/towerShooting22_1spr/towerShooting22_1spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2f7cd488-7828-4c3e-b47f-5299a516ebcc","path":"sprites/towerShooting22_1_spr/towerShooting22_1_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"c3676ae3-9ae4-42e3-8151-a62ed7581dc9","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8b1dd6b6-a11c-4609-8cd0-657d57cf2eb2","path":"sprites/towerShooting22_1spr/towerShooting22_1spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8b1dd6b6-a11c-4609-8cd0-657d57cf2eb2","path":"sprites/towerShooting22_1_spr/towerShooting22_1_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"0bde75c6-45df-4d62-8088-ca03a2dd7a4d","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"dafc8f59-cb48-432b-8d48-cbb869cfe3e5","path":"sprites/towerShooting22_1spr/towerShooting22_1spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"dafc8f59-cb48-432b-8d48-cbb869cfe3e5","path":"sprites/towerShooting22_1_spr/towerShooting22_1_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"34e07c0b-732f-4e92-a618-c21b074ca6d7","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

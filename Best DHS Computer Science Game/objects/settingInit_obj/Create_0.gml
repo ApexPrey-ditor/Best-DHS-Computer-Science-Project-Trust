@@ -40,7 +40,7 @@ global.paused = false
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 // for testing t4s
 repeat (2) {
-	array_push(global.upgrades[3], {display : "+Ammunition", desc : "+|% Reload Speed", fireSpeed : 0.2})
+	array_push(global.upgrades[6], {display : "+Ammunition", desc : "+|% Reload Speed", fireSpeed : 0.2})
 }
 global.modifiers = []
 // for specific upgrades
