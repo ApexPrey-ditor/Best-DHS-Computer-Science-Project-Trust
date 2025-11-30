@@ -167,6 +167,10 @@ if (targetingSelection) {
 	}
 }
 
+if (instance_exists(marked)) {
+	draw_sprite(target_spr, 0, marked.x, marked.y)
+}
+
 if (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom) and not placing) {
 	draw_set_colour(c_red)
 	draw_set_font(archive)

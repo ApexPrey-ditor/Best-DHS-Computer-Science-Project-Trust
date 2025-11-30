@@ -18,5 +18,5 @@ function calculate_type_damage(target, detections, damage) {
 		}
 	}
 	
-	return (damage * multiplier) / target.damageResist
+	return (damage * multiplier * target.weakness) / target.damageResist
 }

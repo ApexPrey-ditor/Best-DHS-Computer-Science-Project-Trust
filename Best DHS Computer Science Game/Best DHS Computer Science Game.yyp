@@ -172,6 +172,7 @@
     {"id":{"name":"modifierCard_spr","path":"sprites/modifierCard_spr/modifierCard_spr.yy",},},
     {"id":{"name":"pauseMenu_spr","path":"sprites/pauseMenu_spr/pauseMenu_spr.yy",},},
     {"id":{"name":"square_spr","path":"sprites/square_spr/square_spr.yy",},},
+    {"id":{"name":"target_spr","path":"sprites/target_spr/target_spr.yy",},},
     {"id":{"name":"testEnemy_spr","path":"sprites/testEnemy_spr/testEnemy_spr.yy",},},
     {"id":{"name":"testLaser_spr","path":"sprites/testLaser_spr/testLaser_spr.yy",},},
     {"id":{"name":"testProjectile_spr","path":"sprites/testProjectile_spr/testProjectile_spr.yy",},},

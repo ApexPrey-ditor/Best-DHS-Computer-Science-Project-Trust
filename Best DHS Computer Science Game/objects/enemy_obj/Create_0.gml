@@ -8,6 +8,7 @@ burning = 0
 hp = 0
 pathSpeed = 0
 damageResist = 1
+weakness = 1
 speedMulti = 1
 phaseShift = false
 skip = false

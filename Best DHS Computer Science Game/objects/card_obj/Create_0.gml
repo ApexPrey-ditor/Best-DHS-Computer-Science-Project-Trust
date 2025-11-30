@@ -275,6 +275,20 @@ switch (image_index) {
 		appliable = [8]
 		repeatable = true
 		break;
+	// Moneymaker: Entrepreneur
+	case 36:
+		stats = {display : "Entrepreneur", desc : "per wave $100 >> $300 \nEvery other entrepreneur on the map will decrease cash generation of all entrepreneurs by -10%", moneymaker4 : true}
+		tier4 = true
+		appliable = [9]
+		repeatable = true
+		break;
+	// Spotter: Marker
+	case 37:
+		stats = {display : "Marker", desc : "range 450 >> 550 \ndamage +10% >> 20% \nrange +15% >> +30% \nGives Camo Detection >> Gives camo and solid hitting \nMarks an enemy based on target priority that makes it take 50% more damage. Enemy remains marked until it exits the marker’s range.", spotter4 : true}
+		tier4 = true
+		appliable = [10]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}
