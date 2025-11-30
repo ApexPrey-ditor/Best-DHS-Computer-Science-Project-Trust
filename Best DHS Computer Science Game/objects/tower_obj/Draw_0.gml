@@ -36,7 +36,13 @@ if (array_length(drawPercents) > 0) {
 	}
 }
 if (special == "laser" and not placing) {
-	draw_line_width(0, y - (168 * 0.4 * global.modEffects[10]), room_width, y - (168 * 0.4 * global.modEffects[10]), aoe * multis[4] * 2)
+	if (not tier4) {
+		draw_line_width(0, y - (168 * 0.4 * global.modEffects[10]), room_width, y - (168 * 0.4 * global.modEffects[10]), aoe * multis[4] * 2)
+	}
+	else {
+		draw_set_color(c_red)
+		draw_circle(x, y, 100 + (aoe * multis[5] * 20), false)
+	}
 }
 if (special == "s hacker") {
 	for (var i = 0; i < array_length(follows); i++) {

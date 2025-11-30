@@ -254,6 +254,20 @@ switch (image_index) {
 		appliable = [5]
 		repeatable = true
 		break;
+	// Puncher: Heavyweight
+	case 33:
+		stats = {display : "Heavyweight", desc : "Damage 5 >> 10 \nAttack Speed 30 >> 21 \nPierce 5 >> 7 \nStuns enemies for (damage / enemy hp) * 6 seconds", puncher4 : true}
+		tier4 = true
+		appliable = [6]
+		repeatable = true
+		break;
+	// Laser: Tachyon Beam
+	case 34:
+		stats = {display : "Tachyon Beam", desc : "Damage 3 >> 7 \nPierce 25 >> 100 \nLaser turns into a reactor that damages enemies in a radius", laser4 : true}
+		tier4 = true
+		appliable = [7]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}

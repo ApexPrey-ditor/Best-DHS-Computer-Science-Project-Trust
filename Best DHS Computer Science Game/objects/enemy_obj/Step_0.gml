@@ -83,4 +83,5 @@ else {
 	}
 }
 
+image_speed = sign(image_speed) * global.fastForward
 depth = -y

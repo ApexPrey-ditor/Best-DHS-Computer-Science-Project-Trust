@@ -361,7 +361,7 @@ if (not global.paused) {
 						
 							// system for fractions of frames (ask turtle)
 							if (towerType != 6) {
-								sprite_index = asset_get_index("towerShooting" + string(towerType) + "_spr")
+								sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")
 							}
 							else {
 								if (puncherAlt == "1") {
@@ -370,7 +370,7 @@ if (not global.paused) {
 								else {
 									puncherAlt = "1"
 								}
-								sprite_index = asset_get_index("towerShooting" + string(towerType) + "_" + puncherAlt + "_spr")
+								sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_" + puncherAlt + "_spr")
 							}
 							image_index = 0
 							global.health -= lifeDeduct
@@ -379,12 +379,12 @@ if (not global.paused) {
 							attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward)
 							if (towerType == 2 and tier4 and doubleShot > 1) {
 								doubleShot -= 1
-								image_speed = 1
+								image_speed = global.fastForward
 								alarm[0] = ceil(6 / global.fastForward)
 							}
 							else {
 								doubleShot = 10
-								image_speed = 1
+								image_speed = global.fastForward
 								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
 							}
 							if attackRemainder > 1 {
@@ -606,7 +606,7 @@ if (not global.paused) {
 									}
 								}
 								
-								sprite_index = towerShooting13_spr
+								sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")
 								firing = true
 								attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / multis[1] / global.fastForward) 
 								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / multis[1] / global.fastForward) - floor(attackRemainder)
@@ -628,18 +628,24 @@ if (not global.paused) {
 				if (not firing) {
 					// for laser attacking
 					var targets = ds_list_create()
-					collision_line_list(0, y + aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), room_width, y + aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
-					collision_line_list(0, y - aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), room_width, y - aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					
-					var translate = ds_list_create()
-					ds_list_copy(translate, targets)
+					if (not tier4) {
+						collision_line_list(0, y + aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), room_width, y + aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
+						collision_line_list(0, y - aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), room_width, y - aoe * multis[4] - (168 * 0.4 * global.modEffects[10]), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					
-					for (var i = 0; i < ds_list_size(targets); i++) {
-						ds_list_delete(translate, i)
-						if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
-							ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
-						}
+						var translate = ds_list_create()
 						ds_list_copy(translate, targets)
+					
+						for (var i = 0; i < ds_list_size(targets); i++) {
+							ds_list_delete(translate, i)
+							if (ds_list_find_index(translate, ds_list_find_value(targets, i)) != -1) {
+								ds_list_delete(targets, ds_list_find_index(translate, ds_list_find_value(targets, i)))
+							}
+							ds_list_copy(translate, targets)
+						}
+					}
+					else {
+						collision_circle_list(x, y, 100 + (aoe * multis[5] * 20), tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 					}
 					
 					for (var i = 0; i < min(ds_list_size(targets), pierce * multis[5]); i++) {
@@ -916,12 +922,14 @@ if (not global.paused) {
 								damage = 3
 								range = 350
 								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
 							case "sniper4":
 								damage = 14
 								fireSpeed = 120
 								range = 600
 								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
 							case "railgunner4":
 								damage = 80
@@ -929,6 +937,7 @@ if (not global.paused) {
 								pierce = pierce * 1.5
 								doubleShot = 10
 								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
 							case "evaporator4":
 								damage = 2500
@@ -937,6 +946,7 @@ if (not global.paused) {
 								range = 500
 								aoe = 5
 								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
 							case "boomer4":
 								damage = 3
@@ -944,6 +954,7 @@ if (not global.paused) {
 								range = 250
 								aoe = 9
 								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
 							case "flamer4":
 								fireSpeed = 12
@@ -951,6 +962,21 @@ if (not global.paused) {
 								pierce = pierce * 20
 								effect = [1/10, 300]
 								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+								break;
+							case "puncher4":
+								fireSpeed = 21
+								damage = 10
+								pierce = pierce * 5/7
+								stun += 6
+								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+								break;
+							case "laser4":
+								damage = 7
+								pierce = pierce * 4
+								tier4 = true
+								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
 								break;
 							case "psychiatrist":
 								psychiatrist += global.upgrades[towerType][upgrade].psychiatrist * effectiveness[upgrade]
@@ -1032,14 +1058,15 @@ if (not global.paused) {
 	}
 }
 if (towerType != 6) {
-	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType) + "_spr")) {
+	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")) {
 		image_speed = 0
 	}
 }
 else {
-	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType) + "_" + puncherAlt + "_spr")) {
+	if (image_index == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_" + puncherAlt + "_spr")) {
 		image_speed = 0
 	}
 }
 
+image_speed = sign(image_speed) * global.fastForward
 depth = -y

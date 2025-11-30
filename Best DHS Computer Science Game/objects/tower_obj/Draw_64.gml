@@ -1,6 +1,6 @@
 // draws upgrade menu if selected
 if selected {
-	draw_set_color(c_black)
+	draw_set_color(c_white)
 	center_text()
 	draw_set_font(archive)
 	
