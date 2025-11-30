@@ -70,7 +70,7 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 						break;
 					case 12:
 						instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-						{damage : 50, fireSpeed : 600, range : 450, pierce : 10, aoe : 3, lifetime : 60, type : 1, projSpeed : 0, special : "s commander", effect : [1.15], detections : [true, true, false], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+						{damage : 50, fireSpeed : 600, range : 450, pierce : 10, aoe : 3, lifetime : 60, type : 1, projSpeed : 0, special : "s commander", effect : [1.15, 6], detections : [true, true, false], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 						placing = true
 						break;
 					case 13:

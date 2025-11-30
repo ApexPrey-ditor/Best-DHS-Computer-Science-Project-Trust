@@ -21,7 +21,7 @@ if special == "flame" {
 if (type == 1) {
 	image_alpha = 0
 	alarm[0] = ceil((lifetime + effect[0]) / global.fastForward)
-	alarm[1] = effect[0]
+	alarm[1] = ceil(effect[0] / global.fastForward)
 }
 else {
 	alarm[0] = ceil(lifetime / global.fastForward)

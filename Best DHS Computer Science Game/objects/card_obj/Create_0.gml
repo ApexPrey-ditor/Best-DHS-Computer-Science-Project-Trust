@@ -296,6 +296,13 @@ switch (image_index) {
 		appliable = [11]
 		repeatable = true
 		break;
+	// Commander: General
+	case 39:
+		stats = {display : "General", desc : "attack speed 600 >> 400 \ndamage 50 >> 25 \nbombs 6 >> 30 \nattack speed buff 15% >> 20%", commander4 : true}
+		tier4 = true
+		appliable = [12]
+		repeatable = true
+		break;
 	// Psychiatrist
 	case 42:
 		stats = {display : "Psychiatrist", desc : "what are you talking about? girls? united? really? are they? \n+|% effects to towers with Schizophrenia \n Or if moneymaker \n+10% money for each tower with Schizophrenia", psychiatrist : 1}
