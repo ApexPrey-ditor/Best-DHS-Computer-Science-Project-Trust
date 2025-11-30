@@ -368,37 +368,42 @@ switch (image_index) {
 		break;
 	// Bind
 	case 49:
-		stats = {display : "Bind", desc : "bound by silk and song, just like me and your mom\" \n+|% effect \nit only boosts towers every | rounds (even numbered)", buff : 1.5, bind : 1}
+		stats = {display : "Bind", desc : "\"bound by silk and song, just like me and your mom\" \n+|% effect \nit only boosts towers every | rounds (even numbered)", buff : 1.5, bind : 1}
 		replace = [150, 4]
 		appliable = [8, 9, 10, 11]
 		repeatable = false
 		break;
 	// child support
 	case 50:
-		stats = {display : "child support", desc : "she IS the father \ngives a |% discount on upgrades \n-| lives every time this upgrade is applied", childSupport : 1}
+		stats = {display : "child support", desc : "\"she IS the father\" \ngives a |% discount on upgrades \n-| lives every time this upgrade is applied", childSupport : 1}
 		replace = [10, 10]
 		appliable = [8, 10, 11]
 		repeatable = false
 		break;
-	// addiction (PLACEHOLDER)
+	// addiction
 	case 51:
+		stats = {display : "addiction", desc : "\"im breaking bad right now\" \nEffects stack and apply additively \nIf a tower with addiction isn't bought before round 30, no addiction towers can be bought \n+|% effect power \nafter 5 rounds tower effect turn negative \nTower Cannot Be Sold", buff : 1, addiction : true}
+		replace = [100]
+		appliable = [8, 10]
+		repeatable = false
+		break;
 	// JOTE
 	case 52:
-		stats = {display : "JOTE", desc : "Jack of the Everything\" \n+|% effect power \n+|% attack speed \n+|% damage \n+|% range", buff : 0.1, fireSpeed : 0.1, damage : 0.1, range : 0.1}
+		stats = {display : "JOTE", desc : "\"Jack of the Everything\" \n+|% effect power \n+|% attack speed \n+|% damage \n+|% range", buff : 0.1, fireSpeed : 0.1, damage : 0.1, range : 0.1}
 		replace = [10, 10, 10, 10]
 		appliable = [12, 13, 14]
 		repeatable = false
 		break;
 	// You don't know JACK
 	case 53:
-		stats = {display : "You don't know JACK", desc : "font reference??!?!?!??\" \n-|% effect power \n+|% damage \n+|% attack speed", buff : -0.5, fireSpeed : 0.2, damage : 0.25}
+		stats = {display : "You don't know JACK", desc : "\"font reference??!?!?!??\" \n-|% effect power \n+|% damage \n+|% attack speed", buff : -0.5, fireSpeed : 0.2, damage : 0.25}
 		replace = [50, 25, 20]
 		appliable = [12, 13, 14]
 		repeatable = false
 		break;
 	// Teh 11 of Spades
 	case 54:
-		stats = {display : "Teh 11 of Spades", desc: "or clubs, or hearts, or diamonds\" \n+|% effect power \n-|% damage \n-|% attack speed", buff : 0.5, fireSpeed : -0.2, damage : -0.25}
+		stats = {display : "Teh 11 of Spades", desc: "\"or clubs, or hearts, or diamonds\" \n+|% effect power \n-|% damage \n-|% attack speed", buff : 0.5, fireSpeed : -0.2, damage : -0.25}
 		replace = [50, 25, 20]
 		appliable = [12, 13, 14]
 		repeatable = false
@@ -412,14 +417,14 @@ switch (image_index) {
 		break;
 	// beer
 	case 56:
-		stats = {display : "beer", desc : "scottish cyclopse\" \n+|% effect \nfirerate oscillates between -|% and +|%", buff : 0.5, beer : 1}
+		stats = {display : "beer", desc : "\"scottish cyclopse\" \n+|% effect \nfirerate oscillates between -|% and +|%", buff : 0.5, beer : 1}
 		replace = [50, 100, 50]
 		appliable = [12, 13, 14]
 		repeatable = false
 		break;
 	// JOAHTE
 	case 57:
-		stats = {display : "JOAHTE", desc : "Jack of All Horrible Trades Extraordinaire\" \n-|% effects \n-|% attack rate \n-|% range \n-|% AOE \n-|% pierce \nCan't be sold \n+|% Damage", buff : -0.5, fireSpeed : -0.5, range : -0.5, AOE : -0.5, pierceL : -0.5, damage : 2.5, joathe : 1}
+		stats = {display : "JOAHTE", desc : "\"Jack of All Horrible Trades Extraordinaire\" \n-|% effects \n-|% attack rate \n-|% range \n-|% AOE \n-|% pierce \nCan't be sold \n+|% Damage", buff : -0.5, fireSpeed : -0.5, range : -0.5, AOE : -0.5, pierceL : -0.5, damage : 2.5, joathe : 1}
 		replace = [50, 50, 50, 50, 50, 250]
 		appliable = [12, 13, 14]
 		repeatable = false

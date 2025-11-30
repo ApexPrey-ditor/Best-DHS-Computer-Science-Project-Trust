@@ -133,7 +133,8 @@ function apply_effects(index, multi) {
 			break;
 		case 24:
 			// The Fortune Teller
-			apply_effects(global.modifierPool[irandom_range(0, array_length(global.modifierPool) - 1)], global.modEffects[14])
+			var tarrowPool = array_intersection(global.modifierPool, [16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29])
+			apply_effects(tarrowPool[irandom_range(0, array_length(tarrowPool) - 1)], global.modEffects[14])
 			break;
 		case 25:
 			// The Wheel of Fortune

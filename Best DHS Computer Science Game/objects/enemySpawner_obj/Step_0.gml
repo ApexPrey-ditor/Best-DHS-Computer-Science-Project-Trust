@@ -1,6 +1,6 @@
 if (global.waveTransition) {
 	// sets up new wave
-	global.waveTransition = 0
+	global.waveTransition = false
 	event_user(0)
 }
 if (endWave and enemies == 0) {

@@ -17,16 +17,18 @@ if (not global.paused) {
 				
 				if (target != noone) {
 					if (target != id and target.buffs[4] == 1 and ds_list_find_index(targetable, target) != -1) {
-						if (instance_exists(buffing)) {
-							buffing.buffs[4] = 1
-							buffing.buffs[10] = 1
-							buffing.buffs[11] = 1
-							buffing.buffs[12] = 1
-							buffs[15] = 0
-							buffing.image_blend = c_white
+						if (array_length(buffing) > 0) {
+							if (instance_exists(buffing[0])) {
+								buffing[0].buffs[4] = 1
+								buffing[0].buffs[10] = 1
+								buffing[0].buffs[11] = 1
+								buffing[0].buffs[12] = 1
+								buffing[0].buffs[15] = 0
+								buffing[0].image_blend = c_white
+							}
 						}
 						
-						buffing = target
+						buffing = [target]
 						var towers = ds_list_create()
 						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 						target.buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
@@ -36,13 +38,6 @@ if (not global.paused) {
 							target.buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
 							target.buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
 						}
-						/*if (notManyBeans == 0) {
-							target.buffs[4] = effect[0] * ((array_contains(global.schizophrenics, target) * 0.5) * psychiatrist + 1)
-						}
-						else {
-							
-							
-						}*/
 						target.image_blend = c_blue
 					}
 				}
@@ -422,18 +417,44 @@ if (not global.paused) {
 						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
-							if (ds_list_find_value(towers, i).buffs[0] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-								ds_list_find_value(towers, i).buffs[0] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
-								ds_list_find_value(towers, i).image_blend = c_green
-							}
-							if (ds_list_find_value(towers, i).buffs[13] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-								ds_list_find_value(towers, i).buffs[13] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
-								ds_list_find_value(towers, i).image_blend = c_green
-							}
-							if (tier4) {
-								if (ds_list_find_value(towers, i).buffs[8] < (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-									ds_list_find_value(towers, i).buffs[8] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
+							if (not addiction) {
+								if (ds_list_find_value(towers, i).buffs[0] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
+									ds_list_find_value(towers, i).buffs[0] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
 									ds_list_find_value(towers, i).image_blend = c_green
+								}
+								if (ds_list_find_value(towers, i).buffs[13] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
+									ds_list_find_value(towers, i).buffs[13] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
+									ds_list_find_value(towers, i).image_blend = c_green
+								}
+								if (tier4) {
+									if (ds_list_find_value(towers, i).buffs[8] < (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
+										ds_list_find_value(towers, i).buffs[8] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
+										ds_list_find_value(towers, i).image_blend = c_green
+									}
+								}
+							}
+							else {
+								if (not array_contains(buffing, ds_list_find_value(towers, i)) and not ds_list_find_value(towers, i).placing) {
+									if (countdown > 0) {
+										ds_list_find_value(towers, i).buffs[0] += ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - 1)
+										ds_list_find_value(towers, i).buffs[13] += ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
+										if (tier4) {
+											ds_list_find_value(towers, i).buffs[8] += ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - 1)
+										}
+										ds_list_find_value(towers, i).image_blend = c_green
+									
+										array_push(buffing, ds_list_find_value(towers, i))
+									}
+									else {
+										ds_list_find_value(towers, i).buffs[0] = ds_list_find_value(towers, i).buffs[0] / ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, i).buffs[13] -= ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
+										if (tier4) {
+											ds_list_find_value(towers, i).buffs[8] = ds_list_find_value(towers, i).buffs[8] / ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
+										}
+										ds_list_find_value(towers, i).image_blend = c_green
+									
+										array_push(buffing, ds_list_find_value(towers, i))
+									}
 								}
 							}
 						}
@@ -445,29 +466,49 @@ if (not global.paused) {
 						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 						
 						for (var j = 0; j < ds_list_size(towers); j++) {
-							buffed = false
-							if (ds_list_find_value(towers, j).buffs[1] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
-								ds_list_find_value(towers, j).buffs[1] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
-								buffed = true
+							if (not addiction) {
+								buffed = false
+								if (ds_list_find_value(towers, j).buffs[1] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).buffs[1] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
+									buffed = true
+								}
+								if (ds_list_find_value(towers, j).buffs[2] < (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).buffs[2] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
+									buffed = true
+								}
+								if (ds_list_find_value(towers, j).buffs[3] == false and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).buffs[3] = true
+									buffed = true
+								}
+								if (ds_list_find_value(towers, j).buffs[9] == false and not ds_list_find_value(towers, j).placing and tier4) {
+									ds_list_find_value(towers, j).buffs[9] = true
+									buffed = true
+								}
+								if (ds_list_find_value(towers, j).buffs[14] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).buffs[14] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
+									buffed = true
+								}
+								if (buffed and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).image_blend = c_purple
+								}
 							}
-							if (ds_list_find_value(towers, j).buffs[2] < (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
-								ds_list_find_value(towers, j).buffs[2] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
-								buffed = true
-							}
-							if (ds_list_find_value(towers, j).buffs[3] == false and not ds_list_find_value(towers, j).placing) {
-								ds_list_find_value(towers, j).buffs[3] = true
-								buffed = true
-							}
-							if (ds_list_find_value(towers, j).buffs[9] == false and not ds_list_find_value(towers, j).placing and tier4) {
-								ds_list_find_value(towers, j).buffs[9] = true
-								buffed = true
-							}
-							if (ds_list_find_value(towers, j).buffs[14] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
-								ds_list_find_value(towers, j).buffs[14] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
-								buffed = true
-							}
-							if (buffed and not ds_list_find_value(towers, j).placing) {
-								ds_list_find_value(towers, j).image_blend = c_purple
+							else {
+								if (not array_contains(buffing, ds_list_find_value(towers, j)) and not ds_list_find_value(towers, j).placing) {
+									if (countdown > 0) {
+										ds_list_find_value(towers, j).buffs[1] += ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) - 1)
+										ds_list_find_value(towers, j).buffs[2] += ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) - 1)
+										ds_list_find_value(towers, j).buffs[14] += ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, j).buffs[3] = true
+										if (tier4) {
+											ds_list_find_value(towers, j).buffs[9] = true
+										}
+									}
+									else {
+										ds_list_find_value(towers, j).buffs[1] = ds_list_find_value(towers, j).buffs[1] / ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, j).buffs[2] = ds_list_find_value(towers, j).buffs[2] / ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, j).buffs[14] -= ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+									}
+								}
 							}
 						}
 						
@@ -921,244 +962,275 @@ if (not global.paused) {
 				}
 				// upgrading
 				if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 592, room_width - 48, 896) and special != "debt collector" and global.money >= ceil(costs[towerType][upgrade] * (1 - buffs[6]) * global.modEffects[11]) and array_length(global.upgrades[towerType]) > upgrade) {
-					global.money -= ceil(costs[towerType][upgrade] * (1 - buffs[6]) * (1 - buffs[13]) * (1 - buffs[14]) * (1 - buffs[15]) * global.modEffects[11])
-					cost += ceil(costs[towerType][upgrade] * (1 - buffs[6]) * (1 - buffs[13]) * (1 - buffs[14]) * (1 - buffs[15]) * global.modEffects[11])
+					if (not (array_contains(struct_get_names(global.upgrades[towerType][upgrade]), "addiction") and not global.addictionBuyable and global.wave > 30)) {
+						global.money -= ceil(costs[towerType][upgrade] * (1 - buffs[6]) * (1 - buffs[13]) * (1 - buffs[14]) * (1 - buffs[15]) * global.modEffects[11])
+						cost += ceil(costs[towerType][upgrade] * (1 - buffs[6]) * (1 - buffs[13]) * (1 - buffs[14]) * (1 - buffs[15]) * global.modEffects[11])
 				
-					for (var i = 0; i < struct_names_count(global.upgrades[towerType][upgrade]); i++) {
-						switch (struct_get_names(global.upgrades[towerType][upgrade])[i]) {
-							case "damage":
-								if (global.upgrades[towerType][upgrade].damage > 0) {
-									multis[0] += global.upgrades[towerType][upgrade].damage * effectiveness[upgrade]
-								}
-								else {
-									multis[0] = multis[0] / abs(global.upgrades[towerType][upgrade].damage * effectiveness[upgrade] - 1)
-								}
-								break;
-							case "fireSpeed":
-								if (global.upgrades[towerType][upgrade].fireSpeed > 0) {
-									multis[1] += global.upgrades[towerType][upgrade].fireSpeed * effectiveness[upgrade]
-								}
-								else {
-									multis[1] = multis[1] / abs(global.upgrades[towerType][upgrade].fireSpeed * effectiveness[upgrade] - 1)
-								}
-								break;
-							case "range":
-								if (global.upgrades[towerType][upgrade].range > 0) {
-									multis[2] += global.upgrades[towerType][upgrade].range * effectiveness[upgrade]
-								}
-								else {
-									multis[2] = multis[2] / abs(global.upgrades[towerType][upgrade].range * effectiveness[upgrade] - 1)
-								}
-								break;
-							case "d0":
-								detections[0] = true
-								break;
-							case "d1":
-								detections[1] = true
-								break;
-							case "buff":
-								if (global.upgrades[towerType][upgrade].buff > 0) {
-									multis[3] += global.upgrades[towerType][upgrade].buff * effectiveness[upgrade]
-								}
-								else {
-									multis[3] = multis[3] / abs(global.upgrades[towerType][upgrade].buff * effectiveness[upgrade] - 1)
-								}
-								break;
-							case "d2":
-								detections[2] = true
-								array_push(global.schizophrenics, self)
-								break;
-							case "pierceL":
-								pierce += ceil(global.upgrades[towerType][upgrade].pierceL * effectiveness[upgrade])
-								break;
-							case "burn":
-								burn = true
-								break;
-							case "stun":
-								stun += global.upgrades[towerType][upgrade].stun * effectiveness[upgrade]
-								break;
-							case "bounce":
-								bounce += global.upgrades[towerType][upgrade].bounce * effectiveness[upgrade]
-								break;
-							case "lifeDeduct":
-								lifeDeduct += global.upgrades[towerType][upgrade].lifeDeduct * effectiveness[upgrade]
-								break;
-							case "AOE":
-								if (global.upgrades[towerType][upgrade].AOE > 0) {
-									multis[4] += global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade]
-								}
-								else {
-									multis[4] = multis[4] / abs(global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade] - 1)
-								}
-								break;
-							case "slow":
-								slow += global.upgrades[towerType][upgrade].slow * effectiveness[upgrade]
-								break;
-							case "decamo":
-								decamo = true
-								break;
-							case "pierce":
-								if (global.upgrades[towerType][upgrade].pierce > 0) {
-									multis[5] += global.upgrades[towerType][upgrade].pierce * effectiveness[upgrade]
-								}
-								else {
-									multis[5] = multis[5] / abs(global.upgrades[towerType][upgrade].pierce * effectiveness[upgrade] - 1)
-								}
-								break;
-							case "delay":
-								delay += global.upgrades[towerType][upgrade].delay * effectiveness[upgrade]
-								break;
-							case "lead":
-								lead = false
-								break;
-							case "gunner4":
-								pierce = pierce * 2
-								fireSpeed = 30
-								damage = 3
-								range = 350
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "sniper4":
-								damage = 14
-								fireSpeed = 120
-								range = 600
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "railgunner4":
-								damage = 80
-								fireSpeed = 600
-								pierce = pierce * 1.5
-								doubleShot = 10
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "evaporator4":
-								damage = 2500
-								fireSpeed = 1200
-								pierce = pierce * 50
-								range = 500
-								aoe = 5
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "boomer4":
-								damage = 3
-								fireSpeed = 30
-								range = 250
-								aoe = 9
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "flamer4":
-								fireSpeed = 12
-								range = 250
-								pierce = pierce * 20
-								effect = [1/10, 300]
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "puncher4":
-								fireSpeed = 21
-								damage = 10
-								pierce = pierce * 5/7
-								stun += 6
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "laser4":
-								damage = 7
-								pierce = pierce * 4
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "cheerleader4":
-								effect[0] = 1.2
-								array_push(effect, 1.1)
-								range = 350
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "moneymaker4":
-								effect[0] = 300
-								global.entrepreneurs += 1
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "spotter4":
-								range = 550
-								effect[0] = 1.2
-								effect[0] = 1.3
-								detections = [true, true, false]
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "booster4":
-								effect[0] = 1.75
-								array_push(effect, 1.25, 2, 0.75)
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "commander4":
-								effect[0] = 1.2
-								effect[1] = 30
-								damage = 25
-								fireSpeed = 400
-								lifetime = 120
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "hacker4":
-								effect[0] = 0.15
-								damage = 7
-								range = 500
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "rapper4":
-								effect[0] = 500
-								damage = 7.5
-								fireSpeed = 9
-								pierce = pierce * 7/5
-								tier4 = true
-								sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
-								break;
-							case "psychiatrist":
-								psychiatrist += global.upgrades[towerType][upgrade].psychiatrist * effectiveness[upgrade]
-								break;
-							case "eyesOnThePrize":
-								eyesOnThePrize += global.upgrades[towerType][upgrade].eyesOnThePrize * effectiveness[upgrade]
-								break
-							case "notManyBeans":
-								notManyBeans += global.upgrades[towerType][upgrade].notManyBeans * effectiveness[upgrade]
-								break;
-							case "sweatshop":
-								sweatshop += global.upgrades[towerType][upgrade].sweatshop * effectiveness[upgrade]
-								break;
-							case "bind":
-								bind += global.upgrades[towerType][upgrade].bind * effectiveness[upgrade]
-								break;
-							case "lesbian":
-								if (lesbian == 0) {
-									global.lesbians[towerType - 8] += 1
-								}
-								lesbian += global.upgrades[towerType][upgrade].lesbian * effectiveness[upgrade]
-								break;
-							case "childSupport":
-								childSupport += global.upgrades[towerType][upgrade].childSupport * effectiveness[upgrade] / 10
-								global.health -= global.upgrades[towerType][upgrade].childSupport * effectiveness[upgrade] * 10
-								break;
-							case "beer":
-								beer += global.upgrades[towerType][upgrade].beer * effectiveness[upgrade]
-								break;
-							case "joathe":
-								joathe += global.upgrades[towerType][upgrade].joathe * effectiveness[upgrade]
-								break;
+						for (var i = 0; i < struct_names_count(global.upgrades[towerType][upgrade]); i++) {
+							switch (struct_get_names(global.upgrades[towerType][upgrade])[i]) {
+								case "damage":
+									if (global.upgrades[towerType][upgrade].damage > 0) {
+										multis[0] += global.upgrades[towerType][upgrade].damage * effectiveness[upgrade]
+									}
+									else {
+										multis[0] = multis[0] / abs(global.upgrades[towerType][upgrade].damage * effectiveness[upgrade] - 1)
+									}
+									break;
+								case "fireSpeed":
+									if (global.upgrades[towerType][upgrade].fireSpeed > 0) {
+										multis[1] += global.upgrades[towerType][upgrade].fireSpeed * effectiveness[upgrade]
+									}
+									else {
+										multis[1] = multis[1] / abs(global.upgrades[towerType][upgrade].fireSpeed * effectiveness[upgrade] - 1)
+									}
+									break;
+								case "range":
+									if (global.upgrades[towerType][upgrade].range > 0) {
+										multis[2] += global.upgrades[towerType][upgrade].range * effectiveness[upgrade]
+									}
+									else {
+										multis[2] = multis[2] / abs(global.upgrades[towerType][upgrade].range * effectiveness[upgrade] - 1)
+									}
+									break;
+								case "d0":
+									detections[0] = true
+									break;
+								case "d1":
+									detections[1] = true
+									break;
+								case "buff":
+									if (global.upgrades[towerType][upgrade].buff > 0) {
+										multis[3] += global.upgrades[towerType][upgrade].buff * effectiveness[upgrade]
+									}
+									else {
+										multis[3] = multis[3] / abs(global.upgrades[towerType][upgrade].buff * effectiveness[upgrade] - 1)
+									}
+									break;
+								case "d2":
+									detections[2] = true
+									array_push(global.schizophrenics, self)
+									break;
+								case "pierceL":
+									pierce += ceil(global.upgrades[towerType][upgrade].pierceL * effectiveness[upgrade])
+									break;
+								case "burn":
+									burn = true
+									break;
+								case "stun":
+									stun += global.upgrades[towerType][upgrade].stun * effectiveness[upgrade]
+									break;
+								case "bounce":
+									bounce += global.upgrades[towerType][upgrade].bounce * effectiveness[upgrade]
+									break;
+								case "lifeDeduct":
+									lifeDeduct += global.upgrades[towerType][upgrade].lifeDeduct * effectiveness[upgrade]
+									break;
+								case "AOE":
+									if (global.upgrades[towerType][upgrade].AOE > 0) {
+										multis[4] += global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade]
+									}
+									else {
+										multis[4] = multis[4] / abs(global.upgrades[towerType][upgrade].AOE * effectiveness[upgrade] - 1)
+									}
+									break;
+								case "slow":
+									slow += global.upgrades[towerType][upgrade].slow * effectiveness[upgrade]
+									break;
+								case "decamo":
+									decamo = true
+									break;
+								case "pierce":
+									if (global.upgrades[towerType][upgrade].pierce > 0) {
+										multis[5] += global.upgrades[towerType][upgrade].pierce * effectiveness[upgrade]
+									}
+									else {
+										multis[5] = multis[5] / abs(global.upgrades[towerType][upgrade].pierce * effectiveness[upgrade] - 1)
+									}
+									break;
+								case "delay":
+									delay += global.upgrades[towerType][upgrade].delay * effectiveness[upgrade]
+									break;
+								case "lead":
+									lead = false
+									break;
+								case "gunner4":
+									pierce = pierce * 2
+									fireSpeed = 30
+									damage = 3
+									range = 350
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "sniper4":
+									damage = 14
+									fireSpeed = 120
+									range = 600
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "railgunner4":
+									damage = 80
+									fireSpeed = 600
+									pierce = pierce * 1.5
+									doubleShot = 10
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "evaporator4":
+									damage = 2500
+									fireSpeed = 1200
+									pierce = pierce * 50
+									range = 500
+									aoe = 5
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "boomer4":
+									damage = 3
+									fireSpeed = 30
+									range = 250
+									aoe = 9
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "flamer4":
+									fireSpeed = 12
+									range = 250
+									pierce = pierce * 20
+									effect = [1/10, 300]
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "puncher4":
+									fireSpeed = 21
+									damage = 10
+									pierce = pierce * 5/7
+									stun += 6
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "laser4":
+									damage = 7
+									pierce = pierce * 4
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "cheerleader4":
+									effect[0] = 1.2
+									array_push(effect, 1.1)
+									range = 350
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "moneymaker4":
+									effect[0] = 300
+									global.entrepreneurs += 1
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "spotter4":
+									range = 550
+									effect[0] = 1.2
+									effect[0] = 1.3
+									detections = [true, true, false]
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "booster4":
+									effect[0] = 1.75
+									array_push(effect, 1.25, 2, 0.75)
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "commander4":
+									effect[0] = 1.2
+									effect[1] = 30
+									damage = 25
+									fireSpeed = 400
+									lifetime = 120
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "hacker4":
+									effect[0] = 0.15
+									damage = 7
+									range = 500
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "rapper4":
+									effect[0] = 500
+									damage = 7.5
+									fireSpeed = 9
+									pierce = pierce * 7/5
+									tier4 = true
+									sprite_index = asset_get_index("tower" + string(towerType + tier4 * 16) + "_spr")
+									break;
+								case "psychiatrist":
+									psychiatrist += global.upgrades[towerType][upgrade].psychiatrist * effectiveness[upgrade]
+									break;
+								case "eyesOnThePrize":
+									eyesOnThePrize += global.upgrades[towerType][upgrade].eyesOnThePrize * effectiveness[upgrade]
+									break
+								case "notManyBeans":
+									notManyBeans += global.upgrades[towerType][upgrade].notManyBeans * effectiveness[upgrade]
+									break;
+								case "sweatshop":
+									sweatshop += global.upgrades[towerType][upgrade].sweatshop * effectiveness[upgrade]
+									break;
+								case "bind":
+									bind += global.upgrades[towerType][upgrade].bind * effectiveness[upgrade]
+									break;
+								case "lesbian":
+									if (lesbian == 0) {
+										global.lesbians[towerType - 8] += 1
+									}
+									lesbian += global.upgrades[towerType][upgrade].lesbian * effectiveness[upgrade]
+									break;
+								case "childSupport":
+									childSupport += global.upgrades[towerType][upgrade].childSupport * effectiveness[upgrade] / 10
+									global.health -= global.upgrades[towerType][upgrade].childSupport * effectiveness[upgrade] * 10
+									break;
+								case "addiction":
+									joathe = 1
+									countdown = 5
+									addiction = true
+									if (global.wave <= 30) {
+										global.addictionBuyable = true
+									}
+									with (tower_obj) {
+										buffs = [1, 1, 1, false, 1, 1, 0, 1, 1, false, 1, 0, 1, 0, 0, 0]
+										image_blend = c_white
+										if (towerType == 11) {
+											if (array_length(buffing) > 0) {
+												var towers = ds_list_create()
+												collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+												buffing[0].buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+												buffing[0].buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+												if (tier4) {
+													buffing[0].buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+													buffing[0].buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+													buffing[0].buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+												}
+												buffing[0].image_blend = c_blue
+											}
+										}
+										else {
+											buffing = []
+										}
+									}
+									break;
+								case "beer":
+									beer += global.upgrades[towerType][upgrade].beer * effectiveness[upgrade]
+									break;
+								case "joathe":
+									joathe += global.upgrades[towerType][upgrade].joathe * effectiveness[upgrade]
+									break;
+							}
 						}
-					}
 				
-					upgrade += 1
+						upgrade += 1
+					}
 				}
 				// selling
 				if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040) and joathe == 0) {
@@ -1171,6 +1243,23 @@ if (not global.paused) {
 						with (tower_obj) {
 							buffs = [1, 1, 1, false, 1, 1, 0, 1, 1, false, 1, 0, 1, 0, 0, 0]
 							image_blend = c_white
+							if (towerType == 11) {
+								if (array_length(buffing) > 0) {
+									var towers = ds_list_create()
+									collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+									buffing[0].buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+									buffing[0].buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+									if (tier4) {
+										buffing[0].buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+										buffing[0].buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+										buffing[0].buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+									}
+									buffing[0].image_blend = c_blue
+								}
+							}
+							else {
+								buffing = []
+							}
 						}
 					}
 					
@@ -1212,7 +1301,15 @@ if (not global.paused) {
 	else {
 		alarm[1] = 0
 	}
+	
+	if (enemySpawner_obj.waveCash and addiction) {
+		countdown -= 1
+		if (countdown == 0) {
+			settingInit_obj.alarm[0] = 1
+		}
+	}
 }
+
 if (towerType != 6) {
 	if (floor(image_index) == sprite_get_number(sprite_index) - 1 and sprite_index == asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")) {
 		image_speed = 0

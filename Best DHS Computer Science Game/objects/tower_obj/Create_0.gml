@@ -46,6 +46,8 @@ joathe = 0
 marked = noone
 lesbian = 0
 childSupport = 0
+countdown = 0
+addiction = false
 
 // firing conditions
 // initial is the current target enemy
@@ -148,7 +150,7 @@ costs = [[75, 125, 200, 550, 100], [125, 200, 325, 850, 150], [500, 825, 1300, 4
 // upgrade effectiveness
 effectiveness = [0.5, 1, 2]
 // what tower is being buffed (for booster)
-buffing = noone
+buffing = []
 
 if (special == "flame") {
 	specialTargeting = "Non-burning"

@@ -1,9 +1,9 @@
 // initializes global variables
 global.health = global.modEffects[8]
 global.first = true
-//global.wave = floor(global.stage / 2) + 1
+global.wave = floor(global.stage / 2) + 1
 // for testing final wave of each stage:
-global.wave = floor(global.stage) * 2
+//global.wave = floor(global.stage) * 2
 // global.money = global.modEffects[5]
 global.money = 3000000000000000000000
 for (var i = 0; i < global.wave; i++) {
@@ -13,6 +13,7 @@ for (var i = 0; i < global.wave; i++) {
 global.waveTransition = 0
 // for when selecting a tower
 global.upgradeMenu = false
+global.addictionBuyable = false
 
 selection = 0
 
