@@ -1,5 +1,5 @@
-image_xscale = 0.4
-image_yscale = 0.4
+image_xscale = 0
+image_yscale = 0
 
 sprite_index = asset_get_index("enemy" + string(type) + "_spr")
 
@@ -283,8 +283,11 @@ if (global.scitzo and (class[0] or class[1])) {
 // sets how much money will give on death
 cash = hp
 
+maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing]
+paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2]]
+
 // go along the path at path speed
-path_start(asset_get_index(room_get_name(room) + "Path"), pathSpeed * global.fastForward, path_action_stop, true)
+path_start(paths[array_get_index(maps, room)][enemyNum % array_length(paths[array_get_index(maps, room)])], pathSpeed * global.fastForward, path_action_stop, true)
 path_position = spath_sposition
  
 image_alpha = global.modEffects[12]

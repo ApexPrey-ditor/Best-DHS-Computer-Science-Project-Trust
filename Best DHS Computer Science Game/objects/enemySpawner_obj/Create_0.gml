@@ -13,5 +13,6 @@ enemies = 0
 endWave = false
 waveCash = false
 spawning = false
+enemyNum = 0
 
 alarmList = []

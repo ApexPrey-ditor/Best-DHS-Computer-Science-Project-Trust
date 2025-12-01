@@ -16,7 +16,9 @@ enemies += 1
 // max_array finds highest value in an array
 var enemySpawned = max_array(values)
 points -= cost[enemySpawned]
-instance_create_depth(0, 0, 0, enemy_obj, {type : max_array(values)})
+instance_create_depth(0, 0, 0, enemy_obj, {type : max_array(values), enemyNum : enemyNum})
+
+enemyNum += 1
 
 // sets chosen type to 0 points
 values[enemySpawned] = 0
