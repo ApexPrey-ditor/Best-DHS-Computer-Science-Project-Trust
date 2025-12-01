@@ -284,7 +284,7 @@ if (global.scitzo and (class[0] or class[1])) {
 cash = hp
 
 // go along the path at path speed
-path_start(testPath, pathSpeed * global.fastForward, path_action_stop, true)
+path_start(meadowPath, pathSpeed * global.fastForward, path_action_stop, true)
 path_position = spath_sposition
  
 image_alpha = global.modEffects[12]

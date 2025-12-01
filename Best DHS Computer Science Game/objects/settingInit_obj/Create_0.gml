@@ -38,10 +38,6 @@ global.fastForward = 1
 global.paused = false
 // for upgrades (dear god)
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
-// for testing t4s
-repeat (2) {
-	//array_push(global.upgrades[14], {display : "+Ammunition", desc : "+|% Reload Speed", fireSpeed : 0.2})
-}
 global.modifiers = []
 // for specific upgrades
 global.schizophrenics = []
@@ -72,7 +68,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 // cards for debugging
 repeat (1000) {
-	array_push(global.upgradePool, 12)
+	//array_push(global.upgradePool, 12)
 }
 // Not Ferdigalocious
 repeat (6) {
