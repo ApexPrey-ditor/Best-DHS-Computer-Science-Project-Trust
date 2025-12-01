@@ -151,7 +151,7 @@ if (room == radarRoom and selection != 1) {
 			instance_create_layer(960, 1440, "Folder", folder_obj)
 		}
 		else {
-			room_goto(meadow)
+			room_goto(threeRoundsDown)
 		}
 	}
 }
