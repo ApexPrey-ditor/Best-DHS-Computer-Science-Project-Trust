@@ -125,6 +125,7 @@
     {"id":{"name":"testTrack","path":"rooms/testTrack/testTrack.yy",},},
     {"id":{"name":"calculate_type_damage","path":"scripts/calculate_type_damage/calculate_type_damage.yy",},},
     {"id":{"name":"center_text","path":"scripts/center_text/center_text.yy",},},
+    {"id":{"name":"check_undetectable","path":"scripts/check_undetectable/check_undetectable.yy",},},
     {"id":{"name":"max_array_but_specificaly_for_finding_paths_because_i_hate_my_life","path":"scripts/max_array_but_specificaly_for_finding_paths_because_i_hate_my_life/max_array_but_specificaly_for_finding_paths_because_i_hate_my_life.yy",},},
     {"id":{"name":"max_array","path":"scripts/max_array/max_array.yy",},},
     {"id":{"name":"min_array_but_specificaly_for_finding_paths","path":"scripts/min_array_but_specificaly_for_finding_paths/min_array_but_specificaly_for_finding_paths.yy",},},

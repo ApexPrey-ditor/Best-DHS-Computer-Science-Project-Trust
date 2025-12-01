@@ -5,8 +5,151 @@ if (not global.paused) {
 				drawPercents[i] += 1 / (lifetime / global.fastForward)
 			
 				if (drawPercents[i] > 1) {
+					if (array_length(bulletBounces) > i) {
+						show_debug_message("----------------------------")
+						show_debug_message(bulletBounces)
+						show_debug_message(bouncePositions)
+						show_debug_message(bouncePercents)
+						show_debug_message(bounceIgnore)
+						show_debug_message("============================")
+						
+						bulletBounces[i] -= 1
+						
+						var target = noone
+						var highscore = infinity
+						
+						for (var w = 0; w < instance_number(enemy_obj); w++) {
+							if (point_distance(finalPositions[i][0], finalPositions[i][1], instance_find(enemy_obj, w).x, instance_find(enemy_obj, w).y) < highscore and check_undetectable(instance_find(enemy_obj, w), [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]]) and not array_contains(bounceIgnore[i], instance_find(enemy_obj, w))) {
+								highscore = point_distance(finalPositions[i][0], finalPositions[i][1], instance_find(enemy_obj, w).x, instance_find(enemy_obj, w).y)
+								target = instance_find(enemy_obj, w)
+							}
+						}
+
+						if (target != noone) {
+							target.hp -= calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0])
+							if (burn) {
+								target.burning = (calculate_type_damage(target, [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+								target.alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+								target.image_blend = c_orange
+							}
+							if (stun > 0 and calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+								target.speedMulti = 0
+								target.image_speed = 0
+								target.alarm[2] = ceil(calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / target.cash * stun * 60 / global.fastForward)
+							}
+							if (slow > 0 and target.speedMulti > target.speedMulti / ((calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / target.cash) * slow + 1)) {
+								target.speedMulti = target.speedMulti / ((calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / target.cash) * slow + 1)
+								target.alarm[2] = ceil(fireSpeed / global.fastForward * 3)
+								target.image_blend = c_aqua
+							}
+							if (target.hp <= 0) {
+								// dead enemies are set to ghosts
+								target.deactivated = true
+								target.alarm[11] = ceil(lifetime / global.fastForward)
+							}
+							
+							// calculate where the enemy will be along the path
+							var leadPosition = target.path_position + (target.pathSpeed * lifetime / path_get_length(target.path_index))
+							
+							array_push(bouncePositions, [path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition), finalPositions[i][0], finalPositions[i][1]])
+							array_push(bouncePercents, 0)
+							array_push(bounceIgnore[i], target)
+							
+							
+							if (bulletBounces[i] <= 0) {
+								array_delete(bulletBounces, i, 1)
+								array_delete(bounceIgnore, i, 1)
+							}
+						}
+						else {
+							array_delete(bulletBounces, i, 1)
+							array_delete(bounceIgnore, i, 1)
+						}
+						
+						show_debug_message(bulletBounces)
+						show_debug_message(bouncePositions)
+						show_debug_message(bouncePercents)
+						show_debug_message(bounceIgnore)
+					}
 					array_delete(drawPercents, i, 1)
 					array_delete(finalPositions, i, 1)
+				}
+			}
+		}
+		if (array_length(bouncePercents) > 0) {
+			for (var i = 0; i < array_length(bouncePercents); i++) {
+				bouncePercents[i] += 1 / (lifetime / global.fastForward)
+			
+				if (bouncePercents[i] > 1) {
+					if (array_length(bulletBounces) > i) {
+						show_debug_message("----------------------------")
+						show_debug_message(bulletBounces)
+						show_debug_message(bouncePositions)
+						show_debug_message(bouncePercents)
+						show_debug_message(bounceIgnore)
+						show_debug_message("============================")
+						
+						bulletBounces[i] -= 1
+						
+						var target = noone
+						var highscore = infinity
+						
+						for (var w = 0; w < instance_number(enemy_obj); w++) {
+							if (point_distance(bouncePositions[i][0], bouncePositions[i][1], instance_find(enemy_obj, w).x, instance_find(enemy_obj, w).y) < highscore and check_undetectable(instance_find(enemy_obj, w), [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]]) and not array_contains(bounceIgnore[i], instance_find(enemy_obj, w))) {
+								highscore = point_distance(bouncePositions[i][0], bouncePositions[i][1], instance_find(enemy_obj, w).x, instance_find(enemy_obj, w).y)
+								target = instance_find(enemy_obj, w)
+							}
+						}
+
+						if (target != noone) {
+							target.hp -= calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0])
+							if (burn) {
+								target.burning = (calculate_type_damage(target, [max(detections[0], buffs[3]), true, detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / fireSpeed / 2)
+								target.alarm[0] = ceil(fireSpeed / global.fastForward * 3)
+								target.image_blend = c_orange
+							}
+							if (stun > 0 and calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) > 0) {
+								target.speedMulti = 0
+								target.image_speed = 0
+								target.alarm[2] = ceil(calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / target.cash * stun * 60 / global.fastForward)
+							}
+							if (slow > 0 and target.speedMulti > target.speedMulti / ((calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / target.cash) * slow + 1)) {
+								target.speedMulti = target.speedMulti / ((calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], damage * buffs[1] * buffs[4] * multis[0]) / target.cash) * slow + 1)
+								target.alarm[2] = ceil(fireSpeed / global.fastForward * 3)
+								target.image_blend = c_aqua
+							}
+							if (target.hp <= 0) {
+								// dead enemies are set to ghosts
+								target.deactivated = true
+								target.alarm[11] = ceil(lifetime / global.fastForward)
+							}
+							
+							// calculate where the enemy will be along the path
+							var leadPosition = target.path_position + (target.pathSpeed * lifetime / path_get_length(target.path_index))
+							
+							array_push(bouncePositions, [path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition), finalPositions[i][0], finalPositions[i][1]])
+							array_push(bouncePercents, 0)
+							array_push(bounceIgnore[i], target)
+							
+							
+							if (bulletBounces[i] <= 0) {
+								array_delete(bulletBounces, i, 1)
+								array_delete(bounceIgnore, i, 1)
+							}
+						}
+						else {
+							array_delete(bulletBounces, i, 1)
+							array_delete(bounceIgnore, i, 1)
+						}
+						
+						show_debug_message(bulletBounces)
+						show_debug_message(bouncePositions)
+						show_debug_message(bouncePercents)
+						show_debug_message(bounceIgnore)
+					}
+					
+					array_delete(bouncePercents, i, 1)
+					array_delete(bouncePositions, i, 1)
 				}
 			}
 		}
@@ -247,6 +390,10 @@ if (not global.paused) {
 											// initializing for drawing a new projectile at the future position of the last enemy hit
 											array_push(finalPositions, [path_get_x(ds_list_find_value(targets, i).path_index, leadPosition), path_get_y(ds_list_find_value(targets, i).path_index, leadPosition)])
 											array_push(drawPercents, 0)
+											if (bounce > 0) {
+												array_push(bulletBounces, bounce)
+												array_push(bounceIgnore, [ds_list_find_value(targets, i)])
+											}
 										}
 									}
 								}
@@ -310,6 +457,10 @@ if (not global.paused) {
 						
 									array_push(finalPositions, [xpos, ypos])
 									array_push(drawPercents, 0)
+									if (bounce > 0) {
+										array_push(bulletBounces, bounce)
+										array_push(bounceIgnore, [])
+									}
 								}
 								if (type == 3) {
 									var leadPosition = target.path_position + ((point_distance(x, y, target.x, target.y) / projSpeed) * target.pathSpeed / path_get_length(target.path_index))

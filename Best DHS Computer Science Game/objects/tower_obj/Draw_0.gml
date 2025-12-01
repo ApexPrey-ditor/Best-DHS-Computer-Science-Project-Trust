@@ -35,6 +35,11 @@ if (array_length(drawPercents) > 0) {
 		}
 	}
 }
+if (array_length(bouncePercents) > 0) {
+	for (var i = 0; i < array_length(bouncePercents); i++) {
+		draw_line_width(bouncePositions[i][2] - ((bouncePositions[i][2] - bouncePositions[i][0]) * max(bouncePercents[i] - 0.2, 0)), bouncePositions[i][3] - ((bouncePositions[i][3] - bouncePositions[i][1]) * max(bouncePercents[i] - 0.2, 0)), bouncePositions[i][2] - ((bouncePositions[i][2] - bouncePositions[i][0]) * min(bouncePercents[i] + 0.2, 1)), bouncePositions[i][3] - ((bouncePositions[i][3] - bouncePositions[i][1]) * min(bouncePercents[i] + 0.2, 1)), 5)
+	}
+}
 if (special == "laser" and not placing) {
 	if (not tier4) {
 		draw_line_width(0, y - (168 * 0.4 * global.modEffects[10]), room_width, y - (168 * 0.4 * global.modEffects[10]), aoe * multis[4] * 2)

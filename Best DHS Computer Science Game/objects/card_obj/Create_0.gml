@@ -105,8 +105,8 @@ switch (image_index) {
 		break;
 	// Bouncing Shot
 	case 12:
-		stats = {display : "Bouncing Shot", desc : "\"how did i get an A in style the world hates me\" \n+| bullet bounces \n-|% damage", damage : -0.2, bounce : 2}
-		replace = [2, 20]
+		stats = {display : "Bouncing Shot", desc : "\"how did i get an A in style the world hates me\" \n+| bullet bounces \n-|% damage", damage : -0.5, bounce : 2}
+		replace = [2, 50]
 		appliable = [0, 1, 2, 3]
 		repeatable = false
 		break;

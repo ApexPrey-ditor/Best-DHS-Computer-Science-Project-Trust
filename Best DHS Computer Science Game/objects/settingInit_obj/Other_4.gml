@@ -1,10 +1,10 @@
 // initializes global variables
 global.health = global.modEffects[8]
 global.first = true
-global.wave = floor(global.stage / 2) + 1
+//global.wave = floor(global.stage / 2) + 1
 // for testing final wave of each stage:
-//global.wave = floor(global.stage) * 2
-// global.money = global.modEffects[5]
+global.wave = floor(global.stage) * 2
+//global.money = global.modEffects[5]
 global.money = 3000000000000000000000
 for (var i = 0; i < global.wave; i++) {
 	global.money += 50 + i * 50
