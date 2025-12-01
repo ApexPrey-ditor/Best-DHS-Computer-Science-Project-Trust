@@ -154,22 +154,22 @@ if (room == radarRoom and selection != 1) {
 		}
 		else {
 			if (global.stage <= 7) {
-				room_goto(maps[0][irandom_range(0, array_length(maps[0]))])
+				room_goto(maps[0][irandom_range(0, array_length(maps[0]) - 1)])
 			}
 			else if (global.stage <= 12) {
-				room_goto(maps[1][irandom_range(0, array_length(maps[1]))])
+				room_goto(maps[1][irandom_range(0, array_length(maps[1]) - 1)])
 			}
 			else if (global.stage <= 17) {
-				room_goto(maps[2][irandom_range(0, array_length(maps[2]))])
+				room_goto(maps[2][irandom_range(0, array_length(maps[2]) - 1)])
 			}
 			else if (global.stage <= 22) {
-				room_goto(maps[3][irandom_range(0, array_length(maps[3]))])
+				room_goto(maps[3][irandom_range(0, array_length(maps[3]) - 1)])
 			}
 			else {
-				room_goto(maps[4][irandom_range(0, array_length(maps[4]))])
+				room_goto(maps[4][irandom_range(0, array_length(maps[4]) - 1)])
 			}
 			
-			//room_goto(doubleOrNothing)
+			//room_goto(threeRoundsDown)
 		}
 	}
 }
