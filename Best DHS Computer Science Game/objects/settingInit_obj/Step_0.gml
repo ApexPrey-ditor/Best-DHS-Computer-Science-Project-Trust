@@ -129,9 +129,11 @@ if (mouse_check_button_pressed(mb_left) and not placing and not global.upgradeMe
 	}
 }
 
-if (room == radarRoom and selection != 1) {
+if (room == intermission) {
 	radarDir -= 2
+}
 
+if (room == radarRoom and selection != 1) {
 	nextBlip[1] -= 1
 	prevBlip[1] += 1
 	
@@ -151,7 +153,7 @@ if (room == radarRoom and selection != 1) {
 			instance_create_layer(960, 1440, "Folder", folder_obj)
 		}
 		else {
-			room_goto(threeRoundsDown)
+			room_goto(intermission)
 		}
 	}
 }

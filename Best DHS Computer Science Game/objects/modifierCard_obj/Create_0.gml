@@ -5,7 +5,7 @@ image_index = global.modifierPool[irandom_range(0, array_length(global.modifierP
 if (image_index == 18) {
 	deathIndex = -1
 	for (var i = array_length(global.modifiers) - 1; i >= 0; i--) {
-		if (array_contains(global.modifierPool, global.modifiers[i])) {
+		if (array_contains(global.modifierPool, global.modifiers[i]) and global.modifiers[i] != 18) {
 			deathIndex = global.modifiers[i]
 			break;
 		}

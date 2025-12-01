@@ -528,7 +528,15 @@ if (not global.paused) {
 							}
 						
 							// system for fractions of frames (ask turtle)
-							if (towerType != 6) {
+							if (towerType == 14 and tier4) {
+								if (shotNum % 10 == 0) {
+									sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_2_spr")
+								}
+								else {
+									sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_1_spr")
+								}
+							}
+							else if (towerType != 6) {
 								sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")
 							}
 							else {

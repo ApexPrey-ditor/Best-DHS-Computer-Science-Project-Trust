@@ -1,0 +1,27 @@
+{
+  "$GMPath":"",
+  "%Name":"infinitePath",
+  "closed":false,
+  "kind":1,
+  "name":"infinitePath",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":50.0,"x":-64.0,"y":544.0,},
+    {"speed":50.0,"x":0.0,"y":544.0,},
+    {"speed":50.0,"x":384.0,"y":672.0,},
+    {"speed":50.0,"x":768.0,"y":544.0,},
+    {"speed":50.0,"x":1152.0,"y":240.0,},
+    {"speed":50.0,"x":1600.0,"y":576.0,},
+    {"speed":50.0,"x":1152.0,"y":656.0,},
+    {"speed":50.0,"x":768.0,"y":544.0,},
+    {"speed":50.0,"x":384.0,"y":240.0,},
+    {"speed":50.0,"x":0.0,"y":544.0,},
+    {"speed":50.0,"x":-64.0,"y":544.0,},
+  ],
+  "precision":20,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

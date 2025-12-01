@@ -1,6 +1,6 @@
 // makes the image transparent
-image_alpha = 1
+image_alpha = 0
 
 alarmList = []
 
-depth = 10
+//depth = 10
