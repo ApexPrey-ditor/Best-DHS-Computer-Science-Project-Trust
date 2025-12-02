@@ -1,0 +1,25 @@
+{
+  "$GMPath":"",
+  "%Name":"baitNSwitchPath2",
+  "closed":false,
+  "kind":0,
+  "name":"baitNSwitchPath2",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":-64.0,"y":496.0,},
+    {"speed":100.0,"x":544.0,"y":496.0,},
+    {"speed":100.0,"x":544.0,"y":912.0,},
+    {"speed":100.0,"x":1184.0,"y":912.0,},
+    {"speed":100.0,"x":1184.0,"y":752.0,},
+    {"speed":100.0,"x":736.0,"y":752.0,},
+    {"speed":100.0,"x":736.0,"y":592.0,},
+    {"speed":100.0,"x":1376.0,"y":592.0,},
+    {"speed":100.0,"x":1376.0,"y":1200.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

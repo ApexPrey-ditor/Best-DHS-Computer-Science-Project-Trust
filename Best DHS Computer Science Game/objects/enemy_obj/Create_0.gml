@@ -283,11 +283,16 @@ if (global.scitzo and (class[0] or class[1])) {
 // sets how much money will give on death
 cash = hp
 
-maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing]
-paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2]]
+maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing, baitNSwitch, meadow2, flooding, girlsVsEvilGirls]
+paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2], [baitNSwitchPath1, baitNSwitchPath2], [meadow2Path], [floodingPath], [girlsVsEvilGirlsPath1, girlsVsEvilGirlsPath2, girlsVsEvilGirlsPath3, girlsVsEvilGirlsPath4, girlsVsEvilGirlsPath5]]
 
 // go along the path at path speed
-path_start(paths[array_get_index(maps, room)][enemyNum % array_length(paths[array_get_index(maps, room)])], pathSpeed * global.fastForward, path_action_stop, true)
+if (room != baitNSwitch) {
+	path_start(paths[array_get_index(maps, room)][enemyNum % array_length(paths[array_get_index(maps, room)])], pathSpeed * global.fastForward, path_action_stop, true)
+}
+else {
+	path_start(paths[array_get_index(maps, room)][global.wave % array_length(paths[array_get_index(maps, room)])], pathSpeed * global.fastForward, path_action_stop, true)
+}
 path_position = spath_sposition
  
 image_alpha = global.modEffects[12]

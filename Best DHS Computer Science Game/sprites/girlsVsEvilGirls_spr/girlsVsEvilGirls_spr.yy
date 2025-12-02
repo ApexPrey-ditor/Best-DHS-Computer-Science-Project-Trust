@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
-  "%Name":"infinite_spr",
+  "%Name":"girlsVsEvilGirls_spr",
   "bboxMode":0,
-  "bbox_bottom":1079,
+  "bbox_bottom":0,
   "bbox_left":0,
-  "bbox_right":1535,
+  "bbox_right":0,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"79d816e4-a06b-4002-825e-1dacbd7ad71f","name":"79d816e4-a06b-4002-825e-1dacbd7ad71f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"4bd43ee9-bf4a-49cd-90b8-2729398e1fed","name":"4bd43ee9-bf4a-49cd-90b8-2729398e1fed","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":1080,
+  "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"3c185cd9-b488-408d-a6dd-d58f3f8d8c01","blendMode":0,"displayName":"default","isLocked":false,"name":"3c185cd9-b488-408d-a6dd-d58f3f8d8c01","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"9f8f1ffd-d4ab-4820-b972-4900be4ece52","blendMode":0,"displayName":"default","isLocked":false,"name":"9f8f1ffd-d4ab-4820-b972-4900be4ece52","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"infinite_spr",
+  "name":"girlsVsEvilGirls_spr",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"infinite_spr",
+    "%Name":"girlsVsEvilGirls_spr",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"infinite_spr",
+    "name":"girlsVsEvilGirls_spr",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"79d816e4-a06b-4002-825e-1dacbd7ad71f","path":"sprites/infinite_spr/infinite_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"ccd2fdc3-ceb3-4b83-a87d-2b20c1d8455e","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4bd43ee9-bf4a-49cd-90b8-2729398e1fed","path":"sprites/girlsVsEvilGirls_spr/girlsVsEvilGirls_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d90f424b-211c-480e-b34c-57dbc0956a07","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":1536,
+  "width":64,
 }
