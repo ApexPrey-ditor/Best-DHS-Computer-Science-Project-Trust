@@ -166,7 +166,7 @@ if (room == radarRoom and selection != 1) {
 				room_goto(maps[3][irandom_range(0, array_length(maps[3]) - 1)])
 			}
 
-			room_goto(girlsVsEvilGirls)
+			//room_goto(straightUp)
 		}
 	}
 }

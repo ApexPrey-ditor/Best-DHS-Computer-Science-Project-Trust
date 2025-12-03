@@ -9,8 +9,8 @@
     "path":"folders/Paths/Girls Vs Evil Girls.yy",
   },
   "points":[
-    {"speed":100.0,"x":1600.0,"y":800.0,},
-    {"speed":100.0,"x":384.0,"y":800.0,},
+    {"speed":50.0,"x":1600.0,"y":800.0,},
+    {"speed":50.0,"x":384.0,"y":800.0,},
   ],
   "precision":4,
   "resourceType":"GMPath",

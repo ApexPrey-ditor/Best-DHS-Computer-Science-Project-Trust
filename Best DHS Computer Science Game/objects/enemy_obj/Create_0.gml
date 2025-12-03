@@ -261,7 +261,7 @@ switch (type) {
 	case 34:
 		// Evil Girl
 		hp = 75000 * global.modEffects[21]
-		pathSpeed = 1
+		pathSpeed = 0.5
 		name = "Evil Girl"
 		break;
 }
@@ -283,8 +283,8 @@ if (global.scitzo and (class[0] or class[1])) {
 // sets how much money will give on death
 cash = hp
 
-maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing, baitNSwitch, meadow2, flooding, girlsVsEvilGirls]
-paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2], [baitNSwitchPath1, baitNSwitchPath2], [meadow2Path], [floodingPath], [girlsVsEvilGirlsPath1, girlsVsEvilGirlsPath2, girlsVsEvilGirlsPath3, girlsVsEvilGirlsPath4, girlsVsEvilGirlsPath5]]
+maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing, baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, doubleDown, straightUp]
+paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2], [baitNSwitchPath1, baitNSwitchPath2], [meadow2Path], [floodingPath], [girlsVsEvilGirlsPath1, girlsVsEvilGirlsPath2, girlsVsEvilGirlsPath3, girlsVsEvilGirlsPath4, girlsVsEvilGirlsPath5], [toiletBowlPath], [doubleDownPath1, doubleDownPath2], [straightUpPath]]
 
 // go along the path at path speed
 if (room != baitNSwitch) {
