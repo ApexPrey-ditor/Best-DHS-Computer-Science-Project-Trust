@@ -12,102 +12,108 @@ if (not global.paused) {
 	}
 	else if (selecting) {
 		if mouse_check_button_pressed(mb_left) {
-			for (var i = 0; i < sprite_get_number(towerIcons256_spr) - 1; i++) {
-				if (i < 12) {
-					if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24), room_height / 2 + (272 * (floor(i / 4) - 2)) + 8, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24) + 256, room_height / 2 + (272 * (floor(i / 4) - 2)) + 264) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
-						var newDesc = stats.desc
-						for (var w = 0; w < array_length(replace); w++) {
-							newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
-						}
-						if (array_length(global.upgrades[i]) == 2) {
-							if (i % 4 < 2) {
-								repeat (2000) {
-									array_push(global.upgradePool, 27 + i)
-								}
+			if (point_in_rectangle(mouse_x, mouse_y, 16, 16, 152, 48)) {
+				selecting = false
+				global.upgradeMenu = false
+			}
+			else {
+				for (var i = 0; i < sprite_get_number(towerIcons256_spr) - 1; i++) {
+					if (i < 12) {
+						if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24), room_height / 2 + (272 * (floor(i / 4) - 2)) + 8, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24) + 256, room_height / 2 + (272 * (floor(i / 4) - 2)) + 264) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
+							var newDesc = stats.desc
+							for (var w = 0; w < array_length(replace); w++) {
+								newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
 							}
-							else {
-								repeat (1000) {
-									array_push(global.upgradePool, 27 + i)
+							if (array_length(global.upgrades[i]) == 2) {
+								if (i % 4 < 2) {
+									repeat (2000) {
+										array_push(global.upgradePool, 27 + i)
+									}
 								}
-							}
+								else {
+									repeat (1000) {
+										array_push(global.upgradePool, 27 + i)
+									}
+								}
 						
-							var del = true
-							for (var z = 0; z < array_length(appliable); z++) {
-								if (array_length(global.upgrades[appliable[z]]) < 3) {
-									del = false
+								var del = true
+								for (var z = 0; z < array_length(appliable); z++) {
+									if (array_length(global.upgrades[appliable[z]]) < 3) {
+										del = false
+									}
+								}
+								if (del) {
+									while (array_contains(global.upgradePool, image_index)) {
+										array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+									}
 								}
 							}
-							if (del) {
+							if (oneTime) {
+								array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
+								if (array_length(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]) == 0) {
+									while (array_contains(global.upgradePool, image_index)) {
+										array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+									}
+								}
+							}
+							if (tier4) {
 								while (array_contains(global.upgradePool, image_index)) {
 									array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
 								}
 							}
-						}
-						if (oneTime) {
-							array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
-							if (array_length(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]) == 0) {
-								while (array_contains(global.upgradePool, image_index)) {
-									array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
-								}
-							}
-						}
-						if (tier4) {
-							while (array_contains(global.upgradePool, image_index)) {
-								array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
-							}
-						}
 					
-						stats.desc = newDesc
-						array_push(global.upgrades[i], stats)
-						selecting = false
-						global.upgradeMenu = false
+							stats.desc = newDesc
+							array_push(global.upgrades[i], stats)
+							selecting = false
+							global.upgradeMenu = false
 					
-						with (card_obj) {
-							dissapate = true
-							instance_create_layer(x, y, "Selections", modifierCard_obj)
+							with (card_obj) {
+								dissapate = true
+								instance_create_layer(x, y, "Selections", modifierCard_obj)
+							}
 						}
 					}
-				}
-				else {
-					if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 - 408 + (i - 12) * 272, room_height / 2 + 280, room_width / 2 - 408 + (i - 12) * 272 + 256, room_height / 2 + 280 + 256) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
-						var newDesc = stats.desc
-						for (var w = 0; w < array_length(replace); w++) {
-							newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
-						}
-						if (array_length(global.upgrades[i]) == 2) {
-							if (i % 4 == 0) {
-								repeat (2000) {
-									array_push(global.upgradePool, 27 + i)
+					else {
+						if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 - 408 + (i - 12) * 272, room_height / 2 + 280, room_width / 2 - 408 + (i - 12) * 272 + 256, room_height / 2 + 280 + 256) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
+							var newDesc = stats.desc
+							for (var w = 0; w < array_length(replace); w++) {
+								newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
+							}
+							if (array_length(global.upgrades[i]) == 2) {
+								if (i % 4 == 0) {
+									repeat (2000) {
+										array_push(global.upgradePool, 27 + i)
+									}
+								}
+								else {
+									repeat (1000) {
+										array_push(global.upgradePool, 27 + i)
+									}
 								}
 							}
-							else {
-								repeat (1000) {
-									array_push(global.upgradePool, 27 + i)
+							if (oneTime) {
+								array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
+								if (array_length(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]) == 0) {
+									while (array_contains(global.upgradePool, image_index)) {
+										array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+									}
 								}
 							}
-						}
-						if (oneTime) {
-							array_delete(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], array_get_index(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)], i), 1)
-							if (array_length(global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]) == 0) {
+							if (tier4) {
 								while (array_contains(global.upgradePool, image_index)) {
 									array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
 								}
 							}
-						}
-						if (tier4) {
-							while (array_contains(global.upgradePool, image_index)) {
-								array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
+					
+							stats.desc = newDesc
+							array_push(global.upgrades[i], stats)
+							selecting = false
+							global.upgradeMenu = false
+					
+							with (card_obj) {
+								dissapate = true
+								instance_create_layer(x, y, "Selections", modifierCard_obj)
 							}
-						}
-					
-						stats.desc = newDesc
-						array_push(global.upgrades[i], stats)
-						selecting = false
-						global.upgradeMenu = false
-					
-						with (card_obj) {
-							dissapate = true
-							instance_create_layer(x, y, "Selections", modifierCard_obj)
 						}
 					}
 				}
