@@ -1,5 +1,7 @@
+reset_draw()
+
 draw_set_color(c_black)
-draw_text(10, 10, points)
+draw_text(10, 10, alarmList)
 
 /*if (global.paused) {
 	// draw_rectangle(150, 150, room_width - 150, room_height - 150, false)

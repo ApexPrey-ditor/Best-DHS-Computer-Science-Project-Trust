@@ -156,6 +156,9 @@ effectiveness = [0.5, 1, 2]
 // what tower is being buffed (for booster)
 buffing = []
 
+// for animations freezing when pausing game
+pausedAnimSpeed = 0
+
 if (special == "flame") {
 	specialTargeting = "Non-burning"
 	array_push(conditions, fireTargeting)

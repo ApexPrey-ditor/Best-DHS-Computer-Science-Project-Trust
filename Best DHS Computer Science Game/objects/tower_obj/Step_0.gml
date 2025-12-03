@@ -6,13 +6,6 @@ if (not global.paused) {
 			
 				if (drawPercents[i] > 1) {
 					if (array_length(bulletBounces) > i) {
-						show_debug_message("----------------------------")
-						show_debug_message(bulletBounces)
-						show_debug_message(bouncePositions)
-						show_debug_message(bouncePercents)
-						show_debug_message(bounceIgnore)
-						show_debug_message("============================")
-						
 						bulletBounces[i] -= 1
 						
 						var target = noone
@@ -65,11 +58,6 @@ if (not global.paused) {
 							array_delete(bulletBounces, i, 1)
 							array_delete(bounceIgnore, i, 1)
 						}
-						
-						show_debug_message(bulletBounces)
-						show_debug_message(bouncePositions)
-						show_debug_message(bouncePercents)
-						show_debug_message(bounceIgnore)
 					}
 					array_delete(drawPercents, i, 1)
 					array_delete(finalPositions, i, 1)
@@ -82,13 +70,6 @@ if (not global.paused) {
 			
 				if (bouncePercents[i] > 1) {
 					if (array_length(bulletBounces) > i) {
-						show_debug_message("----------------------------")
-						show_debug_message(bulletBounces)
-						show_debug_message(bouncePositions)
-						show_debug_message(bouncePercents)
-						show_debug_message(bounceIgnore)
-						show_debug_message("============================")
-						
 						bulletBounces[i] -= 1
 						
 						var target = noone
@@ -141,11 +122,6 @@ if (not global.paused) {
 							array_delete(bulletBounces, i, 1)
 							array_delete(bounceIgnore, i, 1)
 						}
-						
-						show_debug_message(bulletBounces)
-						show_debug_message(bouncePositions)
-						show_debug_message(bouncePercents)
-						show_debug_message(bounceIgnore)
 					}
 					
 					array_delete(bouncePercents, i, 1)
@@ -192,7 +168,7 @@ if (not global.paused) {
 				}
 			}
 			// checks if theres a tower under the mouse when clicked
-			if (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom)) {
+			if (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom) and not settingInit_obj.placing) {
 				selected = not selected
 				global.upgradeMenu = selected
 			}
