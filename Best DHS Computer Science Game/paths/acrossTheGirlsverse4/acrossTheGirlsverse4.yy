@@ -1,0 +1,26 @@
+{
+  "$GMPath":"",
+  "%Name":"acrossTheGirlsverse4",
+  "closed":false,
+  "kind":1,
+  "name":"acrossTheGirlsverse4",
+  "parent":{
+    "name":"acrossTheGirlsverse",
+    "path":"folders/Paths/acrossTheGirlsverse.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":1248.0,"y":-112.0,},
+    {"speed":100.0,"x":1248.0,"y":112.0,},
+    {"speed":100.0,"x":1152.0,"y":304.0,},
+    {"speed":100.0,"x":1056.0,"y":400.0,},
+    {"speed":100.0,"x":896.0,"y":480.0,},
+    {"speed":100.0,"x":704.0,"y":512.0,},
+    {"speed":100.0,"x":576.0,"y":576.0,},
+    {"speed":100.0,"x":480.0,"y":656.0,},
+    {"speed":100.0,"x":352.0,"y":880.0,},
+    {"speed":100.0,"x":352.0,"y":1152.0,},
+  ],
+  "precision":20,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

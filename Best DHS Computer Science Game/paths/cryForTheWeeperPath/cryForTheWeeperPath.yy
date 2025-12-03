@@ -1,0 +1,28 @@
+{
+  "$GMPath":"",
+  "%Name":"cryForTheWeeperPath",
+  "closed":false,
+  "kind":1,
+  "name":"cryForTheWeeperPath",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":768.0,"y":-64.0,},
+    {"speed":100.0,"x":768.0,"y":-16.0,},
+    {"speed":100.0,"x":544.0,"y":400.0,},
+    {"speed":100.0,"x":544.0,"y":560.0,},
+    {"speed":100.0,"x":592.0,"y":640.0,},
+    {"speed":100.0,"x":688.0,"y":720.0,},
+    {"speed":100.0,"x":848.0,"y":720.0,},
+    {"speed":100.0,"x":944.0,"y":640.0,},
+    {"speed":100.0,"x":992.0,"y":560.0,},
+    {"speed":100.0,"x":992.0,"y":400.0,},
+    {"speed":100.0,"x":768.0,"y":-16.0,},
+    {"speed":100.0,"x":768.0,"y":-64.0,},
+  ],
+  "precision":20,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}
