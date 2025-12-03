@@ -1,8 +1,9 @@
-direction = -90
-
 function find_camo_unique(element, index) {
 	return not array_contains(global.oneTimesValues[0], element)
 }
+
+// alarm storage for pausing and fast forward
+alarmList = []
 
 pickable = false
 selecting = false

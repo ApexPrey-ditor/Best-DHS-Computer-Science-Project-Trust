@@ -1,5 +1,8 @@
 dissapate = false
 
+// alarm storage for pausing and fast forward
+alarmList = []
+
 image_index = global.modifierPool[irandom_range(0, array_length(global.modifierPool) - 1)]
 
 if (image_index == 18) {

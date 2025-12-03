@@ -1,5 +1,7 @@
 // if paused or not at the hidden position
 if (global.paused or abs((x - (room_width - 1393) / 2) / 20) > 0.1 or abs((y - (room_height + 1289) / 2) / 20) > 0.1) {
+	draw_self()
+	
 	draw_set_colour(c_white)
 	draw_roundrect_ext((room_width / 2) - 450, (y + (689 / 2)) + 50, (room_width / 2) + 50, (y + (689 / 2)) + 250, 50, 50, false)
 	draw_set_colour(c_black)

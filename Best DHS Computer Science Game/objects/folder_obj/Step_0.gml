@@ -1,20 +1,19 @@
-if (dissapate) {
-	y -= (y + 512) / 20 + 0.1
-	image_xscale -= (image_xscale - 12) / 7
-	image_yscale -= (image_xscale - 12) / 7
+if (not global.paused) {
+	if (dissapate) {
+		y -= (y + 512) / 20 + 0.1
+		image_xscale -= (image_xscale - 12) / 7
+		image_yscale -= (image_xscale - 12) / 7
 	
-	image_angle += (y + 512) / 256
+		image_angle += (y + 512) / 256
 	
-	if (floor(y) == -512) {
-		instance_destroy()
-	}
-}
-else {
-	if (floor(y) == (room_height - 64) / 2) {
-		speed = 0
+		if (floor(y) == -512) {
+			instance_destroy()
+		}
 	}
 	else {
-		speed = ((room_height - 64) / 2 - y) / 60 - 0.1
-		image_angle -= speed / 5
+		if (floor(y) != (room_height - 64) / 2) {
+			y += ((room_height - 64) / 2 - y) / 60 - 0.1
+			image_angle -= (y - yprevious) / 5
+		}
 	}
 }

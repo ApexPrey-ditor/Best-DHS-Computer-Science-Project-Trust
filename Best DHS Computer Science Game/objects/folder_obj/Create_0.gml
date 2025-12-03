@@ -4,6 +4,9 @@ image_angle = 180
 image_xscale = 24
 image_yscale = 24
 
+// alarm storage for pausing and fast forward
+alarmList = []
+
 dissapate = false
 
 var cards = [global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]]
