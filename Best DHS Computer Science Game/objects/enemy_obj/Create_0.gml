@@ -283,8 +283,8 @@ if (global.scitzo and (class[0] or class[1])) {
 // sets how much money will give on death
 cash = hp
 
-maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing, baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper, doubleDown, straightUp]
-paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2], [baitNSwitchPath1, baitNSwitchPath2], [meadow2Path], [floodingPath], [girlsVsEvilGirlsPath1, girlsVsEvilGirlsPath2, girlsVsEvilGirlsPath3, girlsVsEvilGirlsPath4, girlsVsEvilGirlsPath5], [toiletBowlPath], [acrossTheGirlsverse1, acrossTheGirlsverse2, acrossTheGirlsverse3, acrossTheGirlsverse4], [cryForTheWeeperPath], [doubleDownPath1, doubleDownPath2], [straightUpPath]]
+maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing, baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper, battlezone, doubleDown, straightUp]
+paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2], [baitNSwitchPath1, baitNSwitchPath2], [meadow2Path], [floodingPath], [girlsVsEvilGirlsPath1, girlsVsEvilGirlsPath2, girlsVsEvilGirlsPath3, girlsVsEvilGirlsPath4, girlsVsEvilGirlsPath5], [toiletBowlPath], [acrossTheGirlsverse1, acrossTheGirlsverse2, acrossTheGirlsverse3, acrossTheGirlsverse4], [cryForTheWeeperPath], [battlezonePath1, battlezonePath2, battlezonePath3, battlezonePath4, battlezonePath5, battlezonePath6, battlezonePath7, battlezonePath8, battlezonePath9, battlezonePath10, battlezonePath11, battlezonePath12, battlezonePath13], [doubleDownPath1, doubleDownPath2], [straightUpPath]]
 
 // go along the path at path speed
 if (room != baitNSwitch) {

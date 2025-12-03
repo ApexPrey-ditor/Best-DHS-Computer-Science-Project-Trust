@@ -187,7 +187,7 @@ if (not global.paused) {
 					}
 				}
 
-				//room_goto(intermission)
+				room_goto(battlezone)
 			}
 		}
 	}
