@@ -8,6 +8,9 @@ if (endWave and enemies == 0) {
 	global.money += ceil(50 + global.wave * 50) * global.modEffects[6]
 	global.wave += 1
 	
+	audio_group_set_gain(Music, 0, 500)
+	audio_group_set_gain(MusicCalm, 1, 500)
+	
 	endWave = false
 	waveCash = true
 	alarm[3] = 1

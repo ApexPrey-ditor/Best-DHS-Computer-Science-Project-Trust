@@ -18,8 +18,13 @@ global.addictionBuyable = false
 selection = 0
 
 if (room != radarRoom) {
+	audio_stop_all()
+	
 	audio_play_sound(songs[mapId], 1, true)
 	audio_play_sound(songsCalm[mapId], 1, true)
+	
+	audio_group_set_gain(Music, 0)
+	audio_group_set_gain(MusicCalm, 1)
 }
 
 if (irandom_range(0, 1) == 0) {

@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"acrossTheGirlsverse_spr",
   "bboxMode":0,
-  "bbox_bottom":0,
+  "bbox_bottom":1079,
   "bbox_left":0,
-  "bbox_right":0,
+  "bbox_right":1536,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"662edbd0-e769-42c1-bda7-a6ca620cf63d","name":"662edbd0-e769-42c1-bda7-a6ca620cf63d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"5ff5100a-fca6-4598-89ba-cde6dedcf525","name":"5ff5100a-fca6-4598-89ba-cde6dedcf525","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"fb6f0d7a-0029-461e-a8b1-9f73e7defa19","blendMode":0,"displayName":"default","isLocked":false,"name":"fb6f0d7a-0029-461e-a8b1-9f73e7defa19","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"2262205e-146c-41be-8671-a1039bd5c237","blendMode":0,"displayName":"default","isLocked":false,"name":"2262205e-146c-41be-8671-a1039bd5c237","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"acrossTheGirlsverse_spr",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"662edbd0-e769-42c1-bda7-a6ca620cf63d","path":"sprites/acrossTheGirlsverse_spr/acrossTheGirlsverse_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"fb670e5c-c0f8-42a0-9829-40680b86b323","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5ff5100a-fca6-4598-89ba-cde6dedcf525","path":"sprites/acrossTheGirlsverse_spr/acrossTheGirlsverse_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"89152c36-f0b4-4376-9343-e371fd77170e","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":1536,
+  "width":1537,
 }

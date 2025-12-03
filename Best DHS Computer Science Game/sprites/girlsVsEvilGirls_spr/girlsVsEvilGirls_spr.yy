@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"girlsVsEvilGirls_spr",
   "bboxMode":0,
-  "bbox_bottom":0,
+  "bbox_bottom":1079,
   "bbox_left":0,
-  "bbox_right":0,
+  "bbox_right":1537,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"4bd43ee9-bf4a-49cd-90b8-2729398e1fed","name":"4bd43ee9-bf4a-49cd-90b8-2729398e1fed","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"24ca720a-b316-46b7-8904-168f0f90d51e","name":"24ca720a-b316-46b7-8904-168f0f90d51e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9f8f1ffd-d4ab-4820-b972-4900be4ece52","blendMode":0,"displayName":"default","isLocked":false,"name":"9f8f1ffd-d4ab-4820-b972-4900be4ece52","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"6cf49a8a-fb3d-412f-956a-159368ad8747","blendMode":0,"displayName":"default","isLocked":false,"name":"6cf49a8a-fb3d-412f-956a-159368ad8747","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"girlsVsEvilGirls_spr",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4bd43ee9-bf4a-49cd-90b8-2729398e1fed","path":"sprites/girlsVsEvilGirls_spr/girlsVsEvilGirls_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"d90f424b-211c-480e-b34c-57dbc0956a07","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"24ca720a-b316-46b7-8904-168f0f90d51e","path":"sprites/girlsVsEvilGirls_spr/girlsVsEvilGirls_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f40ac8ea-d0c9-4898-92ac-befa2b08409d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":1536,
+  "width":1538,
 }
