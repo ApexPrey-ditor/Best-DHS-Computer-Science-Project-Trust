@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"coolWinterEve",
+  "%Name":"coldWinterEve",
   "audioGroupId":{
     "name":"Music",
     "path":"audiogroups/Music",
@@ -12,7 +12,7 @@
   "conversionMode":0,
   "duration":112.26696,
   "exportDir":"",
-  "name":"coolWinterEve",
+  "name":"coldWinterEve",
   "parent":{
     "name":"Music",
     "path":"folders/Sounds/Music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"coolWinterEve.mp3",
+  "soundFile":"coldWinterEve.mp3",
   "volume":1.0,
 }

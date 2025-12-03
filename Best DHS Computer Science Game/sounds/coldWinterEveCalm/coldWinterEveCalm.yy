@@ -1,9 +1,9 @@
 {
   "$GMSound":"v2",
-  "%Name":"coolWinterEveCalm",
+  "%Name":"coldWinterEveCalm",
   "audioGroupId":{
-    "name":"Music",
-    "path":"audiogroups/Music",
+    "name":"MusicCalm",
+    "path":"audiogroups/MusicCalm",
   },
   "bitDepth":1,
   "channelFormat":0,
@@ -12,7 +12,7 @@
   "conversionMode":0,
   "duration":112.2673,
   "exportDir":"",
-  "name":"coolWinterEveCalm",
+  "name":"coldWinterEveCalm",
   "parent":{
     "name":"Music",
     "path":"folders/Sounds/Music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"coolWinterEveCalm.mp3",
+  "soundFile":"coldWinterEveCalm.mp3",
   "volume":1.0,
 }

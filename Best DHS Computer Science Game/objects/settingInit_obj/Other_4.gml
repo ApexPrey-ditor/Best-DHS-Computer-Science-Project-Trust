@@ -17,6 +17,11 @@ global.addictionBuyable = false
 
 selection = 0
 
+if (room != radarRoom) {
+	audio_play_sound(songs[mapId], 1, true)
+	audio_play_sound(songsCalm[mapId], 1, true)
+}
+
 if (irandom_range(0, 1) == 0) {
 	//nextBlip = [irandom_range(0, 22) * 2, 496, 0]
 	nextBlip = [irandom_range(0, 22) * 2, 2, 0]

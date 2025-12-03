@@ -156,34 +156,49 @@ if (not global.paused) {
 			else {
 				if (global.stage <= 6) {
 					if (global.stage == 3) {
-						room_goto(maps[1][irandom_range(0, array_length(maps[1]) - 1)])
+						mapId = irandom_range(0, array_length(maps[1]) - 1)
+						room_goto(maps[1][mapId])
+						mapId += array_length(maps[0])
 					}
 					else {
-						room_goto(maps[0][irandom_range(0, array_length(maps[0]) - 1)])
+						mapId = irandom_range(0, array_length(maps[0]) - 1)
+						room_goto(maps[0][mapId])
 					}
 				}
 				else if (global.stage <= 13) {
 					if (global.stage == 10) {
-						room_goto(maps[2][irandom_range(0, array_length(maps[2]) - 1)])
+						mapId = irandom_range(0, array_length(maps[2]) - 1)
+						room_goto(maps[2][mapId])
+						mapId += array_length(maps[1])
 					}
 					else {
-						room_goto(maps[1][irandom_range(0, array_length(maps[1]) - 1)])
+						mapId = irandom_range(0, array_length(maps[1]) - 1)
+						room_goto(maps[1][mapId])
+						mapId += array_length(maps[0])
 					}
 				}
 				else if (global.stage <= 20) {
 					if (global.stage == 17) {
-						room_goto(maps[3][irandom_range(0, array_length(maps[3]) - 1)])
+						mapId = irandom_range(0, array_length(maps[3]) - 1)
+						room_goto(maps[3][mapId])
+						mapId += array_length(maps[2])
 					}
 					else {
-						room_goto(maps[2][irandom_range(0, array_length(maps[2]) - 1)])
+						mapId = irandom_range(0, array_length(maps[2]) - 1)
+						room_goto(maps[2][mapId])
+						mapId += array_length(maps[1])
 					}
 				}
 				else {
 					if (irandom_range(0, 1) == 0) {
-						room_goto(maps[2][irandom_range(0, array_length(maps[2]) - 1)])
+						mapId = irandom_range(0, array_length(maps[2]) - 1)
+						room_goto(maps[2][mapId])
+						mapId += array_length(maps[1])
 					}
 					else {
-						room_goto(maps[3][irandom_range(0, array_length(maps[3]) - 1)])
+						mapId = irandom_range(0, array_length(maps[3]) - 1)
+						room_goto(maps[3][mapId])
+						mapId += array_length(maps[3])
 					}
 				}
 

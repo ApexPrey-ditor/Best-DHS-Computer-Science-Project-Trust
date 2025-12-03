@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"hotSummerDayCalm",
   "audioGroupId":{
-    "name":"Music",
-    "path":"audiogroups/Music",
+    "name":"MusicCalm",
+    "path":"audiogroups/MusicCalm",
   },
   "bitDepth":1,
   "channelFormat":0,

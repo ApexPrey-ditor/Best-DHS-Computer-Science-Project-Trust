@@ -141,6 +141,10 @@ page = 0
 costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000, 3750, 3500, 3000]
 
 maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing], [baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper], [battlezone, doubleDown], [straightUp]]
+songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm]
+
+audio_group_load(Music)
+audio_group_load(MusicCalm)
 
 // variables for making the radar work
 radarDir = 0
