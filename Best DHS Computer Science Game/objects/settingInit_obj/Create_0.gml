@@ -37,6 +37,8 @@ global.upgradeMenu = false
 global.fastForward = 1
 global.paused = false
 // for upgrades (dear god)
+global.upgradeAmount = 0
+global.availableTowers = [0, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
 // for specific upgrades
@@ -66,6 +68,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 						[4, 5]]
 
 global.upgradePool = []
+global.towerPool = [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
 // cards for debugging
 repeat (1000) {
 	//array_push(global.upgradePool, 12)
@@ -126,7 +129,7 @@ repeat (2) {
 	array_push(global.upgradePool, 54) // Teh 11 of Spades
 	array_push(global.upgradePool, 55) // BEEG GUNZ
 	array_push(global.upgradePool, 56) // beer
-	array_push(global.upgradePool, 56) // JOAHTE
+	array_push(global.upgradePool, 57) // JOAHTE
 }
 //Not Morbinacious
 
@@ -138,14 +141,11 @@ alarmList = []
 
 // page of tower UI and cost of towers
 page = 0
-costs = [150, 275, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000, 3750, 3500, 3000]
+costs = [150, 325, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000, 3750, 3500, 3000]
 
-maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing], [baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper], [battlezone, doubleDown], [straightUp]]
-songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay]
-songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm]
-
-audio_group_load(Music)
-audio_group_load(MusicCalm)
+maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing], [baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper], [battlezone, socialDistancing, doubleDown, particleAccelerator], [straightUp]]
+songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay]
+songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm]
 
 // variables for making the radar work
 radarDir = 0
@@ -153,6 +153,27 @@ prevBlip = [210, 0, 0]
 //nextBlip = [30, 496, 0]
 nextBlip = [30, 30, 0]
 selection = 0
+
+// preloading sprites
+sprite_prefetch(card_spr)
+sprite_prefetch(modifierCard_spr)
+sprite_prefetch(folder_spr)
+sprite_prefetch(towerIcons256_spr)
+
+texture_prefetch("EnemiesTowers")
+
+// set audio loop points and load music
+audio_group_load(Music)
+audio_group_load(MusicCalm)
+audio_group_load(MusicAmbient)
+
+audio_sound_loop_end(Intermission, 51.4)
+audio_sound_loop_end(hotSummerDay, 86.3)
+audio_sound_loop_end(hotSummerDayCalm, 86.3)
+audio_sound_loop_end(coldWinterEve, 112.1)
+audio_sound_loop_end(coldWinterEveCalm, 112.1)
+
+audio_play_sound(Intermission, 1, true)
 
 // fullscreens
 window_set_fullscreen(true)

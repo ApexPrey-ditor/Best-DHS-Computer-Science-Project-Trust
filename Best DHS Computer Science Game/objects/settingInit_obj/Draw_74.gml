@@ -28,58 +28,63 @@ if (room != radarRoom) {
 				draw_set_font(archive)
 				center_text()
 				// draws tower name based on page, x, and y
-				switch (page * 8 + i * 2 + w) {
-					case 0:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Gunner")
-						break;
-					case 1:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Sniper")
-						break;
-					case 2:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Railgunner")
-						break;
-					case 3:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Evaporator")
-						break;
-					case 4:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Boomer")
-						break;
-					case 5:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Flamer")
-						break;
-					case 6:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Puncher")
-						break;
-					case 7:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Laser")
-						break;
-					case 8:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Cheerleader")
-						break;
-					case 9:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Moneymaker")
-						break;
-					case 10:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Spotter")
-						break;
-					case 11:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Booster")
-						break;
-					case 12:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Commander")
-						break;
-					case 13:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Hacker")
-						break;
-					case 14:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Rapper")
-						break;
-					case 15:
-						draw_text(room_width - 272 + w * 160, 304 + i * 160, "Debt\nCollector")
-						break;
+				if (array_contains(global.availableTowers, page * 8 + i * 2 + w)) {
+					switch (page * 8 + i * 2 + w) {
+						case 0:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Gunner")
+							break;
+						case 1:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Sniper")
+							break;
+						case 2:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Railgunner")
+							break;
+						case 3:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Evaporator")
+							break;
+						case 4:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Boomer")
+							break;
+						case 5:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Flamer")
+							break;
+						case 6:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Puncher")
+							break;
+						case 7:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Laser")
+							break;
+						case 8:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Cheerleader")
+							break;
+						case 9:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Moneymaker")
+							break;
+						case 10:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Spotter")
+							break;
+						case 11:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Booster")
+							break;
+						case 12:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Commander")
+							break;
+						case 13:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Hacker")
+							break;
+						case 14:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Rapper")
+							break;
+						case 15:
+							draw_text(room_width - 272 + w * 160, 304 + i * 160, "Debt\nCollector")
+							break;
+					}
+					// draws cost based on page, x, and y
+					draw_text(room_width - 272 + w * 160, 334 + i * 160, "$" + string(ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11])))
 				}
-				// draws cost based on page, x, and y
-				draw_text(room_width - 272 + w * 160, 334 + i * 160, "$" + string(ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11])))
+				else {
+					draw_text(room_width - 272 + w * 160, 304 + i * 160, "Not\nAvailable")
+				}
 		
 				reset_draw()
 			}

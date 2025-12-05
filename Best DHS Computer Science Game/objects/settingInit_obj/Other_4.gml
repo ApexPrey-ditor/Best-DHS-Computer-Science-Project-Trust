@@ -2,6 +2,7 @@
 global.health = global.modEffects[8]
 global.first = true
 global.wave = floor(global.stage / 2) + 1
+global.towers = 0
 // for testing final wave of each stage:
 //global.wave = floor(global.stage) * 2
 global.money = global.modEffects[5]
@@ -24,7 +25,7 @@ if (room != radarRoom) {
 	audio_play_sound(songsCalm[mapId], 1, true)
 	
 	audio_group_set_gain(Music, 0)
-	audio_group_set_gain(MusicCalm, 1)
+	audio_group_set_gain(MusicCalm, 1, 500)
 }
 
 if (irandom_range(0, 1) == 0) {

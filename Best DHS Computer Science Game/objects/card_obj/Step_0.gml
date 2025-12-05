@@ -19,7 +19,7 @@ if (not global.paused) {
 			else {
 				for (var i = 0; i < sprite_get_number(towerIcons256_spr) - 1; i++) {
 					if (i < 12) {
-						if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24), room_height / 2 + (272 * (floor(i / 4) - 2)) + 8, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24) + 256, room_height / 2 + (272 * (floor(i / 4) - 2)) + 264) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
+						if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24), room_height / 2 + (272 * (floor(i / 4) - 2)) + 8, room_width / 2 + ((sprite_get_width(towerIcons256_spr) * ((i % 4) - 2)) + (16 * (i % 4)) - 24) + 256, room_height / 2 + (272 * (floor(i / 4) - 2)) + 264) and array_contains(appliable, i) and array_contains(global.availableTowers, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
 							var newDesc = stats.desc
 							for (var w = 0; w < array_length(replace); w++) {
 								newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))
@@ -66,10 +66,29 @@ if (not global.paused) {
 							array_push(global.upgrades[i], stats)
 							selecting = false
 							global.upgradeMenu = false
-					
-							with (card_obj) {
-								dissapate = true
-								instance_create_layer(x, y, "Selections", modifierCard_obj)
+							
+							if (global.upgradeAmount <= 0) {
+								with (card_obj) {
+									dissapate = true
+									instance_create_layer(x, y, "Selections", modifierCard_obj)
+								}
+							}
+							else {
+								global.upgradeAmount -= 1
+								
+								cardSelection = [global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]]
+								while (cardSelection[1] == cardSelection[0]) {
+									cardSelection[1] = global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]	
+								}
+								while (cardSelection[2] == cardSelection[0] or cardSelection[2] == cardSelection[1]) {
+									cardSelection[2] = global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]	
+								}
+				
+								with (card_obj) {
+									dissapate = true
+									instance_create_layer(x, y, "Selections", card_obj, {image_index : other.cardSelection[0]})
+									array_delete(other.cardSelection, 0, 1)
+								}
 							}
 						}
 					}
@@ -110,9 +129,28 @@ if (not global.paused) {
 							selecting = false
 							global.upgradeMenu = false
 					
-							with (card_obj) {
-								dissapate = true
-								instance_create_layer(x, y, "Selections", modifierCard_obj)
+							if (global.upgradeAmount <= 0) {
+								with (card_obj) {
+									dissapate = true
+									instance_create_layer(x, y, "Selections", modifierCard_obj)
+								}
+							}
+							else {
+								global.upgradeAmount -= 1
+								
+								cardSelection = [global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]]
+								while (cardSelection[1] == cardSelection[0]) {
+									cardSelection[1] = global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]	
+								}
+								while (cardSelection[2] == cardSelection[0] or cardSelection[2] == cardSelection[1]) {
+									cardSelection[2] = global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]	
+								}
+				
+								with (card_obj) {
+									dissapate = true
+									instance_create_layer(x, y, "Selections", card_obj, {image_index : other.cardSelection[0]})
+									array_delete(other.cardSelection, 0, 1)
+								}
 							}
 						}
 					}
@@ -127,8 +165,30 @@ if (not global.paused) {
 			image_yscale += (1.25 - image_xscale) / 7
 		
 			if mouse_check_button_pressed(mb_left) {
-				selecting = true
-				global.upgradeMenu = true
+				if (towerCard) {
+					show_debug_message(global.availableTowers)
+					array_push(global.availableTowers, stats)
+					show_debug_message(global.availableTowers)
+					array_delete(global.towerPool, array_get_index(global.towerPool, image_index), 1)
+				
+					cardSelection = [global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]]
+					while (cardSelection[1] == cardSelection[0]) {
+						cardSelection[1] = global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]	
+					}
+					while (cardSelection[2] == cardSelection[0] or cardSelection[2] == cardSelection[1]) {
+						cardSelection[2] = global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]	
+					}
+				
+					with (card_obj) {
+						dissapate = true
+						instance_create_layer(x, y, "Selections", card_obj, {image_index : other.cardSelection[0]})
+						array_delete(other.cardSelection, 0, 1)
+					}
+				}
+				else {
+					selecting = true
+					global.upgradeMenu = true
+				}
 			}
 		}
 		else {

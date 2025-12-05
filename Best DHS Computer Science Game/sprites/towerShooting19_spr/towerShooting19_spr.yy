@@ -167,8 +167,8 @@
     "show",
   ],
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"EnemiesTowers",
+    "path":"texturegroups/EnemiesTowers",
   },
   "type":0,
   "VTile":false,

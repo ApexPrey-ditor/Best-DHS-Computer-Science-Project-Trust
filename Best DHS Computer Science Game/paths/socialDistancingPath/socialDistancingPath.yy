@@ -1,0 +1,28 @@
+{
+  "$GMPath":"",
+  "%Name":"socialDistancingPath",
+  "closed":false,
+  "kind":1,
+  "name":"socialDistancingPath",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":352.0,"y":-64.0,},
+    {"speed":100.0,"x":352.0,"y":688.0,},
+    {"speed":100.0,"x":448.0,"y":848.0,},
+    {"speed":100.0,"x":608.0,"y":944.0,},
+    {"speed":100.0,"x":1152.0,"y":944.0,},
+    {"speed":100.0,"x":1328.0,"y":848.0,},
+    {"speed":100.0,"x":1408.0,"y":688.0,},
+    {"speed":100.0,"x":1408.0,"y":432.0,},
+    {"speed":100.0,"x":1312.0,"y":272.0,},
+    {"speed":100.0,"x":1152.0,"y":176.0,},
+    {"speed":100.0,"x":1088.0,"y":176.0,},
+    {"speed":100.0,"x":-64.0,"y":176.0,},
+  ],
+  "precision":20,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

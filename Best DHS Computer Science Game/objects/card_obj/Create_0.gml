@@ -12,10 +12,12 @@ dissapate = false
 effectiveness = [0.5, 1, 2]
 
 repeatable = false
+towerCard = false
 oneTime = false
 tier4 = false
 appliable = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 replace = []
+cardSelection = []
 stats = {}
 
 // ALL THE UPGRADES
@@ -429,5 +431,70 @@ switch (image_index) {
 		replace = [50, 50, 50, 50, 50, 250]
 		appliable = [12, 13, 14]
 		repeatable = false
+		break;
+	// Sniper
+	case 58:
+		stats = 1
+		towerCard = true
+		break;
+	// Railgunner
+	case 59:
+		stats = 2
+		towerCard = true
+		break;
+	// Evaporator
+	case 60:
+		stats = 3
+		towerCard = true
+		break;
+	// Flamer
+	case 61:
+		stats = 5
+		towerCard = true
+		break;
+	// Puncher
+	case 62:
+		stats = 6
+		towerCard = true
+		break;
+	// Laser
+	case 63:
+		stats = 7
+		towerCard = true
+		break;
+	// Moneymaker
+	case 64:
+		stats = 9
+		towerCard = true
+		break;
+	// Spotter
+	case 65:
+		stats = 10
+		towerCard = true
+		break;
+	// Booster
+	case 66:
+		stats = 11
+		towerCard = true
+		break;
+	// Commander
+	case 67:
+		stats = 13
+		towerCard = true
+		break;
+	// Hacker
+	case 68:
+		stats = 14
+		towerCard = true
+		break;
+	// Rapper
+	case 69:
+		stats = 15
+		towerCard = true
+		break;
+	// Debt Collector
+	case 70:
+		stats = 16
+		towerCard = true
 		break;
 }

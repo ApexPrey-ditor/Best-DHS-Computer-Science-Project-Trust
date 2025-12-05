@@ -6,7 +6,7 @@ if (not global.paused) {
 			// goes through the 2 x positions the buttons can be
 			for (var w = 0; w < 2; w++) {
 				// checks if mouse is in one of the buttons
-				if (point_in_rectangle(mouse_x, mouse_y, room_width - 336 + w * 160, 240 + i * 160, room_width - 208 + w * 160, 368 + i * 160) and global.money >= ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]) and global.towers < ceil(global.modEffects[16])) {
+				if (point_in_rectangle(mouse_x, mouse_y, room_width - 336 + w * 160, 240 + i * 160, room_width - 208 + w * 160, 368 + i * 160) and global.money >= ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]) and global.towers < ceil(global.modEffects[16]) and array_contains(global.availableTowers, page * 8 + i * 2 + w)) {
 					switch (page * 8 + i * 2 + w) {
 						// makes a tower based on what button you clicked
 						case 0:
@@ -16,7 +16,7 @@ if (not global.paused) {
 							break;
 						case 1:
 							instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-							{damage : 7, fireSpeed : 90, range : 500, detections : [true, false, false], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+							{damage : 7, fireSpeed : 120, range : 500, detections : [true, false, false], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 							placing = true
 							break;
 						case 2:
@@ -108,8 +108,11 @@ if (not global.paused) {
 				}
 				else {
 					global.stage += 1
-					audio_group_set_gain(Music, 0, 500)
-					audio_group_set_gain(MusicCalm, 0, 500)
+					audio_group_set_gain(Music, 0, 2500)
+					audio_group_set_gain(MusicAmbient, 1, 2500)
+					audio_group_set_gain(MusicCalm, 0, 2500)
+					
+					audio_play_sound(Intermission, 1, true)
 					room_goto(radarRoom)
 				}
 			}
@@ -206,7 +209,7 @@ if (not global.paused) {
 					}
 				}
 
-				//room_goto(battlezone)
+				//room_goto(particleAccelerator)
 			}
 		}
 	}
