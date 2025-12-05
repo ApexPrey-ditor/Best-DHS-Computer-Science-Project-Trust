@@ -151,6 +151,7 @@
     {"id":{"name":"battlezonePath8","path":"paths/battlezonePath8/battlezonePath8.yy",},},
     {"id":{"name":"battlezonePath9","path":"paths/battlezonePath9/battlezonePath9.yy",},},
     {"id":{"name":"cryForTheWeeperPath","path":"paths/cryForTheWeeperPath/cryForTheWeeperPath.yy",},},
+    {"id":{"name":"diagonalPath","path":"paths/diagonalPath/diagonalPath.yy",},},
     {"id":{"name":"doubleDownPath1","path":"paths/doubleDownPath1/doubleDownPath1.yy",},},
     {"id":{"name":"doubleDownPath2","path":"paths/doubleDownPath2/doubleDownPath2.yy",},},
     {"id":{"name":"doubleOrNothingPath1","path":"paths/doubleOrNothingPath1/doubleOrNothingPath1.yy",},},
@@ -176,6 +177,7 @@
     {"id":{"name":"baitNSwitch","path":"rooms/baitNSwitch/baitNSwitch.yy",},},
     {"id":{"name":"battlezone","path":"rooms/battlezone/battlezone.yy",},},
     {"id":{"name":"cryForTheWeeper","path":"rooms/cryForTheWeeper/cryForTheWeeper.yy",},},
+    {"id":{"name":"diagonal","path":"rooms/diagonal/diagonal.yy",},},
     {"id":{"name":"doubleDown","path":"rooms/doubleDown/doubleDown.yy",},},
     {"id":{"name":"doubleOrNothing","path":"rooms/doubleOrNothing/doubleOrNothing.yy",},},
     {"id":{"name":"evilGirlInvaders","path":"rooms/evilGirlInvaders/evilGirlInvaders.yy",},},
@@ -355,6 +357,7 @@
     {"roomId":{"name":"battlezone","path":"rooms/battlezone/battlezone.yy",},},
     {"roomId":{"name":"socialDistancing","path":"rooms/socialDistancing/socialDistancing.yy",},},
     {"roomId":{"name":"particleAccelerator","path":"rooms/particleAccelerator/particleAccelerator.yy",},},
+    {"roomId":{"name":"diagonal","path":"rooms/diagonal/diagonal.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
