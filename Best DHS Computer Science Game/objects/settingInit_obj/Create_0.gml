@@ -166,12 +166,19 @@ texture_prefetch("EnemiesTowers")
 audio_group_load(Music)
 audio_group_load(MusicCalm)
 audio_group_load(MusicAmbient)
+audio_group_load(MusicBosses)
 
 audio_sound_loop_end(Intermission, 51.4)
 audio_sound_loop_end(hotSummerDay, 86.3)
 audio_sound_loop_end(hotSummerDayCalm, 86.3)
 audio_sound_loop_end(coldWinterEve, 112.1)
 audio_sound_loop_end(coldWinterEveCalm, 112.1)
+audio_sound_loop_start(finalFraud, 1.6)
+audio_sound_loop_end(finalFraud, 19.1)
+audio_sound_loop_start(msNegativity, 1.5)
+audio_sound_loop_end(msNegativity, 71.7)
+
+audio_group_set_gain(MusicBosses, 0, 0)
 
 audio_play_sound(Intermission, 1, true)
 
