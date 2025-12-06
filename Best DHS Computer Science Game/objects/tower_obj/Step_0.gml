@@ -270,10 +270,10 @@ if (not global.paused) {
 								if (type != 2) {
 									while (abs(xpos) < room_width and abs(y) < room_height) {
 										if (target.x - x != 0) {
-											xpos += (target.x - x) * (1920 / (target.x - x))
+											xpos += (target.x - x) * (1920 / abs(target.x - x))
 										}
 										if (target.y - y != 0) {
-											ypos += (target.y - y) * (1920 / (target.y - y))
+											ypos += (target.y - y) * (1920 / abs(target.y - y))
 										}
 										if (xpos == x and ypos == x) {
 											xpos = room_width
