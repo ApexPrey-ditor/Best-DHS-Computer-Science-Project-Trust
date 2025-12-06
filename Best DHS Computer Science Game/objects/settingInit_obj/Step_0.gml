@@ -210,7 +210,7 @@ if (not global.paused) {
 					}
 				}
 
-				room_goto(diagonal)
+				//room_goto(diagonal)
 			}
 		}
 	}
