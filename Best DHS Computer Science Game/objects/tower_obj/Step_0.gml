@@ -269,8 +269,15 @@ if (not global.paused) {
 					
 								if (type != 2) {
 									while (abs(xpos) < room_width and abs(y) < room_height) {
-										xpos += target.x - x
-										ypos += target.y - y
+										if (target.x - x != 0) {
+											xpos += (target.x - x) * (1920 / (target.x - x))
+										}
+										if (target.y - y != 0) {
+											ypos += (target.y - y) * (1920 / (target.y - y))
+										}
+										if (xpos == x and ypos == x) {
+											xpos = room_width
+										}
 									}
 								
 									// gets every enemy in the collision line
