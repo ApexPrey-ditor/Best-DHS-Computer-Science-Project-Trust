@@ -1,0 +1,21 @@
+{
+  "$GMPath":"",
+  "%Name":"corneredPath",
+  "closed":false,
+  "kind":1,
+  "name":"corneredPath",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":0.0,"y":96.0,},
+    {"speed":100.0,"x":1056.0,"y":96.0,},
+    {"speed":100.0,"x":1360.0,"y":144.0,},
+    {"speed":100.0,"x":1344.0,"y":496.0,},
+    {"speed":100.0,"x":1344.0,"y":1088.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}
