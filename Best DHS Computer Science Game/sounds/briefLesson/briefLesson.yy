@@ -1,18 +1,18 @@
 {
   "$GMSound":"v2",
-  "%Name":"coldWinterEveCalm",
+  "%Name":"briefLesson",
   "audioGroupId":{
-    "name":"MusicCalm",
-    "path":"audiogroups/MusicCalm",
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
   "channelFormat":0,
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":112.2673,
+  "duration":0.0,
   "exportDir":"",
-  "name":"coldWinterEveCalm",
+  "name":"briefLesson",
   "parent":{
     "name":"music",
     "path":"folders/Sounds/music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"coldWinterEveCalm.mp3",
+  "soundFile":"briefLesson.mp3",
   "volume":1.0,
 }

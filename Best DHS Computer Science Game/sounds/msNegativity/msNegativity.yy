@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"msNegativity",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"music",
+    "path":"folders/Sounds/music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
