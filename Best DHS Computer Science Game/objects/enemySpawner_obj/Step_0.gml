@@ -26,4 +26,8 @@ if (endWave and enemies == 0) {
 	endWave = false
 	waveCash = true
 	alarm[3] = 1
+	
+	if (global.autostart and global.wave <= global.stage * 2) {
+		global.waveTransition = 1
+	}
 }

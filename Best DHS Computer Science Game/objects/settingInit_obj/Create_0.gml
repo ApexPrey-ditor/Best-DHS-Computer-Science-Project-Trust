@@ -30,6 +30,7 @@ global.health = 100
 global.wave = 1
 global.money = 300
 global.stage = 1
+global.autostart = false
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower

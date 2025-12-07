@@ -167,19 +167,12 @@ if (targetingSelection) {
 	}
 }
 
-if (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom) and not placing) {
+if (point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom) and not placing and not global.paused) {
 	draw_set_colour(c_red)
 	draw_set_font(archive)
 	center_text()
-	var detectionStrings = []
-	for(var i = 0;i < array_length(detections);i++) {
-		if (detections[i]) {
-			detectionStrings[i] = "Yes"
-		}
-		else {
-			detectionStrings[i] = "No"
-		}
-	}
+	var detectionStrings = [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]]
+	
 	draw_text_transformed(x, y - 130, "Camo Detection: " + detectionStrings[0], 1, 1, 0)
 	draw_text_transformed(x, y - 110, "Solid Piercing: " + detectionStrings[1], 1, 1, 0)
 	draw_text_transformed(x, y - 90, "Invisibility Imagination: " + detectionStrings[2], 1, 1, 0)

@@ -4,8 +4,19 @@ if (global.paused) {
 		y -= (y - (room_height - 689) / 2) / 20
 	}
 	else {
-		// 637, 210
+		if (mouse_check_button(mb_left)) {
+			// volume
+			if (point_in_rectangle(mouse_x, mouse_y, x + 132, y + 384, x + 575, y + 404)or adjusting) {
+				audio_master_gain(max(min((mouse_x - 142 - x) / 431, 1), 0))
+				
+				adjusting = true
+			}
+		}
+		else {
+			adjusting = false
+		}
 		if (mouse_check_button_pressed(mb_left)) {
+			// resume
 			if (point_in_rectangle(mouse_x, mouse_y, x + 137, y + 33, x + 637, y + 210)) {
 				global.paused = false
 				
@@ -20,6 +31,20 @@ if (global.paused) {
 		
 					alarmList = []
 				}
+			}
+			// autostart
+			if (point_in_rectangle(mouse_x, mouse_y, x + 378, y + 246, x + 427, y + 294)) {
+				global.autostart = not global.autostart
+				
+				image_index += 1
+			}
+			// logbook
+			if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 253, x + 1225, y + 430)) {
+				// its gonna do logbook stuff
+			}
+			// exit to map
+			if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 457, x + 1225, y + 634)) {
+				game_end()
 			}
 		}
 	}
