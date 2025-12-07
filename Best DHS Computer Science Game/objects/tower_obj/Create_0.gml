@@ -115,8 +115,21 @@ function fireTargeting(array, initial, check, priority) {
 	if ((ds_list_find_value(array, check).burning == 0 and ds_list_find_value(array, initial).burning == 0) or (ds_list_find_value(array, check).burning != 0 and ds_list_find_value(array, initial).burning != 0)) {
 		return 0
 	}
-	// if check is burning while initial isn't, give points
+	// if check isn't burning while initial is, give points
 	else if ((ds_list_find_value(array, check).burning == 0 and ds_list_find_value(array, initial).burning != 0)) {
+		return power(1/2, priority)
+	}
+	else {
+		return -power(1/2, priority)
+	}
+}
+function fSolidTargeting(array, initial, check, priority) {
+	// if check and initial have the same status, does nothing
+	if ((ds_list_find_value(array, check).class[1] and ds_list_find_value(array, initial).class[1]) or (ds_list_find_value(array, check).class[1] == false and ds_list_find_value(array, initial).class[1] == false)) {
+		return 0
+	}
+	// if check isn't solid while initial is, give points
+	else if ((ds_list_find_value(array, check).class[1] == false and ds_list_find_value(array, initial).class[1])) {
 		return power(1/2, priority)
 	}
 	else {
@@ -134,8 +147,8 @@ towerNamesT4 = ["Soldier", "Assassin", "Gauss Machine Gun", "Dissapator", "Grena
 targetingTypes = ["First", "Last", "Strong", "Weak", "Farthest", "Closest"]
 targetingTranslations = [firstTargeting, lastTargeting, strongTargeting, weakTargeting, farTargeting, closeTargeting]
 
-specialTypes = ["None", "Non-burning"]
-specialTranslations = [noneTargeting, fireTargeting]
+specialTypes = ["None", "Non-solid", "Non-burning"]
+specialTranslations = [noneTargeting, fSolidTargeting, fireTargeting]
 
 // for targeting type conditions
 conditions = []
@@ -164,7 +177,13 @@ if (special == "flame") {
 	array_push(conditions, fireTargeting)
 }
 else {
-	array_push(conditions, noneTargeting)
+	if (detections[1] == false) {
+		specialTargeting = "Non-solid"
+		array_push(conditions, fSolidTargeting)
+	}
+	else {
+		array_push(conditions, noneTargeting)
+	}
 }
 
 array_push(conditions, firstTargeting)

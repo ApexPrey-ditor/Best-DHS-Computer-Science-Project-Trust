@@ -23,11 +23,6 @@ enemyNum += 1
 // sets chosen type to 0 points
 values[enemySpawned] = 0
 
-if (points < ceil((power(1.1935, global.wave) + 5 * global.wave + 10) * global.modEffects[9]) / 4 and global.wave == global.stage * 2 and audio_group_get_gain(Music) == 1) {
-	audio_group_set_gain(Music, 0, 1000)
-	audio_group_set_gain(MusicCalm, 0, 1000)
-}
-
 // speeds up spawnrate if fast forward
 if (points > 0) {
 	alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)) * global.modEffects[2], 1)
