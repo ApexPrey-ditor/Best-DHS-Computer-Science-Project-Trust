@@ -216,7 +216,7 @@ if (not global.paused) {
 					}
 				}
 
-				//room_goto(cornered)
+				room_goto(pass)
 			}
 		}
 	}
