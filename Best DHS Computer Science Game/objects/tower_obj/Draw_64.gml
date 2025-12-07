@@ -141,7 +141,7 @@ if selected {
 	// sell button
 	// disabled function is unrounded rectangle
 	draw_set_color(c_white)
-	draw_roundrect_ext(room_width - 32, 960, room_width - 222, 1024, 50, 50, false)
+	draw_roundrect_ext(room_width - 24, 960, room_width - 230, 1024, 50, 50, false)
 	// draw_button(room_width - 48, 928, room_width - 368, 992, true)
 	draw_set_color(c_black)
 	center_text()

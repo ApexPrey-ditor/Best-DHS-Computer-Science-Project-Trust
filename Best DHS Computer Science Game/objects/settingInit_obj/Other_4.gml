@@ -1,7 +1,7 @@
 // initializes global variables
 global.health = global.modEffects[8]
 global.first = true
-global.wave = floor(global.stage / 2) + 1
+global.wave = global.stage
 global.towers = 0
 // for testing final wave of each stage:
 //global.wave = floor(global.stage) * 2

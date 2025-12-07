@@ -1064,7 +1064,7 @@ if (not global.paused) {
 				
 						// replaces targeting function with new targeting function
 						conditions[place] = specialTranslations[array_get_index(specialTypes, specialTargeting)]
-					}	
+					}
 				}
 				// hacker targeting
 				else if (special == "s hacker") {
@@ -1095,6 +1095,34 @@ if (not global.paused) {
 				
 						// replaces targeting function with new targeting function
 						conditions2[place] = targetingTranslations[array_get_index(targetingTypes, targeting2)]
+					}
+					if (point_in_rectangle(mouse_x, mouse_y, room_width - 64 - string_width(specialTargeting), 496, room_width - 48, 532)) {
+						// gets index of the special function in conditions
+						var place = array_get_index(conditions, specialTranslations[array_get_index(specialTypes, specialTargeting)])
+					
+						if (array_get_index(specialTypes, specialTargeting) > array_length(specialTypes) - 2) {
+							specialTargeting = specialTypes[0]
+						}
+						else {
+							specialTargeting = specialTypes[array_get_index(specialTypes, specialTargeting) + 1]
+						}
+				
+						// replaces targeting function with new targeting function
+						conditions[place] = specialTranslations[array_get_index(specialTypes, specialTargeting)]
+					}
+					if (point_in_rectangle(mouse_x, mouse_y, room_width - 64 - string_width(specialTargeting2), 540, room_width - 48, 576)) {
+						// gets index of the special function in conditions
+						var place = array_get_index(conditions, specialTranslations[array_get_index(specialTypes, specialTargeting2)])
+					
+						if (array_get_index(specialTypes, specialTargeting2) > array_length(specialTypes) - 2) {
+							specialTargeting2 = specialTypes[0]
+						}
+						else {
+							specialTargeting2 = specialTypes[array_get_index(specialTypes, specialTargeting2) + 1]
+						}
+				
+						// replaces targeting function with new targeting function
+						conditions[place] = specialTranslations[array_get_index(specialTypes, specialTargeting2)]
 					}
 				}
 				// booster and commander targeting
