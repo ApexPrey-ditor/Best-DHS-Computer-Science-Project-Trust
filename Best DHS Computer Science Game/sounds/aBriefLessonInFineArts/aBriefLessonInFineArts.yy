@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"msNegativity",
+  "%Name":"aBriefLessonInFineArts",
   "audioGroupId":{
     "name":"MusicBosses",
     "path":"audiogroups/MusicBosses",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":83.56422,
+  "duration":70.09397,
   "exportDir":"",
-  "name":"msNegativity",
+  "name":"aBriefLessonInFineArts",
   "parent":{
     "name":"music",
     "path":"folders/Sounds/music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"msNegativity.mp3",
+  "soundFile":"aBriefLessonInFineArts.mp3",
   "volume":1.0,
 }

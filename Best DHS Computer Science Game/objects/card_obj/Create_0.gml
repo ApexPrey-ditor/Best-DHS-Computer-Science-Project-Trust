@@ -479,22 +479,22 @@ switch (image_index) {
 		break;
 	// Commander
 	case 67:
-		stats = 13
+		stats = 12
 		towerCard = true
 		break;
 	// Hacker
 	case 68:
-		stats = 14
+		stats = 13
 		towerCard = true
 		break;
 	// Rapper
 	case 69:
-		stats = 15
+		stats = 14
 		towerCard = true
 		break;
 	// Debt Collector
 	case 70:
-		stats = 16
+		stats = 15
 		towerCard = true
 		break;
 }

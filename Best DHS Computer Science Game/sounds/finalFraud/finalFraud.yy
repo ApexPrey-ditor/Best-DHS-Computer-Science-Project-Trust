@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":19.241951,
+  "duration":40.87739,
   "exportDir":"",
   "name":"finalFraud",
   "parent":{

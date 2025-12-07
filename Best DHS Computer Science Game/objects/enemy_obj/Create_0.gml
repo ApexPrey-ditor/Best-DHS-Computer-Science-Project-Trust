@@ -39,13 +39,13 @@ switch (type) {
 		break;
 	case 1:
 		// Fast
-		hp = 3
+		hp = 4
 		pathSpeed = 6
 		name = "Fast"
 		break;
 	case 2:
 		// Tanky
-		hp = 8
+		hp = 13
 		pathSpeed = 2
 		name = "Tanky"
 		break;
@@ -57,72 +57,72 @@ switch (type) {
 		break;
 	case 4:
 		// Camo
-		hp = 4
-		pathSpeed = 4
+		hp = 5
+		pathSpeed = 5
 		class = [true, false, false]
 		name = "Camo"
 		break;
 	case 5:
 		// Solid
-		hp = 10
+		hp = 15
 		pathSpeed = 2
 		class = [false, true, false]
 		name = "Solid"
 		break;
 	case 6:
 		// Gnormal
-		hp = 12
+		hp = 20
 		pathSpeed = 4
 		name = "Gnormal"
 		break;
 	case 7:
 		// JOB Ross
 		hp = 80
-		pathSpeed = 1.5
+		pathSpeed = 2
 		name = "Job Ross"
 		break;
 	case 8:
 		// Necromancer
-		hp = 80
+		hp = 35
 		pathSpeed = 2
 		alarm[1] = ceil(300 / global.fastForward)
 		name = "Necromancer"
 		break;
 	case 9:
 		// Nick's Girlfriend
-		hp = 10
-		pathSpeed = 4
+		hp = 20
+		pathSpeed = 5
 		class = [false, false, true]
 		name = "Nick's Girlfriend"
 		break;
 	case 10:
 		// SUPERHATEYOUGIRL
-		hp = 15
+		hp = 30
 		pathSpeed = 6
 		name = "SUPERHATEYOUGIRL"
 		break;
 	case 11:
 		// butter
-		hp = 5
+		hp = 20
 		pathSpeed = 12
 		name = "Butter"
 		break;
 	case 12:
 		// Group Castle 2 Spy
-		hp = 20
+		hp = 35
 		pathSpeed = 5
 		class = [true, false, false]
 		name = "Group Castle 2 Spy"
 		break;
 	case 13:
 		// Bob Crisscross
-		hp = 160
+		hp = 200
 		pathSpeed = 3
 		name = "Bob Crisscross"
 		break;
 	case 14:
 		// Titanium
-		hp = 50
+		hp = 175
 		pathSpeed = 2
 		class = [false, true, false]
 		name = "Titanium"
@@ -135,62 +135,62 @@ switch (type) {
 		break;
 	case 16:
 		// Slim Shady
-		hp = 10
+		hp = 35
 		pathSpeed = 12
 		class = [true, false, false]
 		name = "Slim Shady"
 		break;
 	case 17:
 		// The Real Slim Shady
-		hp = 100
+		hp = 75
 		pathSpeed = 10
 		class = [true, false, false]
 		name = "The Real Slim Shady"
 		break;
 	case 18:
 		// Gnecromancer
-		hp = 400
-		pathSpeed = 1
+		hp = 250
+		pathSpeed = 2
 		alarm[1] = ceil(420 / global.fastForward)
 		name = "Gnecromancer"
 		break;
 	case 19:
 		// Drazy Cave
 		hesCrazy = 0
-		hp = 50
+		hp = 80
 		pathSpeed = 10
 		alarm[1] = 1
 		name = "Drazy Cave"
 		break;
 	case 20:
 		// John Cena
-		hp = 75
+		hp = 85
 		pathSpeed = 8
 		class = [false, false, true]
 		name = "John Cena"
 		break;
 	case 21:
 		// 10" Tungsten Cube
-		hp = 3500
+		hp = 3000
 		pathSpeed = 1
 		class = [false, true, false]
 		name = "10\" Tungsten Cube"
 		break;
 	case 22:
 		// Not Quite As Evil Girl But Still Certainly Devious
-		hp = 150
+		hp = 300
 		pathSpeed = 4
 		name = "Not Quite As Evil Girl But Still Certainly Devious"
 		break;
 	case 23:
 		// DPS Check
-		hp = 100
+		hp = 500
 		pathSpeed = 8
 		name = "DPS Check"
 		break;
 	case 24:
 		// Glob Moss
-		hp = 640
+		hp = 750
 		pathSpeed = 6
 		name = "Glob Moss"
 		break;
@@ -203,14 +203,14 @@ switch (type) {
 		break;
 	case 26:
 		// You Have Just Lost The Game
-		hp = 150
+		hp = 850
 		pathSpeed = 5
 		class = [true, true, true]
 		name = "You Have Just Lost The Game"
 		break;
 	case 27:
 		// Most Indubitably Greater In Quantity And Quality Of Evil And Deviousness Than "Not Quite As Evil Girl But Still Certainly Devious" Which Can Be Observed When Being Pitted Against One Another But Definitely Not Quite As Magnificently Malevolent Or Devious When Compared And Contrasted To "Evil Girl" Yet Despite This Comparison Still Containing And Representing A Great Amount Of Evil And/Or Deviousness Girl
-		hp = 5000
+		hp = 6000
 		pathSpeed = 3
 		name = "Most Indubitably Greater In Quantity And Quality Of Evil And Deviousness Than \"Not Quite As Evil Girl But Still Certainly Devious\" Which Can Be Observed When Being Pitted Against One Another But Definitely Not Quite As Magnificently Malevolent Or Devious When Compared And Contrasted To \"Evil Girl\" Yet Despite This Comparison Still Containing And Representing A Great Amount Of Evil And/Or Deviousness Girl"
 		break;
@@ -229,8 +229,8 @@ switch (type) {
 		break;
 	case 30:
 		// Ferocious Female
-		bossHealths = [175, 250, 275, 325, 359]
-		bossClass = [[false, false, false], [false, false, false], [true, false, false], [true, false, false], [false, false, true]]
+		bossHealths = [175, 250, 275, 325, 450]
+		bossClass = [[false, false, false], [false, false, false], [true, false, false], [true, false, false], [true, false, false]]
 		hp = bossHealths[global.stage - 6] * global.modEffects[21]
 		class = bossClass[global.stage - 6]
 		pathSpeed = 5
@@ -249,12 +249,12 @@ switch (type) {
 		bossHealths = [5000, 6000, 7500]
 		bossClass = [[false, false, false], [true, false, false], [false, false, true]]
 		hp = bossHealths[global.stage - 16] * global.modEffects[21]
-		pathSpeed = 3
+		pathSpeed = 2
 		name = "Malicious Madam"
 		break;
 	case 33:
 		// Your Mom
-		hp = 20000 * global.modEffects[21]
+		hp = 25000 * global.modEffects[21]
 		pathSpeed = 1
 		name = "Ur Mom"
 		break;

@@ -207,6 +207,7 @@
     {"id":{"name":"pos_neg","path":"scripts/pos_neg/pos_neg.yy",},},
     {"id":{"name":"remove_undetectable","path":"scripts/remove_undetectable/remove_undetectable.yy",},},
     {"id":{"name":"reset_draw","path":"scripts/reset_draw/reset_draw.yy",},},
+    {"id":{"name":"aBriefLessonInFineArts","path":"sounds/aBriefLessonInFineArts/aBriefLessonInFineArts.yy",},},
     {"id":{"name":"briefLesson","path":"sounds/briefLesson/briefLesson.yy",},},
     {"id":{"name":"coldWinterEve","path":"sounds/coldWinterEve/coldWinterEve.yy",},},
     {"id":{"name":"coldWinterEveCalm","path":"sounds/coldWinterEveCalm/coldWinterEveCalm.yy",},},

@@ -68,7 +68,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 						[4, 5]]
 
 global.upgradePool = []
-global.towerPool = [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+global.towerPool = [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
 // cards for debugging
 repeat (1000) {
 	//array_push(global.upgradePool, 12)
@@ -173,10 +173,14 @@ audio_sound_loop_end(hotSummerDay, 86.3)
 audio_sound_loop_end(hotSummerDayCalm, 86.3)
 audio_sound_loop_end(coldWinterEve, 112.1)
 audio_sound_loop_end(coldWinterEveCalm, 112.1)
-audio_sound_loop_start(finalFraud, 1.6)
-audio_sound_loop_end(finalFraud, 19.1)
-audio_sound_loop_start(msNegativity, 1.5)
-audio_sound_loop_end(msNegativity, 71.7)
+audio_sound_loop_start(finalFraud, 21.6)
+audio_sound_loop_end(finalFraud, 40.7)
+audio_sound_loop_start(msNegativity, 13.2)
+audio_sound_loop_end(msNegativity, 83.4)
+audio_sound_loop_start(aBriefLessonInFineArts, 24.7)
+audio_sound_loop_end(aBriefLessonInFineArts, 68.6)
+audio_sound_loop_start(tungsten, 23.1)
+audio_sound_loop_end(tungsten, 81)
 
 audio_group_set_gain(MusicBosses, 0, 0)
 

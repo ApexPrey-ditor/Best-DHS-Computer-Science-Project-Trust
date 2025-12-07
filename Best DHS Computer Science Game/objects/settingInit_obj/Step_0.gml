@@ -102,8 +102,15 @@ if (not global.paused) {
 			// starts wave
 			if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 				if (global.wave - 1 != global.stage * 2) {
-					audio_group_set_gain(Music, 1, 500)
-					audio_group_set_gain(MusicCalm, 0, 500)
+					if (global.wave == global.stage* 2) {
+						audio_group_set_gain(Music, 0, 500)
+						audio_group_set_gain(MusicCalm, 0, 500)
+						audio_group_set_gain(MusicBosses, 1, 0)
+					}
+					else {
+						audio_group_set_gain(Music, 1, 500)
+						audio_group_set_gain(MusicCalm, 0, 500)
+					}
 					
 					global.waveTransition = 1
 				}

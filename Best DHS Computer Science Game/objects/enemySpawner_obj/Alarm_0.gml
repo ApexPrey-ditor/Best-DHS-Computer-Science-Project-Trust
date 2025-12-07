@@ -34,31 +34,7 @@ if (points > 0) {
 }
 else {
 	if (global.wave == global.stage * 2) {
-		audio_group_set_gain(MusicBosses, 1, 0)
-		
-		if (global.stage == 1) {
-			audio_play_sound(finalFraud, 1, true)
-			alarm[1] = 30
-		}
-		else if (global.stage < 6) {
-			audio_play_sound(msNegativity, 1, true)
-			alarm[1] = 30
-		}
-		else if (global.stage < 11) {
-			alarm[1] = 30
-		}
-		else if (global.stage < 16) {
-			alarm[1] = 30
-		}
-		else if (global.stage < 19) {
-			alarm[1] = 30
-		}
-		if (global.stage == 19) {
-			alarm[1] = 30
-		}
-		if (global.stage == 20) {
-			alarm[1] = 30
-		}
+		alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)) * global.modEffects[2], 1)
 	}
 	else {
 		endWave = true

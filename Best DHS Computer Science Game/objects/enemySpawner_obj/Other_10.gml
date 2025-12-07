@@ -8,5 +8,29 @@ enemyNum = 0
 
 spawning = true
 
+if (global.wave == global.stage * 2) {
+	if (global.stage == 1) {
+		audio_play_sound(finalFraud, 1, true)
+	}
+	else if (global.stage < 6) {
+		audio_play_sound(msNegativity, 1, true)
+	}
+	else if (global.stage < 11) {
+		audio_play_sound(aBriefLessonInFineArts, 1, true)
+	}
+	else if (global.stage < 16) {
+		audio_play_sound(tungsten, 1, true)
+	}
+	else if (global.stage < 19) {
+		//audio_play_sound(finalFraud, 1, true)
+	}
+	if (global.stage == 19) {
+		//audio_play_sound(finalFraud, 1, true)
+	}
+	if (global.stage == 20) {
+		//audio_play_sound(finalFraud, 1, true)
+	}
+}
+
 // spawns enemy
 alarm[0] = 1
