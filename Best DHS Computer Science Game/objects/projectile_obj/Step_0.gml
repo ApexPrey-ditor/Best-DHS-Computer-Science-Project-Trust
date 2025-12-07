@@ -63,8 +63,8 @@ else {
 			else if (aoe > 0) {
 				sprite_index = explosion_spr
 				speed = 0
-				image_xscale = aoe
-				image_yscale = aoe
+				image_xscale = 1 + sqrt(aoe - 1)
+				image_yscale = 1 + sqrt(aoe - 1)
 				alarm[0] = 30 / global.fastForward
 				type = -1
 				// checks for all enemies in the explosion and causes damage and deaths

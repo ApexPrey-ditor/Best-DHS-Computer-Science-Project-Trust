@@ -170,6 +170,7 @@ if (not global.paused) {
 			else {
 				if (global.stage <= 6) {
 					if (global.stage == 3) {
+						global.upgradeAmount = 1
 						mapId = irandom_range(0, array_length(maps[1]) - 1)
 						room_goto(maps[1][mapId])
 						mapId += array_length(maps[0])
@@ -181,6 +182,7 @@ if (not global.paused) {
 				}
 				else if (global.stage <= 13) {
 					if (global.stage == 10) {
+						global.upgradeAmount = 1
 						mapId = irandom_range(0, array_length(maps[2]) - 1)
 						room_goto(maps[2][mapId])
 						mapId += array_length(maps[1])
@@ -193,6 +195,7 @@ if (not global.paused) {
 				}
 				else if (global.stage <= 20) {
 					if (global.stage == 17) {
+						global.upgradeAmount = 1
 						mapId = irandom_range(0, array_length(maps[3]) - 1)
 						room_goto(maps[3][mapId])
 						mapId += array_length(maps[2])

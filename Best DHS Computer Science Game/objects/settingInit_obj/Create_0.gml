@@ -37,7 +37,7 @@ global.upgradeMenu = false
 global.fastForward = 1
 global.paused = false
 // for upgrades (dear god)
-global.upgradeAmount = 1
+global.upgradeAmount = 0
 global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []

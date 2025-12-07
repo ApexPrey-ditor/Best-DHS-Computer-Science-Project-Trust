@@ -108,7 +108,7 @@ if (not global.paused) {
 							// calculate where the enemy will be along the path
 							var leadPosition = target.path_position + (target.pathSpeed * lifetime / path_get_length(target.path_index))
 							
-							array_push(bouncePositions, [path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition), finalPositions[i][0], finalPositions[i][1]])
+							array_push(bouncePositions, [path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition), bouncePositions[i][0], bouncePositions[i][1]])
 							array_push(bouncePercents, 0)
 							array_push(bounceIgnore[i], target)
 							
