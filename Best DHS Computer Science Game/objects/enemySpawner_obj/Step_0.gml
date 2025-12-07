@@ -9,6 +9,11 @@ if (endWave and enemies == 0) {
 		audio_group_set_gain(Music, 0, 500)
 		audio_group_set_gain(MusicCalm, 0, 500)
 	}
+	else if (global.wave + 1 == global.stage * 2) {
+		audio_group_set_gain(MusicBosses, 1, 0)
+		audio_group_set_gain(Music, 0, 500)
+		audio_group_set_gain(MusicCalm, 0, 500)
+	}
 	else {
 		audio_group_set_gain(Music, 0, 500)
 		audio_group_set_gain(MusicCalm, 1, 500)

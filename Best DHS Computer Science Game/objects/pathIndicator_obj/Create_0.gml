@@ -1,3 +1,7 @@
-path_start(path, 7, path_action_restart, true)
+path_start(path, 25, path_action_restart, true)
 
 image_alpha = 0.5
+image_blend = c_black
+
+image_xscale = 0
+image_yscale = 0

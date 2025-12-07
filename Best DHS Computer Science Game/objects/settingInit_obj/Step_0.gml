@@ -102,15 +102,8 @@ if (not global.paused) {
 			// starts wave
 			if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 				if (global.wave - 1 != global.stage * 2) {
-					if (global.wave == global.stage* 2) {
-						audio_group_set_gain(Music, 0, 500)
-						audio_group_set_gain(MusicCalm, 0, 500)
-						audio_group_set_gain(MusicBosses, 1, 0)
-					}
-					else {
-						audio_group_set_gain(Music, 1, 500)
-						audio_group_set_gain(MusicCalm, 0, 500)
-					}
+					audio_group_set_gain(Music, 1, 500)
+					audio_group_set_gain(MusicCalm, 0, 500)
 					
 					global.waveTransition = 1
 				}
@@ -120,7 +113,6 @@ if (not global.paused) {
 					audio_group_set_gain(MusicAmbient, 1, 2500)
 					audio_group_set_gain(MusicCalm, 0, 2500)
 					
-					audio_play_sound(Intermission, 1, true)
 					room_goto(radarRoom)
 				}
 			}
@@ -217,12 +209,11 @@ if (not global.paused) {
 					}
 				}
 
-				room_goto(cornered)
+				//room_goto(cornered)
 			}
 		}
 	}
 }
-
 /*
 if (enemySpawner_obj.enemies == 0 and enemySpawner_obj.points <= 0) {
 	global.waveTransition = 1

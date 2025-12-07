@@ -186,8 +186,10 @@ audio_sound_loop_start(tungsten, 23.1)
 audio_sound_loop_end(tungsten, 81)
 
 audio_group_set_gain(MusicBosses, 0, 0)
+audio_group_set_gain(MusicAmbient, 1, 0)
 
-audio_play_sound(Intermission, 1, true)
+// temporary code cuz i want music in my intermission
+alarm[11] = 1
 
 // fullscreens
 window_set_fullscreen(true)
