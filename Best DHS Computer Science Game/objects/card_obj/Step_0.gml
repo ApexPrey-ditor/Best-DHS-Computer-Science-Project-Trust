@@ -85,9 +85,11 @@ if (not global.paused) {
 								}
 				
 								with (card_obj) {
+									if (dissapate == false) {
+										instance_create_layer(x, y, "Selections", card_obj, {image_index : other.cardSelection[0]})
+										array_delete(other.cardSelection, 0, 1)
+									}
 									dissapate = true
-									instance_create_layer(x, y, "Selections", card_obj, {image_index : other.cardSelection[0]})
-									array_delete(other.cardSelection, 0, 1)
 								}
 							}
 						}
@@ -147,9 +149,11 @@ if (not global.paused) {
 								}
 				
 								with (card_obj) {
+									if (dissapate == false) {
+										instance_create_layer(x, y, "Selections", card_obj, {image_index : other.cardSelection[0]})
+										array_delete(other.cardSelection, 0, 1)
+									}
 									dissapate = true
-									instance_create_layer(x, y, "Selections", card_obj, {image_index : other.cardSelection[0]})
-									array_delete(other.cardSelection, 0, 1)
 								}
 							}
 						}
