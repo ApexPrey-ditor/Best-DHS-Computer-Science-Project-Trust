@@ -219,7 +219,7 @@ if (not global.paused) {
 					}
 				}
 
-				room_goto(personalProperty)
+				room_goto(horsingAround)
 			}
 		}
 	}
