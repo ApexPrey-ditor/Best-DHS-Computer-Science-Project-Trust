@@ -38,7 +38,7 @@ global.upgradeMenu = false
 global.fastForward = 1
 global.paused = false
 // for upgrades (dear god)
-global.upgradeAmount = 0
+global.upgradeAmount = 1
 global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
@@ -185,6 +185,10 @@ audio_sound_loop_start(aBriefLessonInFineArts, 24.7)
 audio_sound_loop_end(aBriefLessonInFineArts, 68.6)
 audio_sound_loop_start(tungsten, 23.1)
 audio_sound_loop_end(tungsten, 81)
+audio_sound_loop_start(menace, 20.9)
+audio_sound_loop_end(menace, 76.4)
+audio_sound_loop_start(EVILBreakcore, 27.4)
+audio_sound_loop_end(EVILBreakcore, 102.9)
 
 audio_group_set_gain(MusicBosses, 0, 0)
 audio_group_set_gain(MusicAmbient, 1, 0)

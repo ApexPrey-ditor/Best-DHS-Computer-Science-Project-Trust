@@ -22,13 +22,13 @@ if (global.wave == global.stage * 2) {
 		audio_play_sound(tungsten, 1, true)
 	}
 	else if (global.stage < 19) {
-		//audio_play_sound(finalFraud, 1, true)
+		audio_play_sound(menace, 1, true)
 	}
 	if (global.stage == 19) {
-		//audio_play_sound(finalFraud, 1, true)
+		audio_play_sound(EVILBreakcore, 1, true)
 	}
 	if (global.stage == 20) {
-		//audio_play_sound(finalFraud, 1, true)
+		audio_play_sound(EVILBreakcore, 1, true)
 	}
 }
 
