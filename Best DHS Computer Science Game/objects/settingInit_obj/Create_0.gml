@@ -143,9 +143,12 @@ alarmList = []
 page = 0
 costs = [150, 325, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000, 3750, 3500, 3000]
 
-maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing], [baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper], [battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal], [straightUp, cornered]]
-songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay]
-songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm,hotSummerDayCalm]
+maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing],
+		[baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper],
+		[battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround],
+		[straightUp, pass, personalProperty, weHaveToCook, cornered]]
+songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve /*, pathOfPainSong, horsingAroundSong*/, hotSummerDay, hotSummerDay /*, passSong, personalPropertySong, weHaveToCookSong*/]
+songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm /*, pathOfPainSong, horsingAroundSong*/, hotSummerDayCalm,hotSummerDayCalm /*, passSong, personalPropertySong, weHaveToCookSong*/]
 
 // variables for making the radar work
 radarDir = 0

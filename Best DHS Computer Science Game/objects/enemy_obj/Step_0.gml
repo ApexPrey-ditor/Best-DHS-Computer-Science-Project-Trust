@@ -84,8 +84,10 @@ else {
 			image_xscale = -abs(image_xscale)
 		}
 		if (path_get_length(path_index) - (path_get_length(path_index) * path_position)) / path_speed <= 20 / global.fastForward {
-			image_xscale -= (0.4 / 20) * global.fastForward * pos_neg(image_xscale)
-			image_yscale -= (0.4 / 20) * global.fastForward
+			if (image_yscale > 0) {
+				image_xscale -= (0.4 / 20) * global.fastForward * pos_neg(image_xscale)
+				image_yscale -= (0.4 / 20) * global.fastForward
+			}
 		}
 		else if (abs(image_xscale) < 0.4) {
 			image_xscale += (0.4 / 20) * global.fastForward * pos_neg(image_xscale)
