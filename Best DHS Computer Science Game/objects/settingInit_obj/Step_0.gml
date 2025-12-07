@@ -219,7 +219,7 @@ if (not global.paused) {
 					}
 				}
 
-				room_goto(pathOfPain)
+				room_goto(personalProperty)
 			}
 		}
 	}
