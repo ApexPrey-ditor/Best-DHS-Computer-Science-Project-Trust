@@ -233,7 +233,7 @@ switch (type) {
 		bossClass = [[false, false, false], [false, false, false], [true, false, false], [true, false, false], [true, false, false]]
 		hp = bossHealths[global.stage - 6] * global.modEffects[21]
 		class = bossClass[global.stage - 6]
-		pathSpeed = 5
+		pathSpeed = 3
 		name = "Ferocious Female"
 		break;
 	case 31:
