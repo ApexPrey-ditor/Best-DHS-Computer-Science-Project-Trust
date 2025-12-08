@@ -298,7 +298,7 @@ path_position = spath_sposition
 image_alpha = global.modEffects[12]
 
 // for animations freezing when pausing game
-pausedAnimSpeed = 0
+pausedAnimSpeed = 1
  
 if (class[2] == true) {
 	image_alpha -= 0.7
