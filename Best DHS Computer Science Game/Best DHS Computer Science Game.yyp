@@ -127,6 +127,7 @@
     {"id":{"name":"enemy_obj","path":"objects/enemy_obj/enemy_obj.yy",},},
     {"id":{"name":"enemySpawner_obj","path":"objects/enemySpawner_obj/enemySpawner_obj.yy",},},
     {"id":{"name":"folder_obj","path":"objects/folder_obj/folder_obj.yy",},},
+    {"id":{"name":"menuButtons","path":"objects/menuButtons/menuButtons.yy",},},
     {"id":{"name":"modifierCard_obj","path":"objects/modifierCard_obj/modifierCard_obj.yy",},},
     {"id":{"name":"pathIndicator_obj","path":"objects/pathIndicator_obj/pathIndicator_obj.yy",},},
     {"id":{"name":"pauseMenu_obj","path":"objects/pauseMenu_obj/pauseMenu_obj.yy",},},
@@ -293,6 +294,7 @@
     {"id":{"name":"girlsVsEvilGirls_spr","path":"sprites/girlsVsEvilGirls_spr/girlsVsEvilGirls_spr.yy",},},
     {"id":{"name":"horsingAround_spr","path":"sprites/horsingAround_spr/horsingAround_spr.yy",},},
     {"id":{"name":"infinite_spr","path":"sprites/infinite_spr/infinite_spr.yy",},},
+    {"id":{"name":"loseScreen_spr","path":"sprites/loseScreen_spr/loseScreen_spr.yy",},},
     {"id":{"name":"meadow_spr","path":"sprites/meadow_spr/meadow_spr.yy",},},
     {"id":{"name":"meadow2_spr","path":"sprites/meadow2_spr/meadow2_spr.yy",},},
     {"id":{"name":"menuBackground_spr","path":"sprites/menuBackground_spr/menuBackground_spr.yy",},},
@@ -378,6 +380,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"mainMenu","path":"rooms/mainMenu/mainMenu.yy",},},
     {"roomId":{"name":"radarRoom","path":"rooms/radarRoom/radarRoom.yy",},},
     {"roomId":{"name":"meadow","path":"rooms/meadow/meadow.yy",},},
     {"roomId":{"name":"threeRoundsDown","path":"rooms/threeRoundsDown/threeRoundsDown.yy",},},
@@ -405,7 +408,6 @@
     {"roomId":{"name":"pass","path":"rooms/pass/pass.yy",},},
     {"roomId":{"name":"personalProperty","path":"rooms/personalProperty/personalProperty.yy",},},
     {"roomId":{"name":"weHaveToCook","path":"rooms/weHaveToCook/weHaveToCook.yy",},},
-    {"roomId":{"name":"mainMenu","path":"rooms/mainMenu/mainMenu.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

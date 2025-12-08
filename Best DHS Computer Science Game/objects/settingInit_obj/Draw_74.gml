@@ -139,4 +139,8 @@ if (room != radarRoom and room != mainMenu) {
 
 	draw_set_color(c_black)
 	draw_text(10, 30, global.paused)
+	
+	if (global.health <= 0) {
+		draw_sprite(loseScreen_spr, 0, room_width / 2 - 512, room_height / 2 - 256)
+	}
 }

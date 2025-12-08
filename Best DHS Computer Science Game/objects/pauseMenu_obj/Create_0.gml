@@ -5,4 +5,5 @@ if (global.autostart) {
 }
 
 adjusting = false
+goUp = true
 alarmList = []

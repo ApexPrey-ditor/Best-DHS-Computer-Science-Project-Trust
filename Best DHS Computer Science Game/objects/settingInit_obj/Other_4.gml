@@ -43,3 +43,8 @@ if (room != mainMenu) {
 		prevBlip = [nextBlip[0] - 180, 0, 0]
 	}
 }
+else {
+	audio_play_sound(mainTheme, 0, true)
+	
+	event_user(0)
+}

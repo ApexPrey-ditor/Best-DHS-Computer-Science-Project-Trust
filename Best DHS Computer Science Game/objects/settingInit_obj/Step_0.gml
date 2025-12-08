@@ -220,8 +220,31 @@ if (room != mainMenu) {
 						}
 					}
 
-					room_goto(pathOfPain)
+					//room_goto(pathOfPain)
 				}
+			}
+		}
+	}
+	if (global.health <= 0) {
+		if (global.paused == false) {
+			with (all) {
+				if (object_index == tower_obj or object_index == enemy_obj) {
+					pausedAnimSpeed = image_speed
+					image_speed = 0
+				}
+			}
+		}
+		global.paused = true
+		pauseMenu_obj.goUp = false
+		if (mouse_check_button_pressed(mb_left)) {
+			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 18, (room_height / 2 - 512) + 328, (room_width / 2 - 1024) + 454, (room_height / 2 - 512) + 506)) {
+				event_user(0)
+				audio_stop_all()
+				room_goto(radarRoom)
+			}
+			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 496, (room_height / 2 - 512) + 336, (room_width / 2 - 1024) + 1006, (room_height / 2 - 512) + 502)) {
+				audio_stop_all()
+				room_goto(mainMenu)
 			}
 		}
 	}

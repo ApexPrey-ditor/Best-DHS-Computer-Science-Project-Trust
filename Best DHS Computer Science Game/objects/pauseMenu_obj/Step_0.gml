@@ -1,4 +1,4 @@
-if (global.paused) {
+if (global.paused and goUp) {
 	if (abs((y - (room_height - 689) / 2) / 20) > 0.1 or abs((x - ((room_width - 1393) / 2)) / 60) > 0.1) {
 		x -= (x - (room_width - 1393) / 2) / 20
 		y -= (y - (room_height - 689) / 2) / 20
@@ -44,7 +44,9 @@ if (global.paused) {
 			}
 			// exit to map
 			if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 457, x + 1225, y + 634)) {
-				game_end()
+				audio_stop_all()
+				global.paused = false
+				room_goto(mainMenu)
 			}
 		}
 	}
