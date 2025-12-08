@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"mainTheme",
+  "audioGroupId":{
+    "name":"MusicAmbient",
+    "path":"audiogroups/MusicAmbient",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":123.395485,
+  "exportDir":"",
+  "name":"mainTheme",
+  "parent":{
+    "name":"music",
+    "path":"folders/Sounds/music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"mainTheme.mp3",
+  "volume":1.0,
+}

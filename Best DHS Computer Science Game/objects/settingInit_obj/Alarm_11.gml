@@ -1,1 +1,1 @@
-audio_play_sound(Intermission, 1, true)
+audio_play_sound(mainTheme, 0, true)

@@ -1,4 +1,4 @@
-if (room != radarRoom) {
+if (room != radarRoom and room != mainMenu) {
 	// draws blue background square
 	draw_set_color(make_colour_rgb(0, 0, 0))
 	draw_rectangle(room_width - 384, 0, room_width, room_height, false)
