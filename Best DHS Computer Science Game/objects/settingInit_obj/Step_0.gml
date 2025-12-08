@@ -150,8 +150,15 @@ if (room != mainMenu) {
 		}
 
 		if (room == radarRoom and selection != 1) {
-			nextBlip[1] -= 1
-			prevBlip[1] += 1
+			if (keyboard_check_pressed(vk_space)) {
+				nextBlip[1]  = 1
+				prevBlip[1]  = 1
+			}
+			
+			radarDir -= 2
+			
+			nextBlip[1] -= 2
+			prevBlip[1] += 2
 	
 			if (360 + (radarDir % 360) == nextBlip[0]) {
 				nextBlip[2] = 1

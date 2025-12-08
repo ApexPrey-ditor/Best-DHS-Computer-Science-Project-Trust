@@ -76,19 +76,19 @@ else {
 				
 				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
 					if (delay <= 0) {
-						ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
+						ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), [true, true, detections[2]], damage)
 						if (decamo and shotNum % 3 == 0) {
 							ds_list_find_value(enemies, i).class[0] = false
 						}
 						if (burn) {
-							ds_list_find_value(enemies, i).burning = (calculate_type_damage(ds_list_find_value(enemies, i), [detections[0], true, detections[2]], damage) / fireSpeed / 2)
+							ds_list_find_value(enemies, i).burning = (calculate_type_damage(ds_list_find_value(enemies, i), [true, true, detections[2]], damage) / fireSpeed / 2)
 							ds_list_find_value(enemies, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
 							ds_list_find_value(enemies, i).image_blend = c_orange
 						}
-						if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) > 0) {
+						if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i), [true, true, detections[2]], damage) > 0) {
 							ds_list_find_value(enemies, i).speedMulti = 0
 							ds_list_find_value(enemies, i).image_speed = 0
-							ds_list_find_value(enemies, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
+							ds_list_find_value(enemies, i).alarm[2] = ceil(calculate_type_damage(ds_list_find_value(enemies, i), [true, true, detections[2]], damage) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
 						}
 						if (ds_list_find_value(enemies, i).hp <= 0) {
 							instance_destroy(ds_list_find_value(enemies, i))
@@ -96,15 +96,15 @@ else {
 					}
 					else {
 						array_push(ds_list_find_value(enemies, i).delays, delay)
-						var effectSend = [calculate_type_damage(ds_list_find_value(enemies, i), detections, damage), 0, 0, 1, 0, false]
+						var effectSend = [calculate_type_damage(ds_list_find_value(enemies, i), [true, true, detections[2]], damage), 0, 0, 1, 0, false]
 										
 						if (burn) {
-							effectSend[1] = (calculate_type_damage(ds_list_find_value(enemies, i), [detections[0], true, detections[2]], damage) / fireSpeed / 2)
+							effectSend[1] = (calculate_type_damage(ds_list_find_value(enemies, i), [true, true, detections[2]], damage) / fireSpeed / 2)
 							effectSend[2] = ceil(fireSpeed / global.fastForward * 3)
 						}
-						if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) > 0) {
+						if (stun > 0 and calculate_type_damage(ds_list_find_value(enemies, i),  [true, true, detections[2]], damage) > 0) {
 							effectSend[3] = 0
-							effectSend[4] = ceil(calculate_type_damage(ds_list_find_value(enemies, i), detections, damage) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
+							effectSend[4] = ceil(calculate_type_damage(ds_list_find_value(enemies, i),  [true, true, detections[2]], damage) / ds_list_find_value(enemies, i).cash * stun * 60 / global.fastForward)
 						}
 						if (decamo and shotNum % 3 == 0) {
 							effectSend[5] = true

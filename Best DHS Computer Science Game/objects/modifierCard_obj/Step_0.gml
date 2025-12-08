@@ -28,13 +28,13 @@ if (not global.paused) {
 				}
 				with (settingInit_obj) {
 					if (irandom_range(0, 1) == 0) {
-						//nextBlip = [irandom_range(0, 22) * 2, 496, 0]
-						nextBlip = [irandom_range(0, 22) * 2, 2, 0]
+						nextBlip = [irandom_range(0, 22) * 2, 496, 0]
+						//nextBlip = [irandom_range(0, 22) * 2, 2, 0]
 						prevBlip = [nextBlip[0] + 180, 0, 0]
 					}
 					else {
-						//nextBlip = [irandom_range(158, 178) * 2, 496, 0]
-						nextBlip = [irandom_range(158, 178) * 2, 2, 0]
+						nextBlip = [irandom_range(158, 178) * 2, 496, 0]
+						//nextBlip = [irandom_range(158, 178) * 2, 2, 0]
 						prevBlip = [nextBlip[0] - 180, 0, 0]
 					}
 				

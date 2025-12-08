@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"EVILBreakcore",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"MusicBosses",
+    "path":"audiogroups/MusicBosses",
   },
   "bitDepth":1,
   "channelFormat":0,

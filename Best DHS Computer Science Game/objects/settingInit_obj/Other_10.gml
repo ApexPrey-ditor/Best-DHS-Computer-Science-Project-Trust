@@ -42,3 +42,13 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 						[4, 5]]
 
 global.towerPool = [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+
+placing = false
+page = 0
+
+// variables for making the radar work
+radarDir = 0
+prevBlip = [210, 0, 0]
+//nextBlip = [30, 496, 0]
+nextBlip = [30, 30, 0]
+selection = 0

@@ -95,7 +95,7 @@ if (not global.paused) {
 						}
 					}
 					else {
-						if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 - 408 + (i - 12) * 272, room_height / 2 + 280, room_width / 2 - 408 + (i - 12) * 272 + 256, room_height / 2 + 280 + 256) and array_contains(appliable, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
+						if (point_in_rectangle(mouse_x, mouse_y, room_width / 2 - 408 + (i - 12) * 272, room_height / 2 + 280, room_width / 2 - 408 + (i - 12) * 272 + 256, room_height / 2 + 280 + 256) and array_contains(appliable, i) and array_contains(global.availableTowers, i) and (array_length(global.upgrades[i]) < 3 or repeatable)) {
 							var newDesc = stats.desc
 							for (var w = 0; w < array_length(replace); w++) {
 								newDesc = string_replace(newDesc, "|", string(replace[w] * effectiveness[array_length(global.upgrades[i])]))

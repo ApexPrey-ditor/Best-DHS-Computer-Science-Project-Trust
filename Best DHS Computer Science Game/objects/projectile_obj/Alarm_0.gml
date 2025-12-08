@@ -20,7 +20,7 @@ else {
 	enemies = remove_undetectable(enemies, detections)
 				
 	for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
-		ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), detections, damage)
+		ds_list_find_value(enemies, i).hp -= calculate_type_damage(ds_list_find_value(enemies, i), [true, true, detections[2]], damage)
 		if (ds_list_find_value(enemies, i).hp <= 0) {
 			instance_destroy(ds_list_find_value(enemies, i))
 		}
