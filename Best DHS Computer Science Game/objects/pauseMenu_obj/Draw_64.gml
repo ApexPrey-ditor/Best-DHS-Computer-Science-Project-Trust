@@ -38,7 +38,7 @@ if (global.paused or abs((x - (room_width - 1393) / 2) / 20) > 0.1 or abs((y - (
 				draw_sprite_ext(logbookDesc[showDisplay].sprite, frame, x + 1016, y + 572, 0.75, 0.75, 0, c_white, 1)
 			}
 			
-			if (showDisplay <= 15) {
+			if (showDisplay < 15) {
 				var strHeight = string_height_ext(logbookDesc[showDisplay].desc, 48, 1408) / 2
 				draw_text_transformed(x + 474, y + 78 + 64 + strHeight, "Upgrades:", 1, 1, 0)
 				for (var i = 0; i < array_length(global.upgrades[showDisplay]); i++) {
