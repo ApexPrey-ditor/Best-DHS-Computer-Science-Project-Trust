@@ -14,3 +14,5 @@ else {
 		draw_text(x, y - 64, name + " " + string(ceil(hp)) + "/" + string(cash))
 	}
 }
+
+reset_draw()

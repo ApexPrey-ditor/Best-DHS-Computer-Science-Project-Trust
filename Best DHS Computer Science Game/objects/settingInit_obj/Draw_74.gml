@@ -144,3 +144,5 @@ if (room != radarRoom and room != mainMenu) {
 		draw_sprite(loseScreen_spr, 0, room_width / 2 - 512, room_height / 2 - 256)
 	}
 }
+
+reset_draw()

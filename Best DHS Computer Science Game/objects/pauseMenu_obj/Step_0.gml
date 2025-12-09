@@ -54,7 +54,21 @@ if (global.paused and goUp) {
 		}
 		else {
 			if (showDisplay != -1) {
-				frame += sprite_get_speed(logbookDesc[showDisplay].sprite) / 60
+				if (shooting) {
+					frame += sprite_get_speed(logbookDesc[showDisplay].spriteShooting) / 60
+					if (frame / sprite_get_number(logbookDesc[showDisplay].sprite) > 1) {
+						frame = 0
+						shooting = false
+					}
+				}
+				else {
+					frame += sprite_get_speed(logbookDesc[showDisplay].sprite) / 60
+				
+					if (frame / sprite_get_number(logbookDesc[showDisplay].sprite) > 5 and array_contains(struct_get_names(logbookDesc[showDisplay]), "spriteShooting")) {
+						frame = 0
+						shooting = true
+					}
+				}
 			}
 			
 			if (mouse_check_button_pressed(mb_left)) {
@@ -78,7 +92,7 @@ if (global.paused and goUp) {
 				if (showDisplay == -1) {
 					for (var i = 0; i < 2; i++) {
 						for (var w = 0; w < 4; w++) {
-							if (point_in_rectangle(mouse_x, mouse_y, x + (466 + i * 353), y + (38 + w * 160), x + (466 + i * 353) + 295, y + (38 + w * 160) + 131)) {
+							if (point_in_rectangle(mouse_x, mouse_y, x + (466 + i * 353), y + (38 + w * 160), x + (466 + i * 353) + 295, y + (38 + w * 160) + 131) and array_contains(global.logbookUnlocks, image_index * 8 + i * 4 + w)) {
 								showDisplay = image_index * 8 + i * 4 + w
 								frame = 0
 							}

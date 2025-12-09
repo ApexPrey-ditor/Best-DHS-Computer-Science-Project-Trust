@@ -92,3 +92,5 @@ if (room == intermission) {
 	draw_line(room_width / 2 - 192, room_height / 2 - 512, room_width / 2 - 192, room_height / 2 + 512)
 	draw_line(room_width / 2 - 512 - 192, room_height / 2, room_width / 2 + 512 - 192, room_height / 2)
 }
+
+reset_draw()

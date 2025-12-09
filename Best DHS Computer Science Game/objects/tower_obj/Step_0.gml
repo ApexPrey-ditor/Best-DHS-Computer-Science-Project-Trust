@@ -268,7 +268,7 @@ if (not global.paused) {
 								var ypos = y
 					
 								if (type != 2) {
-									while (abs(xpos) < room_width and abs(y) < room_height) {
+									while (abs(xpos) < room_width and abs(ypos) < room_height) {
 										if (target.x - x != 0) {
 											if (abs(target.x - x) > abs(target.y - y)) {
 												xpos += (target.x - x) * (1920 / abs(target.x - x))

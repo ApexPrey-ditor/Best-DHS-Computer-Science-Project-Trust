@@ -129,7 +129,7 @@ switch (image_index) {
 		break;
 	// Oxygen Helium Ignition Ornament
 	case 15:
-		stats = {display : "Tungsten Ultimate Nitrogen Gun", desc : "+| pierce \n -|% attack speed", pierceL : 5, fireSpeed : -0.67}
+		stats = {display : "Tungsten Ultimate Nitrogen Gun", desc : "+| pierce \n-|% attack speed", pierceL : 5, fireSpeed : -0.67}
 		replace = [5, 67]
 		appliable = [0, 1, 2, 3]
 		repeatable = false

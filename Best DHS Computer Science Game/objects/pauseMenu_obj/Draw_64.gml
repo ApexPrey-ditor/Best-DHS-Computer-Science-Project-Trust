@@ -30,9 +30,22 @@ if (global.paused or abs((x - (room_width - 1393) / 2) / 20) > 0.1 or abs((y - (
 		}
 		else {
 			draw_text_transformed(x + 474, y + 46, logbookDesc[showDisplay].title, 2, 2, 0)
-			draw_text_ext_transformed(x + 474, y + 62 + 64, logbookDesc[showDisplay].desc, 48, 1408, 0.5, 0.5, 0)
-			draw_sprite(logbookDesc[showDisplay].sprite, frame, x + 1016, y + 96 + 64 + 104 + string_height_ext(logbookDesc[showDisplay].desc, 48, 1408))
+			draw_text_ext_transformed(x + 474, y + 78 + 64, logbookDesc[showDisplay].desc, 48, 1408, 0.5, 0.5, 0)
+			if (shooting) {
+				draw_sprite_ext(logbookDesc[showDisplay].spriteShooting, frame, x + 1016, y + 572, 0.75, 0.75, 0, c_white, 1)
+			}
+			else {
+				draw_sprite_ext(logbookDesc[showDisplay].sprite, frame, x + 1016, y + 572, 0.75, 0.75, 0, c_white, 1)
+			}
 			
+			if (showDisplay <= 15) {
+				var strHeight = string_height_ext(logbookDesc[showDisplay].desc, 48, 1408) / 2
+				draw_text_transformed(x + 474, y + 78 + 64 + strHeight, "Upgrades:", 1, 1, 0)
+				for (var i = 0; i < array_length(global.upgrades[showDisplay]); i++) {
+					draw_text_ext_transformed(x + 474, y + 156 + 64 + strHeight, "+" + global.upgrades[showDisplay][i].display + ": " + global.upgrades[showDisplay][i].desc, 48, 740, 0.5, 0.5, 0)
+					strHeight += string_height_ext("+" + global.upgrades[showDisplay][i].display + ": " + global.upgrades[showDisplay][i].desc, 48, 740) / 2 + 8
+				}
+			}
 		}
 	}
 }
