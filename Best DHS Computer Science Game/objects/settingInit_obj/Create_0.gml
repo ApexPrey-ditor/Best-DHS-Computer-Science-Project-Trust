@@ -42,6 +42,8 @@ global.upgradeAmount = 1
 global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
+
+global.logbookUnlocks = [0, 1, 4, 8]
 // for specific upgrades
 global.schizophrenics = []
 global.lesbians = [-1, -1, -1, -1]
@@ -185,8 +187,8 @@ audio_sound_loop_start(aBriefLessonInFineArts, 24.7)
 audio_sound_loop_end(aBriefLessonInFineArts, 68.6)
 audio_sound_loop_start(tungsten, 23.1)
 audio_sound_loop_end(tungsten, 81)
-audio_sound_loop_start(menace, 20.9)
-audio_sound_loop_end(menace, 76.4)
+audio_sound_loop_start(menace, 22.3)
+audio_sound_loop_end(menace, 78.1)
 audio_sound_loop_start(EVILBreakcore, 27.4)
 audio_sound_loop_end(EVILBreakcore, 102.9)
 

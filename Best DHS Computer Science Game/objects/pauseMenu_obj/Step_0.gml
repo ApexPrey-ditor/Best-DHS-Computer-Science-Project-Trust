@@ -4,49 +4,90 @@ if (global.paused and goUp) {
 		y -= (y - (room_height - 689) / 2) / 20
 	}
 	else {
-		if (mouse_check_button(mb_left)) {
-			// volume
-			if (point_in_rectangle(mouse_x, mouse_y, x + 132, y + 384, x + 575, y + 404)or adjusting) {
-				audio_master_gain(max(min((mouse_x - 142 - x) / 431, 1), 0))
+		if (sprite_index == pauseMenu_spr) {
+			if (mouse_check_button(mb_left)) {
+				// volume
+				if (point_in_rectangle(mouse_x, mouse_y, x + 132, y + 384, x + 575, y + 404)or adjusting) {
+					audio_master_gain(max(min((mouse_x - 142 - x) / 431, 1), 0))
 				
-				adjusting = true
+					adjusting = true
+				}
+			}
+			else {
+				adjusting = false
+			}
+			if (mouse_check_button_pressed(mb_left)) {
+				// resume
+				if (point_in_rectangle(mouse_x, mouse_y, x + 137, y + 33, x + 637, y + 210)) {
+					global.paused = false
+				
+					// resets alarm of every sprite
+					with (all) {
+						if (object_index == tower_obj or object_index == enemy_obj) {
+							image_speed = pausedAnimSpeed
+						}
+						for (var i = 0; i < 12; i++) {
+							alarm[i] = alarmList[i]	
+						}
+		
+						alarmList = []
+					}
+				}
+				// autostart
+				if (point_in_rectangle(mouse_x, mouse_y, x + 378, y + 246, x + 427, y + 294)) {
+					global.autostart = not global.autostart
+				
+					image_index += 1
+				}
+				// logbook
+				if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 253, x + 1225, y + 430)) {
+					sprite_index = logbook_spr
+					image_index = 0
+				}
+				// exit to map
+				if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 457, x + 1225, y + 634)) {
+					audio_stop_all()
+					global.paused = false
+					room_goto(mainMenu)
+				}
 			}
 		}
 		else {
-			adjusting = false
-		}
-		if (mouse_check_button_pressed(mb_left)) {
-			// resume
-			if (point_in_rectangle(mouse_x, mouse_y, x + 137, y + 33, x + 637, y + 210)) {
-				global.paused = false
-				
-				// resets alarm of every sprite
-				with (all) {
-					if (object_index == tower_obj or object_index == enemy_obj) {
-						image_speed = pausedAnimSpeed
+			if (showDisplay != -1) {
+				frame += sprite_get_speed(logbookDesc[showDisplay].sprite) / 60
+			}
+			
+			if (mouse_check_button_pressed(mb_left)) {
+				// left arrow
+				if (point_in_rectangle(mouse_x, mouse_y, x + 63, y + 261, x + 176, y + 377)) {
+					if (image_index == 0) {
+						sprite_index = pauseMenu_spr
+						if (global.autostart) {
+							image_index = 1
+						}
 					}
-					for (var i = 0; i < 12; i++) {
-						alarm[i] = alarmList[i]	
+					else {
+						image_index -= 1
 					}
-		
-					alarmList = []
 				}
-			}
-			// autostart
-			if (point_in_rectangle(mouse_x, mouse_y, x + 378, y + 246, x + 427, y + 294)) {
-				global.autostart = not global.autostart
+				// right arrow
+				if (point_in_rectangle(mouse_x, mouse_y, x + 1213, y + 261, x + 1329, y + 377)) {
+					image_index += 1
+				}
 				
-				image_index += 1
-			}
-			// logbook
-			if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 253, x + 1225, y + 430)) {
-				// its gonna do logbook stuff
-			}
-			// exit to map
-			if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 457, x + 1225, y + 634)) {
-				audio_stop_all()
-				global.paused = false
-				room_goto(mainMenu)
+				if (showDisplay == -1) {
+					for (var i = 0; i < 2; i++) {
+						for (var w = 0; w < 4; w++) {
+							if (point_in_rectangle(mouse_x, mouse_y, x + (466 + i * 353), y + (38 + w * 160), x + (466 + i * 353) + 295, y + (38 + w * 160) + 131)) {
+								showDisplay = image_index * 8 + i * 4 + w
+								frame = 0
+							}
+						}
+					}
+				}
+				else {
+					showDisplay = -1
+				}
 			}
 		}
 	}

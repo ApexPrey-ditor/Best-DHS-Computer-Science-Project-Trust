@@ -2,15 +2,15 @@
   "$GMSound":"v2",
   "%Name":"menace",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"MusicBosses",
+    "path":"audiogroups/MusicBosses",
   },
   "bitDepth":1,
   "channelFormat":0,
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":76.54605,
+  "duration":78.29014,
   "exportDir":"",
   "name":"menace",
   "parent":{
