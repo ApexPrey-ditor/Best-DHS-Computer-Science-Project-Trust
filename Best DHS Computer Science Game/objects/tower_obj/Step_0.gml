@@ -1006,25 +1006,25 @@ if (not global.paused) {
 						fireSpeed = 45
 						range = 300
 						detections = [true, false, false]
-						effect[3] = 4
+						effect[3] = 5
 						effect[4] = 1.25
 						break;
 					case 3:
 						damage = 10
-						fireSpeed = 36
+						fireSpeed = 27
 						range = 450
 						pierce = 3
 						detections = [true, true, false]
-						effect[3] = 6
+						effect[3] = 7
 						effect[4] = 1.5
 						break;
 					case 4:
-						damage = 20
-						fireSpeed = 27
+						damage = 25
+						fireSpeed = 12
 						range = 650
-						pierce = 4
+						pierce = 3
 						detections = [true, true, true]
-						effect[3] = 8
+						effect[3] = 10
 						effect[4] = 2
 						break;
 				}

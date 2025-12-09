@@ -22,9 +22,9 @@ else {
 	hp -= burning * global.fastForward
 	// heals hp if can regenerate
 	if (image_index == 23) {
-		hp += 10 / 6
+		hp += 500 / 60
 	}
-	hp += global.modEffects[13] * power(global.wave, 2) / 60
+	hp += global.modEffects[13]
 	
 	if (hp > cash) {
 		hp = cash

@@ -25,11 +25,11 @@ values[enemySpawned] = 0
 
 // speeds up spawnrate if fast forward
 if (points > 0) {
-	alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)) * global.modEffects[2] / (1 + sqrt(global.wave) / 3), 1)
+	alarm[0] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)) * global.modEffects[2] / global.modEffects[25] / max(sqrt(global.wave) / 3, 1), 1)
 }
 else {
 	if (global.wave == global.stage * 2) {
-		alarm[1] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)) * global.modEffects[2] / (1 + sqrt(global.wave) / 3), 1)
+		alarm[1] = max(ceil((60 * sqrt(cost[enemySpawned] / bias) / global.fastForward)) * global.modEffects[2] / global.modEffects[25] / max(1 + sqrt(global.wave) / 3, 1), 1)
 	}
 	else {
 		endWave = true

@@ -42,6 +42,7 @@ if (global.paused and goUp) {
 				// logbook
 				if (point_in_rectangle(mouse_x, mouse_y, x + 725, y + 253, x + 1225, y + 430)) {
 					sprite_index = logbook_spr
+					page = 0
 					image_index = 0
 				}
 				// exit to map
@@ -53,7 +54,7 @@ if (global.paused and goUp) {
 			}
 		}
 		else {
-			if (showDisplay != -1) {
+			if (showDisplay != -1 and image_index < 5) {
 				if (shooting) {
 					frame += sprite_get_speed(logbookDesc[showDisplay].spriteShooting) / 60
 					if (frame / sprite_get_number(logbookDesc[showDisplay].sprite) > 1) {
@@ -82,18 +83,25 @@ if (global.paused and goUp) {
 					}
 					else {
 						image_index -= 1
+						page -= 1
 					}
 				}
 				// right arrow
 				if (point_in_rectangle(mouse_x, mouse_y, x + 1213, y + 261, x + 1329, y + 377)) {
-					image_index += 1
+					if (image_index < 5) {
+						image_index += 1
+						page += 1
+					}
+					else if (array_length(global.modifiers) > page * 8 - 32) {
+						page += 1
+					}
 				}
 				
 				if (showDisplay == -1) {
 					for (var i = 0; i < 2; i++) {
 						for (var w = 0; w < 4; w++) {
-							if (point_in_rectangle(mouse_x, mouse_y, x + (466 + i * 353), y + (38 + w * 160), x + (466 + i * 353) + 295, y + (38 + w * 160) + 131) and array_contains(global.logbookUnlocks, image_index * 8 + i * 4 + w)) {
-								showDisplay = image_index * 8 + i * 4 + w
+							if (point_in_rectangle(mouse_x, mouse_y, x + (466 + i * 353), y + (38 + w * 160), x + (466 + i * 353) + 295, y + (38 + w * 160) + 131) and (array_contains(global.logbookUnlocks, page * 8 + i * 4 + w) or image_index >= 5)) {
+								showDisplay = page * 8 + i * 4 + w
 								frame = 0
 							}
 						}

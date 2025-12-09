@@ -31,15 +31,15 @@ function apply_effects(index, multi) {
 			break;
 		case 1:
 			// Chonker
-			global.modEffects[3] += 0.2 * multi
+			global.modEffects[3] += 0.1 * multi
 			break;
 		case 2:
 			// Wheel
-			global.modEffects[4] += 0.2 * multi
+			global.modEffects[4] += 0.1 * multi
 			break;
 		case 3:
 			// We are running out of money to buy you all beans
-			global.modEffects[5] -= 30 * multi
+			global.modEffects[5] -= 100 * multi
 			break;
 		case 4:
 			// Scammed
@@ -55,32 +55,32 @@ function apply_effects(index, multi) {
 			break;
 		case 7:
 			// ultrascitzo
-			global.scitzo = true
-			array_delete(global.modifierPool, array_get_index(global.modifierPool, image_index), 1)
+			global.modEffects[22] += 0.2 * multi
 			break;
 		case 8:
 			// Bruh you slow af
-			global.towerStats[1] = global.towerStats[1] / (1.2 * multi)
+			global.towerStats[1] = global.towerStats[1] / (1.1 * multi)
 			break;
 		case 9:
 			// Bruh you weak af
-			global.towerStats[0] = global.towerStats[0] / (1.2 * multi)
+			global.towerStats[0] = global.towerStats[0] / (1.1 * multi)
 			break;
 		case 10:
 			// They messed up my prescription
-			global.towerStats[2] = global.towerStats[2] / (1.2 * multi)
+			global.towerStats[2] = global.towerStats[2] / (1.1 * multi)
 			break;
 		case 11:
 			// Negative Reinforcement
-			global.towerStats[3] = global.towerStats[2] / (1.5 * multi)
+			global.towerStats[3] = global.towerStats[2] / (1.15 * multi)
 			break;
 		case 12:
 			// You play well but can you tango with 2?
-			global.modEffects[9] += 0.2 * multi
+			global.modEffects[9] += 0.15 * multi
+			global.modEffects[25] += 0.15 * multi
 			break;
 		case 13:
 			// Big and Burly
-			global.modEffects[10] += 0.15 * multi
+			global.modEffects[10] += 0.1 * multi
 			break;
 		case 14:
 			// Inflation
@@ -88,24 +88,21 @@ function apply_effects(index, multi) {
 			break;
 		case 15:
 			// Awful Game Design
-			global.modEffects[12] -= 0.25 * multi
+			global.modEffects[12] -= 0.35 * multi
 			if (global.modEffects[12] <= 0) {
 				array_delete(global.modifierPool, array_get_index(global.modifierPool, image_index), 1)
 			}
 			break;
 		case 16:
 			// The Moon
-			global.permClass[0] = true
-			array_delete(global.modifierPool, array_get_index(global.modifierPool, image_index), 1)
+			global.modEffects[23] += 0.2 * multi
 			break;
 		case 17:
 			// The Sun
-			global.permClass[1] = true
-			array_delete(global.modifierPool, array_get_index(global.modifierPool, image_index), 1)
+			global.modEffects[24] += 0.15 * multi
 			break;
 		case 18:
 			// Death
-			apply_effects(deathIndex, global.modEffects[14])
 			apply_effects(deathIndex, global.modEffects[14])
 			break;
 		case 19:
@@ -115,15 +112,15 @@ function apply_effects(index, multi) {
 			break;
 		case 20:
 			// The Magician
-			global.modEffects[13] += 0.25 * multi
+			global.modEffects[13] += 5 * multi
 			break;
 		case 21:
 			// The High Priestess
-			global.modEffects[14] += 0.15
+			global.modEffects[14] += 0.1
 			break;
 		case 22:
 			// The Empress
-			global.modEffects[15] += 2 * multi
+			global.modEffects[15] += multi
 			break;
 		case 23:
 			// Temperance
@@ -144,23 +141,23 @@ function apply_effects(index, multi) {
 			randomV = irandom_range(1, 10)
 			
 			if (randomV > 5) {
-				global.modEffects[4] -= 0.1 * multi
+				global.modEffects[4] -= 0.05 * multi
 			}
 			else if (randomV > 1) {
-				global.modEffects[4] += 0.25 * multi
+				global.modEffects[4] += 0.1 * multi
 			}
 			else {
-				global.modEffects[4] += 1 * multi
+				global.modEffects[4] += 0.25 * multi
 			}
 			break;
 		case 26:
 			// Judgement
-			global.modEffects[17] += 0.25 * multi
-			global.modEffects[18] += 0.25 * multi
+			global.modEffects[17] += 0.1 * multi
+			global.modEffects[18] += 0.15 * multi
 			break;
 		case 27:
 			// The Strength
-			global.modEffects[19] += 0.2 * multi
+			global.modEffects[19] += 0.1 * multi
 			break;
 		case 28:
 			// The World
@@ -168,7 +165,7 @@ function apply_effects(index, multi) {
 			break;
 		case 29:
 			// The Tower
-			global.modEffects[21] += 0.35 * multi
+			global.modEffects[21] += 0.15 * multi
 			break;
 	}
 }

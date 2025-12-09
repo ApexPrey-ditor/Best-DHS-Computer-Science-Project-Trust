@@ -194,7 +194,7 @@ switch (image_index) {
 		break;
 	// (the) Radiance
 	case 24:
-		stats = {display : "(the) Radiance", desc : "-|% Attack Speed", stun : 2, fireSpeed : -0.25}
+		stats = {display : "(the) Radiance", desc : "Stuns enemies for (damage / enemy hp) * | seconds \n-|% Attack Speed", stun : 2, fireSpeed : -0.25}
 		replace = [2, 25]
 		appliable = [4, 5, 6, 7]
 		repeatable = false

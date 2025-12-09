@@ -44,18 +44,16 @@ global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
 
 //global.logbookUnlocks = [0, 1, 4, 8]
-global.logbookUnlocks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+global.logbookUnlocks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 // for specific upgrades
 global.schizophrenics = []
 global.lesbians = [-1, -1, -1, -1]
 global.addictionBuyable = false
 // modifier rolls
 global.modifierPool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
-// modifier effect (enemy health TW, enemy speed TW, enemy spawn rate, enemy health, enemy speed, starting cash, EOR Bonus, E cash, starting lives, points multi, tower size, upgrade cost, E opacity, E regen, modif effects, E spawn wave, tower cap, phase effect speed, phase effect resist, damage resist, bonus stages, boss health)
-global.modEffects = [1, 1, 1, 1, 1, 300, 1, 1, 100, 1, 1, 1, 1, 0, 1, 0, infinity, 1, 1, 0, 0, 1]
+// modifier effect (enemy health TW, enemy speed TW, enemy spawn rate, enemy health, enemy speed, starting cash, EOR Bonus, E cash, starting lives, points multi, tower size, upgrade cost, E opacity, E regen, modif effects, E spawn wave, tower cap, phase effect speed, phase effect resist, damage resist, bonus stages, boss health, invis damage resist, camo damage resist, solid damage resist, E spawn rate)
+global.modEffects = [1, 1, 1, 1, 1, 300, 1, 1, 100, 1, 1, 1, 1, 0, 1, 0, infinity, 1, 1, 0, 0, 1, 0, 0, 0, 1]
 // for specific modifs
-global.scitzo = false
-global.permClass = [false, false, false]
 global.fool = false
 global.first = true
 global.towers = 0
@@ -145,7 +143,7 @@ alarmList = []
 
 // page of tower UI and cost of towers
 page = 0
-costs = [150, 325, 1000, 3750, 200, 550, 1000, 5000, 850, 700, 3500, 4000, 4000, 3750, 3500, 3000]
+costs = [150, 325, 1000, 3750, 200, 550, 850, 2450, 850, 700, 1500, 2400, 3500, 3500, 1700, 800]
 
 maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing],
 		[baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper],

@@ -87,7 +87,7 @@ if (room != mainMenu) {
 								break;
 							case 15:
 								instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-								{damage : 3, fireSpeed : 60, range : 250, type : 3, spread : 15, projSpeed : 10, special : "debt collector", effect : [100, 350, 1100, 2, 1], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+								{damage : 3, fireSpeed : 60, range : 250, type : 3, spread : 15, projSpeed : 10, special : "debt collector", effect : [10, 50, 250, 3, 1], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 								placing = true
 								break;
 						}
@@ -244,12 +244,12 @@ if (room != mainMenu) {
 		global.paused = true
 		pauseMenu_obj.goUp = false
 		if (mouse_check_button_pressed(mb_left)) {
-			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 18, (room_height / 2 - 512) + 328, (room_width / 2 - 1024) + 454, (room_height / 2 - 512) + 506)) {
+			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 172, (room_height / 2 - 512) + 278, (room_width / 2 - 1024) + 460, (room_height / 2 - 512) + 440)) {
 				event_user(0)
 				audio_stop_all()
 				room_goto(radarRoom)
 			}
-			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 496, (room_height / 2 - 512) + 336, (room_width / 2 - 1024) + 1006, (room_height / 2 - 512) + 502)) {
+			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 548, (room_height / 2 - 512) + 274, (room_width / 2 - 1024) + 859, (room_height / 2 - 512) + 443)) {
 				audio_stop_all()
 				room_goto(mainMenu)
 			}

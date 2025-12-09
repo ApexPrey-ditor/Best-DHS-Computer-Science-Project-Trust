@@ -270,14 +270,14 @@ switch (type) {
 hp = ceil(hp * global.modEffects[0] * global.modEffects[3])
 pathSpeed = pathSpeed * global.modEffects[4] / global.modEffects[1]
 damageResist += global.modEffects[19]
-if (global.permClass[0]) {
-	class[0] = global.permClass[0]
+if (class[0]) {
+	damageResist += global.modEffects[23]
 }
-if (global.permClass[1]) {
-	class[1] = global.permClass[1]
+if (class[1]) {
+	damageResist += global.modEffects[24]
 }
-if (global.scitzo and (class[0] or class[1])) {
-	class[2] = true
+if (class[2]) {
+	damageResist += global.modEffects[22]
 }
 
 // sets how much money will give on death
