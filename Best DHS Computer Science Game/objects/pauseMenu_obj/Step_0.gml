@@ -54,7 +54,7 @@ if (global.paused and goUp) {
 			}
 		}
 		else {
-			if (showDisplay != -1 and image_index < 5) {
+			if (showDisplay != -1 and image_index < sprite_get_number(sprite_index) - 1) {
 				if (shooting) {
 					frame += sprite_get_speed(logbookDesc[showDisplay].spriteShooting) / 60
 					if (frame / sprite_get_number(logbookDesc[showDisplay].sprite) > 1) {
@@ -88,7 +88,7 @@ if (global.paused and goUp) {
 				}
 				// right arrow
 				if (point_in_rectangle(mouse_x, mouse_y, x + 1213, y + 261, x + 1329, y + 377)) {
-					if (image_index < 5) {
+					if (image_index < sprite_get_number(sprite_index) - 1) {
 						image_index += 1
 						page += 1
 					}
