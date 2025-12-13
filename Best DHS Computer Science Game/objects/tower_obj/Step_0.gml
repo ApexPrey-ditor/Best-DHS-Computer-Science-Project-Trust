@@ -1001,8 +1001,7 @@ if (not global.paused) {
 			
 				switch (level) {
 					case 2:
-						damage = 5
-						pierce = 2
+						damage = 4
 						fireSpeed = 45
 						range = 300
 						detections = [true, false, false]
@@ -1011,18 +1010,17 @@ if (not global.paused) {
 						break;
 					case 3:
 						damage = 10
-						fireSpeed = 27
+						fireSpeed = 30
 						range = 450
-						pierce = 3
 						detections = [true, true, false]
 						effect[3] = 7
 						effect[4] = 1.5
 						break;
 					case 4:
 						damage = 25
-						fireSpeed = 12
+						fireSpeed = 30
 						range = 650
-						pierce = 3
+						pierce = 2
 						detections = [true, true, true]
 						effect[3] = 10
 						effect[4] = 2

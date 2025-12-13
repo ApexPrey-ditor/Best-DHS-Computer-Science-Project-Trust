@@ -57,7 +57,7 @@ if (global.paused and goUp) {
 			if (showDisplay != -1 and image_index < sprite_get_number(sprite_index) - 1) {
 				if (shooting) {
 					frame += sprite_get_speed(logbookDesc[showDisplay].spriteShooting) / 60
-					if (frame / sprite_get_number(logbookDesc[showDisplay].sprite) > 1) {
+					if (frame / sprite_get_number(logbookDesc[showDisplay].spriteShooting) > 1) {
 						frame = 0
 						shooting = false
 					}

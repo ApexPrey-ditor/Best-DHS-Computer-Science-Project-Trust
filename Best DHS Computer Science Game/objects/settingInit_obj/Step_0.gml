@@ -87,7 +87,7 @@ if (room != mainMenu) {
 								break;
 							case 15:
 								instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-								{damage : 3, fireSpeed : 60, range : 250, type : 3, spread : 15, projSpeed : 10, special : "debt collector", effect : [10, 50, 250, 3, 1], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+								{damage : 3, fireSpeed : 60, range : 250, type : 3, spread : 15, projSpeed : 10, special : "debt collector", effect : [25, 100, 500, 3, 1], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 								placing = true
 								break;
 						}
