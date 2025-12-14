@@ -33,7 +33,7 @@
   "origin":9,
   "parent":{
     "name":"15 Knormle",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/15 Knormle.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/15 Knormle.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

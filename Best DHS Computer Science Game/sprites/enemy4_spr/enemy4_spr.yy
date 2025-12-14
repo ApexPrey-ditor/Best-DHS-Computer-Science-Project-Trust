@@ -50,7 +50,7 @@
   "origin":9,
   "parent":{
     "name":"04 Camo",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/04 Camo.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/04 Camo.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

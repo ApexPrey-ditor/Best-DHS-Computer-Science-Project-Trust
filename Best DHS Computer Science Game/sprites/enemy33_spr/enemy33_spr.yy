@@ -38,7 +38,7 @@
   "origin":9,
   "parent":{
     "name":"33 Your Mom",
-    "path":"folders/Sprites/Enemy Animations/Bosses/33 Your Mom.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Bosses/33 Your Mom.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

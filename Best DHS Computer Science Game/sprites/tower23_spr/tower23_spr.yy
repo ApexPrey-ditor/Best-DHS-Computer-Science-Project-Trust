@@ -50,7 +50,7 @@
   "origin":9,
   "parent":{
     "name":"07 Tachyon Beam",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/07 Tachyon Beam.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/07 Tachyon Beam.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

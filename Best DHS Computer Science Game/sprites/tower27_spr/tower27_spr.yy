@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"11 Overclocker",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/11 Overclocker.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/11 Overclocker.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

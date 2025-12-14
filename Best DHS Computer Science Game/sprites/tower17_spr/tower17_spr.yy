@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"01 Assassin",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/01 Assassin.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/01 Assassin.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

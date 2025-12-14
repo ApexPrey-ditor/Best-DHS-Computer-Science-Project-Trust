@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"13 Cyberpunk",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/13 Cyberpunk.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/13 Cyberpunk.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

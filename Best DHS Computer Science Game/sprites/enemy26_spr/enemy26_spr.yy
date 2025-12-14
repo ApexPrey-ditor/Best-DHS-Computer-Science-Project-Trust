@@ -35,7 +35,7 @@
   "origin":9,
   "parent":{
     "name":"26 YHJLTG",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/26 YHJLTG.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/26 YHJLTG.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"01 Fast",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/01 Fast.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/01 Fast.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
