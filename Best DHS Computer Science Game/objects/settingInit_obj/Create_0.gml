@@ -43,11 +43,11 @@ global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
 
-//global.logbookUnlocks = [0, 1, 4, 8]
-global.logbookUnlocks = []
+global.logbookUnlocks = [0, 1, 4, 8]
+/*global.logbookUnlocks = []
 for (var i = 0; i < 63; i++) {
 	array_push(global.logbookUnlocks, i)
-}
+}*/
 // for specific upgrades
 global.schizophrenics = []
 global.lesbians = [-1, -1, -1, -1]
