@@ -31,7 +31,7 @@
   "origin":9,
   "parent":{
     "name":"15 Debt Collector",
-    "path":"folders/Sprites/Tower Animations/Basics/15 Debt Collector.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/15 Debt Collector.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

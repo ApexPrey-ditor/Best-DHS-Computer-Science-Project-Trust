@@ -35,7 +35,7 @@
   "origin":9,
   "parent":{
     "name":"31 Destructive Damsel",
-    "path":"folders/Sprites/Enemy Animations/Bosses/31 Destructive Damsel.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Bosses/31 Destructive Damsel.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

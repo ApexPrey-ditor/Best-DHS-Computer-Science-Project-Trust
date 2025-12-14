@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"00 Gunner",
-    "path":"folders/Sprites/Tower Animations/Basics/00 Gunner.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/00 Gunner.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -34,7 +34,7 @@
   "origin":9,
   "parent":{
     "name":"22 NQAEGBSCD",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/22 NQAEGBSCD.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/22 NQAEGBSCD.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

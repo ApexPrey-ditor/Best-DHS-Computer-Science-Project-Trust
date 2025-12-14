@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"10 Spotter",
-    "path":"folders/Sprites/Tower Animations/Basics/10 Spotter.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/10 Spotter.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

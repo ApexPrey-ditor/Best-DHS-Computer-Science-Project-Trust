@@ -48,7 +48,7 @@
   "origin":9,
   "parent":{
     "name":"02 Gauss Machine Gun",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/02 Gauss Machine Gun.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/02 Gauss Machine Gun.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

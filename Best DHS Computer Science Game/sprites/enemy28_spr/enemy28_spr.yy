@@ -37,7 +37,7 @@
   "origin":9,
   "parent":{
     "name":"28 Final Foss",
-    "path":"folders/Sprites/Enemy Animations/Bosses/28 Final Foss.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Bosses/28 Final Foss.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

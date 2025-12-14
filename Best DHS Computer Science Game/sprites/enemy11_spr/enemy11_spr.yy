@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"11 Butter",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/11 Butter.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/11 Butter.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

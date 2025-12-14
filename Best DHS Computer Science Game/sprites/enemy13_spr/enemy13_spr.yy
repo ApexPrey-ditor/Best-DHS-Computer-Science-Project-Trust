@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"13 Bob Crisscross",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/13 Bob Crisscross.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/13 Bob Crisscross.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

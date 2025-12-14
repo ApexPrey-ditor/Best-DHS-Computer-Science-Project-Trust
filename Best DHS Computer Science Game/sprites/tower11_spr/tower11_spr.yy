@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"11 Booster",
-    "path":"folders/Sprites/Tower Animations/Basics/11 Booster.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/11 Booster.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

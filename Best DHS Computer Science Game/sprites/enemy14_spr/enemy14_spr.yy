@@ -33,7 +33,7 @@
   "origin":9,
   "parent":{
     "name":"14 Titanium",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/14 Titanium.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/14 Titanium.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

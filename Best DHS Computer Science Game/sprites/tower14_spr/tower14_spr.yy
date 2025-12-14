@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"14 Rapper",
-    "path":"folders/Sprites/Tower Animations/Basics/14 Rapper.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/14 Rapper.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

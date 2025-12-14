@@ -34,7 +34,7 @@
   "origin":9,
   "parent":{
     "name":"27 MIGIQAQOEADTNQAEGBSCDWCBOWBPAOABDNQAMMODWCACTEGYDTCSCARAGAOEAODG",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/27 MIGIQAQOEADTNQAEGBSCDWCBOWBPAOABDNQAMMODWCACTEGYDTCSCARAGAOEAODG.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/27 MIGIQAQOEADTNQAEGBSCDWCBOWBPAOABDNQAMMODWCACTEGYDTCSCARAGAOEAODG.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

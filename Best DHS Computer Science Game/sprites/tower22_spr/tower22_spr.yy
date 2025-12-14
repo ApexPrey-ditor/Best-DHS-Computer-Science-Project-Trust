@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"06 Heavyweight",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/06 Heavyweight.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/06 Heavyweight.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

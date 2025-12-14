@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"08 Necromancer",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/08 Necromancer.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/08 Necromancer.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

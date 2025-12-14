@@ -34,7 +34,7 @@
   "origin":9,
   "parent":{
     "name":"30 Ferocious Female",
-    "path":"folders/Sprites/Enemy Animations/Bosses/30 Ferocious Female.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Bosses/30 Ferocious Female.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

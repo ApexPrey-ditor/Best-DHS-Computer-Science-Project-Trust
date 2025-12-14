@@ -35,7 +35,7 @@
   "origin":9,
   "parent":{
     "name":"24 Glob Moss",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/24 Glob Moss.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/24 Glob Moss.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
