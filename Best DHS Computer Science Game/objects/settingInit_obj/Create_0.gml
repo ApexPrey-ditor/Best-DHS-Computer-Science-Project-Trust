@@ -74,6 +74,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 
 global.upgradePool = []
 global.towerPool = [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+global.joat = false
 // cards for debugging
 repeat (1000) {
 	//array_push(global.upgradePool, 12)
@@ -126,15 +127,6 @@ repeat (3) {
 	array_push(global.upgradePool, 49) // Bind
 	array_push(global.upgradePool, 50) // child support
 	array_push(global.upgradePool, 51) // addiction
-}
-// Not Horrible
-repeat (2) {	
-	array_push(global.upgradePool, 52) // JOTE
-	array_push(global.upgradePool, 53) // You don't know JACK
-	array_push(global.upgradePool, 54) // Teh 11 of Spades
-	array_push(global.upgradePool, 55) // BEEG GUNZ
-	array_push(global.upgradePool, 56) // beer
-	array_push(global.upgradePool, 57) // JOAHTE
 }
 //Not Morbinacious
 
