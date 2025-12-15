@@ -43,7 +43,6 @@ global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
 
-<<<<<<< Updated upstream
 global.logbookUnlocks = [0, 1, 4, 8]
 /*global.logbookUnlocks = []
 for (var i = 0; i < 75; i++) {
