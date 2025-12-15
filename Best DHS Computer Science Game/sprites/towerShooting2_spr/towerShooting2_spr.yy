@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"02 Railgunner",
-    "path":"folders/Sprites/Tower Animations/Basics/02 Railgunner.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/02 Railgunner.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

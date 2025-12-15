@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"12 Commander",
-    "path":"folders/Sprites/Tower Animations/Basics/12 Commander.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/12 Commander.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

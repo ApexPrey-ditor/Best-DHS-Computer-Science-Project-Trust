@@ -57,6 +57,8 @@ if (not global.paused) {
 								}
 							}
 							if (tier4) {
+								global.logbookUnlocks = array_union(global.logbookUnlocks, [i + 72])
+								
 								while (array_contains(global.upgradePool, image_index)) {
 									array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
 								}
@@ -121,6 +123,8 @@ if (not global.paused) {
 								}
 							}
 							if (tier4) {
+								global.logbookUnlocks = array_union(global.logbookUnlocks, [i + 72])
+								
 								while (array_contains(global.upgradePool, image_index)) {
 									array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
 								}
@@ -170,10 +174,10 @@ if (not global.paused) {
 		
 			if mouse_check_button_pressed(mb_left) {
 				if (towerCard) {
-					show_debug_message(global.availableTowers)
 					array_push(global.availableTowers, stats)
-					show_debug_message(global.availableTowers)
 					array_delete(global.towerPool, array_get_index(global.towerPool, image_index), 1)
+					
+					global.logbookUnlocks = array_union(global.logbookUnlocks, [stats])
 				
 					cardSelection = [global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]]
 					while (cardSelection[1] == cardSelection[0]) {

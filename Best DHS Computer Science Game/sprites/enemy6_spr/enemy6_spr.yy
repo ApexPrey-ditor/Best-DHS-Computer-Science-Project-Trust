@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"06 Gnormal",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/06 Gnormal.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/06 Gnormal.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

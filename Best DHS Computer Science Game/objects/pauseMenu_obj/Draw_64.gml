@@ -15,7 +15,8 @@ if (global.paused or abs((x - (room_width - 1393) / 2) / 20) > 0.1 or abs((y - (
 			
 			for (var i = 0; i < 2; i++) {
 				for (var w = 0; w < 4; w++) {
-					if (not image_index == sprite_get_number(sprite_index) - 1 or page * 8 + w + i * 4 - 40 < array_length(global.modifiers)) {
+					if (image_index != sprite_get_number(sprite_index) - 1 or page * 8 + w + i * 4 - 40 < array_length(global.modifiers)) {
+						show_debug_message(image_index)
 						draw_roundrect_ext(x + (470 + i * 353), y + (38 + w * 160), x + (470 + i * 353) + 295, y + (38 + w * 160) + 131, 5, 5, false)
 						draw_set_colour(c_black)
 						draw_roundrect_ext(x + (470 + i * 353) + 8, y + (38 + w * 160) + 8, x + (470 + i * 353) + 295 - 8, y + (38 + w * 160) + 131 - 8, 5, 5, false)

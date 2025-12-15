@@ -48,7 +48,7 @@
   "origin":9,
   "parent":{
     "name":"14 Lyrical Miracle",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/14 Lyrical Miracle.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/14 Lyrical Miracle.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -36,7 +36,7 @@
   "origin":9,
   "parent":{
     "name":"29 Negative Nancy",
-    "path":"folders/Sprites/Enemy Animations/Bosses/29 Negative Nancy.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Bosses/29 Negative Nancy.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

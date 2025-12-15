@@ -31,7 +31,7 @@
   "origin":9,
   "parent":{
     "name":"10 SUPERHATEYOUGIRL",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/10 SUPERHATEYOUGIRL.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/10 SUPERHATEYOUGIRL.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

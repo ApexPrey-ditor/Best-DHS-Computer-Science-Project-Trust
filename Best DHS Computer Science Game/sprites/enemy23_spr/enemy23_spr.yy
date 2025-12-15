@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"23 DPS Check",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/23 DPS Check.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/23 DPS Check.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

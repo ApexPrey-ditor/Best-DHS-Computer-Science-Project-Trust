@@ -34,7 +34,7 @@
   "origin":9,
   "parent":{
     "name":"21 10\" Tungsten Cube",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/21 10\" Tungsten Cube.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/21 10\" Tungsten Cube.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

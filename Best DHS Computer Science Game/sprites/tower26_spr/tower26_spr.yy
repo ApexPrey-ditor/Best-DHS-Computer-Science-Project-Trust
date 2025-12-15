@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"10 Marker",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/10 Marker.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/10 Marker.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -33,7 +33,7 @@
   "origin":9,
   "parent":{
     "name":"19 Drazy Cave",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/19 Drazy Cave.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/19 Drazy Cave.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

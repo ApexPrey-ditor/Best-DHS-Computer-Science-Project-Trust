@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"01 Sniper",
-    "path":"folders/Sprites/Tower Animations/Basics/01 Sniper.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/01 Sniper.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

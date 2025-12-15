@@ -37,7 +37,7 @@
   "origin":9,
   "parent":{
     "name":"34 Evil Girl",
-    "path":"folders/Sprites/Enemy Animations/Bosses/34 Evil Girl.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Bosses/34 Evil Girl.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

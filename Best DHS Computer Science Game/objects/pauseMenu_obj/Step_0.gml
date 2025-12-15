@@ -100,7 +100,7 @@ if (global.paused and goUp) {
 				if (showDisplay == -1) {
 					for (var i = 0; i < 2; i++) {
 						for (var w = 0; w < 4; w++) {
-							if (point_in_rectangle(mouse_x, mouse_y, x + (466 + i * 353), y + (38 + w * 160), x + (466 + i * 353) + 295, y + (38 + w * 160) + 131) and (array_contains(global.logbookUnlocks, page * 8 + i * 4 + w) or image_index >= 5)) {
+							if (point_in_rectangle(mouse_x, mouse_y, x + (466 + i * 353), y + (38 + w * 160), x + (466 + i * 353) + 295, y + (38 + w * 160) + 131) and (array_contains(global.logbookUnlocks, page * 8 + i * 4 + w) or image_index >= sprite_get_number(sprite_index) - 1)) {
 								showDisplay = page * 8 + i * 4 + w
 								frame = 0
 							}

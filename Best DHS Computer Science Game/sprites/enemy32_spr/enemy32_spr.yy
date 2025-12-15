@@ -37,7 +37,7 @@
   "origin":9,
   "parent":{
     "name":"32 Malicious Madam",
-    "path":"folders/Sprites/Enemy Animations/Bosses/32 Malicious Madam.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Bosses/32 Malicious Madam.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

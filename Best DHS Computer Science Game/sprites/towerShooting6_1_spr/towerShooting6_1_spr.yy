@@ -46,7 +46,7 @@
   "origin":9,
   "parent":{
     "name":"06 Puncher",
-    "path":"folders/Sprites/Tower Animations/Basics/06 Puncher.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/06 Puncher.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

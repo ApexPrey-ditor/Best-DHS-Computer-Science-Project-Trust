@@ -34,7 +34,7 @@
   "origin":9,
   "parent":{
     "name":"20 Jane Cena",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/20 Jane Cena.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/20 Jane Cena.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

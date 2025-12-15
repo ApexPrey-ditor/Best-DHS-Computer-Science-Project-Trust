@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"13 Hacker",
-    "path":"folders/Sprites/Tower Animations/Basics/13 Hacker.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Basics/13 Hacker.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

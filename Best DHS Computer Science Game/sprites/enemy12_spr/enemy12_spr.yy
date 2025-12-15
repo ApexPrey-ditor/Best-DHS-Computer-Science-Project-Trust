@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"12 TF2 Spy",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/12 TF2 Spy.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/12 TF2 Spy.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

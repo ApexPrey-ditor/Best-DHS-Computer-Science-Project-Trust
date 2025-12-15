@@ -33,7 +33,7 @@
   "origin":9,
   "parent":{
     "name":"17 The Real Slim Shady",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/17 The Real Slim Shady.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/17 The Real Slim Shady.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

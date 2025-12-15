@@ -32,7 +32,7 @@
   "origin":9,
   "parent":{
     "name":"09 Nicky",
-    "path":"folders/Sprites/Enemy Animations/Basic Enemies/09 Nicky.yy",
+    "path":"folders/Sprites/Animations/Enemy Animations/Basic Enemies/09 Nicky.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

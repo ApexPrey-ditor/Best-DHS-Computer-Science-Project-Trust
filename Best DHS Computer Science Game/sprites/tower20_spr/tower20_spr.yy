@@ -30,7 +30,7 @@
   "origin":9,
   "parent":{
     "name":"04 Grenadier",
-    "path":"folders/Sprites/Tower Animations/Tier 4s/04 Grenadier.yy",
+    "path":"folders/Sprites/Animations/Tower Animations/Tier 4s/04 Grenadier.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
