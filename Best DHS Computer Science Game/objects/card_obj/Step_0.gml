@@ -178,6 +178,20 @@ if (not global.paused) {
 					array_delete(global.towerPool, array_get_index(global.towerPool, image_index), 1)
 					
 					global.logbookUnlocks = array_union(global.logbookUnlocks, [stats])
+					
+					if (not global.joat and stat >= 12 and stat < 16) {
+						global.joat = true
+						
+						// Not Horrible
+						repeat (2) {
+							array_push(global.upgradePool, 52) // JOTE
+							array_push(global.upgradePool, 53) // You don't know JACK
+							array_push(global.upgradePool, 54) // Teh 11 of Spades
+							array_push(global.upgradePool, 55) // BEEG GUNZ
+							array_push(global.upgradePool, 56) // beer
+							array_push(global.upgradePool, 57) // JOAHTE
+						}
+					}
 				
 					cardSelection = [global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)], global.upgradePool[irandom_range(0, array_length(global.upgradePool) - 1)]]
 					while (cardSelection[1] == cardSelection[0]) {

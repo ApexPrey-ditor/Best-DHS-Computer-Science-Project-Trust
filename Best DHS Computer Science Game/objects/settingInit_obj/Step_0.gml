@@ -22,7 +22,7 @@ if (room != mainMenu) {
 								break;
 							case 2:
 								instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-								{damage : 75, fireSpeed : 300, range : 550, detections : [true, false, false], type : 1, pierce : 20, cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+								{damage : 75, fireSpeed : 300, range : 550, detections : [true, true, false], type : 1, pierce : 20, cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 								placing = true
 								break;
 							case 3:

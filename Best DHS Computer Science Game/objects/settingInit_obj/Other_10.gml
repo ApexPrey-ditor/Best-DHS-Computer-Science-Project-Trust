@@ -39,7 +39,62 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 						[4, 6, 7],
 						[4, 5]]
 
+global.upgradePool = []
 global.towerPool = [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+global.joat = false
+// cards for debugging
+repeat (1000) {
+	//array_push(global.upgradePool, 12)
+}
+// Not Ferdigalocious
+repeat (6) {
+}
+// Not Good
+repeat (5) {	
+}
+// Not Okay
+repeat (4) {
+	array_push(global.upgradePool, 0) // Weapons Funding
+	array_push(global.upgradePool, 1) // +Ammunition
+	array_push(global.upgradePool, 2) // Larger Lenses
+	array_push(global.upgradePool, 3) // Personal Spotter
+	array_push(global.upgradePool, 4) // Piercing Rounds
+	array_push(global.upgradePool, 5) // Hype
+}
+// Not Bad
+repeat (3) {	
+	array_push(global.upgradePool, 6) // Scitzo
+	array_push(global.upgradePool, 7) // Lose Yourself
+	array_push(global.upgradePool, 8) // gdrrrrrrrrrrr brrrrrrrrrrat brrrrrrrrrat brrrrrrrrrrrrrrrrrrrrrrrrrrr wrrrrrrrrrrrrrrrrriririirir
+	array_push(global.upgradePool, 9) // Triangle Bullet
+	array_push(global.upgradePool, 10) // HELP IT BURNS
+	array_push(global.upgradePool, 11) // Thicc Bullets
+	array_push(global.upgradePool, 12) // Bouncing Shot
+	array_push(global.upgradePool, 13) // Sodium Hydrogen Oxygen Malevolent Bond
+	array_push(global.upgradePool, 14) // Oxygen Helium Ignition Ornament
+	array_push(global.upgradePool, 15) // Tungsten Ultimate Nitrogen Gun
+	array_push(global.upgradePool, 16) // GO TO HELL
+	array_push(global.upgradePool, 17) // Pentaerythritol Tetranitrate
+	array_push(global.upgradePool, 18) // worlds brightest flashlight
+	array_push(global.upgradePool, 19) // hydrogen
+	array_push(global.upgradePool, 20) // Hey Guys I Think There's a Fly Biting Me
+	array_push(global.upgradePool, 21) // Whats a Physics?
+	array_push(global.upgradePool, 22) // A Litteraly Mini Nuke
+	array_push(global.upgradePool, 23) // sharp explosions
+	array_push(global.upgradePool, 24) // (the) Radiance
+	array_push(global.upgradePool, 25) // DESTROY
+	array_push(global.upgradePool, 26) // bro im lagging i swaer
+	array_push(global.upgradePool, 42) // Psychiatrist
+	array_push(global.upgradePool, 43) // eyes on the prize
+	array_push(global.upgradePool, 44) // pocketer
+	array_push(global.upgradePool, 45) // big eyes
+	array_push(global.upgradePool, 46) // i dont have very many beans so you guys are gonna have to share
+	array_push(global.upgradePool, 47) // chinese sweatshop conditions
+	array_push(global.upgradePool, 48) // lesbian
+	array_push(global.upgradePool, 49) // Bind
+	array_push(global.upgradePool, 50) // child support
+	array_push(global.upgradePool, 51) // addiction
+}
 
 placing = false
 page = 0

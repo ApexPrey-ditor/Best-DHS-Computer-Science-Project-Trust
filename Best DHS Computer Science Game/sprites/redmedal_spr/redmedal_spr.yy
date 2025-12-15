@@ -30,7 +30,7 @@
   ],
   "name":"redmedal_spr",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Medals",
     "path":"folders/Sprites/Animations/Medals.yy",
@@ -104,7 +104,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":135,
-    "yorigin":240,
+    "yorigin":360,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

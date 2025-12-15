@@ -45,7 +45,7 @@ global.modifiers = []
 
 global.logbookUnlocks = [0, 1, 4, 8]
 /*global.logbookUnlocks = []
-for (var i = 0; i < 63; i++) {
+for (var i = 0; i < 75; i++) {
 	array_push(global.logbookUnlocks, i)
 }*/
 // for specific upgrades
@@ -74,6 +74,7 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 
 global.upgradePool = []
 global.towerPool = [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+global.joat = false
 // cards for debugging
 repeat (1000) {
 	//array_push(global.upgradePool, 12)
@@ -127,15 +128,6 @@ repeat (3) {
 	array_push(global.upgradePool, 50) // child support
 	array_push(global.upgradePool, 51) // addiction
 }
-// Not Horrible
-repeat (2) {	
-	array_push(global.upgradePool, 52) // JOTE
-	array_push(global.upgradePool, 53) // You don't know JACK
-	array_push(global.upgradePool, 54) // Teh 11 of Spades
-	array_push(global.upgradePool, 55) // BEEG GUNZ
-	array_push(global.upgradePool, 56) // beer
-	array_push(global.upgradePool, 57) // JOAHTE
-}
 //Not Morbinacious
 
 // if placing tower
@@ -149,11 +141,17 @@ page = 0
 costs = [150, 325, 1000, 3750, 200, 550, 850, 2450, 850, 700, 1500, 2400, 3500, 3500, 1700, 800]
 
 maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing],
-		[baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper],
-		[battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround],
+		[baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse],
+		[cryForTheWeeper, battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround],
 		[straightUp, pass, personalProperty, weHaveToCook, cornered]]
-songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve]
-songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm,hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm]
+songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve,
+		coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve,
+		hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, coldWinterEve, hotSummerDay,
+		hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay]
+songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm,
+			coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm,
+			hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm,
+			hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm]
 
 // variables for making the radar work
 radarDir = 0
