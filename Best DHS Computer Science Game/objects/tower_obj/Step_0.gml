@@ -995,37 +995,42 @@ if (not global.paused) {
 			}
 		}
 		// debt collector leveling up
-		if (special == "debt collector" and level < 4) {
-			if (kills >= effect[level - 1]) {
-				level += 1
+		if (special == "debt collector") {
+			if (level < 4) {
+				if (kills >= effect[level - 1]) {
+					level += 1
 			
-				switch (level) {
-					case 2:
-						damage = 4
-						fireSpeed = 45
-						range = 300
-						detections = [true, false, false]
-						effect[3] = 5
-						effect[4] = 1.25
-						break;
-					case 3:
-						damage = 10
-						fireSpeed = 30
-						range = 450
-						detections = [true, true, false]
-						effect[3] = 7
-						effect[4] = 1.5
-						break;
-					case 4:
-						damage = 25
-						fireSpeed = 30
-						range = 650
-						pierce = 2
-						detections = [true, true, true]
-						effect[3] = 10
-						effect[4] = 2
-						break;
+					switch (level) {
+						case 2:
+							damage = 4
+							fireSpeed = 45
+							range = 300
+							detections = [true, false, false]
+							effect[3] = 5
+							effect[4] = 1.25
+							break;
+						case 3:
+							damage = 10
+							fireSpeed = 30
+							range = 450
+							detections = [true, true, false]
+							effect[3] = 7
+							effect[4] = 1.5
+							break;
+						case 4:
+							damage = 25
+							fireSpeed = 30
+							range = 650
+							pierce = 2
+							detections = [true, true, true]
+							effect[3] = 10
+							effect[4] = 2
+							break;
+					}
 				}
+			}
+			else {
+				damage = 25 + (kills - effect[0][2]) * 0.05
 			}
 		}
 	
