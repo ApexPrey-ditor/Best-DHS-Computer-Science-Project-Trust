@@ -43,7 +43,6 @@ global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
 
-<<<<<<< Updated upstream
 global.logbookUnlocks = [0, 1, 4, 8]
 /*global.logbookUnlocks = []
 for (var i = 0; i < 75; i++) {
@@ -142,11 +141,17 @@ page = 0
 costs = [150, 325, 1000, 3750, 200, 550, 850, 2450, 850, 700, 1500, 2400, 3500, 3500, 1700, 800]
 
 maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing],
-		[baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper],
-		[battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround],
+		[baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse],
+		[cryForTheWeeper, battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround],
 		[straightUp, pass, personalProperty, weHaveToCook, cornered]]
-songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve]
-songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm,hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm]
+songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve,
+		coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve,
+		hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, coldWinterEve, hotSummerDay,
+		hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay]
+songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm,
+			coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm,
+			hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm,
+			hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm]
 
 // variables for making the radar work
 radarDir = 0
