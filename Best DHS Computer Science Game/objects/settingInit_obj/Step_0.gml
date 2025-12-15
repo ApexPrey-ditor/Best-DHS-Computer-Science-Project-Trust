@@ -82,7 +82,7 @@ if (room != mainMenu) {
 								break;
 							case 14:
 								instance_create_depth(mouse_x, mouse_y, 0, tower_obj,
-								{damage : 5, fireSpeed : 12, range : 100, pierce : 10, type : 2, aoe : 5, special : "rapper", detections : [false, false, true], effect : [250], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
+								{damage : 5, fireSpeed : 15, range : 300, pierce : 5, type : 3, lifetime : 30, projSpeed : 15, aoe : 1, special : "rapper", detections : [false, false, true], effect : [250], cost : ceil(costs[page * 8 + i * 2 + w] * global.modEffects[11]), towerType : page * 8 + i * 2 + w})
 								placing = true
 								break;
 							case 15:

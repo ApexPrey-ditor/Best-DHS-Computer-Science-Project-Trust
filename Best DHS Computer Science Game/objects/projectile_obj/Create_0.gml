@@ -13,10 +13,15 @@ prespeed = speed
 hit = []
 
 // sets sprite to flame if flamethrower
-if special == "flame" {
+if (special == "flame") {
 	sprite_index = fire_spr
 	image_xscale = 1 + sqrt(aoe - 1)
 	image_yscale = 1 + sqrt(aoe - 1)
+}
+// sets sprite to soundwave if rapper
+if (special == "rapper") {
+	sprite_index = soundwave_spr
+	image_angle = direction
 }
 if (type == 1) {
 	image_alpha = 0

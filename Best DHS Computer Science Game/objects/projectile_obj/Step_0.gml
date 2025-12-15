@@ -7,6 +7,10 @@ else {
 	if (type == 0) {
 		// adjusts speed based on fastForward
 		speed = prespeed * global.fastForward
+		if (special == "rapper") {
+			image_xscale += (sqrt(aoe) * global.fastForward) / 30
+			image_yscale += (sqrt(aoe) * global.fastForward) / 30
+		}
 		
 		// gets all thouching enemies
 		var enemies = ds_list_create()
@@ -60,7 +64,7 @@ else {
 				}
 			}
 			// checks if bullet is explosive
-			else if (aoe > 0) {
+			else if (aoe > 0 and special != "rapper") {
 				sprite_index = explosion_spr
 				speed = 0
 				image_xscale = 1 + sqrt(aoe - 1)

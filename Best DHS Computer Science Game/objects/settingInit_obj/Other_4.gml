@@ -6,8 +6,8 @@ if (room != mainMenu) {
 	global.towers = 0
 	// for testing final wave of each stage:
 	//global.wave = floor(global.stage) * 2
-	global.money = global.modEffects[5]
-	//global.money = 3000000000000000000000
+	//global.money = global.modEffects[5]
+	global.money = 3000000000000000000000
 	for (var i = 0; i < global.wave; i++) {
 		global.money += 50 + i * 50
 	}

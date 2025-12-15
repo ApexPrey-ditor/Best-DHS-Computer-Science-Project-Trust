@@ -416,9 +416,6 @@ if (not global.paused) {
 												if (decamo and shotNum % 3 == 0) {
 													ds_list_find_value(targets, i).class[0] = false
 												}
-												if (towerType == 14 and tier4 and shotNum % 10 == 0 and i == 0) {
-													ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], 100 * buffs[1] * buffs[4] * multis[0])
-												}
 												if ds_list_find_value(targets, i).hp <= 0 {
 													// kill dead enemies
 													instance_destroy(ds_list_find_value(targets, i))
@@ -521,6 +518,13 @@ if (not global.paused) {
 																											delay : delay,
 																											detections : [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]],
 																											direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
+										}
+										
+										if (towerType == 14 and tier4 and shotNum % 10 == 0) {
+											target.hp -= calculate_type_damage(target, [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]], 100 * buffs[1] * buffs[4] * multis[0])
+										
+											array_push(finalPositions, [target.x, target.y])
+											array_push(drawPercents, 0)
 										}
 									}
 								}
