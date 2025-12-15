@@ -24,7 +24,7 @@ else {
 	if (image_index == 23) {
 		hp += 500 / 60
 	}
-	hp += global.modEffects[13]
+	hp += global.modEffects[13] / 60
 	
 	if (hp > cash) {
 		hp = cash
