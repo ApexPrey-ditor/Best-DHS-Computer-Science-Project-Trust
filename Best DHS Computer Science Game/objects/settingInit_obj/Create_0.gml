@@ -43,9 +43,10 @@ global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
 
+<<<<<<< Updated upstream
 global.logbookUnlocks = [0, 1, 4, 8]
 /*global.logbookUnlocks = []
-for (var i = 0; i < 63; i++) {
+for (var i = 0; i < 75; i++) {
 	array_push(global.logbookUnlocks, i)
 }*/
 // for specific upgrades
