@@ -179,7 +179,7 @@ if (not global.paused) {
 					
 					global.logbookUnlocks = array_union(global.logbookUnlocks, [stats])
 					
-					if (not global.joat and stat >= 12 and stat < 16) {
+					if (not global.joat and stats >= 12 and stats < 16) {
 						global.joat = true
 						
 						// Not Horrible

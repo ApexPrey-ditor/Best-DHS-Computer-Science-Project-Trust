@@ -17,7 +17,7 @@ else {
 		instance_place_list(x, y, tag_get_asset_ids("Enemy", asset_object), enemies, false)
 		
 		// removes all the enemies that are ghost dead, or cant be detected
-		enemies = remove_undetectable(enemies, detections)
+		enemies = remove_undetectable(enemies, [true, true, detections[2]])
 
 		if (ds_list_size(enemies) > 0) {
 			if (special == "flame") {
@@ -76,7 +76,7 @@ else {
 				instance_place_list(x, y, tag_get_asset_ids("Enemy", asset_object), enemies, false)
 				
 				// removes all the enemies that are ghost dead, or cant be detected
-				enemies = remove_undetectable(enemies, detections)
+				enemies = remove_undetectable(enemies, [true, true, detections[2]])
 				
 				for (var i = 0; i < min(ds_list_size(enemies), pierce); i++) {
 					if (delay <= 0) {

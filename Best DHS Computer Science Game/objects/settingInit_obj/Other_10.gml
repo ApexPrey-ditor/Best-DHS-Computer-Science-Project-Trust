@@ -12,7 +12,7 @@ global.fastForward = 1
 global.paused = false
 // for upgrades (dear god)
 global.upgradeAmount = 1
-global.availableTowers = [0, 1, 4, 8, 14]
+global.availableTowers = [0, 1, 4, 8]
 global.upgrades = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
 global.modifiers = []
 // for specific upgrades
