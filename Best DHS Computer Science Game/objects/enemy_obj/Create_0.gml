@@ -240,10 +240,10 @@ switch (type) {
 		break;
 	case 31:
 		// Destructive Damsel
-		bossHealths = [750, 1250, 2000, 3000, 4500]
+		bossHealths = [600, 750, 1250, 2000, 3500]
 		hp = bossHealths[global.stage - 11] * global.modEffects[21]
 		class = [false, true, false]
-		pathSpeed = 2
+		pathSpeed = 1
 		name = "Destructive Damsel"
 		break;
 	case 32:
