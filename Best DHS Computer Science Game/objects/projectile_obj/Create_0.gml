@@ -1,6 +1,6 @@
-// makes the projectile half its actual size
-image_xscale = 0.05
-image_yscale = 0.05
+// makes the projectile tenth its actual size
+image_xscale = 0.5
+image_yscale = 0.5
 
 // offsets direction based on spread
 direction += random_range(-spread, spread)
@@ -12,19 +12,31 @@ prespeed = speed
 // for pierce not multihitting
 hit = []
 
+if (tier4) {
+	sprite_index = grenade_spr
+	image_angle = direction
+}
 // sets sprite to flame if flamethrower
 if (special == "flame") {
 	sprite_index = fire_spr
-	image_xscale = 1 + sqrt(aoe - 1)
-	image_yscale = 1 + sqrt(aoe - 1)
+	image_angle = direction
+	image_xscale = 0.5 + sqrt(aoe - 1)
+	image_yscale = 0.5 + sqrt(aoe - 1)
 }
 // sets sprite to soundwave if rapper
 if (special == "rapper") {
 	sprite_index = soundwave_spr
 	image_angle = direction
+	
+	image_xscale = 0.1
+	image_yscale = 0.1
+}
+if (special == "debt collector") {
+	sprite_index = pellet_spr
 }
 if (type == 1) {
 	image_alpha = 0
+	sprite_index = bomb_spr
 	alarm[0] = ceil((lifetime + effect[0]) / global.fastForward)
 	alarm[1] = ceil(effect[0] / global.fastForward)
 }

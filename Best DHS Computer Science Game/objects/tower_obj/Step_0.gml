@@ -516,6 +516,7 @@ if (not global.paused) {
 																											shotNum : shotNum,
 																											decamo : decamo,
 																											delay : delay,
+																											tier4 : tier4,
 																											detections : [max(detections[0], buffs[3]), max(detections[1], buffs[9]), detections[2]],
 																											direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
 										}

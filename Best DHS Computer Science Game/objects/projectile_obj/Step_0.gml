@@ -1,12 +1,14 @@
 // stops all projectiles when paused
 if (global.paused) {
 	speed = 0
+	image_speed = 0
 }
 else {
 	// checks impacts for normal projectiles
 	if (type == 0) {
 		// adjusts speed based on fastForward
 		speed = prespeed * global.fastForward
+		image_speed = global.fastForward
 		if (special == "rapper") {
 			image_xscale += (sqrt(aoe) * global.fastForward) / 30
 			image_yscale += (sqrt(aoe) * global.fastForward) / 30
@@ -126,7 +128,9 @@ else {
 						array_push(hit, ds_list_find_value(enemies, i))
 						if (ds_list_find_value(enemies, i).hp <= 0) {
 							if (special == "debt collector") {
-								creator.kills += 1
+								if (instance_exists(creator)) {
+									creator.kills += 1
+								}
 								ds_list_find_value(enemies, i).cash = floor(effect[4] * ds_list_find_value(enemies, i).cash)
 							}
 							instance_destroy(ds_list_find_value(enemies, i))
@@ -140,6 +144,9 @@ else {
 				}
 			}
 		}
+	}
+	if (type == 1) {
+		image_speed = (60 / lifetime) * global.fastForward
 	}
 }
 

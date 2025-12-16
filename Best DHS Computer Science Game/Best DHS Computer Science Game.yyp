@@ -299,7 +299,7 @@
     {"id":{"name":"folder_spr","path":"sprites/folder_spr/folder_spr.yy",},},
     {"id":{"name":"girlsVsEvilGirls_spr","path":"sprites/girlsVsEvilGirls_spr/girlsVsEvilGirls_spr.yy",},},
     {"id":{"name":"greenmedal_spr","path":"sprites/greenmedal_spr/greenmedal_spr.yy",},},
-    {"id":{"name":"grenade","path":"sprites/grenade/grenade.yy",},},
+    {"id":{"name":"grenade_spr","path":"sprites/grenade_spr/grenade_spr.yy",},},
     {"id":{"name":"horsingAround_spr","path":"sprites/horsingAround_spr/horsingAround_spr.yy",},},
     {"id":{"name":"infinite_spr","path":"sprites/infinite_spr/infinite_spr.yy",},},
     {"id":{"name":"logbook_spr","path":"sprites/logbook_spr/logbook_spr.yy",},},
