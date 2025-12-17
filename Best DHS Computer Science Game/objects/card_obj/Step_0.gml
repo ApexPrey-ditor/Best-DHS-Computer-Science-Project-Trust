@@ -57,7 +57,7 @@ if (not global.paused) {
 								}
 							}
 							if (tier4) {
-								global.logbookUnlocks = array_union(global.logbookUnlocks, [i + 72])
+								global.logbookUnlocks = array_union(global.logbookUnlocks, [i + 16])
 								
 								while (array_contains(global.upgradePool, image_index)) {
 									array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)
@@ -123,7 +123,7 @@ if (not global.paused) {
 								}
 							}
 							if (tier4) {
-								global.logbookUnlocks = array_union(global.logbookUnlocks, [i + 72])
+								global.logbookUnlocks = array_union(global.logbookUnlocks, [i + 16])
 								
 								while (array_contains(global.upgradePool, image_index)) {
 									array_delete(global.upgradePool, array_get_index(global.upgradePool, image_index), 1)

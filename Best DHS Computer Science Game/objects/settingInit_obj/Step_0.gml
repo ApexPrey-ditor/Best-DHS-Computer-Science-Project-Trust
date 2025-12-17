@@ -244,12 +244,12 @@ if (room != mainMenu) {
 		global.paused = true
 		pauseMenu_obj.goUp = false
 		if (mouse_check_button_pressed(mb_left)) {
-			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 172, (room_height / 2 - 512) + 278, (room_width / 2 - 1024) + 460, (room_height / 2 - 512) + 440)) {
+			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 512) + 172, (room_height / 2 - 256) + 278, (room_width / 2 - 512) + 460, (room_height / 2 - 256) + 440)) {
 				event_user(0)
 				audio_stop_all()
 				room_goto(radarRoom)
 			}
-			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 1024) + 548, (room_height / 2 - 512) + 274, (room_width / 2 - 1024) + 859, (room_height / 2 - 512) + 443)) {
+			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 512) + 548, (room_height / 2 - 256) + 274, (room_width / 2 - 512) + 859, (room_height / 2 - 256) + 443)) {
 				audio_stop_all()
 				room_goto(mainMenu)
 			}
