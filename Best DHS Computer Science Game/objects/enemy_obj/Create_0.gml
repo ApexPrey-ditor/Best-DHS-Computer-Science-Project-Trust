@@ -27,7 +27,7 @@ class = [false, false, false]
 // switches enemy costume based on type
 image_index = type
 
-global.logbookUnlocks = array_union(global.logbookUnlocks, [type + 24])
+global.logbookUnlocks = array_union(global.logbookUnlocks, [type + 40])
 
 // sets stats based on enemy type
 var bossHealths = []
