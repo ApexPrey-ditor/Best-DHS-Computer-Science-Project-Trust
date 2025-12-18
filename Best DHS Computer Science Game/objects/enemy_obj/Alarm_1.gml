@@ -15,7 +15,7 @@ switch (type) {
 		alarm[1] = ceil(420 / global.fastForward)
 		break;
 	case 19:
-		pathSpeed = 10 + dsin(hesCrazy) * 20
+		pathSpeed = 10 + dsin(hesCrazy) * 20 * global.modEffects[4] / global.modEffects[1]
 		hesCrazy += 2 * global.fastForward
 		alarm[1] = 1
 		break;

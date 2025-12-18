@@ -268,6 +268,9 @@ switch (type) {
 		break;
 }
 
+// sets how much money will give on death
+cash = hp
+
 // aplies modifiers
 hp = ceil(hp * global.modEffects[0] * global.modEffects[3])
 pathSpeed = pathSpeed * global.modEffects[4] / global.modEffects[1]
@@ -281,9 +284,6 @@ if (class[1]) {
 if (class[2]) {
 	damageResist += global.modEffects[22]
 }
-
-// sets how much money will give on death
-cash = hp
 
 maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing, baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper, battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround, straightUp, pass, personalProperty, weHaveToCook, cornered]
 paths = [[meadowPath], [threeRoundsDownPath], [evilGirlInvadersPath], [theDreamTeamPath], [infinitePath], [intermissionPath], [doubleOrNothingPath1, doubleOrNothingPath2], [baitNSwitchPath1, baitNSwitchPath2], [meadow2Path], [floodingPath], [girlsVsEvilGirlsPath1, girlsVsEvilGirlsPath2, girlsVsEvilGirlsPath3, girlsVsEvilGirlsPath4, girlsVsEvilGirlsPath5], [toiletBowlPath], [acrossTheGirlsverse1, acrossTheGirlsverse2, acrossTheGirlsverse3, acrossTheGirlsverse4], [cryForTheWeeperPath], [battlezonePath1, battlezonePath2, battlezonePath3, battlezonePath4, battlezonePath5, battlezonePath6, battlezonePath7, battlezonePath8, battlezonePath9, battlezonePath10, battlezonePath11, battlezonePath12, battlezonePath13], [socialDistancingPath], [doubleDownPath1, doubleDownPath2], [particleAcceleratorPath], [diagonalPath], [pathOfPainPath], [horsingAroundPath], [straightUpPath], [passPath], [personalPropertyPath], [weHaveToCookPath], [corneredPath]]
