@@ -1191,11 +1191,6 @@ if (not global.paused) {
 									break;
 								case "d1":
 									detections[1] = true
-									if (specialTargeting == "Non-solid") {
-										var place = array_get_index(conditions, specialTranslations[array_get_index(specialTypes, specialTargeting)])
-										conditions[place] = noneTargeting
-										specialTargeting = "None"
-									}
 									break;
 								case "buff":
 									if (global.upgrades[towerType][upgrade].buff > 0) {

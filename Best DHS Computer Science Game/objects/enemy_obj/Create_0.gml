@@ -218,14 +218,14 @@ switch (type) {
 		break;
 	case 28:
 		// Final Foss
-		hp = 25 * global.modEffects[21]
+		hp = 25
 		pathSpeed = 2
 		name = "Final Foss"
 		break;
 	case 29:
 		// Negative Nancy
 		bossHealths = [67, 100, 167, 200]
-		hp = bossHealths[global.stage - 2] * global.modEffects[21]
+		hp = bossHealths[global.stage - 2]
 		pathSpeed = 2
 		name = "Negative Nancy"
 		break;
@@ -233,7 +233,7 @@ switch (type) {
 		// Ferocious Female
 		bossHealths = [175, 250, 275, 325, 450]
 		bossClass = [[false, false, false], [false, false, false], [true, false, false], [true, false, false], [true, false, false]]
-		hp = bossHealths[global.stage - 6] * global.modEffects[21]
+		hp = bossHealths[global.stage - 6]
 		class = bossClass[global.stage - 6]
 		pathSpeed = 3
 		name = "Ferocious Female"
@@ -241,7 +241,7 @@ switch (type) {
 	case 31:
 		// Destructive Damsel
 		bossHealths = [600, 750, 1250, 2000, 3500]
-		hp = bossHealths[global.stage - 11] * global.modEffects[21]
+		hp = bossHealths[global.stage - 11]
 		class = [false, true, false]
 		pathSpeed = 1
 		name = "Destructive Damsel"
@@ -250,19 +250,19 @@ switch (type) {
 		// Malicious Madam
 		bossHealths = [5000, 6000, 7500]
 		bossClass = [[false, false, false], [true, false, false], [false, false, true]]
-		hp = bossHealths[global.stage - 16] * global.modEffects[21]
+		hp = bossHealths[global.stage - 16]
 		pathSpeed = 2
 		name = "Malicious Madam"
 		break;
 	case 33:
 		// Your Mom
-		hp = 25000 * global.modEffects[21]
+		hp = 25000
 		pathSpeed = 1
 		name = "Ur Mom"
 		break;
 	case 34:
 		// Evil Girl
-		hp = 75000 * global.modEffects[21]
+		hp = 75000
 		pathSpeed = 0.5
 		name = "Evil Girl"
 		break;
@@ -283,6 +283,9 @@ if (class[1]) {
 }
 if (class[2]) {
 	damageResist += global.modEffects[22]
+}
+if (type > 27) {
+	hp = hp * global.modEffects[21]
 }
 
 maps = [meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, intermission, doubleOrNothing, baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse, cryForTheWeeper, battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround, straightUp, pass, personalProperty, weHaveToCook, cornered]

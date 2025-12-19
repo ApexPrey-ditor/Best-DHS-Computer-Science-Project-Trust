@@ -176,14 +176,5 @@ if (special == "flame") {
 	specialTargeting = "Non-burning"
 	array_push(conditions, fireTargeting)
 }
-else {
-	if (detections[1] == false) {
-		specialTargeting = "Non-solid"
-		array_push(conditions, fSolidTargeting)
-	}
-	else {
-		array_push(conditions, noneTargeting)
-	}
-}
 
 array_push(conditions, firstTargeting)
