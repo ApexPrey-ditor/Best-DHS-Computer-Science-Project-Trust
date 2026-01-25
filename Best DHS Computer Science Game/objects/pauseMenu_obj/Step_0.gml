@@ -76,9 +76,14 @@ if (global.paused and goUp) {
 				// left arrow
 				if (point_in_rectangle(mouse_x, mouse_y, x + 63, y + 261, x + 176, y + 377)) {
 					if (image_index == 0) {
-						sprite_index = pauseMenu_spr
-						if (global.autostart) {
-							image_index = 1
+						if (room == mainMenu) {
+							global.paused = false;
+						}
+						else {
+							sprite_index = pauseMenu_spr
+							if (global.autostart) {
+								image_index = 1
+							}
 						}
 					}
 					else {

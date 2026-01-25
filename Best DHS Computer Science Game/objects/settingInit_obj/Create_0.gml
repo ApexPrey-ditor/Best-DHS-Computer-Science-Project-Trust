@@ -98,7 +98,7 @@ repeat (4) {
 	array_push(global.upgradePool, 5) // Hype
 }
 // Not Bad
-repeat (3) {	
+repeat (3) {
 	array_push(global.upgradePool, 6) // Scitzo
 	array_push(global.upgradePool, 7) // Lose Yourself
 	array_push(global.upgradePool, 8) // gdrrrrrrrrrrr brrrrrrrrrrat brrrrrrrrrat brrrrrrrrrrrrrrrrrrrrrrrrrrr wrrrrrrrrrrrrrrrrriririirir
@@ -147,12 +147,12 @@ maps = [[meadow, threeRoundsDown, evilGirlInvaders, theDreamTeam, infinite, inte
 		[baitNSwitch, meadow2, flooding, girlsVsEvilGirls, toiletBowl, acrossTheGirlsverse],
 		[cryForTheWeeper, battlezone, socialDistancing, doubleDown, particleAccelerator, diagonal, pathOfPain, horsingAround],
 		[straightUp, pass, personalProperty, weHaveToCook, cornered]]
-songs = [hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve, hotSummerDay, coldWinterEve,
-		coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve,
+songs = [hotSummerDay, hotSummerDay, abyss, hotSummerDay, abyss, hotSummerDay, coldWinterEve,
+		coldWinterEve, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, abyss,
 		hotSummerDay, hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, coldWinterEve, coldWinterEve, hotSummerDay,
 		hotSummerDay, hotSummerDay, hotSummerDay, coldWinterEve, hotSummerDay]
-songsCalm = [hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm, coldWinterEveCalm,
-			coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm,
+songsCalm = [hotSummerDayCalm, hotSummerDayCalm, abyssCalm, hotSummerDayCalm, abyssCalm, hotSummerDayCalm, coldWinterEveCalm,
+			coldWinterEveCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, abyssCalm,
 			hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, coldWinterEveCalm, coldWinterEveCalm, hotSummerDayCalm,
 			hotSummerDayCalm, hotSummerDayCalm, hotSummerDayCalm, coldWinterEveCalm, hotSummerDayCalm]
 

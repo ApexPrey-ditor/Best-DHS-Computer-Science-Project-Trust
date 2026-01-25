@@ -319,6 +319,7 @@
     {"id":{"name":"pellet_spr","path":"sprites/pellet_spr/pellet_spr.yy",},},
     {"id":{"name":"personalProperty_spr","path":"sprites/personalProperty_spr/personalProperty_spr.yy",},},
     {"id":{"name":"redmedal_spr","path":"sprites/redmedal_spr/redmedal_spr.yy",},},
+    {"id":{"name":"skillTreeButtons_spr","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},},
     {"id":{"name":"socialDistancing_spr","path":"sprites/socialDistancing_spr/socialDistancing_spr.yy",},},
     {"id":{"name":"soundwave_spr","path":"sprites/soundwave_spr/soundwave_spr.yy",},},
     {"id":{"name":"square_spr","path":"sprites/square_spr/square_spr.yy",},},

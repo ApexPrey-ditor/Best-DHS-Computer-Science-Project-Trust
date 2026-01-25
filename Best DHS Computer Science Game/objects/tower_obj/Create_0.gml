@@ -53,6 +53,14 @@ childSupport = 0
 countdown = 0
 addiction = false
 
+function findTrueDamage() {
+	return damage * buffs[1] * buffs[4] * multis[0]
+}
+
+function findTrueDetections(autoSolid) {
+	return [max(detections[0], buffs[3]), max(detections[1], buffs[9], autoSolid), detections[2]]
+}
+
 // firing conditions
 // initial is the current target enemy
 // check is the comparing enemy

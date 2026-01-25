@@ -44,6 +44,9 @@ if (room != mainMenu) {
 	}
 }
 else {
+	var back_id = layer_background_get_id(layer_get_id("Background"))
+	layer_background_index(back_id, irandom_range(0, sprite_get_number(menuBackground_spr) - 1));
+	
 	audio_play_sound(mainTheme, 0, true)
 	
 	event_user(0)
