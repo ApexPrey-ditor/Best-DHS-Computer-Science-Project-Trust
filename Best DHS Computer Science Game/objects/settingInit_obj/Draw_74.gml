@@ -1,3 +1,7 @@
+// debug
+draw_set_color(c_white)
+draw_text(50, 50, global.exp)
+
 if (room != radarRoom and room != mainMenu) {
 	// draws blue background square
 	draw_set_color(make_colour_rgb(0, 0, 0))

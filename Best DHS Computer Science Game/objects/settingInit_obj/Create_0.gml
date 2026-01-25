@@ -31,6 +31,9 @@ global.wave = 1
 global.money = 300
 global.stage = 1
 global.autostart = false
+global.exp = 0
+global.expLevel = 0
+global.skillPoints = 0
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower

@@ -1,3 +1,8 @@
+// debug
+if (room == mainMenu) {
+	draw_set_color(c_orange)
+	draw_rectangle(20, 20, 1920 - ((((1.1 ^ global.expLevel) * 100) / (global.exp + 1)) * 19), 30, false)
+}
 if (room == radarRoom) {
 	draw_set_colour(c_green)
 	draw_circle(room_width / 2, room_height / 2, 8, false)
