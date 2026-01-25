@@ -241,7 +241,7 @@ if (room != mainMenu) {
 				}
 			}
 		}
-		if (global.exp == false) {
+		if (global.paused == false) {
 			global.exp += (global.stage - 1) * 15 + (global.wave - 1) * 2
 		}
 		global.paused = true

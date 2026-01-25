@@ -208,7 +208,7 @@ switch (image_index) {
 		break;
 	// bro im lagging i swaer
 	case 26:
-		stats = {display : "bro im lagging i swaer", desc : "Aims at where the enemy was instead of where it is \n+|% Attack Speed", fireSpeed : 0.5, lead : false}
+		stats = {display : "bro im lagging i swaer", desc : "Aims at where the enemy was instead of where it is \n+|% Attack Speed", fireSpeed : 0.5, spread : 30}
 		replace = [50]
 		appliable = [4, 5]
 		appliable = global.oneTimesValues[array_get_index(global.oneTimesKey, image_index)]

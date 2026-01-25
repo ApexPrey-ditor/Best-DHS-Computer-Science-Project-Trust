@@ -1244,8 +1244,8 @@ if (not global.paused) {
 								case "delay":
 									delay += global.upgrades[towerType][upgrade].delay * effectiveness[upgrade]
 									break;
-								case "lead":
-									lead = false
+								case "spread":
+									spread += global.upgrades[towerType][upgrade].spread * effectiveness[upgrade]
 									break;
 								case "gunner4":
 									pierce = pierce * 2
@@ -1484,7 +1484,7 @@ if (not global.paused) {
 			}
 		}
 		// destroys tower if sent in the tower menu after pulled out of it
-		if ((xprevious < room_width - 384 or mouse_check_button_pressed(mb_left)) and x > room_width - 384) {
+		if ((xprevious < room_width - 384 or mouse_check_button_pressed(mb_left)) and x > room_width - 384 or keyboard_check_pressed(ord("X"))) {
 			settingInit_obj.placing = false
 			instance_destroy()
 		}
