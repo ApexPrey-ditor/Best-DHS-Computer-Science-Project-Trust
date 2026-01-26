@@ -137,6 +137,7 @@
     {"id":{"name":"pauseMenu_obj","path":"objects/pauseMenu_obj/pauseMenu_obj.yy",},},
     {"id":{"name":"projectile_obj","path":"objects/projectile_obj/projectile_obj.yy",},},
     {"id":{"name":"settingInit_obj","path":"objects/settingInit_obj/settingInit_obj.yy",},},
+    {"id":{"name":"skillTreeButton","path":"objects/skillTreeButton/skillTreeButton.yy",},},
     {"id":{"name":"tower_obj","path":"objects/tower_obj/tower_obj.yy",},},
     {"id":{"name":"track_obj","path":"objects/track_obj/track_obj.yy",},},
     {"id":{"name":"ParticleSystem1","path":"particles/ParticleSystem1/ParticleSystem1.yy",},},

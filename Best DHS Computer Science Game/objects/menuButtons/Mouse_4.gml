@@ -7,9 +7,14 @@ if (!global.paused) {
 		case 1:
 			game_end()
 			break;
+		case 2:
+			layer_set_visible("SkillTree", true)
+			global.paused = true
+			pauseMenu_obj.goUp = false
 		case 3:
 			global.paused = true
 			pauseMenu_obj.sprite_index = logbook_spr
 			pauseMenu_obj.image_index = 0
+			break;
 	}
 }

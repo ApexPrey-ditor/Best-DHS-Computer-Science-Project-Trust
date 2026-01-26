@@ -78,6 +78,19 @@ global.oneTimesValues = [[0, 2, 3, 4, 5, 6, 14],
 global.upgradePool = []
 global.towerPool = [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
 global.joat = false
+
+// skill tree modifiers
+global.skillTreeModifiers = {damage : 1,
+							fireRate : 1,
+							range : 1,
+							effectStength : 1,
+							startingCash : 300,
+							cashFromEnemies : 1,
+							cashFromWaves : 1,
+							cashFromSelling : 1,
+							maxHealth : 100,
+							healthRegen : 0,
+							overheal : 0}
 // cards for debugging
 repeat (1000) {
 	//array_push(global.upgradePool, 12)

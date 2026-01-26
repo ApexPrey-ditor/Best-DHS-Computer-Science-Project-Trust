@@ -12,6 +12,17 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
+    {"$GMSpriteFrame":"v1","%Name":"c254e420-ab9e-45ab-bcdd-a82ed349ff59","name":"c254e420-ab9e-45ab-bcdd-a82ed349ff59","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"4939076a-1023-44ea-a490-1d5cf260beda","name":"4939076a-1023-44ea-a490-1d5cf260beda","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"eea0cd18-6543-4d6b-9640-8ff981ce6958","name":"eea0cd18-6543-4d6b-9640-8ff981ce6958","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"ab3b1b82-e671-40b7-b212-7d5416ad94f9","name":"ab3b1b82-e671-40b7-b212-7d5416ad94f9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"ef4ab96d-e03d-44b0-bfe3-f2af38c7cd05","name":"ef4ab96d-e03d-44b0-bfe3-f2af38c7cd05","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"944ffbe6-15a7-4b90-8651-7a5329781dbc","name":"944ffbe6-15a7-4b90-8651-7a5329781dbc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"23360741-d2d8-42c1-9c43-522f9731d0cb","name":"23360741-d2d8-42c1-9c43-522f9731d0cb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"75f674f8-c1b3-4d15-95af-725965117f89","name":"75f674f8-c1b3-4d15-95af-725965117f89","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c982cadc-349d-4b54-a3b8-e32521757acf","name":"c982cadc-349d-4b54-a3b8-e32521757acf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"ca8998f9-ff8a-43a9-9835-84b782a896e0","name":"ca8998f9-ff8a-43a9-9835-84b782a896e0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"2e085c36-d80b-4f97-9890-2ac58d3278c3","name":"2e085c36-d80b-4f97-9890-2ac58d3278c3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"0cebe7c4-8b65-4cc3-a161-ad45c3a0133a","name":"0cebe7c4-8b65-4cc3-a161-ad45c3a0133a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
@@ -23,7 +34,7 @@
   ],
   "name":"skillTreeButtons_spr",
   "nineSlice":null,
-  "origin":0,
+  "origin":9,
   "parent":{
     "name":"Menu Stuff",
     "path":"folders/Sprites/Menu Stuff.yy",
@@ -49,7 +60,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":12.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -59,7 +70,7 @@
     },
     "name":"skillTreeButtons_spr",
     "playback":1,
-    "playbackSpeed":30.0,
+    "playbackSpeed":0.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -69,14 +80,47 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c254e420-ab9e-45ab-bcdd-a82ed349ff59","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"42e20442-adae-478b-ab83-aeaf74776308","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4939076a-1023-44ea-a490-1d5cf260beda","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a3008744-568c-4289-a4f6-2a767b0f302d","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"eea0cd18-6543-4d6b-9640-8ff981ce6958","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"40358ccf-1a0b-44d5-97a5-2b4c247d7a3a","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ab3b1b82-e671-40b7-b212-7d5416ad94f9","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"814ac94a-d7ce-42a7-8e70-99b36e36b340","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ef4ab96d-e03d-44b0-bfe3-f2af38c7cd05","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e815bde9-9ba4-40c3-a974-fe9a150d5f4f","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"944ffbe6-15a7-4b90-8651-7a5329781dbc","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"fe4def56-1db4-4bf8-bd4d-1875f09d7677","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"23360741-d2d8-42c1-9c43-522f9731d0cb","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"84e45f32-8b52-435b-9504-91b6e3f1dc2a","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"75f674f8-c1b3-4d15-95af-725965117f89","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f42ea3a7-9a8c-4e6b-8230-8d8be4dc514c","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c982cadc-349d-4b54-a3b8-e32521757acf","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e3fd2306-d743-4127-9432-3f0bf53a18ae","IsCreationKey":false,"Key":8.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ca8998f9-ff8a-43a9-9835-84b782a896e0","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d7f3aea2-a9da-422e-9239-11119528fa07","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2e085c36-d80b-4f97-9890-2ac58d3278c3","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8916ea63-86d2-4311-aaed-ca5b76e89c3d","IsCreationKey":false,"Key":10.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0cebe7c4-8b65-4cc3-a161-ad45c3a0133a","path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"f78584e2-11e6-4f36-9e5c-41a9997d4d3d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"f78584e2-11e6-4f36-9e5c-41a9997d4d3d","IsCreationKey":false,"Key":11.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":0,
+    "xorigin":83,
+    "yorigin":92,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
