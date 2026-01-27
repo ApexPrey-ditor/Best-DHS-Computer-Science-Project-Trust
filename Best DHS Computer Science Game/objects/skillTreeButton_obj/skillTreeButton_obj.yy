@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"menuButtons",
+  "%Name":"skillTreeButton_obj",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"menuButtons",
+  "name":"skillTreeButton_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"menuButtons_spr",
-    "path":"sprites/menuButtons_spr/menuButtons_spr.yy",
+    "name":"skillTreeButtons_spr",
+    "path":"sprites/skillTreeButtons_spr/skillTreeButtons_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -350,7 +350,7 @@ if (not global.paused) {
 												// iterates through the amount of enemies tower is allowed to hit
 												ds_list_find_value(targets, i).hp -= calculate_type_damage(ds_list_find_value(targets, i), findTrueDetections(false), findTrueDamage())
 												if (burn) {
-													ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), findTrueDetections(trure), findTrueDamage()) / fireSpeed / 2)
+													ds_list_find_value(targets, i).burning = (calculate_type_damage(ds_list_find_value(targets, i), findTrueDetections(true), findTrueDamage()) / fireSpeed / 2)
 													ds_list_find_value(targets, i).alarm[0] = ceil(fireSpeed / global.fastForward * 3)
 													ds_list_find_value(targets, i).image_blend = c_orange
 												}
@@ -1430,7 +1430,7 @@ if (not global.paused) {
 				// selling
 				if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040) and joathe == 0) {
 					// gives 60% of money back, then closes the upgrade menu
-					global.money += floor(cost * 0.6)
+					global.money += floor(cost * 0.6) * global.skillTreeModifiers[7]
 					selected = false
 					global.upgradeMenu = false
 				

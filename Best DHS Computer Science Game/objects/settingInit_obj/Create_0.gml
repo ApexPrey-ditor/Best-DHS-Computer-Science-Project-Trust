@@ -33,7 +33,7 @@ global.stage = 1
 global.autostart = false
 global.exp = 0
 global.expLevel = 0
-global.skillPoints = 0
+global.skillPoints = 10
 // for when starting a new wave
 global.waveTransition = 0
 // for when selecting a tower
@@ -84,11 +84,11 @@ global.skillTreeModifiers = {damage : 1,
 							fireRate : 1,
 							range : 1,
 							effectStength : 1,
-							startingCash : 300,
+							startingCash : 0,
 							cashFromEnemies : 1,
 							cashFromWaves : 1,
 							cashFromSelling : 1,
-							maxHealth : 100,
+							maxHealth : 0,
 							healthRegen : 0,
 							overheal : 0}
 // cards for debugging

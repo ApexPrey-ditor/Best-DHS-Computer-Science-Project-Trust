@@ -242,13 +242,16 @@ if (room != mainMenu) {
 			}
 		}
 		if (global.paused == false) {
-			global.exp += (global.stage - 1) * 15 + (global.wave - 1) * 2
+			for(var i = 1; i < global.stage; i++) {
+				global.exp += i * 5
+			}
 		}
 		global.paused = true
 		pauseMenu_obj.goUp = false
-		while (global.exp > (1.1 ^ global.expLevel) * 100) {
-			global.exp -= (1.1 ^ global.expLevel) * 100
+		while (global.exp > floor((1.1 ^ global.expLevel) * 100)) {
+			global.exp -= floor((1.1 ^ global.expLevel) * 100)
 			global.expLevel++
+			global.skillPoints++
 		}
 		if (mouse_check_button_pressed(mb_left)) {
 			if (point_in_rectangle(mouse_x, mouse_y, (room_width / 2 - 512) + 172, (room_height / 2 - 256) + 278, (room_width / 2 - 512) + 460, (room_height / 2 - 256) + 440)) {

@@ -1,6 +1,7 @@
 // debug
 draw_set_color(c_white)
-draw_text(50, 50, global.exp)
+draw_text(50, 50, "Exp: " + string(global.exp))
+draw_text(50, 70, "Skill Points: " + string(global.skillPoints))
 
 if (room != radarRoom and room != mainMenu) {
 	// draws blue background square

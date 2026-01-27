@@ -18,3 +18,10 @@ if (!global.paused) {
 			break;
 	}
 }
+else {
+	if (image_index == 2) {
+		layer_set_visible("SkillTree", false)
+		global.paused = false
+		pauseMenu_obj.goUp = false
+	}
+}
