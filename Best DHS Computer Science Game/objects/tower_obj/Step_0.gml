@@ -1430,7 +1430,7 @@ if (not global.paused) {
 				// selling
 				if (point_in_rectangle(mouse_x, mouse_y, room_width - 222, 944, room_width - 32, 1040) and joathe == 0) {
 					// gives 60% of money back, then closes the upgrade menu
-					global.money += floor(cost * 0.6) * global.skillTreeModifiers[7]
+					global.money += floor(cost * 0.6) * global.skillTreeModifiers.cashFromSelling
 					selected = false
 					global.upgradeMenu = false
 				

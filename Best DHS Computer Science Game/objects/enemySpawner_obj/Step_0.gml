@@ -28,7 +28,11 @@ if (endWave and enemies == 0) {
 	}
 	
 	// at the end of wave give money
-	global.money += ceil(50 + global.wave * 50) * global.modEffects[6] * global.skillTreeModifiers[6]
+	global.money += ceil(50 + global.wave * 50) * global.modEffects[6] * global.skillTreeModifiers.cashFromWaves
+	global.health += global.skillTreeModifiers.healthRegen
+	if (global.health > global.health + global.skillTreeModifiers.overheal) {
+		global.health = global.health + global.skillTreeModifiers.overheal
+	}
 	global.wave += 1
 	
 	endWave = false

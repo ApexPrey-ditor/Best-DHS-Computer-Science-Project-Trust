@@ -1,12 +1,12 @@
 if (room != mainMenu) {
 	// initializes global variables
-	global.health = global.modEffects[8] + global.skillTreeModifiers[8]
+	global.health = global.modEffects[8] + global.skillTreeModifiers.maxHealth
 	global.first = true
 	global.wave = global.stage
 	global.towers = 0
 	// for testing final wave of each stage:
 	//global.wave = floor(global.stage) * 2
-	global.money = global.modEffects[5] + global.skillTreeModifiers[4]
+	global.money = global.modEffects[5] + global.skillTreeModifiers.startingCash
 	//global.money = 3000000000000000000000
 	for (var i = 0; i < global.wave; i++) {
 		global.money += 50 + i * 50

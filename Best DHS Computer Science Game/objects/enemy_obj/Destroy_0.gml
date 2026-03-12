@@ -3,7 +3,7 @@ enemySpawner_obj.enemies -= 1
 
 // only does on death or cash if enemy was killed by tower
 if (skip == false) {
-	global.money += floor(cash * global.modEffects[7])
+	global.money += floor(cash * global.modEffects[7] * global.skillTreeModifiers.cashFromEnemies)
 
 	// spawns enemies on death if necromancer enemy
 	switch (type) {
