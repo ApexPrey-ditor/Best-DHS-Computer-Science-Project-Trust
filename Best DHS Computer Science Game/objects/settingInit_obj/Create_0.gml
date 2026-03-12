@@ -186,9 +186,9 @@ sprite_prefetch(towerIcons256_spr)
 texture_prefetch("EnemiesTowers")
 
 // set audio loop points and load music
-//audio_group_load(Music)
+audio_group_load(Music)
 audio_group_load(MusicCalm)
-//audio_group_load(MusicAmbient)
+audio_group_load(MusicAmbient)
 audio_group_load(MusicBosses)
 
 audio_sound_loop_end(Intermission, 51.4)
