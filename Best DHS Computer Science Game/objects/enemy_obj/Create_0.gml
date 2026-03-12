@@ -269,7 +269,7 @@ switch (type) {
 }
 
 // sets how much money will give on death
-cash = hp * global.skillTreeModifiers[5]
+cash = hp
 
 // aplies modifiers
 hp = ceil(hp * global.modEffects[0] * global.modEffects[3])
