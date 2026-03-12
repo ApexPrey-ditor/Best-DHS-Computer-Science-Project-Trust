@@ -2,12 +2,6 @@ image_xscale = 0.4 * global.modEffects[10]
 image_yscale = 0.4 * global.modEffects[10]
 
 sprite_index = asset_get_index("tower" + string(towerType) + "_spr")
-// skill tree effecting
-fireSpeed *= global.skillTreeModifiers[1]
-range *= global.skillTreeModifiers[2]
-for (var i = 0; i < effect.length; i++) {
-	effect[i] *= global.skillTreeModifiers[3]
-}
 
 // initializes utility varibles
 firing = false
