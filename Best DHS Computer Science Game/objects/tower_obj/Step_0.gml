@@ -149,13 +149,13 @@ if (not global.paused) {
 						
 						buffing = [target]
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
-						target.buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
-						target.buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						target.buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
+						target.buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
 						if (tier4) {
-							target.buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
-							target.buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
-							target.buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
+							target.buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
+							target.buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
+							target.buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, target) * 0.5 * psychiatrist + 1)
 						}
 						target.image_blend = c_blue
 					}
@@ -198,7 +198,7 @@ if (not global.paused) {
 						// finds targets
 						var options = ds_list_create()
 						var unsorted = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
 				
 						// removes all the enemies that are ghost dead, or cant be detected
 						unsorted = remove_undetectable(unsorted, findTrueDetections(false))
@@ -294,8 +294,8 @@ if (not global.paused) {
 									collision_line_list(x, y, xpos, ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 								}
 								else {
-									xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2] * buffs[12] * multis[2]
-									ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2] * buffs[12] * multis[2]
+									xpos += dcos(point_direction(x, y, target.x, target.y)) * range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range
+									ypos -= dsin(point_direction(x, y, target.x, target.y)) * range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range
 								
 									collision_line_list(x + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], y, xpos + dcos(point_direction(x, y, target.x, target.y)) * aoe * multis[4], ypos, tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
 									collision_line_list(x, y - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], xpos, ypos - dsin(point_direction(x, y, target.x, target.y)) * aoe * multis[4], tag_get_asset_ids("Enemy", asset_object), false, true, targets, true)
@@ -480,7 +480,7 @@ if (not global.paused) {
 																											spread : spread,
 																											effect : effect,
 																											pierce : pierce * multis[5] + buffs[11],
-																											lifetime : (range * buffs[2] * buffs[12] * multis[2]) / projSpeed,
+																											lifetime : (range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range) / projSpeed,
 																											detections : findTrueDetections(false),
 																											creator : id,
 																											direction : point_direction(x, y, path_get_x(target.path_index, leadPosition), path_get_y(target.path_index, leadPosition))})
@@ -557,7 +557,7 @@ if (not global.paused) {
 							global.health -= lifeDeduct
 							shotNum += 1
 							firing = true
-							attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - (fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward)
+							attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - (fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate)
 							if (towerType == 2 and tier4 and doubleShot > 1) {
 								doubleShot -= 1
 								image_speed = global.fastForward
@@ -566,7 +566,7 @@ if (not global.paused) {
 							else {
 								doubleShot = 10
 								image_speed = global.fastForward
-								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
+								alarm[0] = max(ceil((fireSpeed - beerEffects[0] / global.skillTreeModifiers.fireRate) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - floor(attackRemainder), 1)
 							}
 							if (attackRemainder > 1) {
 								attackRemainder -= 1
@@ -578,16 +578,16 @@ if (not global.paused) {
 					if (special == "s firerate") {
 						// performs buffs for all towers in range of cheerleader
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
 							if (not addiction) {
-								if (ds_list_find_value(towers, i).buffs[0] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-									ds_list_find_value(towers, i).buffs[0] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
+								if (ds_list_find_value(towers, i).buffs[0] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
+									ds_list_find_value(towers, i).buffs[0] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
 									ds_list_find_value(towers, i).image_blend = c_green
 								}
-								if (ds_list_find_value(towers, i).buffs[13] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
-									ds_list_find_value(towers, i).buffs[13] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
+								if (ds_list_find_value(towers, i).buffs[13] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, i).placing) {
+									ds_list_find_value(towers, i).buffs[13] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1)
 									ds_list_find_value(towers, i).image_blend = c_green
 								}
 								if (tier4) {
@@ -600,8 +600,8 @@ if (not global.paused) {
 							else {
 								if (not array_contains(buffing, ds_list_find_value(towers, i)) and not ds_list_find_value(towers, i).placing) {
 									if (countdown > 0) {
-										ds_list_find_value(towers, i).buffs[0] += ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - 1)
-										ds_list_find_value(towers, i).buffs[13] += ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, i).buffs[0] += ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - 1)
+										ds_list_find_value(towers, i).buffs[13] += ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
 										if (tier4) {
 											ds_list_find_value(towers, i).buffs[8] += ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - 1)
 										}
@@ -610,8 +610,8 @@ if (not global.paused) {
 										array_push(buffing, ds_list_find_value(towers, i))
 									}
 									else {
-										ds_list_find_value(towers, i).buffs[0] = ds_list_find_value(towers, i).buffs[0] / ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
-										ds_list_find_value(towers, i).buffs[13] -= ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, i).buffs[0] = ds_list_find_value(towers, i).buffs[0] / ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, i).buffs[13] -= ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
 										if (tier4) {
 											ds_list_find_value(towers, i).buffs[8] = ds_list_find_value(towers, i).buffs[8] / ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1))
 										}
@@ -627,17 +627,17 @@ if (not global.paused) {
 						// performs buffs for all towers in range of spotter
 						var towers = ds_list_create()
 						var buffed = false
-						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 						
 						for (var j = 0; j < ds_list_size(towers); j++) {
 							if (not addiction) {
 								buffed = false
-								if (ds_list_find_value(towers, j).buffs[1] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
-									ds_list_find_value(towers, j).buffs[1] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
+								if (ds_list_find_value(towers, j).buffs[1] < (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).buffs[1] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
 									buffed = true
 								}
-								if (ds_list_find_value(towers, j).buffs[2] < (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
-									ds_list_find_value(towers, j).buffs[2] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
+								if (ds_list_find_value(towers, j).buffs[2] < (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).buffs[2] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
 									buffed = true
 								}
 								if (ds_list_find_value(towers, j).buffs[3] == false and not ds_list_find_value(towers, j).placing) {
@@ -648,8 +648,8 @@ if (not global.paused) {
 									ds_list_find_value(towers, j).buffs[9] = true
 									buffed = true
 								}
-								if (ds_list_find_value(towers, j).buffs[14] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
-									ds_list_find_value(towers, j).buffs[14] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
+								if (ds_list_find_value(towers, j).buffs[14] < (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) and not ds_list_find_value(towers, j).placing) {
+									ds_list_find_value(towers, j).buffs[14] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1)
 									buffed = true
 								}
 								if (buffed and not ds_list_find_value(towers, j).placing) {
@@ -659,18 +659,18 @@ if (not global.paused) {
 							else {
 								if (not array_contains(buffing, ds_list_find_value(towers, j)) and not ds_list_find_value(towers, j).placing) {
 									if (countdown > 0) {
-										ds_list_find_value(towers, j).buffs[1] += ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) - 1)
-										ds_list_find_value(towers, j).buffs[2] += ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) - 1)
-										ds_list_find_value(towers, j).buffs[14] += ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, j).buffs[1] += ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) - 1)
+										ds_list_find_value(towers, j).buffs[2] += ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1) - 1)
+										ds_list_find_value(towers, j).buffs[14] += ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
 										ds_list_find_value(towers, j).buffs[3] = true
 										if (tier4) {
 											ds_list_find_value(towers, j).buffs[9] = true
 										}
 									}
 									else {
-										ds_list_find_value(towers, j).buffs[1] = ds_list_find_value(towers, j).buffs[1] / ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
-										ds_list_find_value(towers, j).buffs[2] = ds_list_find_value(towers, j).buffs[2] / ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
-										ds_list_find_value(towers, j).buffs[14] -= ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, j).buffs[1] = ds_list_find_value(towers, j).buffs[1] / ((effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, j).buffs[2] = ds_list_find_value(towers, j).buffs[2] / ((effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
+										ds_list_find_value(towers, j).buffs[14] -= ((childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, ds_list_find_value(towers, j)) * 0.5 * psychiatrist + 1))
 									}
 								}
 							}
@@ -678,7 +678,7 @@ if (not global.paused) {
 						
 						if (tier4) {
 							if (instance_exists(marked)) {
-								if (distance_to_object(marked) > range * buffs[2] * buffs[12] * multis[2]) {
+								if (distance_to_object(marked) > range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range) {
 									marked.weakness = 1
 									marked = noone
 								}
@@ -687,7 +687,7 @@ if (not global.paused) {
 								// finds targets
 								var options = ds_list_create()
 								var unsorted = ds_list_create()
-								collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+								collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
 				
 								// removes all the enemies that are ghost dead, or cant be detected
 								unsorted = remove_undetectable(unsorted, findTrueDetections(false))
@@ -737,11 +737,11 @@ if (not global.paused) {
 					if (special == "s commander") {
 						// performs buffs for all towers in range of commander
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
-							if (ds_list_find_value(towers, i).buffs[5] < (effect[0] * buffs[8] * multis[3] * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) and not ds_list_find_value(towers, i).placing) {
-								ds_list_find_value(towers, i).buffs[5] = (effect[0] * buffs[8] * multis[3] * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop))
+							if (ds_list_find_value(towers, i).buffs[5] < (effect[0] * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) and not ds_list_find_value(towers, i).placing) {
+								ds_list_find_value(towers, i).buffs[5] = (effect[0] * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop))
 								ds_list_find_value(towers, i).image_blend = c_maroon
 							}
 						}
@@ -791,8 +791,8 @@ if (not global.paused) {
 							}
 					
 							firing = true
-							attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) 
-							alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
+							attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate)
+							alarm[0] = max(ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - floor(attackRemainder), 1)
 							if attackRemainder > 1 {
 								attackRemainder -= 1
 							}
@@ -801,11 +801,11 @@ if (not global.paused) {
 					if (special == "s hacker") {
 						// performs buffs for all towers in range of hacker
 						var towers = ds_list_create()
-						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			
 						for (var i = 0; i < ds_list_size(towers); i++) {
-							if (ds_list_find_value(towers, i).buffs[6] < (effect[0] * buffs[8] * multis[3] * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) and not ds_list_find_value(towers, i).placing) {
-								ds_list_find_value(towers, i).buffs[6] = (effect[0] * buffs[8] * multis[3] * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop))
+							if (ds_list_find_value(towers, i).buffs[6] < (effect[0] * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) and not ds_list_find_value(towers, i).placing) {
+								ds_list_find_value(towers, i).buffs[6] = (effect[0] * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (array_contains(global.schizophrenics, ds_list_find_value(towers, i)) * 0.5 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop))
 								ds_list_find_value(towers, i).image_blend = c_aqua
 							}
 						}
@@ -814,7 +814,7 @@ if (not global.paused) {
 							// finds targets
 							var options = ds_list_create()
 							var unsorted = ds_list_create()
-							collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
+							collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Enemy", asset_object), false, true, unsorted, false)
 				
 							// removes all the enemies that are ghost dead, or cant be detected
 							unsorted = remove_undetectable(unsorted, findTrueDetections(false))
@@ -903,8 +903,8 @@ if (not global.paused) {
 								
 								sprite_index = asset_get_index("towerShooting" + string(towerType + tier4 * 16) + "_spr")
 								firing = true
-								attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) 
-								alarm[0] = ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
+								attackRemainder += ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) 
+								alarm[0] = max(ceil((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - floor(attackRemainder), 1)
 								if attackRemainder > 1 {
 									attackRemainder -= 1
 								}
@@ -987,8 +987,8 @@ if (not global.paused) {
 					
 					firing = true
 					shotNum += 1
-					attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward)
-					alarm[0] = ceil(fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward) - floor(attackRemainder)
+					attackRemainder += ceil(fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - ((fireSpeed - beerEffects[0]) / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate)
+					alarm[0] = max(ceil(fireSpeed / buffs[0] / buffs[5] / buffs[10] / multis[1] / global.fastForward / global.skillTreeModifiers.fireRate) - floor(attackRemainder), 1)
 					if (attackRemainder > 1) {
 						attackRemainder -= 1
 					}
@@ -998,12 +998,12 @@ if (not global.paused) {
 		// adds money at the end of each wave for each money tower
 		else if (enemySpawner_obj.waveCash and (bind == 0 or global.wave % (bind * 4) == 0)) {
 			var towers = ds_list_create()
-			collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+			collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
 			if (tier4) {
-				global.money += (effect[0] * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_length(global.schizophrenics) * 0.1 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * (1 - (global.entrepreneurs * 0.1))
+				global.money += (effect[0] * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_length(global.schizophrenics) * 0.1 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * (1 - (global.entrepreneurs * 0.1))
 			}
 			else {
-				global.money += (effect[0] * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_length(global.schizophrenics) * 0.1 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop))
+				global.money += (effect[0] * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_length(global.schizophrenics) * 0.1 * psychiatrist + 1) - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop))
 			}
 		}
 		// debt collector leveling up
@@ -1144,7 +1144,7 @@ if (not global.paused) {
 				else if (point_in_rectangle(mouse_x, mouse_y, room_width - 368, 400, room_width - 48, 576)) {
 					if (special == "s booster") {
 						targetingSelection = true
-						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tower_obj, false, true, targetable, false)
+						collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tower_obj, false, true, targetable, false)
 					}
 					if (special == "s commander") {
 						if (targeting == "Carpet Bombing") {
@@ -1399,13 +1399,13 @@ if (not global.paused) {
 										if (towerType == 11) {
 											if (array_length(buffing) > 0) {
 												var towers = ds_list_create()
-												collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
-												buffing[0].buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
-												buffing[0].buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+												collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+												buffing[0].buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+												buffing[0].buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
 												if (tier4) {
-													buffing[0].buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
-													buffing[0].buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
-													buffing[0].buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+													buffing[0].buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+													buffing[0].buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+													buffing[0].buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
 												}
 												buffing[0].image_blend = c_blue
 											}
@@ -1441,13 +1441,13 @@ if (not global.paused) {
 							if (towerType == 11) {
 								if (array_length(buffing) > 0) {
 									var towers = ds_list_create()
-									collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2], tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
-									buffing[0].buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
-									buffing[0].buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+									collision_circle_list(x, y, range * buffs[2] * buffs[12] * multis[2] * global.skillTreeModifiers.range, tag_get_asset_ids("Tower", asset_object), false, true, towers, false)
+									buffing[0].buffs[4] = (effect[0] - (ds_list_size(towers) * (effect[0] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[0] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+									buffing[0].buffs[15] = (childSupport - (ds_list_size(towers) * (childSupport / 10) * notManyBeans) + (ds_list_size(towers) * (childSupport / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
 									if (tier4) {
-										buffing[0].buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
-										buffing[0].buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
-										buffing[0].buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+										buffing[0].buffs[10] = (effect[1] - (ds_list_size(towers) * (effect[1] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[1] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+										buffing[0].buffs[11] = (effect[2] - (ds_list_size(towers) * (effect[2] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[2] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
+										buffing[0].buffs[12] = (effect[3] - (ds_list_size(towers) * (effect[3] / 10) * notManyBeans) + (ds_list_size(towers) * (effect[3] / 10) * sweatshop)) * buffs[8] * multis[3] * global.skillTreeModifiers.effectStength * (global.lesbians[towerType - 8] * lesbian + 1) * (array_contains(global.schizophrenics, buffing[0]) * 0.5 * psychiatrist + 1)
 									}
 									buffing[0].image_blend = c_blue
 								}

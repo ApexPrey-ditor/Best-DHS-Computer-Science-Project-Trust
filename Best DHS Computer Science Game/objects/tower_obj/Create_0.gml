@@ -60,7 +60,7 @@ countdown = 0
 addiction = false
 
 function findTrueDamage() {
-	return damage * buffs[1] * buffs[4] * multis[0] * global.skillTreeModifiers[0]
+	return damage * buffs[1] * buffs[4] * multis[0] * global.skillTreeModifiers.damage
 }
 
 function findTrueDetections(autoSolid) {

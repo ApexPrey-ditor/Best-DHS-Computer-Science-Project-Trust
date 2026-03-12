@@ -91,6 +91,7 @@ global.skillTreeModifiers = {damage : 1,
 							maxHealth : 0,
 							healthRegen : 0,
 							overheal : 0}
+global.skillTreeLevels = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 // cards for debugging
 repeat (1000) {
 	//array_push(global.upgradePool, 12)
@@ -185,9 +186,9 @@ sprite_prefetch(towerIcons256_spr)
 texture_prefetch("EnemiesTowers")
 
 // set audio loop points and load music
-audio_group_load(Music)
+//audio_group_load(Music)
 audio_group_load(MusicCalm)
-audio_group_load(MusicAmbient)
+//audio_group_load(MusicAmbient)
 audio_group_load(MusicBosses)
 
 audio_sound_loop_end(Intermission, 51.4)
